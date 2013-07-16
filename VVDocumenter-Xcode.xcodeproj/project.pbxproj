@@ -1,0 +1,289 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D14380F7179551B900C829CE /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D14380F6179551B900C829CE /* Cocoa.framework */; };
+		D1438101179551B900C829CE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D14380FF179551B900C829CE /* InfoPlist.strings */; };
+		D18224DC17956290001A5E8A /* VVDocumenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D16917DE17955C8D0036C06B /* VVDocumenter.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		D14380F3179551B900C829CE /* VVDocumenter-Xcode.xcplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "VVDocumenter-Xcode.xcplugin"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D14380F6179551B900C829CE /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		D14380F9179551B900C829CE /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		D14380FA179551B900C829CE /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		D14380FB179551B900C829CE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D14380FE179551B900C829CE /* VVDocumenter-Xcode-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "VVDocumenter-Xcode-Info.plist"; sourceTree = "<group>"; };
+		D1438100179551B900C829CE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D1438102179551B900C829CE /* VVDocumenter-Xcode-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VVDocumenter-Xcode-Prefix.pch"; sourceTree = "<group>"; };
+		D16917DD17955C8D0036C06B /* VVDocumenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VVDocumenter.h; sourceTree = "<group>"; };
+		D16917DE17955C8D0036C06B /* VVDocumenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VVDocumenter.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D14380F0179551B900C829CE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D14380F7179551B900C829CE /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D14380EA179551B900C829CE = {
+			isa = PBXGroup;
+			children = (
+				D14380FC179551B900C829CE /* VVDocumenter-Xcode */,
+				D14380F5179551B900C829CE /* Frameworks */,
+				D14380F4179551B900C829CE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D14380F4179551B900C829CE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D14380F3179551B900C829CE /* VVDocumenter-Xcode.xcplugin */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D14380F5179551B900C829CE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D14380F6179551B900C829CE /* Cocoa.framework */,
+				D14380F8179551B900C829CE /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D14380F8179551B900C829CE /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D14380F9179551B900C829CE /* AppKit.framework */,
+				D14380FA179551B900C829CE /* CoreData.framework */,
+				D14380FB179551B900C829CE /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		D14380FC179551B900C829CE /* VVDocumenter-Xcode */ = {
+			isa = PBXGroup;
+			children = (
+				D14380FD179551B900C829CE /* Supporting Files */,
+				D16917DD17955C8D0036C06B /* VVDocumenter.h */,
+				D16917DE17955C8D0036C06B /* VVDocumenter.m */,
+			);
+			path = "VVDocumenter-Xcode";
+			sourceTree = "<group>";
+		};
+		D14380FD179551B900C829CE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D14380FE179551B900C829CE /* VVDocumenter-Xcode-Info.plist */,
+				D14380FF179551B900C829CE /* InfoPlist.strings */,
+				D1438102179551B900C829CE /* VVDocumenter-Xcode-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D14380F2179551B900C829CE /* VVDocumenter-Xcode */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D1438105179551B900C829CE /* Build configuration list for PBXNativeTarget "VVDocumenter-Xcode" */;
+			buildPhases = (
+				D14380EF179551B900C829CE /* Sources */,
+				D14380F0179551B900C829CE /* Frameworks */,
+				D14380F1179551B900C829CE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "VVDocumenter-Xcode";
+			productName = "VVDocumenter-Xcode";
+			productReference = D14380F3179551B900C829CE /* VVDocumenter-Xcode.xcplugin */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D14380EB179551B900C829CE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "OneV's Den";
+			};
+			buildConfigurationList = D14380EE179551B900C829CE /* Build configuration list for PBXProject "VVDocumenter-Xcode" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D14380EA179551B900C829CE;
+			productRefGroup = D14380F4179551B900C829CE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D14380F2179551B900C829CE /* VVDocumenter-Xcode */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D14380F1179551B900C829CE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D1438101179551B900C829CE /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D14380EF179551B900C829CE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D18224DC17956290001A5E8A /* VVDocumenter.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		D14380FF179551B900C829CE /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D1438100179551B900C829CE /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D1438103179551B900C829CE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		D1438104179551B900C829CE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		D1438106179551B900C829CE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEPLOYMENT_LOCATION = YES;
+				DSTROOT = "${HOME}";
+				GCC_ENABLE_OBJC_GC = supported;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "VVDocumenter-Xcode/VVDocumenter-Xcode-Prefix.pch";
+				INFOPLIST_FILE = "VVDocumenter-Xcode/VVDocumenter-Xcode-Info.plist";
+				INSTALL_PATH = "/Library/Application Support/Developer/Shared/Xcode/Plug-ins";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xcplugin;
+			};
+			name = Debug;
+		};
+		D1438107179551B900C829CE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEPLOYMENT_LOCATION = YES;
+				DSTROOT = "${HOME}";
+				GCC_ENABLE_OBJC_GC = supported;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "VVDocumenter-Xcode/VVDocumenter-Xcode-Prefix.pch";
+				INFOPLIST_FILE = "VVDocumenter-Xcode/VVDocumenter-Xcode-Info.plist";
+				INSTALL_PATH = "/Library/Application Support/Developer/Shared/Xcode/Plug-ins";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xcplugin;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D14380EE179551B900C829CE /* Build configuration list for PBXProject "VVDocumenter-Xcode" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D1438103179551B900C829CE /* Debug */,
+				D1438104179551B900C829CE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D1438105179551B900C829CE /* Build configuration list for PBXNativeTarget "VVDocumenter-Xcode" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D1438106179551B900C829CE /* Debug */,
+				D1438107179551B900C829CE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D14380EB179551B900C829CE /* Project object */;
+}
