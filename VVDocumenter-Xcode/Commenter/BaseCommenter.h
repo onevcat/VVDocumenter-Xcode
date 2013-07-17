@@ -1,5 +1,5 @@
 //
-//  VVDocumenter.h
+//  BaseCommenter.h
 //  VVDocumenter-Xcode
 //
 //  Created by 王 巍 on 13-7-17.
@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface VVDocumenter : NSObject
--(id) initWithCode:(NSString *)code;
--(NSString *) document;
+@interface BaseCommenter : NSObject
+
 @end
