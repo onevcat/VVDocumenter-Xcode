@@ -68,7 +68,7 @@
 
     NSString *line = nil;
     if (nextLineRange.location != NSNotFound && rangeToString.location != NSNotFound && nextLineRange.location < rangeToString.location) {
-        NSRange lineRange = NSMakeRange(nextLineRange.location + 1, rangeToString.location - nextLineRange.location - 1);
+        NSRange lineRange = NSMakeRange(nextLineRange.location + 1, rangeToString.location - nextLineRange.location);
         if (lineRange.location < [string length] && NSMaxRange(lineRange) < [string length]) {
             line = [string substringWithRange:lineRange];
             return [[VVTextResult alloc] initWithRange:lineRange string:line];

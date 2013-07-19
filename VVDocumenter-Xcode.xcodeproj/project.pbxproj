@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		D114BEE0179644D00043FA65 /* NSString+PDRegex.m in Sources */ = {isa = PBXBuildFile; fileRef = D114BEDE179644D00043FA65 /* NSString+PDRegex.m */; };
 		D114BEE3179644FA0043FA65 /* NSTextView+VVTextGetter.m in Sources */ = {isa = PBXBuildFile; fileRef = D114BEE2179644FA0043FA65 /* NSTextView+VVTextGetter.m */; };
+		D11C542D17999D9000D3DE38 /* Argument.m in Sources */ = {isa = PBXBuildFile; fileRef = D11C542B17999D9000D3DE38 /* Argument.m */; };
 		D14380F7179551B900C829CE /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D14380F6179551B900C829CE /* Cocoa.framework */; };
 		D1438101179551B900C829CE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D14380FF179551B900C829CE /* InfoPlist.strings */; };
 		D16AFCD41796E088006719AA /* BaseCommenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D16AFCD31796E088006719AA /* BaseCommenter.m */; };
@@ -21,6 +22,15 @@
 		D16AFCE91796E0D6006719AA /* VariableCommenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D16AFCE81796E0D6006719AA /* VariableCommenter.m */; };
 		D18224DC17956290001A5E8A /* VVDocumenterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D16917DE17955C8D0036C06B /* VVDocumenterManager.m */; };
 		D1AC3B8F1796DB070063A484 /* VVDocumenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D1AC3B8E1796DB070063A484 /* VVDocumenter.m */; };
+		D1C462DC17999C2000EB7B23 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1C462DB17999C2000EB7B23 /* SenTestingKit.framework */; };
+		D1C462DD17999C2000EB7B23 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D14380F6179551B900C829CE /* Cocoa.framework */; };
+		D1C462E317999C2000EB7B23 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D1C462E117999C2000EB7B23 /* InfoPlist.strings */; };
+		D1C462E617999C2000EB7B23 /* VVDocumenterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D1C462E517999C2000EB7B23 /* VVDocumenterTests.m */; };
+		D1C462ED17999C9A00EB7B23 /* VVTestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D1C462EC17999C9A00EB7B23 /* VVTestHelper.m */; };
+		D1C462F117999CA200EB7B23 /* SyntaxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D1C462F017999CA200EB7B23 /* SyntaxTests.m */; };
+		D1C462F517999CEC00EB7B23 /* NSString+VVSyntax.m in Sources */ = {isa = PBXBuildFile; fileRef = D1C462F417999CEC00EB7B23 /* NSString+VVSyntax.m */; };
+		D1C462F617999CEC00EB7B23 /* NSString+VVSyntax.m in Sources */ = {isa = PBXBuildFile; fileRef = D1C462F417999CEC00EB7B23 /* NSString+VVSyntax.m */; };
+		D1C462F717999D0600EB7B23 /* NSString+PDRegex.m in Sources */ = {isa = PBXBuildFile; fileRef = D114BEDE179644D00043FA65 /* NSString+PDRegex.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +38,9 @@
 		D114BEDE179644D00043FA65 /* NSString+PDRegex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+PDRegex.m"; sourceTree = "<group>"; };
 		D114BEE1179644FA0043FA65 /* NSTextView+VVTextGetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTextView+VVTextGetter.h"; sourceTree = "<group>"; };
 		D114BEE2179644FA0043FA65 /* NSTextView+VVTextGetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTextView+VVTextGetter.m"; sourceTree = "<group>"; };
+		D11C542A17999D9000D3DE38 /* Argument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Argument.h; sourceTree = "<group>"; };
+		D11C542B17999D9000D3DE38 /* Argument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Argument.m; sourceTree = "<group>"; };
+		D11C542C17999D9000D3DE38 /* Commenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Commenter.h; sourceTree = "<group>"; };
 		D14380F3179551B900C829CE /* VVDocumenter-Xcode.xcplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "VVDocumenter-Xcode.xcplugin"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D14380F6179551B900C829CE /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		D14380F9179551B900C829CE /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -56,6 +69,19 @@
 		D16AFCE81796E0D6006719AA /* VariableCommenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VariableCommenter.m; sourceTree = "<group>"; };
 		D1AC3B8D1796DB070063A484 /* VVDocumenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVDocumenter.h; sourceTree = "<group>"; };
 		D1AC3B8E1796DB070063A484 /* VVDocumenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVDocumenter.m; sourceTree = "<group>"; };
+		D1C462DA17999C2000EB7B23 /* VVDocumenterTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VVDocumenterTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D1C462DB17999C2000EB7B23 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		D1C462E017999C2000EB7B23 /* VVDocumenterTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "VVDocumenterTests-Info.plist"; sourceTree = "<group>"; };
+		D1C462E217999C2000EB7B23 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D1C462E417999C2000EB7B23 /* VVDocumenterTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VVDocumenterTests.h; sourceTree = "<group>"; };
+		D1C462E517999C2000EB7B23 /* VVDocumenterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VVDocumenterTests.m; sourceTree = "<group>"; };
+		D1C462E717999C2000EB7B23 /* VVDocumenterTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VVDocumenterTests-Prefix.pch"; sourceTree = "<group>"; };
+		D1C462EB17999C9A00EB7B23 /* VVTestHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVTestHelper.h; sourceTree = "<group>"; };
+		D1C462EC17999C9A00EB7B23 /* VVTestHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVTestHelper.m; sourceTree = "<group>"; };
+		D1C462EF17999CA200EB7B23 /* SyntaxTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyntaxTests.h; sourceTree = "<group>"; };
+		D1C462F017999CA200EB7B23 /* SyntaxTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyntaxTests.m; sourceTree = "<group>"; };
+		D1C462F317999CEC00EB7B23 /* NSString+VVSyntax.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+VVSyntax.h"; sourceTree = "<group>"; };
+		D1C462F417999CEC00EB7B23 /* NSString+VVSyntax.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+VVSyntax.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,12 +93,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D1C462D617999C2000EB7B23 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D1C462DC17999C2000EB7B23 /* SenTestingKit.framework in Frameworks */,
+				D1C462DD17999C2000EB7B23 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		D114BEDB179644D00043FA65 /* OCCategory */ = {
 			isa = PBXGroup;
 			children = (
+				D1C462F217999CEC00EB7B23 /* NSString+VVSyntax */,
 				D114BEDC179644D00043FA65 /* NSString+PDRegex */,
 				D114BEDF179644D00043FA65 /* NSTextView+VVTextGetter */,
 			);
@@ -101,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				D14380FC179551B900C829CE /* VVDocumenter-Xcode */,
+				D1C462DE17999C2000EB7B23 /* VVDocumenterTests */,
 				D14380F5179551B900C829CE /* Frameworks */,
 				D14380F4179551B900C829CE /* Products */,
 			);
@@ -110,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				D14380F3179551B900C829CE /* VVDocumenter-Xcode.xcplugin */,
+				D1C462DA17999C2000EB7B23 /* VVDocumenterTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -118,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				D14380F6179551B900C829CE /* Cocoa.framework */,
+				D1C462DB17999C2000EB7B23 /* SenTestingKit.framework */,
 				D14380F8179551B900C829CE /* Other Frameworks */,
 			);
 			name = Frameworks;
@@ -160,6 +199,9 @@
 		D16AFCD11796E068006719AA /* Commenter */ = {
 			isa = PBXGroup;
 			children = (
+				D11C542C17999D9000D3DE38 /* Commenter.h */,
+				D11C542A17999D9000D3DE38 /* Argument.h */,
+				D11C542B17999D9000D3DE38 /* Argument.m */,
 				D16AFCD21796E088006719AA /* BaseCommenter.h */,
 				D16AFCD31796E088006719AA /* BaseCommenter.m */,
 				D16AFCD51796E09E006719AA /* PropertyCommenter.h */,
@@ -180,6 +222,47 @@
 			path = Commenter;
 			sourceTree = "<group>";
 		};
+		D1C462DE17999C2000EB7B23 /* VVDocumenterTests */ = {
+			isa = PBXGroup;
+			children = (
+				D1C462EE17999CA200EB7B23 /* SyntaxTests */,
+				D1C462EB17999C9A00EB7B23 /* VVTestHelper.h */,
+				D1C462EC17999C9A00EB7B23 /* VVTestHelper.m */,
+				D1C462E417999C2000EB7B23 /* VVDocumenterTests.h */,
+				D1C462E517999C2000EB7B23 /* VVDocumenterTests.m */,
+				D1C462DF17999C2000EB7B23 /* Supporting Files */,
+			);
+			path = VVDocumenterTests;
+			sourceTree = "<group>";
+		};
+		D1C462DF17999C2000EB7B23 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D1C462E017999C2000EB7B23 /* VVDocumenterTests-Info.plist */,
+				D1C462E117999C2000EB7B23 /* InfoPlist.strings */,
+				D1C462E717999C2000EB7B23 /* VVDocumenterTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D1C462EE17999CA200EB7B23 /* SyntaxTests */ = {
+			isa = PBXGroup;
+			children = (
+				D1C462EF17999CA200EB7B23 /* SyntaxTests.h */,
+				D1C462F017999CA200EB7B23 /* SyntaxTests.m */,
+			);
+			path = SyntaxTests;
+			sourceTree = "<group>";
+		};
+		D1C462F217999CEC00EB7B23 /* NSString+VVSyntax */ = {
+			isa = PBXGroup;
+			children = (
+				D1C462F317999CEC00EB7B23 /* NSString+VVSyntax.h */,
+				D1C462F417999CEC00EB7B23 /* NSString+VVSyntax.m */,
+			);
+			path = "NSString+VVSyntax";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -198,6 +281,24 @@
 			name = "VVDocumenter-Xcode";
 			productName = "VVDocumenter-Xcode";
 			productReference = D14380F3179551B900C829CE /* VVDocumenter-Xcode.xcplugin */;
+			productType = "com.apple.product-type.bundle";
+		};
+		D1C462D917999C2000EB7B23 /* VVDocumenterTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D1C462EA17999C2000EB7B23 /* Build configuration list for PBXNativeTarget "VVDocumenterTests" */;
+			buildPhases = (
+				D1C462D517999C2000EB7B23 /* Sources */,
+				D1C462D617999C2000EB7B23 /* Frameworks */,
+				D1C462D717999C2000EB7B23 /* Resources */,
+				D1C462D817999C2000EB7B23 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VVDocumenterTests;
+			productName = VVDocumenterTests;
+			productReference = D1C462DA17999C2000EB7B23 /* VVDocumenterTests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -222,6 +323,7 @@
 			projectRoot = "";
 			targets = (
 				D14380F2179551B900C829CE /* VVDocumenter-Xcode */,
+				D1C462D917999C2000EB7B23 /* VVDocumenterTests */,
 			);
 		};
 /* End PBXProject section */
@@ -235,7 +337,31 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D1C462D717999C2000EB7B23 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D1C462E317999C2000EB7B23 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D1C462D817999C2000EB7B23 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D14380EF179551B900C829CE /* Sources */ = {
@@ -254,6 +380,20 @@
 				D16AFCE31796E0C9006719AA /* StructCommenter.m in Sources */,
 				D16AFCE61796E0D0006719AA /* EnumCommenter.m in Sources */,
 				D16AFCE91796E0D6006719AA /* VariableCommenter.m in Sources */,
+				D1C462F517999CEC00EB7B23 /* NSString+VVSyntax.m in Sources */,
+				D11C542D17999D9000D3DE38 /* Argument.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D1C462D517999C2000EB7B23 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D1C462F717999D0600EB7B23 /* NSString+PDRegex.m in Sources */,
+				D1C462E617999C2000EB7B23 /* VVDocumenterTests.m in Sources */,
+				D1C462ED17999C9A00EB7B23 /* VVTestHelper.m in Sources */,
+				D1C462F117999CA200EB7B23 /* SyntaxTests.m in Sources */,
+				D1C462F617999CEC00EB7B23 /* NSString+VVSyntax.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,6 +404,14 @@
 			isa = PBXVariantGroup;
 			children = (
 				D1438100179551B900C829CE /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		D1C462E117999C2000EB7B23 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D1C462E217999C2000EB7B23 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -360,6 +508,34 @@
 			};
 			name = Release;
 		};
+		D1C462E817999C2000EB7B23 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "VVDocumenterTests/VVDocumenterTests-Prefix.pch";
+				INFOPLIST_FILE = "VVDocumenterTests/VVDocumenterTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		D1C462E917999C2000EB7B23 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "VVDocumenterTests/VVDocumenterTests-Prefix.pch";
+				INFOPLIST_FILE = "VVDocumenterTests/VVDocumenterTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -377,6 +553,15 @@
 			buildConfigurations = (
 				D1438106179551B900C829CE /* Debug */,
 				D1438107179551B900C829CE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D1C462EA17999C2000EB7B23 /* Build configuration list for PBXNativeTarget "VVDocumenterTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D1C462E817999C2000EB7B23 /* Debug */,
+				D1C462E917999C2000EB7B23 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

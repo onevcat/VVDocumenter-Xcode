@@ -66,7 +66,8 @@
                     resultToDocument = resultUntilSemiColon;
                 }
             
-                [[VVDocumenter alloc] initWithCode:resultToDocument.string];
+                VVDocumenter *doc = [[VVDocumenter alloc] initWithCode:resultToDocument.string];
+                NSLog(@"%@",[doc document]);
             }
         }
 ///
