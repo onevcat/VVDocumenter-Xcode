@@ -13,7 +13,7 @@
 
 @implementation VVDocumenterManager
 +(void)pluginDidLoad:(NSBundle *)plugin {
-    NSLog(@"VVDocumenter: Plugin loaded successfully");
+    VVLog(@"VVDocumenter: Plugin loaded successfully");
     [self shared];
 }
 
@@ -38,13 +38,13 @@
 
 - (void) applicationDidFinishLaunching: (NSNotification*) noti {
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(textStorageBeginProcessEditing:)
+                                             selector:@selector(textStorageDidChanged:)
                                                  name:NSTextDidChangeNotification
                                                object:nil];
 
 }
 
-- (void) textStorageBeginProcessEditing:(NSNotification *)noti {
+- (void) textStorageDidChanged:(NSNotification *)noti {
     if ([[noti object] isKindOfClass:[NSTextView class]]) {
         NSTextView *textView = (NSTextView *)[noti object];
 
@@ -65,47 +65,13 @@
                 } else {
                     resultToDocument = resultUntilSemiColon;
                 }
-            
+                
+                VVLog(@"VVDocumenter: Target string: %@",resultToDocument.string);
                 VVDocumenter *doc = [[VVDocumenter alloc] initWithCode:resultToDocument.string];
-                NSLog(@"%@",[doc document]);
+                VVLog(@"%@",[doc document]);
             }
-        }
-///
-//        NSString *string = textView.textStorage.string;
-//        NSInteger insertionPoint = [[[textView selectedRanges] objectAtIndex:0] rangeValue].location;
-//        NSRange range = NSMakeRange(0, insertionPoint);
-//        NSRange thisLineRange = [string rangeOfCharacterFromSet:[NSCharacterSet newlineCharacterSet] options:NSBackwardsSearch range:range];
-//        NSString *line = string;
-//        
-//        if (thisLineRange.location != NSNotFound) {
-//            NSRange lineRange = NSMakeRange(thisLineRange.location, insertionPoint - thisLineRange.location);
-//            if (lineRange.location < [string length] && NSMaxRange(lineRange) < [string length]) {
-//                line = [string substringWithRange:lineRange];
-//            }
-//            if ([line hasSuffix:@"///"]) {
-//                
-//            }
-//        } else {
-//
-//        }
-//
-//        NSRange range1 = NSMakeRange(insertionPoint, string.length - insertionPoint);
-//        NSLog(@"%ld,%ld",range1.location,range1.length);
-//        NSRange nextLineRange = [string rangeOfCharacterFromSet:[NSCharacterSet newlineCharacterSet] options:0 range:range1];
-//        NSRange rangeToSemicolon = [string rangeOfString:@";" options:0 range:range1];
-//        
-//        NSLog(@"%ld,%ld",nextLineRange.location,nextLineRange.length);
-//        if (nextLineRange.location != NSNotFound && rangeToSemicolon.location != NSNotFound && nextLineRange.location < rangeToSemicolon.location) {
-//            NSRange lineRange = NSMakeRange(nextLineRange.location, rangeToSemicolon.location - nextLineRange.location);
-//            if (lineRange.location < [string length] && NSMaxRange(lineRange) < [string length]) {
-//                NSLog(@"miao");
-//                line = [string substringWithRange:lineRange];
-//            }
-//            NSLog(@"2.%@",line);
-//        }
-//        
+        }     
     }
-
 }
 
 

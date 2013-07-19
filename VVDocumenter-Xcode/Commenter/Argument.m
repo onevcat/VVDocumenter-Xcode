@@ -13,7 +13,7 @@
 -(void)setType:(NSString *)type
 {
     if (type) {
-//        _type
+        
     }
 }
 

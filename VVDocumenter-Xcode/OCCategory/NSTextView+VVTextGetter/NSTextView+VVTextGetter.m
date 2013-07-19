@@ -35,7 +35,6 @@
     return [[[self selectedRanges] objectAtIndex:0] rangeValue].location;
 }
 
-
 -(VVTextResult *) textResultOfCurrentLine
 {
     NSString *string = self.textStorage.string;
