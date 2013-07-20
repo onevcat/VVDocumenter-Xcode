@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Argument : NSObject
+@interface VVArgument : NSObject
 @property (nonatomic, copy) NSString *type;
 @property (nonatomic, copy) NSString *name;
 @end

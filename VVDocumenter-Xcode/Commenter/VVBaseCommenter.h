@@ -1,5 +1,5 @@
 //
-//  BaseCommenter.h
+//  VVBaseCommenter.h
 //  VVDocumenter-Xcode
 //
 //  Created by 王 巍 on 13-7-17.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface BaseCommenter : NSObject
+@interface VVBaseCommenter : NSObject
 
 @property (nonatomic, copy) NSString *indent;
 @property (nonatomic, copy) NSString *code;
@@ -17,4 +17,5 @@
 
 -(id) initWithIndentString:(NSString *)indent codeString:(NSString *)code;
 -(NSString *) document;
+-(void) parseArguments;
 @end

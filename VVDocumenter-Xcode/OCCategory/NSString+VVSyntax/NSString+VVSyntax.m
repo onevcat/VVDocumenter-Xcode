@@ -7,7 +7,6 @@
 //
 
 #import "NSString+VVSyntax.h"
-#import "NSString+PDRegex.h"
 
 @implementation NSString (VVSyntax)
 

@@ -8,8 +8,8 @@
 
 #import "VVDocumenterManager.h"
 #import "NSTextView+VVTextGetter.h"
+#import "NSString+VVSyntax.h"
 #import "VVDocumenter.h"
-#import "NSString+PDRegex.h"
 
 @implementation VVDocumenterManager
 +(void)pluginDidLoad:(NSBundle *)plugin {
@@ -58,8 +58,7 @@
                 VVTextResult *resultToDocument = nil;
                 
                 if (resultUntilSemiColon && resultUntilBrace) {
-                    resultToDocument = (resultUntilSemiColon.range.length < resultUntilBrace.range.length) ?
-                                        resultUntilSemiColon : resultUntilBrace;
+                    resultToDocument = (resultUntilSemiColon.range.length < resultUntilBrace.range.length) ? resultUntilSemiColon : resultUntilBrace;
                 } else if (resultUntilBrace) {
                     resultToDocument = resultUntilBrace;
                 } else {

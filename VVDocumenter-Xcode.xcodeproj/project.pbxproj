@@ -9,19 +9,21 @@
 /* Begin PBXBuildFile section */
 		D114BEE0179644D00043FA65 /* NSString+PDRegex.m in Sources */ = {isa = PBXBuildFile; fileRef = D114BEDE179644D00043FA65 /* NSString+PDRegex.m */; };
 		D114BEE3179644FA0043FA65 /* NSTextView+VVTextGetter.m in Sources */ = {isa = PBXBuildFile; fileRef = D114BEE2179644FA0043FA65 /* NSTextView+VVTextGetter.m */; };
-		D11C542D17999D9000D3DE38 /* Argument.m in Sources */ = {isa = PBXBuildFile; fileRef = D11C542B17999D9000D3DE38 /* Argument.m */; };
+		D11C542D17999D9000D3DE38 /* VVArgument.m in Sources */ = {isa = PBXBuildFile; fileRef = D11C542B17999D9000D3DE38 /* VVArgument.m */; };
 		D14380F7179551B900C829CE /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D14380F6179551B900C829CE /* Cocoa.framework */; };
 		D1438101179551B900C829CE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D14380FF179551B900C829CE /* InfoPlist.strings */; };
-		D16AFCD41796E088006719AA /* BaseCommenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D16AFCD31796E088006719AA /* BaseCommenter.m */; };
-		D16AFCD71796E09E006719AA /* PropertyCommenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D16AFCD61796E09E006719AA /* PropertyCommenter.m */; };
-		D16AFCDA1796E0AC006719AA /* MethodCommenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D16AFCD91796E0AC006719AA /* MethodCommenter.m */; };
-		D16AFCDD1796E0B9006719AA /* FunctionCommenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D16AFCDC1796E0B9006719AA /* FunctionCommenter.m */; };
-		D16AFCE01796E0C0006719AA /* MacroCommenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D16AFCDF1796E0C0006719AA /* MacroCommenter.m */; };
-		D16AFCE31796E0C9006719AA /* StructCommenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D16AFCE21796E0C9006719AA /* StructCommenter.m */; };
-		D16AFCE61796E0D0006719AA /* EnumCommenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D16AFCE51796E0D0006719AA /* EnumCommenter.m */; };
-		D16AFCE91796E0D6006719AA /* VariableCommenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D16AFCE81796E0D6006719AA /* VariableCommenter.m */; };
+		D16AFCD41796E088006719AA /* VVBaseCommenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D16AFCD31796E088006719AA /* VVBaseCommenter.m */; };
+		D16AFCD71796E09E006719AA /* VVPropertyCommenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D16AFCD61796E09E006719AA /* VVPropertyCommenter.m */; };
+		D16AFCDA1796E0AC006719AA /* VVMethodCommenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D16AFCD91796E0AC006719AA /* VVMethodCommenter.m */; };
+		D16AFCDD1796E0B9006719AA /* VVFunctionCommenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D16AFCDC1796E0B9006719AA /* VVFunctionCommenter.m */; };
+		D16AFCE01796E0C0006719AA /* VVMacroCommenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D16AFCDF1796E0C0006719AA /* VVMacroCommenter.m */; };
+		D16AFCE31796E0C9006719AA /* VVStructCommenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D16AFCE21796E0C9006719AA /* VVStructCommenter.m */; };
+		D16AFCE61796E0D0006719AA /* VVEnumCommenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D16AFCE51796E0D0006719AA /* VVEnumCommenter.m */; };
+		D16AFCE91796E0D6006719AA /* VVVariableCommenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D16AFCE81796E0D6006719AA /* VVVariableCommenter.m */; };
 		D18224DC17956290001A5E8A /* VVDocumenterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D16917DE17955C8D0036C06B /* VVDocumenterManager.m */; };
+		D1986F74179A12BD00EA6643 /* CommenterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D1986F73179A12BD00EA6643 /* CommenterTests.m */; };
 		D1AC3B8F1796DB070063A484 /* VVDocumenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D1AC3B8E1796DB070063A484 /* VVDocumenter.m */; };
+		D1AE501C179A161A0069411A /* VVArgument.m in Sources */ = {isa = PBXBuildFile; fileRef = D11C542B17999D9000D3DE38 /* VVArgument.m */; };
 		D1C462DC17999C2000EB7B23 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1C462DB17999C2000EB7B23 /* SenTestingKit.framework */; };
 		D1C462DD17999C2000EB7B23 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D14380F6179551B900C829CE /* Cocoa.framework */; };
 		D1C462E317999C2000EB7B23 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D1C462E117999C2000EB7B23 /* InfoPlist.strings */; };
@@ -38,9 +40,9 @@
 		D114BEDE179644D00043FA65 /* NSString+PDRegex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+PDRegex.m"; sourceTree = "<group>"; };
 		D114BEE1179644FA0043FA65 /* NSTextView+VVTextGetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTextView+VVTextGetter.h"; sourceTree = "<group>"; };
 		D114BEE2179644FA0043FA65 /* NSTextView+VVTextGetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTextView+VVTextGetter.m"; sourceTree = "<group>"; };
-		D11C542A17999D9000D3DE38 /* Argument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Argument.h; sourceTree = "<group>"; };
-		D11C542B17999D9000D3DE38 /* Argument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Argument.m; sourceTree = "<group>"; };
-		D11C542C17999D9000D3DE38 /* Commenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Commenter.h; sourceTree = "<group>"; };
+		D11C542A17999D9000D3DE38 /* VVArgument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVArgument.h; sourceTree = "<group>"; };
+		D11C542B17999D9000D3DE38 /* VVArgument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVArgument.m; sourceTree = "<group>"; };
+		D11C542C17999D9000D3DE38 /* VVCommenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVCommenter.h; sourceTree = "<group>"; };
 		D14380F3179551B900C829CE /* VVDocumenter-Xcode.xcplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "VVDocumenter-Xcode.xcplugin"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D14380F6179551B900C829CE /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		D14380F9179551B900C829CE /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -51,22 +53,24 @@
 		D1438102179551B900C829CE /* VVDocumenter-Xcode-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VVDocumenter-Xcode-Prefix.pch"; sourceTree = "<group>"; };
 		D16917DD17955C8D0036C06B /* VVDocumenterManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VVDocumenterManager.h; sourceTree = "<group>"; };
 		D16917DE17955C8D0036C06B /* VVDocumenterManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VVDocumenterManager.m; sourceTree = "<group>"; };
-		D16AFCD21796E088006719AA /* BaseCommenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseCommenter.h; sourceTree = "<group>"; };
-		D16AFCD31796E088006719AA /* BaseCommenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseCommenter.m; sourceTree = "<group>"; };
-		D16AFCD51796E09E006719AA /* PropertyCommenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PropertyCommenter.h; sourceTree = "<group>"; };
-		D16AFCD61796E09E006719AA /* PropertyCommenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PropertyCommenter.m; sourceTree = "<group>"; };
-		D16AFCD81796E0AC006719AA /* MethodCommenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MethodCommenter.h; sourceTree = "<group>"; };
-		D16AFCD91796E0AC006719AA /* MethodCommenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MethodCommenter.m; sourceTree = "<group>"; };
-		D16AFCDB1796E0B9006719AA /* FunctionCommenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FunctionCommenter.h; sourceTree = "<group>"; };
-		D16AFCDC1796E0B9006719AA /* FunctionCommenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FunctionCommenter.m; sourceTree = "<group>"; };
-		D16AFCDE1796E0C0006719AA /* MacroCommenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacroCommenter.h; sourceTree = "<group>"; };
-		D16AFCDF1796E0C0006719AA /* MacroCommenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MacroCommenter.m; sourceTree = "<group>"; };
-		D16AFCE11796E0C9006719AA /* StructCommenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StructCommenter.h; sourceTree = "<group>"; };
-		D16AFCE21796E0C9006719AA /* StructCommenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StructCommenter.m; sourceTree = "<group>"; };
-		D16AFCE41796E0D0006719AA /* EnumCommenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnumCommenter.h; sourceTree = "<group>"; };
-		D16AFCE51796E0D0006719AA /* EnumCommenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnumCommenter.m; sourceTree = "<group>"; };
-		D16AFCE71796E0D6006719AA /* VariableCommenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VariableCommenter.h; sourceTree = "<group>"; };
-		D16AFCE81796E0D6006719AA /* VariableCommenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VariableCommenter.m; sourceTree = "<group>"; };
+		D16AFCD21796E088006719AA /* VVBaseCommenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVBaseCommenter.h; sourceTree = "<group>"; };
+		D16AFCD31796E088006719AA /* VVBaseCommenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVBaseCommenter.m; sourceTree = "<group>"; };
+		D16AFCD51796E09E006719AA /* VVPropertyCommenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVPropertyCommenter.h; sourceTree = "<group>"; };
+		D16AFCD61796E09E006719AA /* VVPropertyCommenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVPropertyCommenter.m; sourceTree = "<group>"; };
+		D16AFCD81796E0AC006719AA /* VVMethodCommenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVMethodCommenter.h; sourceTree = "<group>"; };
+		D16AFCD91796E0AC006719AA /* VVMethodCommenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVMethodCommenter.m; sourceTree = "<group>"; };
+		D16AFCDB1796E0B9006719AA /* VVFunctionCommenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVFunctionCommenter.h; sourceTree = "<group>"; };
+		D16AFCDC1796E0B9006719AA /* VVFunctionCommenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVFunctionCommenter.m; sourceTree = "<group>"; };
+		D16AFCDE1796E0C0006719AA /* VVMacroCommenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVMacroCommenter.h; sourceTree = "<group>"; };
+		D16AFCDF1796E0C0006719AA /* VVMacroCommenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVMacroCommenter.m; sourceTree = "<group>"; };
+		D16AFCE11796E0C9006719AA /* VVStructCommenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVStructCommenter.h; sourceTree = "<group>"; };
+		D16AFCE21796E0C9006719AA /* VVStructCommenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVStructCommenter.m; sourceTree = "<group>"; };
+		D16AFCE41796E0D0006719AA /* VVEnumCommenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVEnumCommenter.h; sourceTree = "<group>"; };
+		D16AFCE51796E0D0006719AA /* VVEnumCommenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVEnumCommenter.m; sourceTree = "<group>"; };
+		D16AFCE71796E0D6006719AA /* VVVariableCommenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVVariableCommenter.h; sourceTree = "<group>"; };
+		D16AFCE81796E0D6006719AA /* VVVariableCommenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVVariableCommenter.m; sourceTree = "<group>"; };
+		D1986F72179A12BD00EA6643 /* CommenterTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommenterTests.h; sourceTree = "<group>"; };
+		D1986F73179A12BD00EA6643 /* CommenterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommenterTests.m; sourceTree = "<group>"; };
 		D1AC3B8D1796DB070063A484 /* VVDocumenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVDocumenter.h; sourceTree = "<group>"; };
 		D1AC3B8E1796DB070063A484 /* VVDocumenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVDocumenter.m; sourceTree = "<group>"; };
 		D1C462DA17999C2000EB7B23 /* VVDocumenterTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VVDocumenterTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -190,8 +194,8 @@
 			isa = PBXGroup;
 			children = (
 				D14380FE179551B900C829CE /* VVDocumenter-Xcode-Info.plist */,
-				D14380FF179551B900C829CE /* InfoPlist.strings */,
 				D1438102179551B900C829CE /* VVDocumenter-Xcode-Prefix.pch */,
+				D14380FF179551B900C829CE /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -199,32 +203,42 @@
 		D16AFCD11796E068006719AA /* Commenter */ = {
 			isa = PBXGroup;
 			children = (
-				D11C542C17999D9000D3DE38 /* Commenter.h */,
-				D11C542A17999D9000D3DE38 /* Argument.h */,
-				D11C542B17999D9000D3DE38 /* Argument.m */,
-				D16AFCD21796E088006719AA /* BaseCommenter.h */,
-				D16AFCD31796E088006719AA /* BaseCommenter.m */,
-				D16AFCD51796E09E006719AA /* PropertyCommenter.h */,
-				D16AFCD61796E09E006719AA /* PropertyCommenter.m */,
-				D16AFCD81796E0AC006719AA /* MethodCommenter.h */,
-				D16AFCD91796E0AC006719AA /* MethodCommenter.m */,
-				D16AFCDB1796E0B9006719AA /* FunctionCommenter.h */,
-				D16AFCDC1796E0B9006719AA /* FunctionCommenter.m */,
-				D16AFCDE1796E0C0006719AA /* MacroCommenter.h */,
-				D16AFCDF1796E0C0006719AA /* MacroCommenter.m */,
-				D16AFCE11796E0C9006719AA /* StructCommenter.h */,
-				D16AFCE21796E0C9006719AA /* StructCommenter.m */,
-				D16AFCE41796E0D0006719AA /* EnumCommenter.h */,
-				D16AFCE51796E0D0006719AA /* EnumCommenter.m */,
-				D16AFCE71796E0D6006719AA /* VariableCommenter.h */,
-				D16AFCE81796E0D6006719AA /* VariableCommenter.m */,
+				D11C542C17999D9000D3DE38 /* VVCommenter.h */,
+				D11C542A17999D9000D3DE38 /* VVArgument.h */,
+				D11C542B17999D9000D3DE38 /* VVArgument.m */,
+				D16AFCD21796E088006719AA /* VVBaseCommenter.h */,
+				D16AFCD31796E088006719AA /* VVBaseCommenter.m */,
+				D16AFCD51796E09E006719AA /* VVPropertyCommenter.h */,
+				D16AFCD61796E09E006719AA /* VVPropertyCommenter.m */,
+				D16AFCD81796E0AC006719AA /* VVMethodCommenter.h */,
+				D16AFCD91796E0AC006719AA /* VVMethodCommenter.m */,
+				D16AFCDB1796E0B9006719AA /* VVFunctionCommenter.h */,
+				D16AFCDC1796E0B9006719AA /* VVFunctionCommenter.m */,
+				D16AFCDE1796E0C0006719AA /* VVMacroCommenter.h */,
+				D16AFCDF1796E0C0006719AA /* VVMacroCommenter.m */,
+				D16AFCE11796E0C9006719AA /* VVStructCommenter.h */,
+				D16AFCE21796E0C9006719AA /* VVStructCommenter.m */,
+				D16AFCE41796E0D0006719AA /* VVEnumCommenter.h */,
+				D16AFCE51796E0D0006719AA /* VVEnumCommenter.m */,
+				D16AFCE71796E0D6006719AA /* VVVariableCommenter.h */,
+				D16AFCE81796E0D6006719AA /* VVVariableCommenter.m */,
 			);
 			path = Commenter;
+			sourceTree = "<group>";
+		};
+		D1986F71179A12BD00EA6643 /* CommenterTests */ = {
+			isa = PBXGroup;
+			children = (
+				D1986F72179A12BD00EA6643 /* CommenterTests.h */,
+				D1986F73179A12BD00EA6643 /* CommenterTests.m */,
+			);
+			path = CommenterTests;
 			sourceTree = "<group>";
 		};
 		D1C462DE17999C2000EB7B23 /* VVDocumenterTests */ = {
 			isa = PBXGroup;
 			children = (
+				D1986F71179A12BD00EA6643 /* CommenterTests */,
 				D1C462EE17999CA200EB7B23 /* SyntaxTests */,
 				D1C462EB17999C9A00EB7B23 /* VVTestHelper.h */,
 				D1C462EC17999C9A00EB7B23 /* VVTestHelper.m */,
@@ -372,16 +386,16 @@
 				D114BEE0179644D00043FA65 /* NSString+PDRegex.m in Sources */,
 				D114BEE3179644FA0043FA65 /* NSTextView+VVTextGetter.m in Sources */,
 				D1AC3B8F1796DB070063A484 /* VVDocumenter.m in Sources */,
-				D16AFCD41796E088006719AA /* BaseCommenter.m in Sources */,
-				D16AFCD71796E09E006719AA /* PropertyCommenter.m in Sources */,
-				D16AFCDA1796E0AC006719AA /* MethodCommenter.m in Sources */,
-				D16AFCDD1796E0B9006719AA /* FunctionCommenter.m in Sources */,
-				D16AFCE01796E0C0006719AA /* MacroCommenter.m in Sources */,
-				D16AFCE31796E0C9006719AA /* StructCommenter.m in Sources */,
-				D16AFCE61796E0D0006719AA /* EnumCommenter.m in Sources */,
-				D16AFCE91796E0D6006719AA /* VariableCommenter.m in Sources */,
+				D16AFCD41796E088006719AA /* VVBaseCommenter.m in Sources */,
+				D16AFCD71796E09E006719AA /* VVPropertyCommenter.m in Sources */,
+				D16AFCDA1796E0AC006719AA /* VVMethodCommenter.m in Sources */,
+				D16AFCDD1796E0B9006719AA /* VVFunctionCommenter.m in Sources */,
+				D16AFCE01796E0C0006719AA /* VVMacroCommenter.m in Sources */,
+				D16AFCE31796E0C9006719AA /* VVStructCommenter.m in Sources */,
+				D16AFCE61796E0D0006719AA /* VVEnumCommenter.m in Sources */,
+				D16AFCE91796E0D6006719AA /* VVVariableCommenter.m in Sources */,
 				D1C462F517999CEC00EB7B23 /* NSString+VVSyntax.m in Sources */,
-				D11C542D17999D9000D3DE38 /* Argument.m in Sources */,
+				D11C542D17999D9000D3DE38 /* VVArgument.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -389,11 +403,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1AE501C179A161A0069411A /* VVArgument.m in Sources */,
 				D1C462F717999D0600EB7B23 /* NSString+PDRegex.m in Sources */,
 				D1C462E617999C2000EB7B23 /* VVDocumenterTests.m in Sources */,
 				D1C462ED17999C9A00EB7B23 /* VVTestHelper.m in Sources */,
 				D1C462F117999CA200EB7B23 /* SyntaxTests.m in Sources */,
 				D1C462F617999CEC00EB7B23 /* NSString+VVSyntax.m in Sources */,
+				D1986F74179A12BD00EA6643 /* CommenterTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

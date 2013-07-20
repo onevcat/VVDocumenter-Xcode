@@ -7,9 +7,8 @@
 //
 
 #import "VVDocumenter.h"
-#import "NSString+PDRegex.h"
 #import "NSString+VVSyntax.h"
-#import "Commenter.h"
+#import "VVCommenter.h"
 
 @interface VVDocumenter()
 
@@ -47,31 +46,31 @@
     NSString *trimCode = [self.code stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     NSString *baseIndent = [self baseIndentation];
     
-    BaseCommenter *commenter = nil;
+    VVBaseCommenter *commenter = nil;
     if ([trimCode isObjCMethod]) {
         NSLog(@"isObjCMethod");
-        commenter = [[MethodCommenter alloc] initWithIndentString:baseIndent codeString:trimCode];
+        commenter = [[VVMethodCommenter alloc] initWithIndentString:baseIndent codeString:trimCode];
     } else if ([trimCode isProperty]) {
         NSLog(@"isProperty");
-        commenter = [[PropertyCommenter alloc] initWithIndentString:baseIndent codeString:trimCode];
+        commenter = [[VVPropertyCommenter alloc] initWithIndentString:baseIndent codeString:trimCode];
     } else if ([trimCode isCFunction]) {
         NSLog(@"isCFunction");
-        commenter = [[FunctionCommenter alloc] initWithIndentString:baseIndent codeString:trimCode];
+        commenter = [[VVFunctionCommenter alloc] initWithIndentString:baseIndent codeString:trimCode];
     } else if ([trimCode isMacro]) {
         NSLog(@"isMacro");
-        commenter = [[MacroCommenter alloc] initWithIndentString:baseIndent codeString:trimCode];
+        commenter = [[VVMacroCommenter alloc] initWithIndentString:baseIndent codeString:trimCode];
     } else if ([trimCode isStruct]) {
         NSLog(@"isStruct");
-        commenter = [[StructCommenter alloc] initWithIndentString:baseIndent codeString:trimCode];
+        commenter = [[VVStructCommenter alloc] initWithIndentString:baseIndent codeString:trimCode];
     } else if ([trimCode isUnion]) {
         NSLog(@"isUnion");
-        commenter = [[StructCommenter alloc] initWithIndentString:baseIndent codeString:trimCode];
+        commenter = [[VVStructCommenter alloc] initWithIndentString:baseIndent codeString:trimCode];
     } else if ([trimCode isEnum]) {
         NSLog(@"isEnum");
-        commenter = [[EnumCommenter alloc] initWithIndentString:baseIndent codeString:trimCode];
+        commenter = [[VVEnumCommenter alloc] initWithIndentString:baseIndent codeString:trimCode];
     } else {
         NSLog(@"No match. Use VariableCommenter");
-        commenter = [[VariableCommenter alloc] initWithIndentString:baseIndent codeString:trimCode];
+        commenter = [[VVVariableCommenter alloc] initWithIndentString:baseIndent codeString:trimCode];
     }
 
     return [commenter document];
