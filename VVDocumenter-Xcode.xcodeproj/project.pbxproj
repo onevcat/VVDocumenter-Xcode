@@ -34,6 +34,7 @@
 		D1C462F517999CEC00EB7B23 /* NSString+VVSyntax.m in Sources */ = {isa = PBXBuildFile; fileRef = D1C462F417999CEC00EB7B23 /* NSString+VVSyntax.m */; };
 		D1C462F617999CEC00EB7B23 /* NSString+VVSyntax.m in Sources */ = {isa = PBXBuildFile; fileRef = D1C462F417999CEC00EB7B23 /* NSString+VVSyntax.m */; };
 		D1C462F717999D0600EB7B23 /* NSString+PDRegex.m in Sources */ = {isa = PBXBuildFile; fileRef = D114BEDE179644D00043FA65 /* NSString+PDRegex.m */; };
+		D1EBD4AA179AE763003A081D /* DVTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1EBD4A9179AE763003A081D /* DVTKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +89,7 @@
 		D1C462F017999CA200EB7B23 /* SyntaxTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyntaxTests.m; sourceTree = "<group>"; };
 		D1C462F317999CEC00EB7B23 /* NSString+VVSyntax.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+VVSyntax.h"; sourceTree = "<group>"; };
 		D1C462F417999CEC00EB7B23 /* NSString+VVSyntax.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+VVSyntax.m"; sourceTree = "<group>"; };
+		D1EBD4A9179AE763003A081D /* DVTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DVTKit.framework; path = "../../../../../Applications/Xcode5-DP3.app/Contents/SharedFrameworks/DVTKit.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1EBD4AA179AE763003A081D /* DVTKit.framework in Frameworks */,
 				D14380F7179551B900C829CE /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -161,6 +164,7 @@
 		D14380F5179551B900C829CE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D1EBD4A9179AE763003A081D /* DVTKit.framework */,
 				D14380F6179551B900C829CE /* Cocoa.framework */,
 				D1C462DB17999C2000EB7B23 /* SenTestingKit.framework */,
 				D14380F8179551B900C829CE /* Other Frameworks */,
@@ -503,7 +507,8 @@
 				DSTROOT = "${HOME}";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/VVDocumenter-Xcode\"",
+					"\\\"$(SRCROOT)/VVDocumenter-Xcode\\\"",
+					"$(SYSTEM_APPS_DIR)/Xcode5-DP3.app/Contents/SharedFrameworks",
 				);
 				GCC_ENABLE_OBJC_GC = supported;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -524,7 +529,8 @@
 				DSTROOT = "${HOME}";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/VVDocumenter-Xcode\"",
+					"\\\"$(SRCROOT)/VVDocumenter-Xcode\\\"",
+					"$(SYSTEM_APPS_DIR)/Xcode5-DP3.app/Contents/SharedFrameworks",
 				);
 				GCC_ENABLE_OBJC_GC = supported;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
