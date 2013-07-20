@@ -20,6 +20,7 @@
 		D16AFCE31796E0C9006719AA /* VVStructCommenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D16AFCE21796E0C9006719AA /* VVStructCommenter.m */; };
 		D16AFCE61796E0D0006719AA /* VVEnumCommenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D16AFCE51796E0D0006719AA /* VVEnumCommenter.m */; };
 		D16AFCE91796E0D6006719AA /* VVVariableCommenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D16AFCE81796E0D6006719AA /* VVVariableCommenter.m */; };
+		D17B50CA179A34C400B11773 /* VVBaseCommenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D16AFCD31796E088006719AA /* VVBaseCommenter.m */; };
 		D18224DC17956290001A5E8A /* VVDocumenterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D16917DE17955C8D0036C06B /* VVDocumenterManager.m */; };
 		D1986F74179A12BD00EA6643 /* CommenterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D1986F73179A12BD00EA6643 /* CommenterTests.m */; };
 		D1AC3B8F1796DB070063A484 /* VVDocumenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D1AC3B8E1796DB070063A484 /* VVDocumenter.m */; };
@@ -403,6 +404,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D17B50CA179A34C400B11773 /* VVBaseCommenter.m in Sources */,
 				D1AE501C179A161A0069411A /* VVArgument.m in Sources */,
 				D1C462F717999D0600EB7B23 /* NSString+PDRegex.m in Sources */,
 				D1C462E617999C2000EB7B23 /* VVDocumenterTests.m in Sources */,

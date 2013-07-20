@@ -32,9 +32,8 @@
     for (VVArgument *arg in self.arguments) {
         if (result.length == 0) {
             [result appendFormat:@"%@ *\n",self.indent];
-        } else {
-            [result appendFormat:@"%@ *\t@param \t%@ \t<#%@ description#>\n",self.indent,arg.name,arg.name];
         }
+        [result appendFormat:@"%@ *\t@param \t%@ \t<#%@ description#>\n",self.indent,arg.name,arg.name];
     }
     return result;
 }
@@ -71,6 +70,8 @@
         NSArray *argumentStrings = [argumentGroupString componentsSeparatedByString:@","];
         for (NSString *argumentString in argumentStrings) {
             VVArgument *arg = [[VVArgument alloc] init];
+            argumentString = [argumentString stringByReplacingRegexPattern:@"\\s+$" withString:@""];
+            argumentString = [argumentString stringByReplacingRegexPattern:@"\\s+" withString:@" "];
             NSMutableArray *tempArgs = [[argumentString componentsSeparatedByString:@" "] mutableCopy];
             while ([[tempArgs lastObject] isEqualToString:@" "]) {
                 [tempArgs removeLastObject];

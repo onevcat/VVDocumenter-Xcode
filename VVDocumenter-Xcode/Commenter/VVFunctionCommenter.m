@@ -10,4 +10,25 @@
 
 @implementation VVFunctionCommenter
 
+-(void) captureReturnType
+{
+    NSArray *arr = [self.code componentsSeparatedByString:@"("];
+    if (arr.count > 0 && ![arr[0] matchesPatternRegexPattern:@"void"]) {
+        self.hasReturn = YES;
+    }
+}
+
+-(void) captureParameters
+{
+    [self parseArguments];
+}
+
+-(NSString *) document
+{
+    [self captureReturnType];
+    [self captureParameters];
+    
+    return [super document];
+}
+
 @end
