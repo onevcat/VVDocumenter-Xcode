@@ -10,6 +10,7 @@
 #import "NSTextView+VVTextGetter.h"
 #import "NSString+VVSyntax.h"
 #import "VVDocumenter.h"
+#import "XcodePrivate.h"
 
 @implementation VVDocumenterManager
 +(void)pluginDidLoad:(NSBundle *)plugin {
@@ -45,16 +46,19 @@
 }
 
 - (void) textStorageDidChanged:(NSNotification *)noti {
+
     if ([[noti object] isKindOfClass:[NSTextView class]]) {
         NSTextView *textView = (NSTextView *)[noti object];
-
         VVTextResult *currentLineResult = [textView textResultOfCurrentLine];
         if (currentLineResult) {
             if ([currentLineResult.string matchesPatternRegexPattern:@"^\\s*///"]) {
-
+                //Get a @"///". Do work!
+                
+                //Decide which is closer to the cursor. A semicolon or a half brace.
+                //We just want to document the next valid line.
                 VVTextResult *resultUntilSemiColon = [textView textResultUntilNextString:@";"];
                 VVTextResult *resultUntilBrace = [textView textResultUntilNextString:@"{"];
-                
+
                 VVTextResult *resultToDocument = nil;
                 
                 if (resultUntilSemiColon && resultUntilBrace) {
@@ -65,11 +69,16 @@
                     resultToDocument = resultUntilSemiColon;
                 }
                 
-                VVLog(@"VVDocumenter: Target string: %@",resultToDocument.string);
                 VVDocumenter *doc = [[VVDocumenter alloc] initWithCode:resultToDocument.string];
-                VVLog(@"%@",[doc document]);
+
+                DVTSourceTextStorage *sts = (DVTSourceTextStorage *)textView.textStorage;
+                [sts replaceCharactersInRange:currentLineResult.range withString:[doc document] withUndoManager:[textView undoManager]];
+                
+                //Set cursor before the inserted documentation. So we can use tab to begin edit.
+                int baseIndentationLength = (int)[doc baseIndentation].length;
+                [textView setSelectedRange:NSMakeRange(currentLineResult.range.location + baseIndentationLength, 0)];
             }
-        }     
+        }
     }
 }
 

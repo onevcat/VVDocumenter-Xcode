@@ -1,0 +1,16 @@
+//
+//  TextVisualizations.dox
+//  DVTKit
+//
+//  Copyright 2009 Apple Inc. All rights reserved.
+//
+
+/*!
+ \defgroup dvttextvisualizations Text Visualizations
+ 
+ \brief The source text view supports adding visualizations that can do free drawing over and under the text.
+ 
+ \todo Add documentation
+
+
+*/

@@ -10,4 +10,24 @@
 
 @implementation VVMacroCommenter
 
+-(void) captureReturnType
+{
+    self.hasReturn = YES;
+}
+
+-(void) captureParameters
+{
+    if ([self.code matchesPatternRegexPattern:@"\\("]) {
+        [self parseArguments];
+    }
+}
+
+-(NSString *) document
+{
+    [self captureReturnType];
+    [self captureParameters];
+    
+    return [super document];
+}
+
 @end

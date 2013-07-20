@@ -7,14 +7,15 @@
 //
 
 #import "VVDocumenterTests.h"
+#import "VVDocumenter.h"
 
 @implementation VVDocumenterTests
 
 - (void)setUp
 {
     [super setUp];
-    
     // Set-up code here.
+    
 }
 
 - (void)tearDown
@@ -24,9 +25,9 @@
     [super tearDown];
 }
 
-- (void)testExample
+- (void)testMethodDocument
 {
-//    STFail(@"Unit tests are not implemented yet in VVDocumenterTests");
+    
 }
 
 @end

@@ -48,28 +48,20 @@
     
     VVBaseCommenter *commenter = nil;
     if ([trimCode isObjCMethod]) {
-        NSLog(@"isObjCMethod");
         commenter = [[VVMethodCommenter alloc] initWithIndentString:baseIndent codeString:trimCode];
     } else if ([trimCode isProperty]) {
-        NSLog(@"isProperty");
         commenter = [[VVPropertyCommenter alloc] initWithIndentString:baseIndent codeString:trimCode];
     } else if ([trimCode isCFunction]) {
-        NSLog(@"isCFunction");
         commenter = [[VVFunctionCommenter alloc] initWithIndentString:baseIndent codeString:trimCode];
     } else if ([trimCode isMacro]) {
-        NSLog(@"isMacro");
         commenter = [[VVMacroCommenter alloc] initWithIndentString:baseIndent codeString:trimCode];
     } else if ([trimCode isStruct]) {
-        NSLog(@"isStruct");
         commenter = [[VVStructCommenter alloc] initWithIndentString:baseIndent codeString:trimCode];
     } else if ([trimCode isUnion]) {
-        NSLog(@"isUnion");
         commenter = [[VVStructCommenter alloc] initWithIndentString:baseIndent codeString:trimCode];
     } else if ([trimCode isEnum]) {
-        NSLog(@"isEnum");
         commenter = [[VVEnumCommenter alloc] initWithIndentString:baseIndent codeString:trimCode];
     } else {
-        NSLog(@"No match. Use VariableCommenter");
         commenter = [[VVVariableCommenter alloc] initWithIndentString:baseIndent codeString:trimCode];
     }
 

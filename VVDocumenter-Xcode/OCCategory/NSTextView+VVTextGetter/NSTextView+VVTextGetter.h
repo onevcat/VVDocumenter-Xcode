@@ -15,6 +15,7 @@
 @end
 
 @interface NSTextView (VVTextGetter)
+-(NSInteger) currentCurseLocation;
 
 -(VVTextResult *) textResultOfCurrentLine;
 

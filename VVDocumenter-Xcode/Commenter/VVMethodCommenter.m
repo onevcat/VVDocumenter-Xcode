@@ -28,7 +28,7 @@
 {
     NSArray * matchedParams = [self.code stringsByExtractingGroupsUsingRegexPattern:@"\\:\\(([^\\(]+)\\)(\\S+)"];
     VVLog(@"matchedParams: %@",matchedParams);
-    for (int i = 0; i < matchedParams.count - 1; i = i + 2) {
+    for (int i = 0; i < (int)matchedParams.count - 1; i = i + 2) {
         VVArgument *arg = [[VVArgument alloc] init];
         arg.type = [matchedParams[i] stringByReplacingRegexPattern:@"[\\s*;.*]" withString:@""];
         arg.name = [matchedParams[i + 1] stringByReplacingRegexPattern:@"[\\s*;.*]" withString:@""];

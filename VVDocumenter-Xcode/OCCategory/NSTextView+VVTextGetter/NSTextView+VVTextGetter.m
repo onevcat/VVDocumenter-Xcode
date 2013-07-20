@@ -31,7 +31,6 @@
 @implementation NSTextView (VVTextGetter)
 -(NSInteger) currentCurseLocation
 {
-
     return [[[self selectedRanges] objectAtIndex:0] rangeValue].location;
 }
 

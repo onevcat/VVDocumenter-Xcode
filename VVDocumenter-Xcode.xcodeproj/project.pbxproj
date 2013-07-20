@@ -23,6 +23,8 @@
 		D17B50CA179A34C400B11773 /* VVBaseCommenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D16AFCD31796E088006719AA /* VVBaseCommenter.m */; };
 		D18224DC17956290001A5E8A /* VVDocumenterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D16917DE17955C8D0036C06B /* VVDocumenterManager.m */; };
 		D1986F74179A12BD00EA6643 /* CommenterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D1986F73179A12BD00EA6643 /* CommenterTests.m */; };
+		D1A23F6E179AD5FB00C3BC43 /* DVTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1A23F6D179AD5FB00C3BC43 /* DVTKit.framework */; };
+		D1A23F6F179AD60E00C3BC43 /* DVTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1A23F6D179AD5FB00C3BC43 /* DVTKit.framework */; };
 		D1AC3B8F1796DB070063A484 /* VVDocumenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D1AC3B8E1796DB070063A484 /* VVDocumenter.m */; };
 		D1AE501C179A161A0069411A /* VVArgument.m in Sources */ = {isa = PBXBuildFile; fileRef = D11C542B17999D9000D3DE38 /* VVArgument.m */; };
 		D1C462DC17999C2000EB7B23 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1C462DB17999C2000EB7B23 /* SenTestingKit.framework */; };
@@ -72,6 +74,8 @@
 		D16AFCE81796E0D6006719AA /* VVVariableCommenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVVariableCommenter.m; sourceTree = "<group>"; };
 		D1986F72179A12BD00EA6643 /* CommenterTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommenterTests.h; sourceTree = "<group>"; };
 		D1986F73179A12BD00EA6643 /* CommenterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommenterTests.m; sourceTree = "<group>"; };
+		D1A23F6D179AD5FB00C3BC43 /* DVTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DVTKit.framework; path = "VVDocumenter-Xcode/DVTKit.framework"; sourceTree = "<group>"; };
+		D1A23F70179AD63E00C3BC43 /* XcodePrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XcodePrivate.h; sourceTree = "<group>"; };
 		D1AC3B8D1796DB070063A484 /* VVDocumenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVDocumenter.h; sourceTree = "<group>"; };
 		D1AC3B8E1796DB070063A484 /* VVDocumenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVDocumenter.m; sourceTree = "<group>"; };
 		D1C462DA17999C2000EB7B23 /* VVDocumenterTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VVDocumenterTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,6 +99,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D14380F7179551B900C829CE /* Cocoa.framework in Frameworks */,
+				D1A23F6E179AD5FB00C3BC43 /* DVTKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,6 +107,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1A23F6F179AD60E00C3BC43 /* DVTKit.framework in Frameworks */,
 				D1C462DC17999C2000EB7B23 /* SenTestingKit.framework in Frameworks */,
 				D1C462DD17999C2000EB7B23 /* Cocoa.framework in Frameworks */,
 			);
@@ -160,6 +166,7 @@
 		D14380F5179551B900C829CE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D1A23F6D179AD5FB00C3BC43 /* DVTKit.framework */,
 				D14380F6179551B900C829CE /* Cocoa.framework */,
 				D1C462DB17999C2000EB7B23 /* SenTestingKit.framework */,
 				D14380F8179551B900C829CE /* Other Frameworks */,
@@ -187,6 +194,7 @@
 				D16917DE17955C8D0036C06B /* VVDocumenterManager.m */,
 				D1AC3B8D1796DB070063A484 /* VVDocumenter.h */,
 				D1AC3B8E1796DB070063A484 /* VVDocumenter.m */,
+				D1A23F70179AD63E00C3BC43 /* XcodePrivate.h */,
 			);
 			path = "VVDocumenter-Xcode";
 			sourceTree = "<group>";
@@ -499,6 +507,10 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEPLOYMENT_LOCATION = YES;
 				DSTROOT = "${HOME}";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/VVDocumenter-Xcode\"",
+				);
 				GCC_ENABLE_OBJC_GC = supported;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "VVDocumenter-Xcode/VVDocumenter-Xcode-Prefix.pch";
@@ -516,6 +528,10 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEPLOYMENT_LOCATION = YES;
 				DSTROOT = "${HOME}";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/VVDocumenter-Xcode\"",
+				);
 				GCC_ENABLE_OBJC_GC = supported;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "VVDocumenter-Xcode/VVDocumenter-Xcode-Prefix.pch";
@@ -531,7 +547,10 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"\"$(SRCROOT)/VVDocumenter-Xcode\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "VVDocumenterTests/VVDocumenterTests-Prefix.pch";
 				INFOPLIST_FILE = "VVDocumenterTests/VVDocumenterTests-Info.plist";
@@ -545,7 +564,10 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"\"$(SRCROOT)/VVDocumenter-Xcode\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "VVDocumenterTests/VVDocumenterTests-Prefix.pch";
 				INFOPLIST_FILE = "VVDocumenterTests/VVDocumenterTests-Info.plist";

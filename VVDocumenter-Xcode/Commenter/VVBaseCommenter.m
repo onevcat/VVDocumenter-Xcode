@@ -23,7 +23,7 @@
 
 -(NSString *) startComment
 {
-    return [NSString stringWithFormat:@"%@/**\n%@ *\t@brief\t<#%@#>\n",self.indent,self.indent,@"Description"];
+    return [NSString stringWithFormat:@"%@/**\n%@ *\t<#%@#>\n",self.indent,self.indent,@"Description"];
 }
 
 -(NSString *) argumentsComment
@@ -33,7 +33,7 @@
         if (result.length == 0) {
             [result appendFormat:@"%@ *\n",self.indent];
         }
-        [result appendFormat:@"%@ *\t@param \t%@ \t<#%@ description#>\n",self.indent,arg.name,arg.name];
+        [result appendFormat:@"%@ *\t@param\t%@\t<#%@ description#>\n",self.indent,arg.name,arg.name];
     }
     return result;
 }
@@ -50,7 +50,7 @@
 
 -(NSString *) endComment
 {
-    return [NSString stringWithFormat:@"%@ */\n",self.indent];
+    return [NSString stringWithFormat:@"%@ */",self.indent];
 }
 
 -(NSString *) document
