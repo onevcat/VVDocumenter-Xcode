@@ -3,7 +3,7 @@
 
 ## What is this?
 
-Writing document is so important for developing, but it is really painful with Xcode. Think about how much time you are wasting in pressing '*' or '/', and typing the parameters again and again. Now, you can find the method or any code you want to document, and type in `///`, the document will be generated for you and all params and return will be extracted in a beatiful Javadoc style. You can just fill the inline placeholders to finish your document。
+Writing document is so important for developing, but it is really painful with Xcode. Think about how much time you are wasting in pressing '*' or '/', and typing the parameters again and again. Now, you can find the method (or any code) you want to document to, and type in `///`, the document will be generated for you and all params and return will be extracted into a beatiful Javadoc style. You can just fill the inline placeholders to finish your document。
 
 Here is an image which can show what it exactly does.
 
@@ -15,11 +15,11 @@ Build the `VVDocumenter-Xcode` target in the Xcode project and the plug-in will 
 
 ## Xcode version?
 
-This plug-in is developed and tested in Xcode 4.6.3. It should work in all versions of Xcode 4. If you want to use it in Xcode 5 (DP3 or above), you have to make a liittle change in the plist. This is all what I can say under the NDA. And one more thing, the 'undo' is not working with Xcode 5.
+This plug-in is developed and tested in Xcode 4.6.3. It should work in all versions of Xcode 4. If you want to use it in Xcode 5 (DP3 or above), you have to make a liittle change in the plist. This is all what I can say under the NDA. And one more thing, the 'undo' is not working happily with Xcode 5.
 
 ## Limitations
 
-There are a set of code type I hope to supprt, but now I just finished some of them.
+There are a set of code type I hope to support, but now I just finished some of them.
 
 * Objc Method (Done)
 * C Function (Done)
