@@ -508,7 +508,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\\\"$(SRCROOT)/VVDocumenter-Xcode\\\"",
-					"$(SYSTEM_APPS_DIR)/Xcode5-DP3.app/Contents/SharedFrameworks",
+					"$(DEVELOPER_DIR)/../SharedFrameworks",
 				);
 				GCC_ENABLE_OBJC_GC = supported;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -530,7 +530,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\\\"$(SRCROOT)/VVDocumenter-Xcode\\\"",
-					"$(SYSTEM_APPS_DIR)/Xcode5-DP3.app/Contents/SharedFrameworks",
+					"$(DEVELOPER_DIR)/../SharedFrameworks",
 				);
 				GCC_ENABLE_OBJC_GC = supported;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
