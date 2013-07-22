@@ -32,6 +32,11 @@ There are a set of code type I hope to support, but now I just finished some of 
 
 Now the docs for to-do types will be generated only with a basic description (which is the same as Property and Variable).
 
+## Known issues
+
+There is an issue when you want to do `redo` operation. See more here:
+
+[https://github.com/onevcat/VVDocumenter-Xcode/issues/3](https://github.com/onevcat/VVDocumenter-Xcode/issues/3)
 
 ## License
 
