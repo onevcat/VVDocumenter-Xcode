@@ -42,8 +42,13 @@
     NSArray *others = @[@"options = options | NSRegularExpressionDotMatchesLineSeparators;",
                         @"if (resultUntilSemiColon && resultUntilBrace) {",
                         @"static dispatch_once_t once;"];
+
+    NSArray *compileKeywords = @[@"@interface VVDocumenter : NSObject \n {",
+                                 @"@interface SyntaxTests()\n@property (nonatomic, retain) NSArray* inputs;",
+                                 @"@implementation SyntaxTests\n\n- (void)setUp\n{",
+                                 @"@interface A (a)\n- (id) foo;"];
     
-    return @[methods,functions,properties,macros,structs,enums,unions,others];
+    return @[methods,functions,properties,macros,structs,enums,unions,others,compileKeywords];
 }
 
 +(NSArray *) uniformCodes
@@ -79,8 +84,13 @@
     NSArray *others = @[@"options = options | NSRegularExpressionDotMatchesLineSeparators;",
                         @"if(resultUntilSemiColon && resultUntilBrace){",
                         @"static dispatch_once_t once;"];
+
+    NSArray *compileKeywords = @[@"@interface VVDocumenter : NSObject {",
+                                 @"@interface SyntaxTests()@property(nonatomic, retain)NSArray* inputs;",
+                                 @"@implementation SyntaxTests -(void)setUp {",
+                                 @"@interface A(a)-(id)foo;"];
     
-    return @[methods,functions,properties,macros,structs,enums,unions,others];
+    return @[methods,functions,properties,macros,structs,enums,unions,others,compileKeywords];
 }
 
 @end

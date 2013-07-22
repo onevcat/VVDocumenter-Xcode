@@ -23,7 +23,7 @@
 
 -(BOOL) isCFunction
 {
-    return ![self isMacro] && ![self isObjCMethod] && ![self isProperty] && [self matchesPatternRegexPattern:@".+\\s+.+\\("];
+    return ![self isMacro] && ![self isObjCMethod] && ![self isProperty] && ![self isComplieKeyword] && [self matchesPatternRegexPattern:@".+\\s+.+\\("];
 }
 
 -(BOOL) isProperty
@@ -49,6 +49,11 @@
 -(BOOL) isUnion
 {
     return [self matchesPatternRegexPattern:@"^\\s*(\\w+\\s)?union.*\\{"];
+}
+
+-(BOOL) isComplieKeyword
+{
+    return ![self isProperty] && [self matchesPatternRegexPattern:@"^\\s*\\@"];
 }
 
 @end

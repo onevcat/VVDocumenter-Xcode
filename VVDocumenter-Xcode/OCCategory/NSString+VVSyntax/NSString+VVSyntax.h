@@ -18,4 +18,5 @@
 -(BOOL) isEnum;
 -(BOOL) isStruct;
 -(BOOL) isUnion;
+-(BOOL) isComplieKeyword;
 @end
