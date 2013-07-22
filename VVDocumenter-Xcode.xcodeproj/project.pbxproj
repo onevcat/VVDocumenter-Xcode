@@ -507,7 +507,6 @@
 				DSTROOT = "${HOME}";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\\\"$(SRCROOT)/VVDocumenter-Xcode\\\"",
 					"$(DEVELOPER_DIR)/../SharedFrameworks",
 				);
 				GCC_ENABLE_OBJC_GC = supported;
@@ -529,7 +528,6 @@
 				DSTROOT = "${HOME}";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\\\"$(SRCROOT)/VVDocumenter-Xcode\\\"",
 					"$(DEVELOPER_DIR)/../SharedFrameworks",
 				);
 				GCC_ENABLE_OBJC_GC = supported;
