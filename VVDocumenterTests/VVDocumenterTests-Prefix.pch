@@ -7,7 +7,7 @@
     #import "NSString+PDRegex.h"
 #endif
 
-//#define __DEBUG__ 1
+#define __DEBUG__ 1
 #ifdef __DEBUG__
 #define VVLog(...) NSLog(__VA_ARGS__)
 #else
