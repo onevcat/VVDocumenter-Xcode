@@ -10,6 +10,7 @@
 #import "VVArgument.h"
 
 @implementation VVBaseCommenter
+
 -(id) initWithIndentString:(NSString *)indent codeString:(NSString *)code
 {
     self = [super init];
@@ -23,17 +24,14 @@
 
 -(NSString *) startComment
 {
-    return [NSString stringWithFormat:@"%@/**\n%@ *\t<#%@#>\n",self.indent,self.indent,@"Description"];
+    return [NSString stringWithFormat:@"/// \\brief <#%@#>\n///\n",@"Description"];
 }
 
 -(NSString *) argumentsComment
 {
     NSMutableString *result = [NSMutableString stringWithString:@""];
     for (VVArgument *arg in self.arguments) {
-        if (result.length == 0) {
-            [result appendFormat:@"%@ *\n",self.indent];
-        }
-        [result appendFormat:@"%@ *\t@param\t%@\t<#%@ description#>\n",self.indent,arg.name,arg.name];
+        [result appendFormat:@"/// \\param %@ <#%@ description#>\n",arg.name,arg.name];
     }
     return result;
 }
@@ -42,15 +40,15 @@
 
 {
     if (!self.hasReturn) {
-        return @"";
+        return @"/// \\return void";
     } else {
-        return [NSString stringWithFormat:@"%@ *\n%@ *\t@return\t<#return value description#>\n",self.indent,self.indent];
+        return @"/// \\return <#return value description#>";
     }
 }
 
 -(NSString *) endComment
 {
-    return [NSString stringWithFormat:@"%@ */",self.indent];
+    return @"";
 }
 
 -(NSString *) document
