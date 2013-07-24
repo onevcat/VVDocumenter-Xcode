@@ -51,7 +51,7 @@
         NSTextView *textView = (NSTextView *)[noti object];
         VVTextResult *currentLineResult = [textView textResultOfCurrentLine];
         if (currentLineResult) {
-            if ([currentLineResult.string matchesPatternRegexPattern:@"^\\s*///"]) {
+            if ([currentLineResult.string matchesPatternRegexPattern:@"^\\s*////"]) {
                 //Get a @"///". Do work!
                 
                 //Decide which is closer to the cursor. A semicolon or a half brace.
