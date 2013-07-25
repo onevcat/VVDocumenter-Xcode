@@ -39,13 +39,13 @@
 
 - (void) applicationDidFinishLaunching: (NSNotification*) noti {
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(textStorageDidChanged:)
+                                             selector:@selector(textStorageDidChange:)
                                                  name:NSTextDidChangeNotification
                                                object:nil];
 
 }
 
-- (void) textStorageDidChanged:(NSNotification *)noti {
+- (void) textStorageDidChange:(NSNotification *)noti {
 
     if ([[noti object] isKindOfClass:[NSTextView class]]) {
         NSTextView *textView = (NSTextView *)[noti object];
