@@ -42,7 +42,7 @@
 -(void) testStringByConvertingToUniform {
     for (int i = 0; i < (int)[self.inputs count]; i++) {
         for (int j = 0; j < [self.inputs[i] count]; j++) {
-            NSString *converted = [self.inputs[i][j] stringByConvertingToUniform];
+            NSString *converted = [self.inputs[i][j] vv_stringByConvertingToUniform];
             NSString *result = self.corrects[i][j];
             STAssertTrue([result isEqualToString:converted], @"%@ should be the same as %@", converted, result);
         }
@@ -55,7 +55,7 @@
     for (int i = 0; i < (int)[self.inputs count]; i++) {
         for (int j = 0; j < [self.inputs[i] count]; j++) {
             NSString *result = self.corrects[i][j];
-            STAssertTrue([result isObjCMethod] == [boolResult[i] boolValue], @"%@ should %@ be a ObjC method", result, [boolResult[i] boolValue] ? @"" : @"not");
+            STAssertTrue([result vv_isObjCMethod] == [boolResult[i] boolValue], @"%@ should %@ be a ObjC method", result, [boolResult[i] boolValue] ? @"" : @"not");
         }
     }
 }
@@ -66,7 +66,7 @@
     for (int i = 0; i < (int)[self.inputs count]; i++) {
         for (int j = 0; j < [self.inputs[i] count]; j++) {
             NSString *result = self.corrects[i][j];
-            STAssertTrue([result isCFunction] == [boolResult[i] boolValue], @"%@ should %@ be a C function", result, [boolResult[i] boolValue] ? @"" : @"not");
+            STAssertTrue([result vv_isCFunction] == [boolResult[i] boolValue], @"%@ should %@ be a C function", result, [boolResult[i] boolValue] ? @"" : @"not");
         }
     }
 }
@@ -77,7 +77,7 @@
     for (int i = 0; i < (int)[self.inputs count]; i++) {
         for (int j = 0; j < [self.inputs[i] count]; j++) {
             NSString *result = self.corrects[i][j];
-            STAssertTrue([result isProperty] == [boolResult[i] boolValue], @"%@ should %@ be a property", result, [boolResult[i] boolValue] ? @"" : @"not");
+            STAssertTrue([result vv_isProperty] == [boolResult[i] boolValue], @"%@ should %@ be a property", result, [boolResult[i] boolValue] ? @"" : @"not");
         }
     }
 }
@@ -88,7 +88,7 @@
     for (int i = 0; i < (int)[self.inputs count]; i++) {
         for (int j = 0; j < [self.inputs[i] count]; j++) {
             NSString *result = self.corrects[i][j];
-            STAssertTrue([result isMacro] == [boolResult[i] boolValue], @"%@ should %@ be a macro", result, [boolResult[i] boolValue] ? @"" : @"not");
+            STAssertTrue([result vv_isMacro] == [boolResult[i] boolValue], @"%@ should %@ be a macro", result, [boolResult[i] boolValue] ? @"" : @"not");
         }
     }
 }
@@ -99,7 +99,7 @@
     for (int i = 0; i < (int)[self.inputs count]; i++) {
         for (int j = 0; j < [self.inputs[i] count]; j++) {
             NSString *result = self.corrects[i][j];
-            STAssertTrue([result isStruct] == [boolResult[i] boolValue], @"%@ should %@ be a struct", result, [boolResult[i] boolValue] ? @"" : @"not");
+            STAssertTrue([result vv_isStruct] == [boolResult[i] boolValue], @"%@ should %@ be a struct", result, [boolResult[i] boolValue] ? @"" : @"not");
         }
     }
 }
@@ -110,7 +110,7 @@
     for (int i = 0; i < (int)[self.inputs count]; i++) {
         for (int j = 0; j < [self.inputs[i] count]; j++) {
             NSString *result = self.corrects[i][j];
-            STAssertTrue([result isEnum] == [boolResult[i] boolValue], @"%@ should %@ be a enum", result, [boolResult[i] boolValue] ? @"" : @"not");
+            STAssertTrue([result vv_isEnum] == [boolResult[i] boolValue], @"%@ should %@ be a enum", result, [boolResult[i] boolValue] ? @"" : @"not");
         }
     }
 }
@@ -121,7 +121,7 @@
     for (int i = 0; i < (int)[self.inputs count]; i++) {
         for (int j = 0; j < [self.inputs[i] count]; j++) {
             NSString *result = self.corrects[i][j];
-            STAssertTrue([result isUnion] == [boolResult[i] boolValue], @"%@ should %@ be a union", result, [boolResult[i] boolValue] ? @"" : @"not");
+            STAssertTrue([result vv_isUnion] == [boolResult[i] boolValue], @"%@ should %@ be a union", result, [boolResult[i] boolValue] ? @"" : @"not");
         }
     }
 }
@@ -132,7 +132,7 @@
     for (int i = 0; i < (int)[self.inputs count]; i++) {
         for (int j = 0; j < [self.inputs[i] count]; j++) {
             NSString *result = self.corrects[i][j];
-            STAssertTrue([result isComplieKeyword] == [boolResult[i] boolValue], @"%@ should %@ be a complie keyword", result, [boolResult[i] boolValue] ? @"" : @"not");
+            STAssertTrue([result vv_isComplieKeyword] == [boolResult[i] boolValue], @"%@ should %@ be a complie keyword", result, [boolResult[i] boolValue] ? @"" : @"not");
         }
     }
 }
