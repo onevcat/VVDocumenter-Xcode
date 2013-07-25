@@ -10,50 +10,50 @@
 
 @implementation NSString (VVSyntax)
 
--(NSString *) stringByConvertingToUniform
+-(NSString *) vv_stringByConvertingToUniform
 {
-    return [[self stringByReplacingRegexPattern:@"\\s*(\\(.*\?\\))\\s*" withString:@"$1"]
-                  stringByReplacingRegexPattern:@"\\s*\n\\s*"           withString:@" "];
+    return [[self vv_stringByReplacingRegexPattern:@"\\s*(\\(.*\?\\))\\s*" withString:@"$1"]
+                  vv_stringByReplacingRegexPattern:@"\\s*\n\\s*"           withString:@" "];
 }
 
--(BOOL) isObjCMethod
+-(BOOL) vv_isObjCMethod
 {
-    return [self matchesPatternRegexPattern:@"^\\s*[+-]"];
+    return [self vv_matchesPatternRegexPattern:@"^\\s*[+-]"];
 }
 
--(BOOL) isCFunction
+-(BOOL) vv_isCFunction
 {
-    return ![self isMacro] && ![self isObjCMethod] && ![self isProperty] && ![self isComplieKeyword] && [self matchesPatternRegexPattern:@".+\\s+.+\\("];
+    return ![self vv_isMacro] && ![self vv_isObjCMethod] && ![self vv_isProperty] && ![self vv_isComplieKeyword] && [self vv_matchesPatternRegexPattern:@".+\\s+.+\\("];
 }
 
--(BOOL) isProperty
+-(BOOL) vv_isProperty
 {
-	return [self matchesPatternRegexPattern:@"^\\s*\\@property"];
+	return [self vv_matchesPatternRegexPattern:@"^\\s*\\@property"];
 }
 
--(BOOL) isMacro
+-(BOOL) vv_isMacro
 {
-    return [self matchesPatternRegexPattern:@"^\\s*\\#define"];
+    return [self vv_matchesPatternRegexPattern:@"^\\s*\\#define"];
 }
 
--(BOOL) isStruct
+-(BOOL) vv_isStruct
 {
-    return [self matchesPatternRegexPattern:@"^\\s*(\\w+\\s)?struct.*\\{"];
+    return [self vv_matchesPatternRegexPattern:@"^\\s*(\\w+\\s)?struct.*\\{"];
 }
 
--(BOOL) isEnum
+-(BOOL) vv_isEnum
 {
-    return [self matchesPatternRegexPattern:@"^\\s*(\\w+\\s)?enum.*\\{"];
+    return [self vv_matchesPatternRegexPattern:@"^\\s*(\\w+\\s)?enum.*\\{"];
 }
 
--(BOOL) isUnion
+-(BOOL) vv_isUnion
 {
-    return [self matchesPatternRegexPattern:@"^\\s*(\\w+\\s)?union.*\\{"];
+    return [self vv_matchesPatternRegexPattern:@"^\\s*(\\w+\\s)?union.*\\{"];
 }
 
--(BOOL) isComplieKeyword
+-(BOOL) vv_isComplieKeyword
 {
-    return ![self isProperty] && [self matchesPatternRegexPattern:@"^\\s*\\@"];
+    return ![self vv_isProperty] && [self vv_matchesPatternRegexPattern:@"^\\s*\\@"];
 }
 
 @end

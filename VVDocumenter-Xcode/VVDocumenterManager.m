@@ -39,19 +39,19 @@
 
 - (void) applicationDidFinishLaunching: (NSNotification*) noti {
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(textStorageDidChanged:)
+                                             selector:@selector(textStorageDidChange:)
                                                  name:NSTextDidChangeNotification
                                                object:nil];
 
 }
 
-- (void) textStorageDidChanged:(NSNotification *)noti {
+- (void) textStorageDidChange:(NSNotification *)noti {
 
     if ([[noti object] isKindOfClass:[NSTextView class]]) {
         NSTextView *textView = (NSTextView *)[noti object];
         VVTextResult *currentLineResult = [textView textResultOfCurrentLine];
         if (currentLineResult) {
-            if ([currentLineResult.string matchesPatternRegexPattern:@"^\\s*///"]) {
+            if ([currentLineResult.string vv_matchesPatternRegexPattern:@"^\\s*///"]) {
                 //Get a @"///". Do work!
                 
                 //Decide which is closer to the cursor. A semicolon or a half brace.

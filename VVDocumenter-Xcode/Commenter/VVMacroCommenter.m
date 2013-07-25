@@ -17,7 +17,7 @@
 
 -(void) captureParameters
 {
-    if ([self.code matchesPatternRegexPattern:@"\\("]) {
+    if ([self.code vv_matchesPatternRegexPattern:@"\\("]) {
         [self parseArguments];
     }
 }

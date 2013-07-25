@@ -24,8 +24,8 @@
     if (self) {
         //Trim the space around the braces
         //Then trim the new line character
-        self.code = [[code stringByReplacingRegexPattern:@"\\s*(\\(.*\?\\))\\s*" withString:@"$1"]
-                           stringByReplacingRegexPattern:@"\\s*\n\\s*"           withString:@" "];
+        self.code = [[code vv_stringByReplacingRegexPattern:@"\\s*(\\(.*\?\\))\\s*" withString:@"$1"]
+                           vv_stringByReplacingRegexPattern:@"\\s*\n\\s*"           withString:@" "];
         
     }
     return self;
@@ -33,7 +33,7 @@
 
 -(NSString *) baseIndentation
 {
-    NSArray *matchedSpaces = [self.code stringsByExtractingGroupsUsingRegexPattern:@"^(\\s*)"];
+    NSArray *matchedSpaces = [self.code vv_stringsByExtractingGroupsUsingRegexPattern:@"^(\\s*)"];
     if (matchedSpaces.count > 0) {
         return matchedSpaces[0];
     } else {
@@ -47,19 +47,19 @@
     NSString *baseIndent = [self baseIndentation];
     
     VVBaseCommenter *commenter = nil;
-    if ([trimCode isObjCMethod]) {
+    if ([trimCode vv_isObjCMethod]) {
         commenter = [[VVMethodCommenter alloc] initWithIndentString:baseIndent codeString:trimCode];
-    } else if ([trimCode isProperty]) {
+    } else if ([trimCode vv_isProperty]) {
         commenter = [[VVPropertyCommenter alloc] initWithIndentString:baseIndent codeString:trimCode];
-    } else if ([trimCode isCFunction]) {
+    } else if ([trimCode vv_isCFunction]) {
         commenter = [[VVFunctionCommenter alloc] initWithIndentString:baseIndent codeString:trimCode];
-    } else if ([trimCode isMacro]) {
+    } else if ([trimCode vv_isMacro]) {
         commenter = [[VVMacroCommenter alloc] initWithIndentString:baseIndent codeString:trimCode];
-    } else if ([trimCode isStruct]) {
+    } else if ([trimCode vv_isStruct]) {
         commenter = [[VVStructCommenter alloc] initWithIndentString:baseIndent codeString:trimCode];
-    } else if ([trimCode isUnion]) {
+    } else if ([trimCode vv_isUnion]) {
         commenter = [[VVStructCommenter alloc] initWithIndentString:baseIndent codeString:trimCode];
-    } else if ([trimCode isEnum]) {
+    } else if ([trimCode vv_isEnum]) {
         commenter = [[VVEnumCommenter alloc] initWithIndentString:baseIndent codeString:trimCode];
     } else {
         commenter = [[VVVariableCommenter alloc] initWithIndentString:baseIndent codeString:trimCode];
