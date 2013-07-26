@@ -11,6 +11,16 @@
 #import "NSString+VVSyntax.h"
 #import "VVDocumenter.h"
 #import "XcodePrivate.h"
+#import "VVKeyboardEventSender.h"
+
+@interface VVDocumenterManager()
+@property (nonatomic, retain) VVTextResult *currentLineResult;
+@property (nonatomic, copy) NSString *originPBString;
+@property (nonatomic, retain) VVDocumenter *doc;
+@property (nonatomic, retain) NSTextView *textView;
+
+@property (nonatomic, retain) id eventMonitor;
+@end
 
 @implementation VVDocumenterManager
 +(void)pluginDidLoad:(NSBundle *)plugin {
@@ -48,16 +58,16 @@
 - (void) textStorageDidChange:(NSNotification *)noti {
 
     if ([[noti object] isKindOfClass:[NSTextView class]]) {
-        NSTextView *textView = (NSTextView *)[noti object];
-        VVTextResult *currentLineResult = [textView textResultOfCurrentLine];
-        if (currentLineResult) {
-            if ([currentLineResult.string vv_matchesPatternRegexPattern:@"^\\s*///"]) {
+        self.textView = (NSTextView *)[noti object];
+        self.currentLineResult = [self.textView textResultOfCurrentLine];
+        if (self.currentLineResult) {
+            if ([self.currentLineResult.string vv_matchesPatternRegexPattern:@"^\\s*///"]) {
                 //Get a @"///". Do work!
                 
                 //Decide which is closer to the cursor. A semicolon or a half brace.
                 //We just want to document the next valid line.
-                VVTextResult *resultUntilSemiColon = [textView textResultUntilNextString:@";"];
-                VVTextResult *resultUntilBrace = [textView textResultUntilNextString:@"{"];
+                VVTextResult *resultUntilSemiColon = [self.textView textResultUntilNextString:@";"];
+                VVTextResult *resultUntilBrace = [self.textView textResultUntilNextString:@"{"];
 
                 VVTextResult *resultToDocument = nil;
                 
@@ -69,30 +79,47 @@
                     resultToDocument = resultUntilSemiColon;
                 }
                 
-                VVDocumenter *doc = [[VVDocumenter alloc] initWithCode:resultToDocument.string];
+                self.doc = [[VVDocumenter alloc] initWithCode:resultToDocument.string];
 
-                DVTSourceTextStorage *sts = (DVTSourceTextStorage *)textView.textStorage;
-                [sts replaceCharactersInRange:currentLineResult.range withString:[doc document] withUndoManager:[textView undoManager]];
-                
-                //Set cursor before the inserted documentation. So we can use tab to begin edit.
-                int baseIndentationLength = (int)[doc baseIndentation].length;
-                [textView setSelectedRange:NSMakeRange(currentLineResult.range.location + baseIndentationLength, 0)];
-                
-                //Send a 'tab' after insert the doc. For our lazy programmers. :)
-                [self sendTabEvent];
+                NSPasteboard *pasteBoard = [NSPasteboard generalPasteboard];
+                self.originPBString = [pasteBoard stringForType:NSPasteboardTypeString];
+
+                [pasteBoard declareTypes:[NSArray arrayWithObject:NSStringPboardType] owner:nil];
+                [pasteBoard setString:[self.doc document] forType:NSStringPboardType];
+
+                VVKeyboardEventSender *kes = [[VVKeyboardEventSender alloc] init];
+                [kes beginKeyBoradEvents];
+                [kes sendKeyCode:kVK_LeftArrow withModifierCommand:YES alt:NO shift:YES control:NO];
+                [kes sendKeyCode:kVK_Delete];
+                [kes sendKeyCode:kVK_ANSI_V withModifierCommand:YES alt:NO shift:NO control:NO];
+                [kes sendKeyCode:kVK_F20];
+
+                self.eventMonitor = [NSEvent addLocalMonitorForEventsMatchingMask:NSKeyDownMask handler:^NSEvent *(NSEvent *incomingEvent) {
+                    NSEvent *result = incomingEvent;
+                    if ([incomingEvent type] == NSKeyDown && [incomingEvent keyCode] == kVK_F20) {
+                        
+                        [NSEvent removeMonitor:self.eventMonitor];
+                        self.eventMonitor = nil;
+                        
+                        [pasteBoard declareTypes:[NSArray arrayWithObject:NSStringPboardType] owner:nil];
+                        [pasteBoard setString:self.originPBString forType:NSStringPboardType];
+                        
+                        //Set cursor before the inserted documentation. So we can use tab to begin edit.
+                        int baseIndentationLength = (int)[self.doc baseIndentation].length;
+                        [self.textView setSelectedRange:NSMakeRange(self.currentLineResult.range.location + baseIndentationLength, 0)];
+                        
+                        //Send a 'tab' after insert the doc. For our lazy programmers. :)
+                        [kes sendKeyCode:kVK_Tab];
+                        [kes endKeyBoradEvents];
+                    
+                        return result;
+                    } else {
+                        return result;
+                    }
+                }];
             }
         }
     }
-}
-
--(void) sendTabEvent
-{
-    CGEventSourceRef src = CGEventSourceCreate(kCGEventSourceStateHIDSystemState);
-    //kVK_Tab = 0x30, See http://forums.macrumors.com/archive/index.php/t-1216916.html
-    CGEventRef tab = CGEventCreateKeyboardEvent(src, 0x30, true);
-    CGEventTapLocation loc = kCGHIDEventTap;
-    CGEventPost(loc, tab);
-    CFRelease(tab);
 }
 
 @end

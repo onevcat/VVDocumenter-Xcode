@@ -34,6 +34,7 @@
 		D1C462F517999CEC00EB7B23 /* NSString+VVSyntax.m in Sources */ = {isa = PBXBuildFile; fileRef = D1C462F417999CEC00EB7B23 /* NSString+VVSyntax.m */; };
 		D1C462F617999CEC00EB7B23 /* NSString+VVSyntax.m in Sources */ = {isa = PBXBuildFile; fileRef = D1C462F417999CEC00EB7B23 /* NSString+VVSyntax.m */; };
 		D1C462F717999D0600EB7B23 /* NSString+PDRegex.m in Sources */ = {isa = PBXBuildFile; fileRef = D114BEDE179644D00043FA65 /* NSString+PDRegex.m */; };
+		D1D66CA817A2AEF000E62F99 /* VVKeyboardEventSender.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D66CA717A2AEF000E62F99 /* VVKeyboardEventSender.m */; };
 		D1EBD4AA179AE763003A081D /* DVTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1EBD4A9179AE763003A081D /* DVTKit.framework */; };
 /* End PBXBuildFile section */
 
@@ -89,6 +90,8 @@
 		D1C462F017999CA200EB7B23 /* SyntaxTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyntaxTests.m; sourceTree = "<group>"; };
 		D1C462F317999CEC00EB7B23 /* NSString+VVSyntax.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+VVSyntax.h"; sourceTree = "<group>"; };
 		D1C462F417999CEC00EB7B23 /* NSString+VVSyntax.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+VVSyntax.m"; sourceTree = "<group>"; };
+		D1D66CA617A2AEF000E62F99 /* VVKeyboardEventSender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVKeyboardEventSender.h; sourceTree = "<group>"; };
+		D1D66CA717A2AEF000E62F99 /* VVKeyboardEventSender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVKeyboardEventSender.m; sourceTree = "<group>"; };
 		D1EBD4A9179AE763003A081D /* DVTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DVTKit.framework; path = "../../../../../Applications/Xcode5-DP3.app/Contents/SharedFrameworks/DVTKit.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -185,6 +188,7 @@
 		D14380FC179551B900C829CE /* VVDocumenter-Xcode */ = {
 			isa = PBXGroup;
 			children = (
+				D1D66CA517A2AED700E62F99 /* KeyboardHelper */,
 				D16AFCD11796E068006719AA /* Commenter */,
 				D114BEDB179644D00043FA65 /* OCCategory */,
 				D14380FD179551B900C829CE /* Supporting Files */,
@@ -282,6 +286,15 @@
 				D1C462F417999CEC00EB7B23 /* NSString+VVSyntax.m */,
 			);
 			path = "NSString+VVSyntax";
+			sourceTree = "<group>";
+		};
+		D1D66CA517A2AED700E62F99 /* KeyboardHelper */ = {
+			isa = PBXGroup;
+			children = (
+				D1D66CA617A2AEF000E62F99 /* VVKeyboardEventSender.h */,
+				D1D66CA717A2AEF000E62F99 /* VVKeyboardEventSender.m */,
+			);
+			path = KeyboardHelper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -403,6 +416,7 @@
 				D16AFCE91796E0D6006719AA /* VVVariableCommenter.m in Sources */,
 				D1C462F517999CEC00EB7B23 /* NSString+VVSyntax.m in Sources */,
 				D11C542D17999D9000D3DE38 /* VVArgument.m in Sources */,
+				D1D66CA817A2AEF000E62F99 /* VVKeyboardEventSender.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
