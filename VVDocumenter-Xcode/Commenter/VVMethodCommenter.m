@@ -16,7 +16,7 @@
     NSArray * matchedTypes = [self.code vv_stringsByExtractingGroupsUsingRegexPattern:@"^\\s*[+-]\\s*\\(([^\\(\\)]*)\\)"];
 
     if (matchedTypes.count == 1) {
-        NSString *typeString = [matchedTypes[0] stringByReplacingRegexPattern:@"[\\s*;.*]" withString:@""];
+        NSString *typeString = [matchedTypes[0] vv_stringByReplacingRegexPattern:@"[\\s*;.*]" withString:@""];
         VVLog(@"type: %@",typeString);
         if (![typeString isEqualToString:@"void"] && ![typeString isEqualToString:@"IBAction"]) {
             self.hasReturn = YES;
@@ -30,8 +30,8 @@
     VVLog(@"matchedParams: %@",matchedParams);
     for (int i = 0; i < (int)matchedParams.count - 1; i = i + 2) {
         VVArgument *arg = [[VVArgument alloc] init];
-        arg.type = [matchedParams[i] stringByReplacingRegexPattern:@"[\\s*;.*]" withString:@""];
-        arg.name = [matchedParams[i + 1] stringByReplacingRegexPattern:@"[\\s*;.*]" withString:@""];
+        arg.type = [matchedParams[i] vv_stringByReplacingRegexPattern:@"[\\s*;.*]" withString:@""];
+        arg.name = [matchedParams[i + 1] vv_stringByReplacingRegexPattern:@"[\\s*;.*]" withString:@""];
         [self.arguments addObject:arg];
     }
 }
