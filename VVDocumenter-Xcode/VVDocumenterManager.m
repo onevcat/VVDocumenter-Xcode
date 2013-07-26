@@ -77,10 +77,22 @@
                 //Set cursor before the inserted documentation. So we can use tab to begin edit.
                 int baseIndentationLength = (int)[doc baseIndentation].length;
                 [textView setSelectedRange:NSMakeRange(currentLineResult.range.location + baseIndentationLength, 0)];
+                
+                //Send a 'tab' after insert the doc. For our lazy programmers. :)
+                [self sendTabEvent];
             }
         }
     }
 }
 
+-(void) sendTabEvent
+{
+    CGEventSourceRef src = CGEventSourceCreate(kCGEventSourceStateHIDSystemState);
+    //kVK_Tab = 0x30, See http://forums.macrumors.com/archive/index.php/t-1216916.html
+    CGEventRef tab = CGEventCreateKeyboardEvent(src, 0x30, true);
+    CGEventTapLocation loc = kCGHIDEventTap;
+    CGEventPost(loc, tab);
+    CFRelease(tab);
+}
 
 @end
