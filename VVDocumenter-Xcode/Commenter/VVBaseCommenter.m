@@ -64,14 +64,14 @@
 -(void) parseArguments
 {
     [self.arguments removeAllObjects];
-    NSArray * braceGroups = [self.code stringsByExtractingGroupsUsingRegexPattern:@"\\(([^\\(\\)]*)\\)"];
+    NSArray * braceGroups = [self.code vv_stringsByExtractingGroupsUsingRegexPattern:@"\\(([^\\(\\)]*)\\)"];
     if (braceGroups.count > 0) {
         NSString *argumentGroupString = braceGroups[0];
         NSArray *argumentStrings = [argumentGroupString componentsSeparatedByString:@","];
         for (NSString *argumentString in argumentStrings) {
             VVArgument *arg = [[VVArgument alloc] init];
-            argumentString = [argumentString stringByReplacingRegexPattern:@"\\s+$" withString:@""];
-            argumentString = [argumentString stringByReplacingRegexPattern:@"\\s+" withString:@" "];
+            argumentString = [argumentString vv_stringByReplacingRegexPattern:@"\\s+$" withString:@""];
+            argumentString = [argumentString vv_stringByReplacingRegexPattern:@"\\s+" withString:@" "];
             NSMutableArray *tempArgs = [[argumentString componentsSeparatedByString:@" "] mutableCopy];
             while ([[tempArgs lastObject] isEqualToString:@" "]) {
                 [tempArgs removeLastObject];

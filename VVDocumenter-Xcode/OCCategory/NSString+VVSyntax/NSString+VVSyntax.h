@@ -9,14 +9,14 @@
 #import <Foundation/Foundation.h>
 
 @interface NSString (VVSyntax)
--(NSString *) stringByConvertingToUniform;
+-(NSString *) vv_stringByConvertingToUniform;
 
--(BOOL) isObjCMethod;
--(BOOL) isProperty;
--(BOOL) isCFunction;
--(BOOL) isMacro;
--(BOOL) isEnum;
--(BOOL) isStruct;
--(BOOL) isUnion;
--(BOOL) isComplieKeyword;
+-(BOOL) vv_isObjCMethod;
+-(BOOL) vv_isProperty;
+-(BOOL) vv_isCFunction;
+-(BOOL) vv_isMacro;
+-(BOOL) vv_isEnum;
+-(BOOL) vv_isStruct;
+-(BOOL) vv_isUnion;
+-(BOOL) vv_isComplieKeyword;
 @end

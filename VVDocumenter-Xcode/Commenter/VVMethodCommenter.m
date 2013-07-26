@@ -13,7 +13,7 @@
 
 -(void) captureReturnType
 {
-    NSArray * matchedTypes = [self.code stringsByExtractingGroupsUsingRegexPattern:@"^\\s*[+-]\\s*\\(([^\\(\\)]*)\\)"];
+    NSArray * matchedTypes = [self.code vv_stringsByExtractingGroupsUsingRegexPattern:@"^\\s*[+-]\\s*\\(([^\\(\\)]*)\\)"];
 
     if (matchedTypes.count == 1) {
         NSString *typeString = [matchedTypes[0] stringByReplacingRegexPattern:@"[\\s*;.*]" withString:@""];
@@ -26,7 +26,7 @@
 
 -(void) captureParameters
 {
-    NSArray * matchedParams = [self.code stringsByExtractingGroupsUsingRegexPattern:@"\\:\\(([^\\(]+)\\)(\\w+)"];
+    NSArray * matchedParams = [self.code vv_stringsByExtractingGroupsUsingRegexPattern:@"\\:\\(([^\\(]+)\\)(\\w+)"];
     VVLog(@"matchedParams: %@",matchedParams);
     for (int i = 0; i < (int)matchedParams.count - 1; i = i + 2) {
         VVArgument *arg = [[VVArgument alloc] init];

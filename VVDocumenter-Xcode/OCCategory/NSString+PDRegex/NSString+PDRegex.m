@@ -10,11 +10,11 @@
 
 @implementation NSString (PDRegex)
 
--(NSString *) stringByReplacingRegexPattern:(NSString *)regex withString:(NSString *) replacement caseInsensitive:(BOOL)ignoreCase {
-    return [self stringByReplacingRegexPattern:regex withString:replacement caseInsensitive:ignoreCase treatAsOneLine:NO];
+-(NSString *) vv_stringByReplacingRegexPattern:(NSString *)regex withString:(NSString *) replacement caseInsensitive:(BOOL)ignoreCase {
+    return [self vv_stringByReplacingRegexPattern:regex withString:replacement caseInsensitive:ignoreCase treatAsOneLine:NO];
 }
 
--(NSString *) stringByReplacingRegexPattern:(NSString *)regex withString:(NSString *) replacement caseInsensitive:(BOOL) ignoreCase treatAsOneLine:(BOOL) assumeMultiLine {
+-(NSString *) vv_stringByReplacingRegexPattern:(NSString *)regex withString:(NSString *) replacement caseInsensitive:(BOOL) ignoreCase treatAsOneLine:(BOOL) assumeMultiLine {
     
     NSUInteger options=0;
     if (ignoreCase) {
@@ -35,11 +35,11 @@
     return retVal;
 }
 
--(NSString *) stringByReplacingRegexPattern:(NSString *)regex withString:(NSString *) replacement {
-    return [self stringByReplacingRegexPattern:regex withString:replacement caseInsensitive:NO treatAsOneLine:NO];
+-(NSString *) vv_stringByReplacingRegexPattern:(NSString *)regex withString:(NSString *) replacement {
+    return [self vv_stringByReplacingRegexPattern:regex withString:replacement caseInsensitive:NO treatAsOneLine:NO];
 }
 
--(NSArray *) stringsByExtractingGroupsUsingRegexPattern:(NSString *)regex caseInsensitive:(BOOL) ignoreCase treatAsOneLine:(BOOL) assumeMultiLine {
+-(NSArray *) vv_stringsByExtractingGroupsUsingRegexPattern:(NSString *)regex caseInsensitive:(BOOL) ignoreCase treatAsOneLine:(BOOL) assumeMultiLine {
     NSUInteger options=0;
     if (ignoreCase) {
         options = options | NSRegularExpressionCaseInsensitive;
@@ -66,11 +66,11 @@
     return retVal;
 }
 
--(NSArray *) stringsByExtractingGroupsUsingRegexPattern:(NSString *)regex {
-    return [self stringsByExtractingGroupsUsingRegexPattern:regex caseInsensitive:NO treatAsOneLine:NO];
+-(NSArray *) vv_stringsByExtractingGroupsUsingRegexPattern:(NSString *)regex {
+    return [self vv_stringsByExtractingGroupsUsingRegexPattern:regex caseInsensitive:NO treatAsOneLine:NO];
 }
 
--(BOOL) matchesPatternRegexPattern:(NSString *)regex caseInsensitive:(BOOL) ignoreCase treatAsOneLine:(BOOL) assumeMultiLine {
+-(BOOL) vv_matchesPatternRegexPattern:(NSString *)regex caseInsensitive:(BOOL) ignoreCase treatAsOneLine:(BOOL) assumeMultiLine {
     NSUInteger options=0;
     if (ignoreCase) {
         options = options | NSRegularExpressionCaseInsensitive;
@@ -89,8 +89,8 @@
     return ([pattern numberOfMatchesInString:self options:0 range:NSMakeRange(0, [self length])] > 0);
 }
 
--(BOOL) matchesPatternRegexPattern:(NSString *)regex {
-    return [self matchesPatternRegexPattern:regex caseInsensitive:NO treatAsOneLine:NO];
+-(BOOL) vv_matchesPatternRegexPattern:(NSString *)regex {
+    return [self vv_matchesPatternRegexPattern:regex caseInsensitive:NO treatAsOneLine:NO];
 }
 
 @end
