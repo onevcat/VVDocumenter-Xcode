@@ -26,7 +26,7 @@
 
 -(void) captureParameters
 {
-    NSArray * matchedParams = [self.code vv_stringsByExtractingGroupsUsingRegexPattern:@"\\:\\(([^\\(]+)\\)(\\w+)"];
+    NSArray * matchedParams = [self.code vv_stringsByExtractingGroupsUsingRegexPattern:@"\\:\\(([^:]+)\\)(\\w+)"];
     VVLog(@"matchedParams: %@",matchedParams);
     for (int i = 0; i < (int)matchedParams.count - 1; i = i + 2) {
         VVArgument *arg = [[VVArgument alloc] init];
