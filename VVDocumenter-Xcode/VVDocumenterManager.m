@@ -96,10 +96,8 @@
                 //Begin to simulate keyborad pressing
                 VVKeyboardEventSender *kes = [[VVKeyboardEventSender alloc] init];
                 [kes beginKeyBoradEvents];
-                //Shift+Cmd+←, select current line.
-                [kes sendKeyCode:kVK_LeftArrow withModifierCommand:YES alt:NO shift:YES control:NO];
-                //Delete the selected line
-                [kes sendKeyCode:kVK_Delete];
+                //Cmd+delete Delete current line
+                [kes sendKeyCode:kVK_Delete withModifierCommand:YES alt:NO shift:NO control:NO];
                 //Cmd+V, paste
                 [kes sendKeyCode:kVK_ANSI_V withModifierCommand:YES alt:NO shift:NO control:NO];
                 //The key down is just a defined finish signal by me. When we receive this key, we know operation above is finished.
