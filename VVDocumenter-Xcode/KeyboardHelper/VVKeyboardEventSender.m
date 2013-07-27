@@ -45,7 +45,7 @@
     if (control) {
         modifier = modifier ^ kCGEventFlagMaskControl;
     }
-    NSLog(@"%ld",(long)modifier);
+
     [self sendKeyCode:keyCode withModifier:modifier];
 }
 
@@ -69,12 +69,5 @@
     NSAssert(_source != NULL, @"You should call -beginKeyBoradEvents before end current keyborad event");
     CFRelease(_source);
     _source = nil;
-}
-
-- (oneway void) release
-{
-    NSLog(@"Miaommiao");
-    [super release];
-
 }
 @end

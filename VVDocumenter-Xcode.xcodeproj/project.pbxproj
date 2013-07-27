@@ -35,7 +35,6 @@
 		D1C462F617999CEC00EB7B23 /* NSString+VVSyntax.m in Sources */ = {isa = PBXBuildFile; fileRef = D1C462F417999CEC00EB7B23 /* NSString+VVSyntax.m */; };
 		D1C462F717999D0600EB7B23 /* NSString+PDRegex.m in Sources */ = {isa = PBXBuildFile; fileRef = D114BEDE179644D00043FA65 /* NSString+PDRegex.m */; };
 		D1D66CA817A2AEF000E62F99 /* VVKeyboardEventSender.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D66CA717A2AEF000E62F99 /* VVKeyboardEventSender.m */; };
-		D1EBD4AA179AE763003A081D /* DVTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1EBD4A9179AE763003A081D /* DVTKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,7 +73,6 @@
 		D16AFCE81796E0D6006719AA /* VVVariableCommenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVVariableCommenter.m; sourceTree = "<group>"; };
 		D1986F72179A12BD00EA6643 /* CommenterTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommenterTests.h; sourceTree = "<group>"; };
 		D1986F73179A12BD00EA6643 /* CommenterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommenterTests.m; sourceTree = "<group>"; };
-		D1A23F70179AD63E00C3BC43 /* XcodePrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XcodePrivate.h; sourceTree = "<group>"; };
 		D1AC3B8D1796DB070063A484 /* VVDocumenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVDocumenter.h; sourceTree = "<group>"; };
 		D1AC3B8E1796DB070063A484 /* VVDocumenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVDocumenter.m; sourceTree = "<group>"; };
 		D1C462DA17999C2000EB7B23 /* VVDocumenterTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VVDocumenterTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -100,7 +98,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D1EBD4AA179AE763003A081D /* DVTKit.framework in Frameworks */,
 				D14380F7179551B900C829CE /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -196,7 +193,6 @@
 				D16917DE17955C8D0036C06B /* VVDocumenterManager.m */,
 				D1AC3B8D1796DB070063A484 /* VVDocumenter.h */,
 				D1AC3B8E1796DB070063A484 /* VVDocumenter.m */,
-				D1A23F70179AD63E00C3BC43 /* XcodePrivate.h */,
 			);
 			path = "VVDocumenter-Xcode";
 			sourceTree = "<group>";
@@ -519,10 +515,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEPLOYMENT_LOCATION = YES;
 				DSTROOT = "${HOME}";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(DEVELOPER_DIR)/../SharedFrameworks",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_ENABLE_OBJC_GC = supported;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "VVDocumenter-Xcode/VVDocumenter-Xcode-Prefix.pch";
@@ -540,10 +533,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEPLOYMENT_LOCATION = YES;
 				DSTROOT = "${HOME}";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(DEVELOPER_DIR)/../SharedFrameworks",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_ENABLE_OBJC_GC = supported;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "VVDocumenter-Xcode/VVDocumenter-Xcode-Prefix.pch";

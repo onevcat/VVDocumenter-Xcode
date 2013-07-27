@@ -10,7 +10,6 @@
 #import "NSTextView+VVTextGetter.h"
 #import "NSString+VVSyntax.h"
 #import "VVDocumenter.h"
-#import "XcodePrivate.h"
 #import "VVKeyboardEventSender.h"
 
 @interface VVDocumenterManager()
