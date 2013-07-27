@@ -21,7 +21,14 @@ The default deployment target is 10.8. If you want to use it in a earlier OS ver
 
 ## Limitations
 
-There are a set of code type I hope to support, but now I just finished some of them.
+The plugin is using simulation of keyboard event to insert the doc comments for you. So it is depending the keyboard shortcut of Xcode. These two kinds of operation are being used:
+
+* Delete to Beginning of the Line (⌘⌫)
+* Paste (⌘V)
+
+If you have modified these two shortcuts in your Xcode, the newset version of the plugin would not work correctly. Instead, you can use a earlier version such as [this one(commit 03c4169ff7)](https://github.com/onevcat/VVDocumenter-Xcode/tree/03c4169ff79b618b9fd3db93dd96652a522ad3e0). Be causion you may suffer a [undo and redo issue ](https://github.com/onevcat/VVDocumenter-Xcode/issues/3).
+
+And there are a set of code type I hope to support, but now I just finished some of them.
 
 * Objc Method (Done)
 * C Function (Done)
@@ -33,12 +40,6 @@ There are a set of code type I hope to support, but now I just finished some of 
 * Union (To do)
 
 Now the docs for to-do types will be generated only with a basic description (which is the same as Property and Variable).
-
-## Known bugs
-
-There is a bug when you want to do `redo` operation. See more here:
-
-[https://github.com/onevcat/VVDocumenter-Xcode/issues/3](https://github.com/onevcat/VVDocumenter-Xcode/issues/3)
 
 ## License
 
