@@ -14,12 +14,8 @@
 #import "VVKeyboardEventSender.h"
 
 @interface VVDocumenterManager()
-@property (nonatomic, retain) VVTextResult *currentLineResult;
-@property (nonatomic, copy) NSString *originPBString;
-@property (nonatomic, retain) VVDocumenter *doc;
-@property (nonatomic, retain) NSTextView *textView;
-
 @property (nonatomic, retain) id eventMonitor;
+@property (nonatomic, assign) BOOL prefixTyped;
 @end
 
 @implementation VVDocumenterManager
@@ -58,16 +54,22 @@
 - (void) textStorageDidChange:(NSNotification *)noti {
 
     if ([[noti object] isKindOfClass:[NSTextView class]]) {
-        self.textView = (NSTextView *)[noti object];
-        self.currentLineResult = [self.textView textResultOfCurrentLine];
-        if (self.currentLineResult) {
-            if ([self.currentLineResult.string vv_matchesPatternRegexPattern:@"^\\s*///"]) {
-                //Get a @"///". Do work!
+        NSTextView *textView = (NSTextView *)[noti object];
+        VVTextResult *currentLineResult = [textView textResultOfCurrentLine];
+        if (currentLineResult) {
+
+            //Check if there is a "//" already typed in. We do this to solve the undo issue
+            //Otherwise when you press Cmd+Z, "///" will be recognized and trigger the doc inserting, so you can not perform an undo.
+            self.prefixTyped = [currentLineResult.string vv_matchesPatternRegexPattern:@"^\\s*//$"] | self.prefixTyped;
+            
+            if ([currentLineResult.string vv_matchesPatternRegexPattern:@"^\\s*///$"] && self.prefixTyped) {
+                self.prefixTyped = NO;
+                //Get a @"///" typed in by user. Do work!
                 
                 //Decide which is closer to the cursor. A semicolon or a half brace.
                 //We just want to document the next valid line.
-                VVTextResult *resultUntilSemiColon = [self.textView textResultUntilNextString:@";"];
-                VVTextResult *resultUntilBrace = [self.textView textResultUntilNextString:@"{"];
+                VVTextResult *resultUntilSemiColon = [textView textResultUntilNextString:@";"];
+                VVTextResult *resultUntilBrace = [textView textResultUntilNextString:@"{"];
 
                 VVTextResult *resultToDocument = nil;
                 
@@ -79,42 +81,52 @@
                     resultToDocument = resultUntilSemiColon;
                 }
                 
-                self.doc = [[VVDocumenter alloc] initWithCode:resultToDocument.string];
+                VVDocumenter *doc = [[VVDocumenter alloc] initWithCode:resultToDocument.string];
 
+                //Now we are using a simulation of keyboard event to insert the docs, instead of using the IDE's private method.
+                //See more at https://github.com/onevcat/VVDocumenter-Xcode/issues/3
+
+                //Save current content in paste board
                 NSPasteboard *pasteBoard = [NSPasteboard generalPasteboard];
-                self.originPBString = [pasteBoard stringForType:NSPasteboardTypeString];
+                NSString *originPBString = [pasteBoard stringForType:NSPasteboardTypeString];
 
+                //Set the doc comments in it
                 [pasteBoard declareTypes:[NSArray arrayWithObject:NSStringPboardType] owner:nil];
-                [pasteBoard setString:[self.doc document] forType:NSStringPboardType];
+                [pasteBoard setString:[doc document] forType:NSStringPboardType];
 
+                //Begin to simulate keyborad pressing
                 VVKeyboardEventSender *kes = [[VVKeyboardEventSender alloc] init];
                 [kes beginKeyBoradEvents];
+                //Shift+Cmd+←, select current line.
                 [kes sendKeyCode:kVK_LeftArrow withModifierCommand:YES alt:NO shift:YES control:NO];
+                //Delete the selected line
                 [kes sendKeyCode:kVK_Delete];
+                //Cmd+V, paste
                 [kes sendKeyCode:kVK_ANSI_V withModifierCommand:YES alt:NO shift:NO control:NO];
+                //The key down is just a defined finish signal by me. When we receive this key, we know operation above is finished.
                 [kes sendKeyCode:kVK_F20];
 
                 self.eventMonitor = [NSEvent addLocalMonitorForEventsMatchingMask:NSKeyDownMask handler:^NSEvent *(NSEvent *incomingEvent) {
-                    NSEvent *result = incomingEvent;
                     if ([incomingEvent type] == NSKeyDown && [incomingEvent keyCode] == kVK_F20) {
-                        
+                        //Finish signal arrived, no need to observe the event
                         [NSEvent removeMonitor:self.eventMonitor];
                         self.eventMonitor = nil;
                         
-                        [pasteBoard declareTypes:[NSArray arrayWithObject:NSStringPboardType] owner:nil];
-                        [pasteBoard setString:self.originPBString forType:NSStringPboardType];
+                        //Restore previois patse board content
+                        [pasteBoard setString:originPBString forType:NSStringPboardType];
                         
                         //Set cursor before the inserted documentation. So we can use tab to begin edit.
-                        int baseIndentationLength = (int)[self.doc baseIndentation].length;
-                        [self.textView setSelectedRange:NSMakeRange(self.currentLineResult.range.location + baseIndentationLength, 0)];
+                        int baseIndentationLength = (int)[doc baseIndentation].length;
+                        [textView setSelectedRange:NSMakeRange(currentLineResult.range.location + baseIndentationLength, 0)];
                         
                         //Send a 'tab' after insert the doc. For our lazy programmers. :)
                         [kes sendKeyCode:kVK_Tab];
                         [kes endKeyBoradEvents];
-                    
-                        return result;
+                        
+                        //Invalidate the finish signal, in case you set it to do some other thing.
+                        return nil;
                     } else {
-                        return result;
+                        return incomingEvent;
                     }
                 }];
             }
