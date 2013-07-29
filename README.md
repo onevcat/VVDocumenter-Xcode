@@ -26,7 +26,7 @@ The plugin is using simulation of keyboard event to insert the doc comments for 
 * Delete to Beginning of the Line (⌘⌫)
 * Paste (⌘V)
 
-If you have modified these two shortcuts in your Xcode, the newset version of the plugin would not work correctly. Instead, you can use a earlier version such as [this one(commit 03c4169ff7)](https://github.com/onevcat/VVDocumenter-Xcode/tree/03c4169ff79b618b9fd3db93dd96652a522ad3e0). Be causion you may suffer a [undo and redo issue ](https://github.com/onevcat/VVDocumenter-Xcode/issues/3).
+If you have modified these two shortcuts in your Xcode, the newset version of the plugin would not work correctly. Instead, you can use a earlier version such as [this one(commit 03c4169ff7)](https://github.com/onevcat/VVDocumenter-Xcode/tree/03c4169ff79b618b9fd3db93dd96652a522ad3e0). Be causion you may suffer an [undo and redo issue ](https://github.com/onevcat/VVDocumenter-Xcode/issues/3).
 
 And there are a set of code type I hope to support, but now I just finished some of them.
 
