@@ -1,4 +1,4 @@
-# VVDocumenter-Xcode
+# VVDocumenter-Xcode [![Build Status](https://api.travis-ci.org/onevcat/VVDocumenter-Xcode.png)](https://travis-ci.org/onevcat/VVDocumenter-Xcode)
 ---
 
 ## What is this?
