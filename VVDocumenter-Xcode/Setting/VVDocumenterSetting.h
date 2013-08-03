@@ -22,4 +22,6 @@ extern NSString *const VVDDefaultTriggerString;
 -(NSString *) triggerString;
 -(void) setTriggerString:(NSString *)triggerString;
 
+-(NSString *) spacesString;
+
 @end

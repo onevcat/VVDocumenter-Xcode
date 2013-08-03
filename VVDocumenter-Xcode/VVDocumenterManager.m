@@ -12,6 +12,7 @@
 #import "VVDocumenter.h"
 #import "VVKeyboardEventSender.h"
 #import "VVDSettingPanelWindowController.h"
+#import "VVDocumenterSetting.h"
 
 @interface VVDocumenterManager()
 @property (nonatomic, retain) id eventMonitor;
@@ -79,9 +80,16 @@
 
             //Check if there is a "//" already typed in. We do this to solve the undo issue
             //Otherwise when you press Cmd+Z, "///" will be recognized and trigger the doc inserting, so you can not perform an undo.
-            self.prefixTyped = [currentLineResult.string vv_matchesPatternRegexPattern:@"^\\s*//$"] | self.prefixTyped;
+            NSString *triggerString = [[VVDocumenterSetting defaultSetting] triggerString];
             
-            if ([currentLineResult.string vv_matchesPatternRegexPattern:@"^\\s*///$"] && self.prefixTyped) {
+            if (triggerString.length > 1) {
+                NSString *preTypeString = [triggerString substringToIndex:triggerString.length - 2];
+                self.prefixTyped = [currentLineResult.string vv_matchesPatternRegexPattern:[NSString stringWithFormat:@"^\\s*%@$",[NSRegularExpression escapedPatternForString:preTypeString]]] | self.prefixTyped;
+            } else {
+                self.prefixTyped = YES;
+            }
+            
+            if ([currentLineResult.string vv_matchesPatternRegexPattern:[NSString stringWithFormat:@"^\\s*%@$",[NSRegularExpression escapedPatternForString:triggerString]]] && self.prefixTyped) {
                 self.prefixTyped = NO;
                 //Get a @"///" typed in by user. Do work!
                 

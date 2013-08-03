@@ -54,7 +54,6 @@ NSString *const kVVDTriggerString = @"com.onevcat.VVDocumenter.triggerString";
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
-
 -(NSString *) triggerString
 {
     NSString *s = [[NSUserDefaults standardUserDefaults] stringForKey:kVVDTriggerString];
@@ -73,6 +72,15 @@ NSString *const kVVDTriggerString = @"com.onevcat.VVDocumenter.triggerString";
     }
 
     [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+-(NSString *) spacesString
+{
+    if ([self useSpaces]) {
+        return [@"" stringByPaddingToLength:[self spaceCount] withString:@" " startingAtIndex:0];
+    } else {
+        return @"\t";
+    }
 }
 
 @end
