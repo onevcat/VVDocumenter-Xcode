@@ -11,6 +11,7 @@
 #import "NSString+VVSyntax.h"
 #import "VVDocumenter.h"
 #import "VVKeyboardEventSender.h"
+#import "VVDSettingPanelWindowController.h"
 
 @interface VVDocumenterManager()
 @property (nonatomic, retain) id eventMonitor;
@@ -47,7 +48,26 @@
                                              selector:@selector(textStorageDidChange:)
                                                  name:NSTextDidChangeNotification
                                                object:nil];
+    [self addSettingMenu];
+}
 
+-(void) addSettingMenu
+{
+    NSMenuItem *editMenuItem = [[NSApp mainMenu] itemWithTitle:@"Window"];
+    if (editMenuItem) {
+        [[editMenuItem submenu] addItem:[NSMenuItem separatorItem]];
+        
+        NSMenuItem *newMenuItem = [[NSMenuItem alloc] initWithTitle:@"VVDocumenter" action:@selector(showSettingPanle:) keyEquivalent:@""];
+        
+        [newMenuItem setTarget:self];
+        [[editMenuItem submenu] addItem:newMenuItem];
+        [newMenuItem release];
+    }
+}
+
+-(void) showSettingPanle:(NSNotification *)noti {
+    VVDSettingPanelWindowController *panelController = [[VVDSettingPanelWindowController alloc] initWithWindowNibName:@"VVDSettingPanelWindowController"];
+    [panelController showWindow:panelController];
 }
 
 - (void) textStorageDidChange:(NSNotification *)noti {
