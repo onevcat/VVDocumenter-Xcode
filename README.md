@@ -13,6 +13,8 @@ Here is an image which can show what it exactly does.
 
 Build the `VVDocumenter-Xcode` target in the Xcode project and the plug-in will automatically be installed in `~/Library/Application Support/Developer/Shared/Xcode/Plug-ins`. Relaunch Xcode and type in `///` above any code you want to write a document to.
 
+If you want to use other text beside of `///` to trigger the document insertion, you can find a setting panel by clicking `VVDocument` in the Window menu of Xcode. You can also set using spaces instead of tab in the panel.
+
 ## Xcode version?
 
 This plug-in is developed and tested in Mac OSX 10.8.5 Xcode 4.6.3. It should work in all versions of Xcode 4. If you want to use it in Xcode 5 (DP3 or above), you have to make a liittle change in the plist. This is all what I can say now under the NDA.
