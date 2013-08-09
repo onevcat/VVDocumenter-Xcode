@@ -40,8 +40,12 @@
     // start of with an empty line
     NSMutableString *result = [NSMutableString stringWithFormat:@"%@", self.emptyLine];
     
+    int longestNameLength = [[self.arguments valueForKeyPath:@"@max.name.length"] intValue];
+    
     for (VVArgument *arg in self.arguments) {
-        [result appendFormat:@"%@@param %@ <#%@ description#>\n", self.prefixString, arg.name, arg.name];
+        NSString *paddedName = [arg.name stringByPaddingToLength:longestNameLength withString:@" " startingAtIndex:0];
+        
+        [result appendFormat:@"%@@param %@ <#%@ description#>\n", self.prefixString, paddedName, arg.name];
     }
     return result;
 }
