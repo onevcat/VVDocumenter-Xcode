@@ -76,7 +76,7 @@
 -(NSString *) prefixString
 {
     if ([[VVDocumenterSetting defaultSetting] prefixWithStar]) {
-        return [NSString stringWithFormat:@"%@ * ", self.indent];
+        return [NSString stringWithFormat:@"%@ *%@", self.indent, self.space];
     }
     else {
         return [NSString stringWithFormat:@"%@ ", self.indent];
