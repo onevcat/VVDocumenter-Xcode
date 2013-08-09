@@ -22,6 +22,9 @@ extern NSString *const VVDDefaultTriggerString;
 -(NSString *) triggerString;
 -(void) setTriggerString:(NSString *)triggerString;
 
+-(BOOL) prefixWithStar;
+-(void) setPrefixWithStar:(BOOL)prefix;
+
 -(NSString *) spacesString;
 
 @end

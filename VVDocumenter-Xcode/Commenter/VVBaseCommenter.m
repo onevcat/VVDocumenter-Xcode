@@ -29,28 +29,33 @@
 
 -(NSString *) startComment
 {
-    return [NSString stringWithFormat:@"%@/**\n%@ *%@<#%@#>\n",self.indent,self.indent,self.space,@"Description"];
+    return [NSString stringWithFormat:@"%@/**\n%@<#Description#>\n", self.indent, self.prefixString];
 }
 
 -(NSString *) argumentsComment
 {
-    NSMutableString *result = [NSMutableString stringWithString:@""];
+    if (self.arguments.count == 0)
+        return @"";
+    
+    // start of with an empty line
+    NSMutableString *result = [NSMutableString stringWithFormat:@"%@", self.emptyLine];
+    
+    int longestNameLength = [[self.arguments valueForKeyPath:@"@max.name.length"] intValue];
+    
     for (VVArgument *arg in self.arguments) {
-        if (result.length == 0) {
-            [result appendFormat:@"%@ *\n",self.indent];
-        }
-        [result appendFormat:@"%@ *%@@param%@%@%@<#%@ description#>\n",self.indent,self.space,self.space,arg.name,self.space,arg.name];
+        NSString *paddedName = [arg.name stringByPaddingToLength:longestNameLength withString:@" " startingAtIndex:0];
+        
+        [result appendFormat:@"%@@param %@ <#%@ description#>\n", self.prefixString, paddedName, arg.name];
     }
     return result;
 }
 
 -(NSString *) returnComment
-
 {
     if (!self.hasReturn) {
         return @"";
     } else {
-        return [NSString stringWithFormat:@"%@ *\n%@ *%@@return%@<#return value description#>\n",self.indent,self.indent,self.space,self.space];
+        return [NSString stringWithFormat:@"%@%@@return <#return value description#>\n", self.emptyLine, self.prefixString];
     }
 }
 
@@ -65,6 +70,21 @@
                                                   [self argumentsComment],
                                                   [self returnComment],
                                                   [self endComment]];
+}
+
+-(NSString *) emptyLine
+{
+    return [NSString stringWithFormat:@"%@\n", self.prefixString];
+}
+
+-(NSString *) prefixString
+{
+    if ([[VVDocumenterSetting defaultSetting] prefixWithStar]) {
+        return [NSString stringWithFormat:@"%@ *%@", self.indent, self.space];
+    }
+    else {
+        return [NSString stringWithFormat:@"%@ ", self.indent];
+    }
 }
 
 -(void) parseArguments

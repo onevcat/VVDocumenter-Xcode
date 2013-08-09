@@ -17,6 +17,8 @@
 
 @property (assign) IBOutlet NSStepper *stepperCount;
 
+@property (assign) IBOutlet NSButton *btnPrefixWithStar;
+
 @end
 
 @implementation VVDSettingPanelWindowController
@@ -38,6 +40,8 @@
     // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
     [self.tfTrigger setStringValue:[[VVDocumenterSetting defaultSetting] triggerString]];
     self.btnUseSpaces.state = (NSCellStateValue)[[VVDocumenterSetting defaultSetting] useSpaces];
+    
+    self.btnPrefixWithStar.state = (NSCellStateValue)[[VVDocumenterSetting defaultSetting] prefixWithStar];
     
     [self updateUseSpace:self.btnUseSpaces.state];
     [self syncSpaceCount];
@@ -67,6 +71,10 @@
 - (IBAction)btnUseSpacesPressed:(id)sender {
     [[VVDocumenterSetting defaultSetting] setUseSpaces:self.btnUseSpaces.state];
     [self updateUseSpace:self.btnUseSpaces.state];
+}
+
+- (IBAction)btnPrefixWithStarPressed:(id)sender {
+    [[VVDocumenterSetting defaultSetting] setPrefixWithStar:self.btnPrefixWithStar.state];
 }
 
 -(void) syncSpaceCount

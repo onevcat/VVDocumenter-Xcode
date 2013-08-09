@@ -38,6 +38,7 @@
 		D1C462F617999CEC00EB7B23 /* NSString+VVSyntax.m in Sources */ = {isa = PBXBuildFile; fileRef = D1C462F417999CEC00EB7B23 /* NSString+VVSyntax.m */; };
 		D1C462F717999D0600EB7B23 /* NSString+PDRegex.m in Sources */ = {isa = PBXBuildFile; fileRef = D114BEDE179644D00043FA65 /* NSString+PDRegex.m */; };
 		D1D66CA817A2AEF000E62F99 /* VVKeyboardEventSender.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D66CA717A2AEF000E62F99 /* VVKeyboardEventSender.m */; };
+		E19E073A17B57D2800F048C2 /* VVDocumenterSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = D124614317AC16820095F9D6 /* VVDocumenterSetting.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -453,6 +454,7 @@
 				D1C462F117999CA200EB7B23 /* SyntaxTests.m in Sources */,
 				D1C462F617999CEC00EB7B23 /* NSString+VVSyntax.m in Sources */,
 				D1986F74179A12BD00EA6643 /* CommenterTests.m in Sources */,
+				E19E073A17B57D2800F048C2 /* VVDocumenterSetting.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
