@@ -61,7 +61,7 @@
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="189307110">
-								<int key="NSCellFlags">67108864</int>
+								<int key="NSCellFlags">-2080374784</int>
 								<int key="NSCellFlags2">268435456</int>
 								<string key="NSContents">Use Spaces instead of Tabs</string>
 								<object class="NSFont" key="NSSupport" id="45273652">
@@ -313,7 +313,7 @@
 					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="972045408"/>
 				</object>
-				<string key="NSScreenRect">{{0, 0}, {1680, 1028}}</string>
+				<string key="NSScreenRect">{{0, 0}, {1440, 878}}</string>
 				<string key="NSMaxSize">{10000000000000, 10000000000000}</string>
 				<bool key="NSWindowIsRestorable">YES</bool>
 			</object>
@@ -627,30 +627,6 @@
 				<object class="IBPartialClassDescription">
 					<string key="className">VVDSettingPanelWindowController</string>
 					<string key="superclassName">NSWindowController</string>
-					<dictionary class="NSMutableDictionary" key="actions">
-						<string key="btnPrefixWithStarPressed:">id</string>
-						<string key="btnResetPressed:">id</string>
-						<string key="btnUseSpacesPressed:">id</string>
-						<string key="stepperPressed:">id</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="actionInfosByName">
-						<object class="IBActionInfo" key="btnPrefixWithStarPressed:">
-							<string key="name">btnPrefixWithStarPressed:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="btnResetPressed:">
-							<string key="name">btnResetPressed:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="btnUseSpacesPressed:">
-							<string key="name">btnUseSpacesPressed:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="stepperPressed:">
-							<string key="name">stepperPressed:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-					</dictionary>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="btnPrefixWithStar">NSButton</string>
 						<string key="btnUseSpaces">NSButton</string>

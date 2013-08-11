@@ -55,13 +55,14 @@
 }
 
 - (IBAction)btnResetPressed:(id)sender {
-    [[VVDocumenterSetting defaultSetting] setUseSpaces:NO];
+    [[VVDocumenterSetting defaultSetting] setUseSpaces:YES];
     [[VVDocumenterSetting defaultSetting] setTriggerString:VVDDefaultTriggerString];
-    [[VVDocumenterSetting defaultSetting] setSpaceCount:4];
+    [[VVDocumenterSetting defaultSetting] setSpaceCount:2];
+    [[VVDocumenterSetting defaultSetting] setPrefixWithStar:YES];
     
-    self.btnUseSpaces.state = NSOffState;
+    self.btnUseSpaces.state = NSOnState;
     [self updateUseSpace:self.btnUseSpaces.state];
-    
+    self.btnPrefixWithStar.state = NSOnState;
     [self.tfTrigger setStringValue:VVDDefaultTriggerString];
     
     [self syncSpaceCount];

@@ -13,7 +13,7 @@ NSString *const VVDDefaultTriggerString = @"///";
 NSString *const kVVDUseSpaces = @"com.onevcat.VVDocumenter.useSpaces";
 NSString *const kVVDSpaceCount = @"com.onevcat.VVDocumenter.spaceCount";
 NSString *const kVVDTriggerString = @"com.onevcat.VVDocumenter.triggerString";
-NSString *const kVVDPrefixWithStar = @"ocm.onevcat.VVDocumenter.prefixWithStar";
+NSString *const kVVDPrefixWithStar = @"com.onevcat.VVDocumenter.prefixWithStar";
 
 @implementation VVDocumenterSetting
 
@@ -24,7 +24,8 @@ NSString *const kVVDPrefixWithStar = @"ocm.onevcat.VVDocumenter.prefixWithStar";
     dispatch_once(&once, ^ {
         defaultSetting = [[VVDocumenterSetting alloc] init];
         
-        NSDictionary *defaults = @{kVVDPrefixWithStar: [NSNumber numberWithBool:YES]};
+        NSDictionary *defaults = @{kVVDPrefixWithStar: @YES,
+                                   kVVDUseSpaces: @YES};
         [[NSUserDefaults standardUserDefaults] registerDefaults:defaults];
     });
     return defaultSetting;
@@ -41,11 +42,10 @@ NSString *const kVVDPrefixWithStar = @"ocm.onevcat.VVDocumenter.prefixWithStar";
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
-
 -(NSInteger) spaceCount
 {
     NSInteger count = [[NSUserDefaults standardUserDefaults] integerForKey:kVVDSpaceCount];
-    return (count <= 0) ? 4 : count;
+    return (count <= 0) ? 2 : count;
 }
 
 -(void) setSpaceCount:(NSInteger)spaceCount
