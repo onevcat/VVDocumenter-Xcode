@@ -13,6 +13,7 @@ NSString *const VVDDefaultTriggerString = @"///";
 NSString *const kVVDUseSpaces = @"com.onevcat.VVDocumenter.useSpaces";
 NSString *const kVVDSpaceCount = @"com.onevcat.VVDocumenter.spaceCount";
 NSString *const kVVDTriggerString = @"com.onevcat.VVDocumenter.triggerString";
+NSString *const kVVDPrefixWithStar = @"ocm.onevcat.VVDocumenter.prefixWithStar";
 
 @implementation VVDocumenterSetting
 
@@ -20,7 +21,12 @@ NSString *const kVVDTriggerString = @"com.onevcat.VVDocumenter.triggerString";
 {
     static dispatch_once_t once;
     static VVDocumenterSetting *defaultSetting;
-    dispatch_once(&once, ^ { defaultSetting = [[VVDocumenterSetting alloc] init]; });
+    dispatch_once(&once, ^ {
+        defaultSetting = [[VVDocumenterSetting alloc] init];
+        
+        NSDictionary *defaults = @{kVVDPrefixWithStar: [NSNumber numberWithBool:YES]};
+        [[NSUserDefaults standardUserDefaults] registerDefaults:defaults];
+    });
     return defaultSetting;
 }
 
@@ -71,6 +77,17 @@ NSString *const kVVDTriggerString = @"com.onevcat.VVDocumenter.triggerString";
         [[NSUserDefaults standardUserDefaults] setObject:triggerString forKey:kVVDTriggerString];
     }
 
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+-(BOOL) prefixWithStar
+{
+    return [[NSUserDefaults standardUserDefaults] boolForKey:kVVDPrefixWithStar];
+}
+
+-(void) setPrefixWithStar:(BOOL)prefix
+{
+    [[NSUserDefaults standardUserDefaults] setBool:prefix forKey:kVVDPrefixWithStar];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
