@@ -3,7 +3,7 @@
 
 ## What is this?
 
-Writing document is so important for developing, but it is really painful with Xcode. Think about how much time you are wasting in pressing '*' or '/', and typing the parameters again and again. Now, you can find the method (or any code) you want to document to, and type in `///`, the document will be generated for you and all params and return will be extracted into a beatiful Javadoc style. You can just fill the inline placeholders to finish your document。
+Writing document is so important for developing, but it is really painful with Xcode. Think about how much time you are wasting in pressing '*' or '/', and typing the parameters again and again. Now, you can find the method (or any code) you want to document to, and type in `///`, the document will be generated for you and all params and return will be extracted into a Javadoc style, which is compatible with both [appledoc](https://github.com/tomaz/appledoc) and [Doxygen](http://www.stack.nl/~dimitri/doxygen/). You can just fill the inline placeholders to finish your document。
 
 Here is an image which can show what it exactly does.
 
