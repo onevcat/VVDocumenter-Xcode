@@ -94,7 +94,7 @@
     if (braceGroups.count > 0) {
         NSString *argumentGroupString = braceGroups[0];
         NSArray *argumentStrings = [argumentGroupString componentsSeparatedByString:@","];
-        for (NSString *argumentString in argumentStrings) {
+        for (__strong NSString *argumentString in argumentStrings) {
             VVArgument *arg = [[VVArgument alloc] init];
             argumentString = [argumentString vv_stringByReplacingRegexPattern:@"\\s+$" withString:@""];
             argumentString = [argumentString vv_stringByReplacingRegexPattern:@"\\s+" withString:@" "];

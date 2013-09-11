@@ -15,8 +15,9 @@
 #import "VVDocumenterSetting.h"
 
 @interface VVDocumenterManager()
-@property (nonatomic, retain) id eventMonitor;
+@property (nonatomic, strong) id eventMonitor;
 @property (nonatomic, assign) BOOL prefixTyped;
+@property (nonatomic, strong) VVDSettingPanelWindowController *settingPanel;
 @end
 
 @implementation VVDocumenterManager
@@ -62,13 +63,12 @@
         
         [newMenuItem setTarget:self];
         [[editMenuItem submenu] addItem:newMenuItem];
-        [newMenuItem release];
     }
 }
 
 -(void) showSettingPanle:(NSNotification *)noti {
-    VVDSettingPanelWindowController *panelController = [[VVDSettingPanelWindowController alloc] initWithWindowNibName:@"VVDSettingPanelWindowController"];
-    [panelController showWindow:panelController];
+    self.settingPanel = [[VVDSettingPanelWindowController alloc] initWithWindowNibName:@"VVDSettingPanelWindowController"];
+    [self.settingPanel showWindow:self.settingPanel];
 }
 
 - (void) textStorageDidChange:(NSNotification *)noti {

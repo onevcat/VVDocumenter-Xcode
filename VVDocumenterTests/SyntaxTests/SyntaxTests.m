@@ -12,8 +12,8 @@
 
 @interface SyntaxTests()
 
-@property (nonatomic, retain) NSArray* inputs;
-@property (nonatomic, retain) NSArray* corrects;
+@property (nonatomic, strong) NSArray* inputs;
+@property (nonatomic, strong) NSArray* corrects;
 
 @end
 
