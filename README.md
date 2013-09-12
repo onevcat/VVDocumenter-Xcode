@@ -13,7 +13,7 @@ Here is an image which can show what it exactly does.
 
 Build the `VVDocumenter-Xcode` target in the Xcode project and the plug-in will automatically be installed in `~/Library/Application Support/Developer/Shared/Xcode/Plug-ins`. Relaunch Xcode and type in `///` above any code you want to write a document to.
 
-If you want to use other text beside of `///` to trigger the document insertion, you can find a setting panel by clicking `VVDocument` in the Window menu of Xcode. You can also set using spaces instead of tab in the panel.
+If you want to use other text beside of `///` to trigger the document insertion, you can find a setting panel by clicking `VVDocument` in the Window menu of Xcode. You can also set using spaces instead of tab in the panel. Two other options are to prefix each line with star (on by default) and automatically add `@since` in every document.
 
 ## Xcode version?
 
