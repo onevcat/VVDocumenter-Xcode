@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>AC4D345F-E25A-4CD0-926B-512942125AA3</string>
+	<key>IDESourceControlProjectName</key>
+	<string>VVDocumenter-Xcode</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>C86E1FE5-92E7-4C5D-B293-630DB7BF7B0A</key>
+		<string>ssh://github.com/nickskull/VVDocumenter-Xcode.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>VVDocumenter-Xcode.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>C86E1FE5-92E7-4C5D-B293-630DB7BF7B0A</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/nickskull/VVDocumenter-Xcode.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>C86E1FE5-92E7-4C5D-B293-630DB7BF7B0A</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>C86E1FE5-92E7-4C5D-B293-630DB7BF7B0A</string>
+			<key>IDESourceControlWCCName</key>
+			<string>VVDocumenter-Xcode</string>
+		</dict>
+	</array>
+</dict>
+</plist>
