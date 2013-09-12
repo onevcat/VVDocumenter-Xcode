@@ -58,7 +58,7 @@
     if (editMenuItem) {
         [[editMenuItem submenu] addItem:[NSMenuItem separatorItem]];
         
-        NSMenuItem *newMenuItem = [[NSMenuItem alloc] initWithTitle:@"VVDocumenter" action:@selector(showSettingPanle:) keyEquivalent:@""];
+        NSMenuItem *newMenuItem = [[NSMenuItem alloc] initWithTitle:@"VVDocumenter" action:@selector(showSettingPanel:) keyEquivalent:@""];
         
         [newMenuItem setTarget:self];
         [[editMenuItem submenu] addItem:newMenuItem];
@@ -66,7 +66,7 @@
     }
 }
 
--(void) showSettingPanle:(NSNotification *)noti {
+-(void) showSettingPanel:(NSNotification *)noti {
     VVDSettingPanelWindowController *panelController = [[VVDSettingPanelWindowController alloc] initWithWindowNibName:@"VVDSettingPanelWindowController"];
     [panelController showWindow:panelController];
 }
