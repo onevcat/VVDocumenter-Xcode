@@ -64,7 +64,7 @@
     if ([[VVDocumenterSetting defaultSetting] addSinceToComments]) {
         return [NSString stringWithFormat:@"%@%@@since <#version number#>\n", self.emptyLine, self.prefixString];
     } else {
-        return nil;
+        return @"";
     }
 }
 
