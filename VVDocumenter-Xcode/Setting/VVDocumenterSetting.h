@@ -25,6 +25,9 @@ extern NSString *const VVDDefaultTriggerString;
 -(BOOL) prefixWithStar;
 -(void) setPrefixWithStar:(BOOL)prefix;
 
+-(BOOL) addSinceToComments;
+-(void) setAddSinceToComments:(BOOL)add;
+
 -(NSString *) spacesString;
 
 @end
