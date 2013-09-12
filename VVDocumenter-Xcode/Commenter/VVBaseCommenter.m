@@ -59,6 +59,15 @@
     }
 }
 
+-(NSString *) sinceComment
+{
+    if ([[VVDocumenterSetting defaultSetting] addSinceToComments]) {
+        return [NSString stringWithFormat:@"%@%@@since <#version number#>\n", self.emptyLine, self.prefixString];
+    } else {
+        return nil;
+    }
+}
+
 -(NSString *) endComment
 {
     return [NSString stringWithFormat:@"%@ */",self.indent];
@@ -66,10 +75,11 @@
 
 -(NSString *) document
 {
-    return [NSString stringWithFormat:@"%@%@%@%@",[self startComment],
-                                                  [self argumentsComment],
-                                                  [self returnComment],
-                                                  [self endComment]];
+    return [NSString stringWithFormat:@"%@%@%@%@%@",[self startComment],
+                                                    [self argumentsComment],
+                                                    [self returnComment],
+                                                    [self sinceComment],
+                                                    [self endComment]];
 }
 
 -(NSString *) emptyLine
