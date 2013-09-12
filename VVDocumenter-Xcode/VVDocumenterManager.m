@@ -92,12 +92,12 @@
             if ([currentLineResult.string vv_matchesPatternRegexPattern:[NSString stringWithFormat:@"^\\s*%@$",[NSRegularExpression escapedPatternForString:triggerString]]] && self.prefixTyped) {
                 self.prefixTyped = NO;
                 //Get a @"///" typed in by user. Do work!
-                
+                BOOL shouldReplace = NO;
                 //Decide which is closer to the cursor. A semicolon or a half brace.
                 //We just want to document the next valid line.
                 VVTextResult *resultUntilSemiColon = [textView textResultUntilNextString:@";"];
                 VVTextResult *resultUntilBrace = [textView textResultUntilNextString:@"{"];
-
+                
                 VVTextResult *resultToDocument = nil;
                 
                 if (resultUntilSemiColon && resultUntilBrace) {
@@ -106,6 +106,11 @@
                     resultToDocument = resultUntilBrace;
                 } else {
                     resultToDocument = resultUntilSemiColon;
+                }
+                
+                if ([resultToDocument.string vv_isEnum]) {
+                    resultToDocument = resultUntilSemiColon;
+                    shouldReplace = YES;
                 }
                 
                 VVDocumenter *doc = [[VVDocumenter alloc] initWithCode:resultToDocument.string];
@@ -126,6 +131,7 @@
                 [kes beginKeyBoradEvents];
                 //Cmd+delete Delete current line
                 [kes sendKeyCode:kVK_Delete withModifierCommand:YES alt:NO shift:NO control:NO];
+                if (shouldReplace) [textView setSelectedRange:resultToDocument.range];
                 //Cmd+V, paste
                 [kes sendKeyCode:kVK_ANSI_V withModifierCommand:YES alt:NO shift:NO control:NO];
                 //The key down is just a defined finish signal by me. When we receive this key, we know operation above is finished.

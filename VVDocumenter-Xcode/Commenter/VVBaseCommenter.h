@@ -18,4 +18,12 @@
 -(id) initWithIndentString:(NSString *)indent codeString:(NSString *)code;
 -(NSString *) document;
 -(void) parseArguments;
+
+// Comment methods
+-(NSString *) startComment;
+-(NSString *) argumentsComment;
+-(NSString *) endComment;
+-(NSString *) returnComment;
+-(NSString *) sinceComment;
+
 @end

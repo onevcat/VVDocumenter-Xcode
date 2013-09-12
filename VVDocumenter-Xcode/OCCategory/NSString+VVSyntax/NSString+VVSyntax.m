@@ -23,7 +23,7 @@
 
 -(BOOL) vv_isCFunction
 {
-    return ![self vv_isMacro] && ![self vv_isObjCMethod] && ![self vv_isProperty] && ![self vv_isComplieKeyword] && [self vv_matchesPatternRegexPattern:@".+\\s+.+\\("];
+    return ![self vv_isEnum] && ![self vv_isMacro] && ![self vv_isObjCMethod] && ![self vv_isProperty] && ![self vv_isComplieKeyword] && [self vv_matchesPatternRegexPattern:@".+\\s+.+\\("];
 }
 
 -(BOOL) vv_isProperty
@@ -43,7 +43,7 @@
 
 -(BOOL) vv_isEnum
 {
-    return [self vv_matchesPatternRegexPattern:@"^\\s*(\\w+\\s)?enum.*\\{"];
+    return [self vv_matchesPatternRegexPattern:@"^\\s*(\\w+\\s)?NS_ENUM.*\\{"];
 }
 
 -(BOOL) vv_isUnion
