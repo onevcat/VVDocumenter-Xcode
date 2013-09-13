@@ -34,17 +34,9 @@
             self.code = [[code vv_stringByReplacingRegexPattern:@"\\s*(\\(.*\?\\))\\s*" withString:@"$1"]
                            vv_stringByReplacingRegexPattern:@"\\s*\n\\s*"           withString:@" "];
         }
-        VVLog(@"VVDocumenter Code - %@", self.code);
-        
     }
     return self;
 }
-//**
-typedef NS_ENUM(NSInteger, ssss) {
-    aaa,
-    bbb,
-    abbb
-};
 
 -(NSString *) baseIndentation
 {
@@ -63,29 +55,21 @@ typedef NS_ENUM(NSInteger, ssss) {
     
     VVBaseCommenter *commenter = nil;
     
-    if (self.isEnum) {
-        VVLog(@"Type - enum");        
+    if (self.isEnum) {    
         commenter = [[VVEnumCommenter alloc] initWithIndentString:baseIndent codeString:trimCode];
     } else if ([trimCode vv_isProperty]) {
-        VVLog(@"Type - property");
         commenter = [[VVPropertyCommenter alloc] initWithIndentString:baseIndent codeString:trimCode];
     } else if ([trimCode vv_isCFunction]) {
-        VVLog(@"Type - c function");
         commenter = [[VVFunctionCommenter alloc] initWithIndentString:baseIndent codeString:trimCode];
     } else if ([trimCode vv_isMacro]) {
-        VVLog(@"Type - macro");
         commenter = [[VVMacroCommenter alloc] initWithIndentString:baseIndent codeString:trimCode];
     } else if ([trimCode vv_isStruct]) {
-        VVLog(@"Type - struct");
         commenter = [[VVStructCommenter alloc] initWithIndentString:baseIndent codeString:trimCode];
     } else if ([trimCode vv_isUnion]) {
-        VVLog(@"Type - union");
         commenter = [[VVStructCommenter alloc] initWithIndentString:baseIndent codeString:trimCode];
     } else if ([trimCode vv_isObjCMethod]) {
-        VVLog(@"Type - objc-method");
         commenter = [[VVMethodCommenter alloc] initWithIndentString:baseIndent codeString:trimCode];
     } else {
-        VVLog(@"Type - variable");
         commenter = [[VVVariableCommenter alloc] initWithIndentString:baseIndent codeString:trimCode];
     }
 
