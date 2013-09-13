@@ -18,6 +18,7 @@
 @property (assign) IBOutlet NSStepper *stepperCount;
 
 @property (assign) IBOutlet NSButton *btnPrefixWithStar;
+@property (assign) IBOutlet NSButton *btnAddSinceToComment;
 
 @end
 
@@ -42,6 +43,7 @@
     self.btnUseSpaces.state = (NSCellStateValue)[[VVDocumenterSetting defaultSetting] useSpaces];
     
     self.btnPrefixWithStar.state = (NSCellStateValue)[[VVDocumenterSetting defaultSetting] prefixWithStar];
+    self.btnAddSinceToComment.state = (NSCellStateValue)[[VVDocumenterSetting defaultSetting] addSinceToComments];
     
     [self updateUseSpace:self.btnUseSpaces.state];
     [self syncSpaceCount];
@@ -59,10 +61,12 @@
     [[VVDocumenterSetting defaultSetting] setTriggerString:VVDDefaultTriggerString];
     [[VVDocumenterSetting defaultSetting] setSpaceCount:2];
     [[VVDocumenterSetting defaultSetting] setPrefixWithStar:YES];
+    [[VVDocumenterSetting defaultSetting] setAddSinceToComments:NO];
     
     self.btnUseSpaces.state = NSOnState;
     [self updateUseSpace:self.btnUseSpaces.state];
     self.btnPrefixWithStar.state = NSOnState;
+    self.btnAddSinceToComment.state = NSOffState;
     [self.tfTrigger setStringValue:VVDDefaultTriggerString];
     
     [self syncSpaceCount];
@@ -76,6 +80,10 @@
 
 - (IBAction)btnPrefixWithStarPressed:(id)sender {
     [[VVDocumenterSetting defaultSetting] setPrefixWithStar:self.btnPrefixWithStar.state];
+}
+
+- (IBAction)btnAddSinceToCommentsPressed:(id)sender {
+    [[VVDocumenterSetting defaultSetting] setAddSinceToComments:self.btnAddSinceToComment.state];
 }
 
 -(void) syncSpaceCount
