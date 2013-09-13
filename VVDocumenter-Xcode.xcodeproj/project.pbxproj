@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		01C4282517E24381000476C6 /* LogClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C4282417E24381000476C6 /* LogClient.m */; };
 		D114BEE0179644D00043FA65 /* NSString+PDRegex.m in Sources */ = {isa = PBXBuildFile; fileRef = D114BEDE179644D00043FA65 /* NSString+PDRegex.m */; };
 		D114BEE3179644FA0043FA65 /* NSTextView+VVTextGetter.m in Sources */ = {isa = PBXBuildFile; fileRef = D114BEE2179644FA0043FA65 /* NSTextView+VVTextGetter.m */; };
 		D11C542D17999D9000D3DE38 /* VVArgument.m in Sources */ = {isa = PBXBuildFile; fileRef = D11C542B17999D9000D3DE38 /* VVArgument.m */; };
@@ -43,8 +42,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		01C4282317E24381000476C6 /* LogClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogClient.h; sourceTree = "<group>"; };
-		01C4282417E24381000476C6 /* LogClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogClient.m; sourceTree = "<group>"; };
 		D114BEDD179644D00043FA65 /* NSString+PDRegex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+PDRegex.h"; sourceTree = "<group>"; };
 		D114BEDE179644D00043FA65 /* NSString+PDRegex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+PDRegex.m"; sourceTree = "<group>"; };
 		D114BEE1179644FA0043FA65 /* NSTextView+VVTextGetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTextView+VVTextGetter.h"; sourceTree = "<group>"; };
@@ -126,15 +123,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		01C4282217E24381000476C6 /* PluginConsole */ = {
-			isa = PBXGroup;
-			children = (
-				01C4282317E24381000476C6 /* LogClient.h */,
-				01C4282417E24381000476C6 /* LogClient.m */,
-			);
-			path = PluginConsole;
-			sourceTree = "<group>";
-		};
 		D114BEDB179644D00043FA65 /* OCCategory */ = {
 			isa = PBXGroup;
 			children = (
@@ -206,7 +194,6 @@
 		D14380FC179551B900C829CE /* VVDocumenter-Xcode */ = {
 			isa = PBXGroup;
 			children = (
-				01C4282217E24381000476C6 /* PluginConsole */,
 				D193B8C917AC0C2400D2D76A /* Setting */,
 				D1D66CA517A2AED700E62F99 /* KeyboardHelper */,
 				D16AFCD11796E068006719AA /* Commenter */,
@@ -440,7 +427,6 @@
 				D114BEE3179644FA0043FA65 /* NSTextView+VVTextGetter.m in Sources */,
 				D1AC3B8F1796DB070063A484 /* VVDocumenter.m in Sources */,
 				D16AFCD41796E088006719AA /* VVBaseCommenter.m in Sources */,
-				01C4282517E24381000476C6 /* LogClient.m in Sources */,
 				D16AFCD71796E09E006719AA /* VVPropertyCommenter.m in Sources */,
 				D16AFCDA1796E0AC006719AA /* VVMethodCommenter.m in Sources */,
 				D16AFCDD1796E0B9006719AA /* VVFunctionCommenter.m in Sources */,

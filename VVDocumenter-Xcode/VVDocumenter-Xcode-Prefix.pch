@@ -5,12 +5,11 @@
 #ifdef __OBJC__
     #import <Cocoa/Cocoa.h>
     #import "NSString+PDRegex.h"
-    #import "LogClient.h"
 #endif
 
-#define __DEBUG__ 1
+//#define __DEBUG__ 1
 #ifdef __DEBUG__
-#define VVLog(...) PluginLog(__VA_ARGS__)
+#define VVLog(...) NSLog(__VA_ARGS__)
 #else
 #define VVLog(...) do{} while(0)
 #endif
