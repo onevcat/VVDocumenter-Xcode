@@ -17,7 +17,7 @@ If you want to use other text beside of `///` to trigger the document insertion,
 
 ## Xcode version?
 
-This plug-in is developed and tested in Mac OSX 10.8.5 Xcode 4.6.3. It should work in all versions of Xcode 4. If you want to use it in Xcode 5 (DP3 or above), you have to make a liittle change in the plist. This is all what I can say now under the NDA.
+This plug-in is developed and tested in Mac OSX 10.8.5 Xcode 4.6.3. It should work in all versions of Xcode 4. If you want to use it in Xcode 5 (DP3 or above), maybe you have to make a liittle change in the plist. This is all what I can say now under the NDA.
 
 The default deployment target is 10.8. If you want to use it in a earlier OS version, you should change OS X Deployment Target (in project info setting) to your system version.
 
@@ -37,7 +37,7 @@ And there are a set of code type I hope to support, but now I just finished some
 * Macro (Done)
 * Property (Done)
 * Variable (Done)
-* Enum (To do)
+* NS_Enum (Done)
 * Struct (To do)
 * Union (To do)
 
