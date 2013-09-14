@@ -30,7 +30,6 @@
     NSArray *enumParts = [enumPartsString componentsSeparatedByString:@","];
     
     for (NSString *part in enumParts) {
-        NSLog(@"%@",part);
         //Only append when there is a enum define. (In case of the last comma, followed no define)
         if ([part stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]].length != 0) {
             NSString *temp = [NSString stringWithFormat:@"%@%@%@%@", [self startComment],
@@ -40,7 +39,6 @@
             if (part != [enumParts lastObject]) {
                 temp = [temp stringByAppendingString:@",\n"];
             }
-            NSLog(@"%@",temp);
             finalString = [finalString stringByAppendingString:temp];
         }
     }
