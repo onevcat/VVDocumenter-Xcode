@@ -11,34 +11,41 @@
 @implementation VVEnumCommenter
 
 - (NSString *)document {
-    NSString *enumDefinePattern = @"^\\s*(\\w+\\s+)?NS_ENUM.*\\{";
-    NSString *enumPartsString = [[self.code vv_stringByReplacingRegexPattern:enumDefinePattern withString:@""]
-                                            vv_stringByReplacingRegexPattern:@"[}]$" withString:@""];
-
-    NSArray *enumParts = [enumPartsString componentsSeparatedByString:@","];
-
+    //Regular comment documentation
     NSString *finalString = [NSString stringWithFormat:@"%@%@%@\n", [self startComment],
                                                                     [self sinceComment],
                                                                     [self endComment]];
     
-    NSRegularExpression *ex = [NSRegularExpression regularExpressionWithPattern:enumDefinePattern options:0 error:nil];
-    NSTextCheckingResult *res = [ex firstMatchInString:self.code options:0 range:NSMakeRange(0, self.code.length)];
+    NSString *enumDefinePattern = @"^\\s*(\\w+\\s+)?NS_ENUM.*\\{";
     
-    finalString = [finalString stringByAppendingString:[self.code substringWithRange:[res rangeAtIndex:0]]];
+    NSRegularExpression *enumDefineExpression = [NSRegularExpression regularExpressionWithPattern:enumDefinePattern options:0 error:nil];
+    NSTextCheckingResult *enumDefineResult = [enumDefineExpression firstMatchInString:self.code options:0 range:NSMakeRange(0, self.code.length)];
+    
+    finalString = [finalString stringByAppendingString:[self.code substringWithRange:[enumDefineResult rangeAtIndex:0]]];
     finalString = [finalString stringByAppendingString:@"\n"];
     
+    NSString *endPattern = @"\\}\\s*;";
+    NSString *enumPartsString = [[self.code vv_stringByReplacingRegexPattern:enumDefinePattern withString:@""]
+                                            vv_stringByReplacingRegexPattern:endPattern        withString:@""];
+    NSArray *enumParts = [enumPartsString componentsSeparatedByString:@","];
+    
     for (NSString *part in enumParts) {
-        NSString *temp = [NSString stringWithFormat:@"%@%@%@%@", [self startComment],
-                                                                 [self sinceComment],
-                                                                 [self endComment],
-                                                                 part];
-        if (part != [enumParts lastObject]) {
-            temp = [temp stringByAppendingString:@",\n"];
+        NSLog(@"%@",part);
+        //Only append when there is a enum define. (In case of the last comma, followed no define)
+        if ([part stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]].length != 0) {
+            NSString *temp = [NSString stringWithFormat:@"%@%@%@%@", [self startComment],
+                              [self sinceComment],
+                              [self endComment],
+                              part];
+            if (part != [enumParts lastObject]) {
+                temp = [temp stringByAppendingString:@",\n"];
+            }
+            NSLog(@"%@",temp);
+            finalString = [finalString stringByAppendingString:temp];
         }
-        finalString = [finalString stringByAppendingString:temp];
     }
 
-    return finalString;
+    return [finalString stringByAppendingString:@"};"];
 }
 
 @end
