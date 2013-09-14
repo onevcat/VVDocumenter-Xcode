@@ -150,14 +150,6 @@
                         //Restore previois patse board content
                         [pasteBoard setString:originPBString forType:NSStringPboardType];
                         
-                        if (shouldReplace) {
-                            // Quick fix for newline and bad position with NS_ENUM
-                            // Should be fixed better
-                            [kes sendKeyCode:kVK_Delete withModifierCommand:NO alt:NO shift:NO control:NO];
-                            [kes sendKeyCode:kVK_DownArrow withModifierCommand:NO alt:NO shift:NO control:NO];
-                            [kes sendKeyCode:kVK_LeftArrow withModifierCommand:YES alt:NO shift:NO control:NO];
-                        }
-                        
                         //Set cursor before the inserted documentation. So we can use tab to begin edit.
                         int baseIndentationLength = (int)[doc baseIndentation].length;
                         [textView setSelectedRange:NSMakeRange(currentLineResult.range.location + baseIndentationLength, 0)];
@@ -171,7 +163,11 @@
                         //Invalidate the finish signal, in case you set it to do some other thing.
                         return nil;
                     } else if ([incomingEvent type] == NSKeyDown && [incomingEvent keyCode] == kVK_ANSI_V && shouldReplace == YES) {
-                        [textView setSelectedRange:[textView textResultUntilNextString:@";"].range];
+                        //Select input line and the define code block.
+                        NSRange r = [textView textResultUntilNextString:@";"].range;
+                        
+                        //NSRange r begins from the starting of enum(struct) line. Select 1 character before to include the trigger input line.
+                        [textView setSelectedRange:NSMakeRange(r.location - 1, r.length + 1)];
                         return incomingEvent;
                     } else {
                         return incomingEvent;
