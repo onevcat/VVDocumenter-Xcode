@@ -11,7 +11,8 @@
 @implementation VVEnumCommenter
 
 - (NSString *)document {
-    NSString *enumPartsString = [[self.code vv_stringByReplacingRegexPattern:@"^\\s*(\\w+\\s)?NS_ENUM.*\\{" withString:@""]
+    NSString *enumDefinePattern = @"^\\s*(\\w+\\s+)?NS_ENUM.*\\{";
+    NSString *enumPartsString = [[self.code vv_stringByReplacingRegexPattern:enumDefinePattern withString:@""]
                                             vv_stringByReplacingRegexPattern:@"[}]$" withString:@""];
 
     NSArray *enumParts = [enumPartsString componentsSeparatedByString:@","];
@@ -20,7 +21,7 @@
                                                                     [self sinceComment],
                                                                     [self endComment]];
     
-    NSRegularExpression *ex = [NSRegularExpression regularExpressionWithPattern:@"^\\s*(\\w+\\s)?NS_ENUM.*\\{" options:0 error:nil];
+    NSRegularExpression *ex = [NSRegularExpression regularExpressionWithPattern:enumDefinePattern options:0 error:nil];
     NSTextCheckingResult *res = [ex firstMatchInString:self.code options:0 range:NSMakeRange(0, self.code.length)];
     
     finalString = [finalString stringByAppendingString:[self.code substringWithRange:[res rangeAtIndex:0]]];

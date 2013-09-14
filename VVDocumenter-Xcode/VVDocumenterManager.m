@@ -90,9 +90,11 @@
             }
             
             if ([currentLineResult.string vv_matchesPatternRegexPattern:[NSString stringWithFormat:@"^\\s*%@$",[NSRegularExpression escapedPatternForString:triggerString]]] && self.prefixTyped) {
+                //Get a @"///" (triggerString) typed in by user. Do work!
                 self.prefixTyped = NO;
-                //Get a @"///" typed in by user. Do work!
+
                 __block BOOL shouldReplace = NO;
+                
                 //Decide which is closer to the cursor. A semicolon or a half brace.
                 //We just want to document the next valid line.
                 VVTextResult *resultUntilSemiColon = [textView textResultUntilNextString:@";"];
@@ -108,6 +110,7 @@
                     resultToDocument = resultUntilSemiColon;
                 }
                 
+                //We always write document until semicolon for enum. (Maybe struct later)
                 if ([resultToDocument.string vv_isEnum]) {
                     resultToDocument = resultUntilSemiColon;
                     shouldReplace = YES;
@@ -168,7 +171,6 @@
                         //Invalidate the finish signal, in case you set it to do some other thing.
                         return nil;
                     } else if ([incomingEvent type] == NSKeyDown && [incomingEvent keyCode] == kVK_ANSI_V && shouldReplace == YES) {
-
                         [textView setSelectedRange:[textView textResultUntilNextString:@";"].range];
                         return incomingEvent;
                     } else {

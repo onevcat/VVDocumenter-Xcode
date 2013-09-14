@@ -23,16 +23,16 @@
 {
     self = [super init];
     if (self) {
-        //Trim the space around the braces
-        //Then trim the new line character
         self.isEnum = NO;
         
         if ([code vv_isEnum]) {
             self.code = code;
             self.isEnum = YES;
         } else {
+            //Trim the space around the braces
+            //Then trim the new line character
             self.code = [[code vv_stringByReplacingRegexPattern:@"\\s*(\\(.*\?\\))\\s*" withString:@"$1"]
-                           vv_stringByReplacingRegexPattern:@"\\s*\n\\s*"           withString:@" "];
+                               vv_stringByReplacingRegexPattern:@"\\s*\n\\s*"           withString:@" "];
         }
     }
     return self;
