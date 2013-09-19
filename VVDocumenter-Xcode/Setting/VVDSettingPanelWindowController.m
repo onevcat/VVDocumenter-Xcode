@@ -10,14 +10,14 @@
 #import "VVDocumenterSetting.h"
 
 @interface VVDSettingPanelWindowController ()<NSTextFieldDelegate>
-@property (assign) IBOutlet NSTextField *tfTrigger;
-@property (assign) IBOutlet NSButton *btnUseSpaces;
-@property (assign) IBOutlet NSTextField *tfSpaceCount;
-@property (assign) IBOutlet NSTextField *tfSpaceLabel;
+@property (weak) IBOutlet NSTextField *tfTrigger;
+@property (weak) IBOutlet NSButton *btnUseSpaces;
+@property (weak) IBOutlet NSTextField *tfSpaceCount;
+@property (weak) IBOutlet NSTextField *tfSpaceLabel;
 
-@property (assign) IBOutlet NSStepper *stepperCount;
+@property (weak) IBOutlet NSStepper *stepperCount;
 
-@property (assign) IBOutlet NSButton *btnPrefixWithStar;
+@property (weak) IBOutlet NSButton *btnPrefixWithStar;
 @property (assign) IBOutlet NSButton *btnAddSinceToComment;
 
 @end

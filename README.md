@@ -17,7 +17,7 @@ If you want to use other text beside of `///` to trigger the document insertion,
 
 ## Xcode version?
 
-This plug-in is developed and tested in Mac OSX 10.8.5 Xcode 4.6.3. It should work in all versions of Xcode 4. If you want to use it in Xcode 5 (DP3 or above), maybe you have to make a liittle change in the plist. This is all what I can say now under the NDA.
+This plug-in is developed and tested in Mac OSX 10.8.5 Xcode 5. **The master branch dropped the support for Xcode 4 and if you want use it in Xcode 4, please check out the [Xcode4 branch](https://github.com/onevcat/VVDocumenter-Xcode/tree/Xcode4).** In Xcode 5, Apple added an UUID-verification to all plugins to ensure the stability when Xcode gets updated. The value of DVTPlugInCompatibilityUUIDs in project plist should contains current the UUID of Xcode version, or the plugin does not work. I have added a pre-actions script in scheme to set it for you. **Once you update your Xcode, the plugin would be invalid and you should check the newest version and built it again.**
 
 The default deployment target is 10.8. If you want to use it in a earlier OS version, you should change OS X Deployment Target (in project info setting) to your system version.
 
