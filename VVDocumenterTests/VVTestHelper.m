@@ -31,9 +31,9 @@
                          @"   struct node {",
                          @"struct objc_object {"];
     
-    NSArray *enums = @[@"typedef enum {",
-                       @"enum PlayerStateType : NSInteger {",
-                       @"enum tagname {"];
+    NSArray *enums = @[@"typedef NS_ENUM {",
+                       @"typedef NS_ENUM \n {",
+                       @"  typedef   NS_ENUM{"];
     
     NSArray *unions = @[@"union {",
                         @" union \n {",
@@ -73,9 +73,9 @@
                          @"   struct node {",
                          @"struct objc_object {"];
     
-    NSArray *enums = @[@"typedef enum {",
-                       @"enum PlayerStateType : NSInteger {",
-                       @"enum tagname {"];
+    NSArray *enums = @[@"typedef NS_ENUM {",
+                       @"typedef NS_ENUM {",
+                       @"  typedef   NS_ENUM{"];
     
     NSArray *unions = @[@"union {",
                         @" union {",
