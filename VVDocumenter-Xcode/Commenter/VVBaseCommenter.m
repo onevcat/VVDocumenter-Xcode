@@ -100,7 +100,7 @@
 -(void) parseArguments
 {
     [self.arguments removeAllObjects];
-    NSArray * braceGroups = [self.code vv_stringsByExtractingGroupsUsingRegexPattern:@"\\(([^\\(\\)]*)\\)"];
+    NSArray * braceGroups = [self.code vv_stringsByExtractingGroupsUsingRegexPattern:@"\\(([^\\^][^\\(\\)]*)\\)"];
     if (braceGroups.count > 0) {
         NSString *argumentGroupString = braceGroups[0];
         NSArray *argumentStrings = [argumentGroupString componentsSeparatedByString:@","];
