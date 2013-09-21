@@ -17,7 +17,8 @@
     
     NSArray *functions = @[@"void dosomething ( int x, int  y );",
                            @"int main(int argc, char *argv[]) \n {",
-                           @"void  NoParamFunc();"];
+                           @"void  NoParamFunc();",
+                           @"typeof void(^IBLShareSuccessBlock)(ShareType type, SSPublishContentState state, id<ISSStatusInfo> statusInfo, BOOL end);"];
     
     NSArray *properties = @[@"@property (nonatomic, copy ) NSString *code;",
                             @"    @property ( nonatomic, strong ) Miao* test;",
@@ -31,9 +32,9 @@
                          @"   struct node {",
                          @"struct objc_object {"];
     
-    NSArray *enums = @[@"typedef enum {",
-                       @"enum PlayerStateType : NSInteger {",
-                       @"enum tagname {"];
+    NSArray *enums = @[@"typedef NS_ENUM {",
+                       @"typedef NS_ENUM \n {",
+                       @"  typedef   NS_ENUM{"];
     
     NSArray *unions = @[@"union {",
                         @" union \n {",
@@ -59,7 +60,8 @@
     
     NSArray *functions = @[@"void dosomething( int x, int  y );",
                            @"int main(int argc, char *argv[]){",
-                           @"void  NoParamFunc();"];
+                           @"void  NoParamFunc();",
+                           @"typeof void(^IBLShareSuccessBlock)(ShareType type, SSPublishContentState state, id<ISSStatusInfo> statusInfo, BOOL end);"];
     
     NSArray *properties = @[@"@property(nonatomic, copy )NSString *code;",
                             @"    @property( nonatomic, strong )Miao* test;",
@@ -73,9 +75,9 @@
                          @"   struct node {",
                          @"struct objc_object {"];
     
-    NSArray *enums = @[@"typedef enum {",
-                       @"enum PlayerStateType : NSInteger {",
-                       @"enum tagname {"];
+    NSArray *enums = @[@"typedef NS_ENUM {",
+                       @"typedef NS_ENUM {",
+                       @"  typedef   NS_ENUM{"];
     
     NSArray *unions = @[@"union {",
                         @" union {",
