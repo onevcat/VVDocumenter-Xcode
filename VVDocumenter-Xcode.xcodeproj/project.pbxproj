@@ -564,6 +564,7 @@
 				GCC_PREFIX_HEADER = "VVDocumenter-Xcode/VVDocumenter-Xcode-Prefix.pch";
 				INFOPLIST_FILE = "VVDocumenter-Xcode/VVDocumenter-Xcode-Info.plist";
 				INSTALL_PATH = "/Library/Application Support/Developer/Shared/Xcode/Plug-ins";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = xcplugin;
 			};
