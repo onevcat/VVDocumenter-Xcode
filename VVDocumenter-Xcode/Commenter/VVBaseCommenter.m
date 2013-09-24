@@ -29,7 +29,11 @@
 
 -(NSString *) startComment
 {
-    return [NSString stringWithFormat:@"%@/**\n%@<#Description#>\n", self.indent, self.prefixString];
+    if ([[VVDocumenterSetting defaultSetting] useHeaderDoc]) {
+        return [NSString stringWithFormat:@"%@/*!\n%@<#Description#>\n", self.indent, self.prefixString];
+    }else{
+        return [NSString stringWithFormat:@"%@/**\n%@<#Description#>\n", self.indent, self.prefixString];
+    }
 }
 
 -(NSString *) argumentsComment

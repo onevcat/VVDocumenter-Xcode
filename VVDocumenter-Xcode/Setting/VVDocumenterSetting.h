@@ -28,6 +28,9 @@ extern NSString *const VVDDefaultTriggerString;
 -(BOOL) addSinceToComments;
 -(void) setAddSinceToComments:(BOOL)add;
 
+-(BOOL) useHeaderDoc;
+-(void) setUseHeaderDoc:(BOOL)use;
+
 -(NSString *) spacesString;
 
 @end
