@@ -19,7 +19,7 @@
 
 @property (assign) IBOutlet NSButton *btnPrefixWithStar;
 @property (assign) IBOutlet NSButton *btnAddSinceToComment;
-
+@property (weak) IBOutlet NSButton *btnUseHeaderDoc;
 @end
 
 @implementation VVDSettingPanelWindowController
@@ -44,6 +44,7 @@
     
     self.btnPrefixWithStar.state = (NSCellStateValue)[[VVDocumenterSetting defaultSetting] prefixWithStar];
     self.btnAddSinceToComment.state = (NSCellStateValue)[[VVDocumenterSetting defaultSetting] addSinceToComments];
+    self.btnUseHeaderDoc.state = (NSCellStateValue)[[VVDocumenterSetting defaultSetting] useHeaderDoc];
     
     [self updateUseSpace:self.btnUseSpaces.state];
     [self syncSpaceCount];
@@ -62,12 +63,14 @@
     [[VVDocumenterSetting defaultSetting] setSpaceCount:2];
     [[VVDocumenterSetting defaultSetting] setPrefixWithStar:YES];
     [[VVDocumenterSetting defaultSetting] setAddSinceToComments:NO];
+    [[VVDocumenterSetting defaultSetting] setUseHeaderDoc:NO];
     
     self.btnUseSpaces.state = NSOnState;
     [self updateUseSpace:self.btnUseSpaces.state];
     self.btnPrefixWithStar.state = NSOnState;
     self.btnAddSinceToComment.state = NSOffState;
     [self.tfTrigger setStringValue:VVDDefaultTriggerString];
+    self.btnUseHeaderDoc.state = NSOffState;
     
     [self syncSpaceCount];
     
@@ -116,5 +119,7 @@
     }
     return YES;
 }
-
+- (IBAction)useHeaderDoc:(id)sender {
+    [[VVDocumenterSetting defaultSetting] setUseHeaderDoc:self.btnUseHeaderDoc.state];
+}
 @end
