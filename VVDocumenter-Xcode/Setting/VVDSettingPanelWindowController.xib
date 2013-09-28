@@ -2,7 +2,7 @@
 <archive type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="8.00">
 	<data>
 		<int key="IBDocument.SystemTarget">1080</int>
-		<string key="IBDocument.SystemVersion">12F37</string>
+		<string key="IBDocument.SystemVersion">12E55</string>
 		<string key="IBDocument.InterfaceBuilderVersion">4510</string>
 		<string key="IBDocument.AppKitVersion">1187.39</string>
 		<string key="IBDocument.HIToolboxVersion">626.00</string>
@@ -63,7 +63,7 @@
 							<object class="NSButtonCell" key="NSCell" id="189307110">
 								<int key="NSCellFlags">-2080374784</int>
 								<int key="NSCellFlags2">268435456</int>
-								<string key="NSContents">Use Spaces instead of Tabs</string>
+								<string key="NSContents">Use spaces instead of tabs</string>
 								<object class="NSFont" key="NSSupport" id="45273652">
 									<string key="NSName">LucidaGrande</string>
 									<double key="NSSize">13</double>
@@ -338,7 +338,7 @@
 						<object class="NSButton" id="565957479">
 							<reference key="NSNextResponder" ref="1006"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{68, 73}, {224, 18}}</string>
+							<string key="NSFrame">{{68, 73}, {272, 18}}</string>
 							<reference key="NSSuperview" ref="1006"/>
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="860271950"/>
@@ -347,7 +347,7 @@
 							<object class="NSButtonCell" key="NSCell" id="619578983">
 								<int key="NSCellFlags">-2080374784</int>
 								<int key="NSCellFlags2">268435456</int>
-								<string key="NSContents">User HeaderDoc Comment Type</string>
+								<string key="NSContents">Use /*! instead of /** (HeaderDoc style)</string>
 								<reference key="NSSupport" ref="45273652"/>
 								<string key="NSCellIdentifier">_NS:9</string>
 								<reference key="NSControlView" ref="565957479"/>
@@ -368,7 +368,7 @@
 					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="972045408"/>
 				</object>
-				<string key="NSScreenRect">{{0, 0}, {1280, 778}}</string>
+				<string key="NSScreenRect">{{0, 0}, {1440, 878}}</string>
 				<string key="NSMaxSize">{10000000000000, 10000000000000}</string>
 				<bool key="NSWindowIsRestorable">YES</bool>
 			</object>
