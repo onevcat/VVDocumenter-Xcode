@@ -17,7 +17,10 @@
 
 @property (weak) IBOutlet NSStepper *stepperCount;
 
-@property (weak) IBOutlet NSButton *btnPrefixWithStar;
+@property (weak) IBOutlet NSMatrix *mtxPrefixOptions;
+@property (weak) IBOutlet NSButtonCell *btnPrefixWithWhitespace;
+@property (weak) IBOutlet NSButtonCell *btnPrefixWithStar;
+@property (weak) IBOutlet NSButtonCell *btnPrefixWithSlashes;
 @property (assign) IBOutlet NSButton *btnAddSinceToComment;
 @property (weak) IBOutlet NSButton *btnUseHeaderDoc;
 @end
@@ -43,6 +46,9 @@
     self.btnUseSpaces.state = (NSCellStateValue)[[VVDocumenterSetting defaultSetting] useSpaces];
     
     self.btnPrefixWithStar.state = (NSCellStateValue)[[VVDocumenterSetting defaultSetting] prefixWithStar];
+    self.btnPrefixWithSlashes.state = (NSCellStateValue)[[VVDocumenterSetting defaultSetting] prefixWithSlashes];
+    self.btnPrefixWithWhitespace.state = (self.btnPrefixWithStar.state == NSOffState &&
+                                          self.btnPrefixWithSlashes.state == NSOffState);
     self.btnAddSinceToComment.state = (NSCellStateValue)[[VVDocumenterSetting defaultSetting] addSinceToComments];
     self.btnUseHeaderDoc.state = (NSCellStateValue)[[VVDocumenterSetting defaultSetting] useHeaderDoc];
     
@@ -62,12 +68,15 @@
     [[VVDocumenterSetting defaultSetting] setTriggerString:VVDDefaultTriggerString];
     [[VVDocumenterSetting defaultSetting] setSpaceCount:2];
     [[VVDocumenterSetting defaultSetting] setPrefixWithStar:YES];
+    [[VVDocumenterSetting defaultSetting] setPrefixWithSlashes:NO];
     [[VVDocumenterSetting defaultSetting] setAddSinceToComments:NO];
     [[VVDocumenterSetting defaultSetting] setUseHeaderDoc:NO];
     
     self.btnUseSpaces.state = NSOnState;
     [self updateUseSpace:self.btnUseSpaces.state];
+    self.btnPrefixWithWhitespace.state = NSOffState;
     self.btnPrefixWithStar.state = NSOnState;
+    self.btnPrefixWithSlashes.state = NSOffState;
     self.btnAddSinceToComment.state = NSOffState;
     [self.tfTrigger setStringValue:VVDDefaultTriggerString];
     self.btnUseHeaderDoc.state = NSOffState;
@@ -81,8 +90,11 @@
     [self updateUseSpace:self.btnUseSpaces.state];
 }
 
-- (IBAction)btnPrefixWithStarPressed:(id)sender {
-    [[VVDocumenterSetting defaultSetting] setPrefixWithStar:self.btnPrefixWithStar.state];
+- (IBAction)mtxPrefixSettingPressed:(id)sender {
+    id selectedCell = self.mtxPrefixOptions.selectedCell;
+
+    [[VVDocumenterSetting defaultSetting] setPrefixWithStar:[selectedCell isEqual:self.btnPrefixWithStar]];
+    [[VVDocumenterSetting defaultSetting] setPrefixWithSlashes:[selectedCell isEqual:self.btnPrefixWithSlashes]];
 }
 
 - (IBAction)btnAddSinceToCommentsPressed:(id)sender {
