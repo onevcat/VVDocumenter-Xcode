@@ -44,13 +44,17 @@
     // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
     [self.tfTrigger setStringValue:[[VVDocumenterSetting defaultSetting] triggerString]];
     self.btnUseSpaces.state = (NSCellStateValue)[[VVDocumenterSetting defaultSetting] useSpaces];
-    
-    self.btnPrefixWithStar.state = (NSCellStateValue)[[VVDocumenterSetting defaultSetting] prefixWithStar];
-    self.btnPrefixWithSlashes.state = (NSCellStateValue)[[VVDocumenterSetting defaultSetting] prefixWithSlashes];
-    self.btnPrefixWithWhitespace.state = (self.btnPrefixWithStar.state == NSOffState &&
-                                          self.btnPrefixWithSlashes.state == NSOffState);
+
     self.btnAddSinceToComment.state = (NSCellStateValue)[[VVDocumenterSetting defaultSetting] addSinceToComments];
     self.btnUseHeaderDoc.state = (NSCellStateValue)[[VVDocumenterSetting defaultSetting] useHeaderDoc];
+
+    if ([[VVDocumenterSetting defaultSetting] prefixWithStar]) {
+        [self.mtxPrefixOptions selectCell:self.btnPrefixWithStar];
+    } else if ([[VVDocumenterSetting defaultSetting] prefixWithSlashes]) {
+        [self.mtxPrefixOptions selectCell:self.btnPrefixWithSlashes];
+    } else {
+        [self.mtxPrefixOptions selectCell:self.btnPrefixWithWhitespace];
+    }
     
     [self updateUseSpace:self.btnUseSpaces.state];
     [self syncSpaceCount];

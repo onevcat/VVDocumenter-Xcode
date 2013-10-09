@@ -292,7 +292,7 @@
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="716256895">
-								<int key="NSCellFlags">-2080374784</int>
+								<int key="NSCellFlags">67108864</int>
 								<int key="NSCellFlags2">268435456</int>
 								<string key="NSContents">Add @since to all comments</string>
 								<reference key="NSSupport" ref="45273652"/>
@@ -319,7 +319,7 @@
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="619578983">
-								<int key="NSCellFlags">-2080374784</int>
+								<int key="NSCellFlags">67108864</int>
 								<int key="NSCellFlags2">268435456</int>
 								<string key="NSContents">Use /*! (HeaderDoc style) instead of /**</string>
 								<reference key="NSSupport" ref="45273652"/>
@@ -350,7 +350,7 @@
 							<int key="NSNumCols">1</int>
 							<array class="NSMutableArray" key="NSCells">
 								<object class="NSButtonCell" id="337386906">
-									<int key="NSCellFlags">-2080374784</int>
+									<int key="NSCellFlags">67108864</int>
 									<int key="NSCellFlags2">0</int>
 									<string key="NSContents">Prefix each comment line with whitespace only</string>
 									<reference key="NSSupport" ref="45273652"/>
@@ -367,7 +367,7 @@
 									<int key="NSPeriodicInterval">25</int>
 								</object>
 								<object class="NSButtonCell" id="482624575">
-									<int key="NSCellFlags">67108864</int>
+									<int key="NSCellFlags">-2080374784</int>
 									<int key="NSCellFlags2">0</int>
 									<string key="NSContents">Prefix each comment line with a star</string>
 									<reference key="NSSupport" ref="45273652"/>
