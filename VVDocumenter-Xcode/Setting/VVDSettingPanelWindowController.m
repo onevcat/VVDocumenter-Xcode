@@ -17,7 +17,10 @@
 
 @property (weak) IBOutlet NSStepper *stepperCount;
 
-@property (weak) IBOutlet NSButton *btnPrefixWithStar;
+@property (weak) IBOutlet NSMatrix *mtxPrefixOptions;
+@property (weak) IBOutlet NSButtonCell *btnPrefixWithWhitespace;
+@property (weak) IBOutlet NSButtonCell *btnPrefixWithStar;
+@property (weak) IBOutlet NSButtonCell *btnPrefixWithSlashes;
 @property (assign) IBOutlet NSButton *btnAddSinceToComment;
 @property (weak) IBOutlet NSButton *btnUseHeaderDoc;
 @end
@@ -41,10 +44,22 @@
     // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
     [self.tfTrigger setStringValue:[[VVDocumenterSetting defaultSetting] triggerString]];
     self.btnUseSpaces.state = (NSCellStateValue)[[VVDocumenterSetting defaultSetting] useSpaces];
-    
-    self.btnPrefixWithStar.state = (NSCellStateValue)[[VVDocumenterSetting defaultSetting] prefixWithStar];
+
     self.btnAddSinceToComment.state = (NSCellStateValue)[[VVDocumenterSetting defaultSetting] addSinceToComments];
     self.btnUseHeaderDoc.state = (NSCellStateValue)[[VVDocumenterSetting defaultSetting] useHeaderDoc];
+
+    if ([[VVDocumenterSetting defaultSetting] prefixWithStar]) {
+        [self.mtxPrefixOptions selectCell:self.btnPrefixWithStar];
+    } else if ([[VVDocumenterSetting defaultSetting] prefixWithSlashes]) {
+        [self.mtxPrefixOptions selectCell:self.btnPrefixWithSlashes];
+    } else {
+        [self.mtxPrefixOptions selectCell:self.btnPrefixWithWhitespace];
+    }
+
+    // Disable the slashes prefix option for HeaderDoc comments
+    if (self.btnUseHeaderDoc.state == NSOnState) {
+        self.btnPrefixWithSlashes.enabled = NO;
+    }
     
     [self updateUseSpace:self.btnUseSpaces.state];
     [self syncSpaceCount];
@@ -62,16 +77,21 @@
     [[VVDocumenterSetting defaultSetting] setTriggerString:VVDDefaultTriggerString];
     [[VVDocumenterSetting defaultSetting] setSpaceCount:2];
     [[VVDocumenterSetting defaultSetting] setPrefixWithStar:YES];
+    [[VVDocumenterSetting defaultSetting] setPrefixWithSlashes:NO];
     [[VVDocumenterSetting defaultSetting] setAddSinceToComments:NO];
     [[VVDocumenterSetting defaultSetting] setUseHeaderDoc:NO];
     
     self.btnUseSpaces.state = NSOnState;
     [self updateUseSpace:self.btnUseSpaces.state];
+    self.btnPrefixWithWhitespace.state = NSOffState;
     self.btnPrefixWithStar.state = NSOnState;
+    self.btnPrefixWithSlashes.state = NSOffState;
     self.btnAddSinceToComment.state = NSOffState;
     [self.tfTrigger setStringValue:VVDDefaultTriggerString];
     self.btnUseHeaderDoc.state = NSOffState;
     
+    self.btnPrefixWithSlashes.enabled = YES;
+
     [self syncSpaceCount];
     
 }
@@ -81,8 +101,11 @@
     [self updateUseSpace:self.btnUseSpaces.state];
 }
 
-- (IBAction)btnPrefixWithStarPressed:(id)sender {
-    [[VVDocumenterSetting defaultSetting] setPrefixWithStar:self.btnPrefixWithStar.state];
+- (IBAction)mtxPrefixSettingPressed:(id)sender {
+    id selectedCell = self.mtxPrefixOptions.selectedCell;
+
+    [[VVDocumenterSetting defaultSetting] setPrefixWithStar:[selectedCell isEqual:self.btnPrefixWithStar]];
+    [[VVDocumenterSetting defaultSetting] setPrefixWithSlashes:[selectedCell isEqual:self.btnPrefixWithSlashes]];
 }
 
 - (IBAction)btnAddSinceToCommentsPressed:(id)sender {
@@ -121,5 +144,19 @@
 }
 - (IBAction)useHeaderDoc:(id)sender {
     [[VVDocumenterSetting defaultSetting] setUseHeaderDoc:self.btnUseHeaderDoc.state];
+
+    if (self.btnUseHeaderDoc.state == NSOnState) {
+        self.btnPrefixWithSlashes.enabled = NO;
+
+        // If the slashes option was selected, change to the default stars
+        if ([self.mtxPrefixOptions.selectedCell isEqual:self.btnPrefixWithSlashes]) {
+            [self.mtxPrefixOptions selectCell:self.btnPrefixWithStar];
+
+            // Update the settings in addition to the display
+            [self.mtxPrefixOptions sendAction];
+        }
+    } else {
+        self.btnPrefixWithSlashes.enabled = YES;
+    }
 }
 @end

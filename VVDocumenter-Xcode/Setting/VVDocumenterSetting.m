@@ -14,6 +14,7 @@ NSString *const kVVDUseSpaces = @"com.onevcat.VVDocumenter.useSpaces";
 NSString *const kVVDSpaceCount = @"com.onevcat.VVDocumenter.spaceCount";
 NSString *const kVVDTriggerString = @"com.onevcat.VVDocumenter.triggerString";
 NSString *const kVVDPrefixWithStar = @"com.onevcat.VVDocumenter.prefixWithStar";
+NSString *const kVVDPrefixWithSlashes = @"com.onevcat.VVDocumenter.prefixWithSlashes";
 NSString *const kVVDAddSinceToComments = @"com.onevcat.VVDocumenter.addSinceToComments";
 NSString *const kVVDUserHeaderDoc = @"com.onevcat.VVDocumenter.useHeaderDoc";
 @implementation VVDocumenterSetting
@@ -89,6 +90,17 @@ NSString *const kVVDUserHeaderDoc = @"com.onevcat.VVDocumenter.useHeaderDoc";
 -(void) setPrefixWithStar:(BOOL)prefix
 {
     [[NSUserDefaults standardUserDefaults] setBool:prefix forKey:kVVDPrefixWithStar];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+-(BOOL) prefixWithSlashes
+{
+    return [[NSUserDefaults standardUserDefaults] boolForKey:kVVDPrefixWithSlashes];
+}
+
+-(void) setPrefixWithSlashes:(BOOL)prefix
+{
+    [[NSUserDefaults standardUserDefaults] setBool:prefix forKey:kVVDPrefixWithSlashes];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
