@@ -90,6 +90,8 @@
     [self.tfTrigger setStringValue:VVDDefaultTriggerString];
     self.btnUseHeaderDoc.state = NSOffState;
     
+    self.btnPrefixWithSlashes.enabled = YES;
+
     [self syncSpaceCount];
     
 }
