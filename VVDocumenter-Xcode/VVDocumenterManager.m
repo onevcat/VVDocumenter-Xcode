@@ -90,6 +90,20 @@
             }
             
             if ([currentLineResult.string vv_matchesPatternRegexPattern:[NSString stringWithFormat:@"^\\s*%@$",[NSRegularExpression escapedPatternForString:triggerString]]] && self.prefixTyped) {
+                VVTextResult *previousLineResult = [textView textResultOfPreviousLine];
+
+                // Previous line is a documentation comment, so ignore this
+                if ([previousLineResult.string vv_matchesPatternRegexPattern:@"^\\s*///"]) {
+                    return;
+                }
+
+                VVTextResult *nextLineResult = [textView textResultOfNextLine];
+
+                // Next line is a documentation comment, so ignore this
+                if ([nextLineResult.string vv_matchesPatternRegexPattern:@"^\\s*///"]) {
+                    return;
+                }
+                
                 //Get a @"///" (triggerString) typed in by user. Do work!
                 self.prefixTyped = NO;
 

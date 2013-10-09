@@ -19,6 +19,10 @@
 
 -(VVTextResult *) textResultOfCurrentLine;
 
+-(VVTextResult *) textResultOfPreviousLine;
+
+-(VVTextResult *) textResultOfNextLine;
+
 -(VVTextResult *) textResultUntilNextString:(NSString *)findString;
 
 @end
