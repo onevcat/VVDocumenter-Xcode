@@ -55,6 +55,11 @@
     } else {
         [self.mtxPrefixOptions selectCell:self.btnPrefixWithWhitespace];
     }
+
+    // Disable the slashes prefix option for HeaderDoc comments
+    if (self.btnUseHeaderDoc.state == NSOnState) {
+        self.btnPrefixWithSlashes.enabled = NO;
+    }
     
     [self updateUseSpace:self.btnUseSpaces.state];
     [self syncSpaceCount];
@@ -137,5 +142,19 @@
 }
 - (IBAction)useHeaderDoc:(id)sender {
     [[VVDocumenterSetting defaultSetting] setUseHeaderDoc:self.btnUseHeaderDoc.state];
+
+    if (self.btnUseHeaderDoc.state == NSOnState) {
+        self.btnPrefixWithSlashes.enabled = NO;
+
+        // If the slashes option was selected, change to the default stars
+        if ([self.mtxPrefixOptions.selectedCell isEqual:self.btnPrefixWithSlashes]) {
+            [self.mtxPrefixOptions selectCell:self.btnPrefixWithStar];
+
+            // Update the settings in addition to the display
+            [self.mtxPrefixOptions sendAction];
+        }
+    } else {
+        self.btnPrefixWithSlashes.enabled = YES;
+    }
 }
 @end
