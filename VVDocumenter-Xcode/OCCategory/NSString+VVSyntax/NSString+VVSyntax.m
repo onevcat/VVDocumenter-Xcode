@@ -43,7 +43,7 @@
 
 -(BOOL) vv_isEnum
 {
-    return [self vv_matchesPatternRegexPattern:@"^\\s*(\\w+\\s+)?NS_ENUM.*\\{"];
+    return [self vv_matchesPatternRegexPattern:@"^\\s*(\\w+\\s+)?NS_(ENUM|OPTIONS)\\b"];
 }
 
 -(BOOL) vv_isUnion

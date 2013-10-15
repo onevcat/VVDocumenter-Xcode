@@ -16,7 +16,9 @@
                                                                     [self sinceComment],
                                                                     [self endComment]];
     
-    NSString *enumDefinePattern = @"^\\s*(\\w+\\s+)?NS_ENUM.*\\{";
+    // Grab everything from the start of the line to the opening brace, which
+    // may be on a different line.
+    NSString *enumDefinePattern = @"^\\s*(\\w+\\s+)?NS_(ENUM|OPTIONS)[\\s\\S]*?\\{";
     
     NSRegularExpression *enumDefineExpression = [NSRegularExpression regularExpressionWithPattern:enumDefinePattern options:0 error:nil];
     NSTextCheckingResult *enumDefineResult = [enumDefineExpression firstMatchInString:self.code options:0 range:NSMakeRange(0, self.code.length)];
