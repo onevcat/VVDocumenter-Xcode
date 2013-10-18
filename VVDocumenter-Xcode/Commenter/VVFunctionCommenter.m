@@ -13,7 +13,7 @@
 -(void) captureReturnType
 {
     NSArray *arr = [self.code componentsSeparatedByString:@"("];
-    if (arr.count > 0 && ![arr[0] vv_matchesPatternRegexPattern:@"void"]) {
+    if (arr.count > 0 && ![arr[0] vv_matchesPatternRegexPattern:@"^\\s*void\\s*[^*]*\\s*\\w+$"]) {
         self.hasReturn = YES;
     }
 }
