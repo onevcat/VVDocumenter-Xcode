@@ -13,6 +13,9 @@ extern NSString *const VVDDefaultTriggerString;
 @interface VVDocumenterSetting : NSObject
 + (VVDocumenterSetting *)defaultSetting;
 
+-(BOOL) useDvorakLayout;
+-(void) setUseDvorakLayout:(BOOL)useDvorak;
+
 -(BOOL) useSpaces;
 -(void) setUseSpaces:(BOOL)useSpace;
 
