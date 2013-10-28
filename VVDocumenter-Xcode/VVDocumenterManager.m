@@ -149,8 +149,9 @@
                 //Cmd+delete Delete current line
                 [kes sendKeyCode:kVK_Delete withModifierCommand:YES alt:NO shift:NO control:NO];
                 //if (shouldReplace) [textView setSelectedRange:resultToDocument.range];
-                //Cmd+V, paste
-                [kes sendKeyCode:kVK_ANSI_V withModifierCommand:YES alt:NO shift:NO control:NO];
+                //Cmd+V, paste (If it is Dvorak layout, use '.', which is corresponding the key 'V' in a QWERTY layout)
+                NSInteger kKeyVCode = [[VVDocumenterSetting defaultSetting] useDvorakLayout] ? kVK_ANSI_Period : kVK_ANSI_V;
+                [kes sendKeyCode:kKeyVCode withModifierCommand:YES alt:NO shift:NO control:NO];
                 
                 //The key down is just a defined finish signal by me. When we receive this key, we know operation above is finished.
                 [kes sendKeyCode:kVK_F20];
@@ -176,7 +177,7 @@
                         
                         //Invalidate the finish signal, in case you set it to do some other thing.
                         return nil;
-                    } else if ([incomingEvent type] == NSKeyDown && [incomingEvent keyCode] == kVK_ANSI_V && shouldReplace == YES) {
+                    } else if ([incomingEvent type] == NSKeyDown && [incomingEvent keyCode] == kKeyVCode && shouldReplace == YES) {
                         //Select input line and the define code block.
                         NSRange r = [textView textResultUntilNextString:@";"].range;
                         
