@@ -100,6 +100,10 @@
     
 }
 
+- (IBAction)btnUseDvorakPressed:(id)sender {
+    [[VVDocumenterSetting defaultSetting] setUseDvorakLayout:self.btnDvorakLayout.state];
+}
+
 - (IBAction)btnUseSpacesPressed:(id)sender {
     [[VVDocumenterSetting defaultSetting] setUseSpaces:self.btnUseSpaces.state];
     [self updateUseSpace:self.btnUseSpaces.state];

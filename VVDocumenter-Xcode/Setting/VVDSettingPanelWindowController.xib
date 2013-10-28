@@ -196,7 +196,6 @@
 							<string key="NSFrame">{{14, 13}, {113, 32}}</string>
 							<reference key="NSSuperview" ref="1006"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="238216401">
@@ -740,6 +739,14 @@ y7bMNcy1zTXNtc42zrbPN8+40DnQutE80b7SP9LB00TTxtRJ1MvVTtXR1lXW2Ndc1+DYZNjo2WzZ8dp2
 						<reference key="destination" ref="1006148499"/>
 					</object>
 					<string key="id">616-RV-QAf</string>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">btnUseDvorakPressed:</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="1006148499"/>
+					</object>
+					<string key="id">Gvo-1G-o4w</string>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
