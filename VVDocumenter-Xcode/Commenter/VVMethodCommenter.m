@@ -16,9 +16,8 @@
     NSArray * matchedTypes = [self.code vv_stringsByExtractingGroupsUsingRegexPattern:@"^\\s*[+-]\\s*\\(([^\\(\\)]*)\\)"];
 
     if (matchedTypes.count == 1) {
-        NSString *typeString = [matchedTypes[0] vv_stringByReplacingRegexPattern:@"[\\s*;.*]" withString:@""];
-        VVLog(@"type: %@",typeString);
-        if (![typeString isEqualToString:@"void"] && ![typeString isEqualToString:@"IBAction"]) {
+        if (![matchedTypes[0] vv_matchesPatternRegexPattern:@"^\\s*void\\s*[^*]*\\s*$"] &&
+            ![matchedTypes[0] vv_matchesPatternRegexPattern:@"^\\s*IBAction\\s*$"]) {
             self.hasReturn = YES;
         }
     }

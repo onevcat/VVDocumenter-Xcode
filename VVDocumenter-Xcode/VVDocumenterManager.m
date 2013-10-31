@@ -15,8 +15,9 @@
 #import "VVDocumenterSetting.h"
 
 @interface VVDocumenterManager()
-@property (nonatomic, retain) id eventMonitor;
+@property (nonatomic, strong) id eventMonitor;
 @property (nonatomic, assign) BOOL prefixTyped;
+@property (nonatomic, strong) VVDSettingPanelWindowController *settingPanel;
 @end
 
 @implementation VVDocumenterManager
@@ -58,17 +59,16 @@
     if (editMenuItem) {
         [[editMenuItem submenu] addItem:[NSMenuItem separatorItem]];
         
-        NSMenuItem *newMenuItem = [[NSMenuItem alloc] initWithTitle:@"VVDocumenter" action:@selector(showSettingPanle:) keyEquivalent:@""];
+        NSMenuItem *newMenuItem = [[NSMenuItem alloc] initWithTitle:@"VVDocumenter" action:@selector(showSettingPanel:) keyEquivalent:@""];
         
         [newMenuItem setTarget:self];
         [[editMenuItem submenu] addItem:newMenuItem];
-        [newMenuItem release];
     }
 }
 
--(void) showSettingPanle:(NSNotification *)noti {
-    VVDSettingPanelWindowController *panelController = [[VVDSettingPanelWindowController alloc] initWithWindowNibName:@"VVDSettingPanelWindowController"];
-    [panelController showWindow:panelController];
+-(void) showSettingPanel:(NSNotification *)noti {
+    self.settingPanel = [[VVDSettingPanelWindowController alloc] initWithWindowNibName:@"VVDSettingPanelWindowController"];
+    [self.settingPanel showWindow:self.settingPanel];
 }
 
 - (void) textStorageDidChange:(NSNotification *)noti {
@@ -90,14 +90,30 @@
             }
             
             if ([currentLineResult.string vv_matchesPatternRegexPattern:[NSString stringWithFormat:@"^\\s*%@$",[NSRegularExpression escapedPatternForString:triggerString]]] && self.prefixTyped) {
+                VVTextResult *previousLineResult = [textView textResultOfPreviousLine];
+
+                // Previous line is a documentation comment, so ignore this
+                if ([previousLineResult.string vv_matchesPatternRegexPattern:@"^\\s*///"]) {
+                    return;
+                }
+
+                VVTextResult *nextLineResult = [textView textResultOfNextLine];
+
+                // Next line is a documentation comment, so ignore this
+                if ([nextLineResult.string vv_matchesPatternRegexPattern:@"^\\s*///"]) {
+                    return;
+                }
+                
+                //Get a @"///" (triggerString) typed in by user. Do work!
                 self.prefixTyped = NO;
-                //Get a @"///" typed in by user. Do work!
+
+                __block BOOL shouldReplace = NO;
                 
                 //Decide which is closer to the cursor. A semicolon or a half brace.
                 //We just want to document the next valid line.
                 VVTextResult *resultUntilSemiColon = [textView textResultUntilNextString:@";"];
                 VVTextResult *resultUntilBrace = [textView textResultUntilNextString:@"{"];
-
+                
                 VVTextResult *resultToDocument = nil;
                 
                 if (resultUntilSemiColon && resultUntilBrace) {
@@ -106,6 +122,12 @@
                     resultToDocument = resultUntilBrace;
                 } else {
                     resultToDocument = resultUntilSemiColon;
+                }
+                
+                //We always write document until semicolon for enum. (Maybe struct later)
+                if ([resultToDocument.string vv_isEnum]) {
+                    resultToDocument = resultUntilSemiColon;
+                    shouldReplace = YES;
                 }
                 
                 VVDocumenter *doc = [[VVDocumenter alloc] initWithCode:resultToDocument.string];
@@ -120,14 +142,17 @@
                 //Set the doc comments in it
                 [pasteBoard declareTypes:[NSArray arrayWithObject:NSStringPboardType] owner:nil];
                 [pasteBoard setString:[doc document] forType:NSStringPboardType];
-
+                
                 //Begin to simulate keyborad pressing
                 VVKeyboardEventSender *kes = [[VVKeyboardEventSender alloc] init];
                 [kes beginKeyBoradEvents];
                 //Cmd+delete Delete current line
                 [kes sendKeyCode:kVK_Delete withModifierCommand:YES alt:NO shift:NO control:NO];
-                //Cmd+V, paste
-                [kes sendKeyCode:kVK_ANSI_V withModifierCommand:YES alt:NO shift:NO control:NO];
+                //if (shouldReplace) [textView setSelectedRange:resultToDocument.range];
+                //Cmd+V, paste (If it is Dvorak layout, use '.', which is corresponding the key 'V' in a QWERTY layout)
+                NSInteger kKeyVCode = [[VVDocumenterSetting defaultSetting] useDvorakLayout] ? kVK_ANSI_Period : kVK_ANSI_V;
+                [kes sendKeyCode:kKeyVCode withModifierCommand:YES alt:NO shift:NO control:NO];
+                
                 //The key down is just a defined finish signal by me. When we receive this key, we know operation above is finished.
                 [kes sendKeyCode:kVK_F20];
 
@@ -148,8 +173,17 @@
                         [kes sendKeyCode:kVK_Tab];
                         [kes endKeyBoradEvents];
                         
+                        shouldReplace = NO;
+                        
                         //Invalidate the finish signal, in case you set it to do some other thing.
                         return nil;
+                    } else if ([incomingEvent type] == NSKeyDown && [incomingEvent keyCode] == kKeyVCode && shouldReplace == YES) {
+                        //Select input line and the define code block.
+                        NSRange r = [textView textResultUntilNextString:@";"].range;
+                        
+                        //NSRange r begins from the starting of enum(struct) line. Select 1 character before to include the trigger input line.
+                        [textView setSelectedRange:NSMakeRange(r.location - 1, r.length + 1)];
+                        return incomingEvent;
                     } else {
                         return incomingEvent;
                     }

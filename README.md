@@ -3,7 +3,7 @@
 
 ## What is this?
 
-Writing document is so important for developing, but it is really painful with Xcode. Think about how much time you are wasting in pressing '*' or '/', and typing the parameters again and again. Now, you can find the method (or any code) you want to document to, and type in `///`, the document will be generated for you and all params and return will be extracted into a Javadoc style, which is compatible with both [appledoc](https://github.com/tomaz/appledoc) and [Doxygen](http://www.stack.nl/~dimitri/doxygen/). You can just fill the inline placeholders to finish your document。
+Writing document is so important for developing, but it is really painful with Xcode. Think about how much time you are wasting in pressing '*' or '/', and typing the parameters again and again. Now, you can find the method (or any code) you want to document to, and type in `///`, the document will be generated for you and all params and return will be extracted into a Javadoc style, which is compatible with [appledoc](https://github.com/tomaz/appledoc), [Doxygen](http://www.stack.nl/~dimitri/doxygen/) and [HeaderDoc](https://developer.apple.com/library/mac/documentation/DeveloperTools/Conceptual/HeaderDoc/intro/intro.html). You can just fill the inline placeholder tokens to finish your document.
 
 Here is an image which can show what it exactly does.
 
@@ -13,11 +13,11 @@ Here is an image which can show what it exactly does.
 
 Build the `VVDocumenter-Xcode` target in the Xcode project and the plug-in will automatically be installed in `~/Library/Application Support/Developer/Shared/Xcode/Plug-ins`. Relaunch Xcode and type in `///` above any code you want to write a document to.
 
-If you want to use other text beside of `///` to trigger the document insertion, you can find a setting panel by clicking `VVDocument` in the Window menu of Xcode. You can also set using spaces instead of tab in the panel.
+If you want to use other text beside of `///` to trigger the document insertion, you can find a setting panel by clicking `VVDocument` in the Window menu of Xcode. You can also find some other useful options there, including setting using spaces instead of tab in the panel or changing the format of generated documentation.
 
 ## Xcode version?
 
-This plug-in is developed and tested in Mac OSX 10.8.5 Xcode 4.6.3. It should work in all versions of Xcode 4. If you want to use it in Xcode 5 (DP3 or above), you have to make a liittle change in the plist. This is all what I can say now under the NDA.
+This plug-in is developed and tested in Mac OSX 10.8.5 Xcode 5. **The master branch dropped support for Xcode 4. If you want to use it in Xcode 4, please check out the [Xcode4 branch](https://github.com/onevcat/VVDocumenter-Xcode/tree/Xcode4).** In Xcode 5, Apple added an UUID-verification to all plugins to ensure the stability when Xcode gets updated. The value of DVTPlugInCompatibilityUUIDs in project plist should contains current UUID of Xcode version, or the plugin does not work. I have added a pre-actions script in scheme to set it for you. **Once you update your Xcode, the plugin would be invalid and you should check the newest version and built it again.**
 
 The default deployment target is 10.8. If you want to use it in a earlier OS version, you should change OS X Deployment Target (in project info setting) to your system version.
 
@@ -32,16 +32,23 @@ If you have modified these two shortcuts in your Xcode, the newset version of th
 
 And there are a set of code type I hope to support, but now I just finished some of them.
 
-* Objc Method (Done)
-* C Function (Done)
-* Macro (Done)
-* Property (Done)
-* Variable (Done)
-* Enum (To do)
+* ~~Objc Method (Done)~~
+* ~~C Function (Done)~~
+* ~~Macro (Done)~~
+* ~~Property (Done)~~
+* ~~Variable (Done)~~
+* ~~NS_Enum (Done)~~
+* ~~NS_OPTIONS (Done)~~
 * Struct (To do)
 * Union (To do)
 
 Now the docs for to-do types will be generated only with a basic description (which is the same as Property and Variable).
+
+## Contributors
+
+Thanks for all contributors of this project.
+
+[@idpaterson](https://github.com/idpaterson) [@nickskull](https://github.com/nickskull) [@Ahti](https://github.com/Ahti) [@ilg](https://github.com/ilg) [@zxhfirefox](https://github.com/zxhfirefox)
 
 ## License
 

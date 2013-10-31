@@ -12,10 +12,18 @@
 
 @property (nonatomic, copy) NSString *indent;
 @property (nonatomic, copy) NSString *code;
-@property (nonatomic, retain) NSMutableArray *arguments;
+@property (nonatomic, strong) NSMutableArray *arguments;
 @property (nonatomic, assign) BOOL hasReturn;
 
 -(id) initWithIndentString:(NSString *)indent codeString:(NSString *)code;
 -(NSString *) document;
 -(void) parseArguments;
+
+// Comment methods
+-(NSString *) startComment;
+-(NSString *) argumentsComment;
+-(NSString *) endComment;
+-(NSString *) returnComment;
+-(NSString *) sinceComment;
+
 @end

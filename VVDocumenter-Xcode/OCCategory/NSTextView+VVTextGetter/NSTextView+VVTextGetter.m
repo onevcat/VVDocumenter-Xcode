@@ -55,6 +55,62 @@
     }
 }
 
+-(VVTextResult *) textResultOfPreviousLine
+{
+    NSString *string = self.textStorage.string;
+    NSInteger curseLocation = [self currentCurseLocation];
+    NSRange range = NSMakeRange(0, curseLocation);
+    NSRange thisLineRange = [string rangeOfCharacterFromSet:[NSCharacterSet newlineCharacterSet] options:NSBackwardsSearch range:range];
+
+    NSString *line = nil;
+    if (thisLineRange.location != NSNotFound) {
+        range = NSMakeRange(0, thisLineRange.location);
+        NSRange previousLineRange = [string rangeOfCharacterFromSet:[NSCharacterSet newlineCharacterSet] options:NSBackwardsSearch range:range];
+
+        if (previousLineRange.location != NSNotFound) {
+            NSRange lineRange = NSMakeRange(previousLineRange.location + 1, thisLineRange.location - previousLineRange.location);
+            if (lineRange.location < [string length] && NSMaxRange(lineRange) < [string length]) {
+                line = [string substringWithRange:lineRange];
+                return [[VVTextResult alloc] initWithRange:lineRange string:line];
+            } else {
+                return nil;
+            }
+        } else {
+            return nil;
+        }
+    } else {
+        return nil;
+    }
+}
+
+-(VVTextResult *) textResultOfNextLine
+{
+    NSString *string = self.textStorage.string;
+    NSInteger curseLocation = [self currentCurseLocation];
+    NSRange range = NSMakeRange(curseLocation, string.length - curseLocation);
+    NSRange thisLineRange = [string rangeOfCharacterFromSet:[NSCharacterSet newlineCharacterSet] options:0 range:range];
+
+    NSString *line = nil;
+    if (thisLineRange.location != NSNotFound) {
+        range = NSMakeRange(thisLineRange.location + 1, string.length - thisLineRange.location - 1);
+        NSRange nextLineRange = [string rangeOfCharacterFromSet:[NSCharacterSet newlineCharacterSet] options:0 range:range];
+
+        if (nextLineRange.location != NSNotFound) {
+            NSRange lineRange = NSMakeRange(thisLineRange.location + 1, NSMaxRange(nextLineRange) - NSMaxRange(thisLineRange));
+            if (lineRange.location < [string length] && NSMaxRange(lineRange) < [string length]) {
+                line = [string substringWithRange:lineRange];
+                return [[VVTextResult alloc] initWithRange:lineRange string:line];
+            } else {
+                return nil;
+            }
+        } else {
+            return nil;
+        }
+    } else {
+        return nil;
+    }
+}
+
 -(VVTextResult *) textResultUntilNextString:(NSString *)findString
 {
     NSString *string = self.textStorage.string;
