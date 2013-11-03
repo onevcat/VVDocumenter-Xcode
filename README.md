@@ -48,7 +48,7 @@ Now the docs for to-do types will be generated only with a basic description (wh
 
 Thanks for all contributors of this project.
 
-[@idpaterson](https://github.com/idpaterson) [@nickskull](https://github.com/nickskull) [@Ahti](https://github.com/Ahti) [@ilg](https://github.com/ilg) [@zxhfirefox](https://github.com/zxhfirefox)
+[@idpaterson](https://github.com/idpaterson) [@nickskull](https://github.com/nickskull) [@Ahti](https://github.com/Ahti) [@ilg](https://github.com/ilg) [@zxhfirefox](https://github.com/zxhfirefox) [@xlchen](https://github.com/xlchen)
 
 ## License
 
