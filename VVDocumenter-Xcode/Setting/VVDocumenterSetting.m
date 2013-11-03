@@ -7,6 +7,7 @@
 //
 
 #import "VVDocumenterSetting.h"
+#import <Carbon/Carbon.h>
 
 NSString *const VVDDefaultTriggerString = @"///";
 
@@ -17,7 +18,6 @@ NSString *const kVVDPrefixWithStar = @"com.onevcat.VVDocumenter.prefixWithStar";
 NSString *const kVVDPrefixWithSlashes = @"com.onevcat.VVDocumenter.prefixWithSlashes";
 NSString *const kVVDAddSinceToComments = @"com.onevcat.VVDocumenter.addSinceToComments";
 NSString *const kVVDUserHeaderDoc = @"com.onevcat.VVDocumenter.useHeaderDoc";
-NSString *const kVVDUseDvorak = @"com.onevcat.VVDocumenter.useDvorak";
 @implementation VVDocumenterSetting
 
 + (VVDocumenterSetting *)defaultSetting
@@ -47,13 +47,14 @@ NSString *const kVVDUseDvorak = @"com.onevcat.VVDocumenter.useDvorak";
 
 -(BOOL) useDvorakLayout
 {
-    return [[NSUserDefaults standardUserDefaults] boolForKey:kVVDUseDvorak];
-}
-
--(void) setUseDvorakLayout:(BOOL)useDvorak
-{
-    [[NSUserDefaults standardUserDefaults] setBool:useDvorak forKey:kVVDUseDvorak];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+    TISInputSourceRef inputSource = TISCopyCurrentKeyboardLayoutInputSource();
+    NSString *layoutID = (__bridge NSString *)TISGetInputSourceProperty(inputSource, kTISPropertyInputSourceID);
+    CFRelease(inputSource);
+    if ([layoutID isEqualToString:@"com.apple.keylayout.Dvorak"]) {
+        return YES;
+    } else {
+        return NO;
+    }
 }
 
 -(NSInteger) spaceCount
