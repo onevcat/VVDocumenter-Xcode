@@ -75,6 +75,7 @@
 {
     TISInputSourceRef inputSource = TISCopyCurrentKeyboardLayoutInputSource();
     NSString *layoutID = (__bridge NSString *)TISGetInputSourceProperty(inputSource, kTISPropertyInputSourceID);
+    CFRelease(inputSource);
     if ([layoutID isEqualToString:@"com.apple.keylayout.Dvorak"]) {
         return YES;
     } else {
