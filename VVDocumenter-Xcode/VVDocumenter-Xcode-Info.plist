@@ -24,10 +24,12 @@
 	<string>1</string>
 	<key>DVTPlugInCompatibilityUUIDs</key>
 	<array>
+		<string>63FC1C47-140D-42B0-BB4D-A10B2D225574</string>
 		<string>37B30044-3B14-46BA-ABAA-F01000C27B63</string>
+		<string>640F884E-CE55-4B40-87C0-8869546CAB7A</string>
 	</array>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © 2013年 OneV's Den. All rights reserved.</string>
+	<string>Copyright © 2013年 OneV&apos;s Den. All rights reserved.</string>
 	<key>NSPrincipalClass</key>
 	<string></string>
 	<key>XC4Compatible</key>
