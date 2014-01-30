@@ -140,5 +140,52 @@
  */</string>
 		</dict>
 	</array>
+	<key>vv_isMacro</key>
+	<array>
+		<dict>
+			<key>source</key>
+			<string>#define MAX(A,B)	({</string>
+			<key>uniform</key>
+			<string>#define MAX(A,B)({</string>
+			<key>result</key>
+			<string>/**
+ *  &lt;#Description#&gt;
+ *
+ *  @param A &lt;#A description#&gt;
+ *  @param B &lt;#B description#&gt;
+ *
+ *  @return &lt;#return value description#&gt;
+ */</string>
+		</dict>
+		<dict>
+			<key>source</key>
+			<string>#define MIN(A,B)	((A) &lt; (B) ? (A) : (B))</string>
+			<key>uniform</key>
+			<string>#define MIN(A,B)((A)&lt;(B)?(A):(B))</string>
+			<key>result</key>
+			<string>/**
+ *  &lt;#Description#&gt;
+ *
+ *  @param A &lt;#A description#&gt;
+ *  @param B &lt;#B description#&gt;
+ *
+ *  @return &lt;#return value description#&gt;
+ */</string>
+		</dict>
+		<dict>
+			<key>source</key>
+			<string>#define ABS(A)	((A) &lt; 0 ? (-(A)) : (A))</string>
+			<key>uniform</key>
+			<string>#define ABS(A)((A)&lt; 0 ?(-(A)) :(A))</string>
+			<key>result</key>
+			<string>/**
+ *  &lt;#Description#&gt;
+ *
+ *  @param A &lt;#A description#&gt;
+ *
+ *  @return &lt;#return value description#&gt;
+ */</string>
+		</dict>
+	</array>
 </dict>
 </plist>
