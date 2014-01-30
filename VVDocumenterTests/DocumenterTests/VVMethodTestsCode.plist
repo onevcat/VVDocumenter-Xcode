@@ -1,27 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<array>
-	<dict>
-		<key>source</key>
-		<string>+ (ADTransition *)nullTransition;</string>
-		<key>uniform</key>
-		<string>+(ADTransition *)nullTransition;</string>
-		<key>result</key>
-		<string>/**
+<dict>
+	<key>vv_isObjCMethod</key>
+	<array>
+		<dict>
+			<key>source</key>
+			<string>- (id)initWithDuration:(CFTimeInterval)duration sourceRect:(CGRect)sourceRect {</string>
+			<key>uniform</key>
+			<string>-(id)initWithDuration:(CFTimeInterval)duration sourceRect:(CGRect)sourceRect {</string>
+			<key>result</key>
+			<string>/**
  *  &lt;#Description#&gt;
+ *
+ *  @param duration   &lt;#duration description#&gt;
+ *  @param sourceRect &lt;#sourceRect description#&gt;
  *
  *  @return &lt;#return value description#&gt;
  */</string>
-	</dict>
-	<dict>
-		<key>source</key>
-		<string>   -    (BOOL) application: (UIApplication *) application
+		</dict>
+		<dict>
+			<key>source</key>
+			<string>   -    (BOOL) application: (UIApplication *) application
  didFinishLaunchingWithOptions: (NSDictionary *) launchOptions;</string>
-		<key>uniform</key>
-		<string>   -(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions;</string>
-		<key>result</key>
-		<string>   /**
+			<key>uniform</key>
+			<string>   -(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions;</string>
+			<key>result</key>
+			<string>   /**
     *  &lt;#Description#&gt;
     *
     *  @param application   &lt;#application description#&gt;
@@ -29,6 +34,19 @@
     *
     *  @return &lt;#return value description#&gt;
     */</string>
-	</dict>
-</array>
+		</dict>
+		<dict>
+			<key>source</key>
+			<string>+ (ADTransition *)nullTransition;</string>
+			<key>uniform</key>
+			<string>+(ADTransition *)nullTransition;</string>
+			<key>result</key>
+			<string>/**
+ *  &lt;#Description#&gt;
+ *
+ *  @return &lt;#return value description#&gt;
+ */</string>
+		</dict>
+	</array>
+</dict>
 </plist>
