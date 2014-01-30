@@ -47,9 +47,7 @@
             
             STAssertEqualObjects([source vv_stringByConvertingToUniform], uniform, @"Source should be converted to uniform format corrctly.");
             
-            STAssertEqualObjects([source vv_stringByConvertingToUniform], uniform, @"Source should be converted to uniform format corrctly.");
-            
-            STAssertTrue([VVTestHelper performSyntaxMethod:key onString:uniform], @"This uniform code should be Objc");
+            STAssertTrue([VVTestHelper performSyntaxMethod:key onString:uniform], @"This uniform code should be %@",key);
             
             NSArray *otherTypeStrings = [VVTestHelper arrayOfExceptCodeType:key];
             for (NSString *type in otherTypeStrings) {

@@ -48,5 +48,64 @@
  */</string>
 		</dict>
 	</array>
+	<key>vv_isCFunction</key>
+	<array>
+		<dict>
+			<key>source</key>
+			<string>void dosomething ( int x, int  y );</string>
+			<key>uniform</key>
+			<string>void dosomething( int x, int  y );</string>
+			<key>result</key>
+			<string>/**
+ *  &lt;#Description#&gt;
+ *
+ *  @param x &lt;#x description#&gt;
+ *  @param y &lt;#y description#&gt;
+ */</string>
+		</dict>
+		<dict>
+			<key>source</key>
+			<string>int main(int argc, char *argv[]) 
+ {</string>
+			<key>uniform</key>
+			<string>int main(int argc, char *argv[]){</string>
+			<key>result</key>
+			<string>/**
+ *  &lt;#Description#&gt;
+ *
+ *  @param argc &lt;#argc description#&gt;
+ *  @param argv &lt;#argv description#&gt;
+ *
+ *  @return &lt;#return value description#&gt;
+ */</string>
+		</dict>
+		<dict>
+			<key>source</key>
+			<string>void  NoParamFunc();</string>
+			<key>uniform</key>
+			<string>void  NoParamFunc();</string>
+			<key>result</key>
+			<string>/**
+ *  &lt;#Description#&gt;
+ */</string>
+		</dict>
+		<dict>
+			<key>source</key>
+			<string>typeof void(^IBLShareSuccessBlock)(ShareType type, SSPublishContentState state, id&lt;ISSStatusInfo&gt; statusInfo, BOOL end);</string>
+			<key>uniform</key>
+			<string>typeof void(^IBLShareSuccessBlock)(ShareType type, SSPublishContentState state, id&lt;ISSStatusInfo&gt; statusInfo, BOOL end);</string>
+			<key>result</key>
+			<string>/**
+ *  &lt;#Description#&gt;
+ *
+ *  @param type       &lt;#type description#&gt;
+ *  @param state      &lt;#state description#&gt;
+ *  @param statusInfo &lt;#statusInfo description#&gt;
+ *  @param end        &lt;#end description#&gt;
+ *
+ *  @return &lt;#return value description#&gt;
+ */</string>
+		</dict>
+	</array>
 </dict>
 </plist>
