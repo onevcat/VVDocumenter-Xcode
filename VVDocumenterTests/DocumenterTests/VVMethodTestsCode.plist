@@ -187,5 +187,39 @@
  */</string>
 		</dict>
 	</array>
+	<key>vv_isStruct</key>
+	<array>
+		<dict>
+			<key>source</key>
+			<string>struct Foo 
+ {</string>
+			<key>uniform</key>
+			<string>struct Foo {</string>
+			<key>result</key>
+			<string>/**
+ *  &lt;#Description#&gt;
+ */</string>
+		</dict>
+		<dict>
+			<key>source</key>
+			<string>   struct node {</string>
+			<key>uniform</key>
+			<string>   struct node {</string>
+			<key>result</key>
+			<string>   /**
+    *  &lt;#Description#&gt;
+    */</string>
+		</dict>
+		<dict>
+			<key>source</key>
+			<string>struct objc_object {</string>
+			<key>uniform</key>
+			<string>struct objc_object {</string>
+			<key>result</key>
+			<string>/**
+ *  &lt;#Description#&gt;
+ */</string>
+		</dict>
+	</array>
 </dict>
 </plist>
