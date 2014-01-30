@@ -9,6 +9,7 @@
 #import "VVBaseCommenter.h"
 #import "VVArgument.h"
 #import "VVDocumenterSetting.h"
+#import "NSString+VVSyntax.h"
 
 @interface VVBaseCommenter()
 @property (nonatomic, copy) NSString *space;
@@ -103,7 +104,7 @@
 
 -(NSString *) emptyLine
 {
-    return [NSString stringWithFormat:@"%@\n", self.prefixString];
+    return [[NSString stringWithFormat:@"%@\n", self.prefixString] vv_stringByTrimEndSpaces];
 }
 
 -(NSString *) prefixString

@@ -10,6 +10,7 @@
 
 @interface NSString (VVSyntax)
 -(NSString *) vv_stringByConvertingToUniform;
+-(NSString *) vv_stringByTrimEndSpaces;
 
 -(BOOL) vv_isObjCMethod;
 -(BOOL) vv_isProperty;

@@ -55,7 +55,7 @@
         }
         
         VVDocumenter *documenter = [[VVDocumenter alloc] initWithCode:uniform];
-        STAssertEqualObjects([documenter document], result, @"Result should be correct");
+        STAssertEqualObjects(result, [documenter document], @"Result should be correct");
         
     }];
 }
