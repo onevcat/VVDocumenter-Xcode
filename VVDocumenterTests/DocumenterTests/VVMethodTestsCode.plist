@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>source</key>
+		<string>+ (ADTransition *)nullTransition;</string>
+		<key>uniform</key>
+		<string>+(ADTransition *)nullTransition;</string>
+		<key>result</key>
+		<string>/**
+ *  &lt;#Description#&gt;
+ *  
+ *  @return &lt;#return value description#&gt;
+ */</string>
+	</dict>
+</array>
+</plist>

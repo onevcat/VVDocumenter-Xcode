@@ -25,9 +25,6 @@
     [super tearDown];
 }
 
-- (void)testMethodDocument
-{
-    
-}
+
 
 @end
