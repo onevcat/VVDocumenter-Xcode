@@ -107,5 +107,38 @@
  */</string>
 		</dict>
 	</array>
+	<key>vv_isProperty</key>
+	<array>
+		<dict>
+			<key>source</key>
+			<string>@property (nonatomic, copy ) NSString *code;</string>
+			<key>uniform</key>
+			<string>@property(nonatomic, copy )NSString *code;</string>
+			<key>result</key>
+			<string>/**
+ *  &lt;#Description#&gt;
+ */</string>
+		</dict>
+		<dict>
+			<key>source</key>
+			<string>    @property ( nonatomic, strong ) Miao* test;</string>
+			<key>uniform</key>
+			<string>    @property( nonatomic, strong )Miao* test;</string>
+			<key>result</key>
+			<string>    /**
+     *  &lt;#Description#&gt;
+     */</string>
+		</dict>
+		<dict>
+			<key>source</key>
+			<string>@property ( assign, strong ) int test;</string>
+			<key>uniform</key>
+			<string>@property( assign, strong )int test;</string>
+			<key>result</key>
+			<string>/**
+ *  &lt;#Description#&gt;
+ */</string>
+		</dict>
+	</array>
 </dict>
 </plist>
