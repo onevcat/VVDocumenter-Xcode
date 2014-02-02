@@ -106,6 +106,53 @@
  *  @return &lt;#return value description#&gt;
  */</string>
 		</dict>
+		<dict>
+			<key>source</key>
+			<string>typedef NSURL * (^AFURLSessionDownloadTaskDidFinishDownloadingBlock)(NSURLSession *session, NSURLSessionDownloadTask *downloadTask, NSURL *location);</string>
+			<key>uniform</key>
+			<string>typedef NSURL *(^AFURLSessionDownloadTaskDidFinishDownloadingBlock)(NSURLSession *session, NSURLSessionDownloadTask *downloadTask, NSURL *location);</string>
+			<key>result</key>
+			<string>/**
+ *  &lt;#Description#&gt;
+ *
+ *  @param session      &lt;#session description#&gt;
+ *  @param downloadTask &lt;#downloadTask description#&gt;
+ *  @param location     &lt;#location description#&gt;
+ *
+ *  @return &lt;#return value description#&gt;
+ */</string>
+		</dict>
+		<dict>
+			<key>source</key>
+			<string>typedef NSURL * (^AFURLSessionDownloadTaskDidFinishDownloadingBlock)(NSURLSession *session, NSURLSessionDownloadTask *downloadTask, NSURL *location);</string>
+			<key>uniform</key>
+			<string>typedef NSURL *(^AFURLSessionDownloadTaskDidFinishDownloadingBlock)(NSURLSession *session, NSURLSessionDownloadTask *downloadTask, NSURL *location);</string>
+			<key>result</key>
+			<string>/**
+ *  &lt;#Description#&gt;
+ *
+ *  @param session      &lt;#session description#&gt;
+ *  @param downloadTask &lt;#downloadTask description#&gt;
+ *  @param location     &lt;#location description#&gt;
+ *
+ *  @return &lt;#return value description#&gt;
+ */</string>
+		</dict>
+		<dict>
+			<key>source</key>
+			<string>typedef void (^AFURLSessionDownloadTaskDidResumeBlock)(NSURLSession *session, NSURLSessionDownloadTask *downloadTask, int64_t fileOffset, int64_t expectedTotalBytes);</string>
+			<key>uniform</key>
+			<string>typedef void(^AFURLSessionDownloadTaskDidResumeBlock)(NSURLSession *session, NSURLSessionDownloadTask *downloadTask, int64_t fileOffset, int64_t expectedTotalBytes);</string>
+			<key>result</key>
+			<string>/**
+ *  &lt;#Description#&gt;
+ *
+ *  @param session            &lt;#session description#&gt;
+ *  @param downloadTask       &lt;#downloadTask description#&gt;
+ *  @param fileOffset         &lt;#fileOffset description#&gt;
+ *  @param expectedTotalBytes &lt;#expectedTotalBytes description#&gt;
+ */</string>
+		</dict>
 	</array>
 	<key>vv_isProperty</key>
 	<array>
