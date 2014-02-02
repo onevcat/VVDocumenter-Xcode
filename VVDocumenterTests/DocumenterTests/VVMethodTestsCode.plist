@@ -47,6 +47,18 @@
  *  @return &lt;#return value description#&gt;
  */</string>
 		</dict>
+		<dict>
+			<key>source</key>
+			<string>-(void)whenLinked:(void (^)(void))actionHandler</string>
+			<key>uniform</key>
+			<string>-(void)whenLinked:(void (^)(void))actionHandler</string>
+			<key>result</key>
+			<string>/**
+ *  &lt;#Description#&gt;
+ *
+ *  @param actionHandler &lt;#actionHandler description#&gt;
+ */</string>
+		</dict>
 	</array>
 	<key>vv_isCFunction</key>
 	<array>
