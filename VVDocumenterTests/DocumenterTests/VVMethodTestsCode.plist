@@ -221,5 +221,91 @@
  */</string>
 		</dict>
 	</array>
+	<key>vv_isEnum</key>
+	<array>
+		<dict>
+			<key>source</key>
+			<string>typedef NS_ENUM(NSInteger, SIAlertViewBackgroundStyle) {
+    SIAlertViewBackgroundStyleGradient = 0,
+    SIAlertViewBackgroundStyleSolid,
+};</string>
+			<key>uniform</key>
+			<string>typedef NS_ENUM(NSInteger, SIAlertViewBackgroundStyle){ SIAlertViewBackgroundStyleGradient = 0, SIAlertViewBackgroundStyleSolid, };</string>
+			<key>result</key>
+			<string>/**
+ *  &lt;#Description#&gt;
+ */
+typedef NS_ENUM(NSInteger, SIAlertViewBackgroundStyle){
+/**
+ *  &lt;#Description#&gt;
+ */
+SIAlertViewBackgroundStyleGradient = 0,
+/**
+ *  &lt;#Description#&gt;
+ */
+SIAlertViewBackgroundStyleSolid,
+};</string>
+		</dict>
+	</array>
+	<key>vv_isComplieKeyword</key>
+	<array>
+		<dict>
+			<key>source</key>
+			<string>@interface VVDocumenter : NSObject 
+ {</string>
+			<key>uniform</key>
+			<string>@interface VVDocumenter : NSObject {</string>
+			<key>result</key>
+			<string>/**
+ *  &lt;#Description#&gt;
+ */</string>
+		</dict>
+		<dict>
+			<key>source</key>
+			<string>@interface VVDocumenter : NSObject 
+ {</string>
+			<key>uniform</key>
+			<string>@interface VVDocumenter : NSObject {</string>
+			<key>result</key>
+			<string>/**
+ *  &lt;#Description#&gt;
+ */</string>
+		</dict>
+		<dict>
+			<key>source</key>
+			<string>@interface SyntaxTests()
+@property (nonatomic, retain) NSArray* inputs;</string>
+			<key>uniform</key>
+			<string>@interface SyntaxTests()@property(nonatomic, retain)NSArray* inputs;</string>
+			<key>result</key>
+			<string>/**
+ *  &lt;#Description#&gt;
+ */</string>
+		</dict>
+		<dict>
+			<key>source</key>
+			<string>@implementation SyntaxTests
+
+- (void)setUp
+{</string>
+			<key>uniform</key>
+			<string>@implementation SyntaxTests -(void)setUp {</string>
+			<key>result</key>
+			<string>/**
+ *  &lt;#Description#&gt;
+ */</string>
+		</dict>
+		<dict>
+			<key>source</key>
+			<string>@interface A (a)
+- (id) foo;</string>
+			<key>uniform</key>
+			<string>@interface A(a)-(id)foo;</string>
+			<key>result</key>
+			<string>/**
+ *  &lt;#Description#&gt;
+ */</string>
+		</dict>
+	</array>
 </dict>
 </plist>
