@@ -7,6 +7,7 @@
 //
 
 #import "VVFunctionCommenter.h"
+#import "VVArgument.h"
 
 @implementation VVFunctionCommenter
 
@@ -22,6 +23,14 @@
 -(void) captureParameters
 {
     [self parseArguments];
+    
+    //Remove void arg in block
+    NSArray *tempArray = [NSArray arrayWithArray:self.arguments];
+    [tempArray enumerateObjectsUsingBlock:^(VVArgument *arg, NSUInteger idx, BOOL *stop) {
+        if ([arg.type isEqualToString:@""] && [arg.name isEqualToString:@"void"]) {
+            [self.arguments removeObject:arg];
+        }
+    }];
 }
 
 -(NSString *) document

@@ -133,6 +133,7 @@
             while ([[tempArgs lastObject] isEqualToString:@" "]) {
                 [tempArgs removeLastObject];
             }
+
             arg.name = [tempArgs lastObject];
 
             [tempArgs removeLastObject];
