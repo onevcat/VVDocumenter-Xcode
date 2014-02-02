@@ -15,7 +15,7 @@
 {
     NSArray *arr = [self.code componentsSeparatedByString:@"("];
     if (arr.count > 0 && (![arr[0] vv_matchesPatternRegexPattern:@"^\\s*void\\s*[^*]*\\s*\\w+$"] &&
-                          ![arr[0] isEqualToString:@"typedef void"])) {
+                          ![arr[0] vv_matchesPatternRegexPattern:@"^\\w+\\svoid"])) {
         self.hasReturn = YES;
     }
 }

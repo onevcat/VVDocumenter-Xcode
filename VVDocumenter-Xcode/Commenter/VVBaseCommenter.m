@@ -127,6 +127,7 @@
         NSArray *argumentStrings = [argumentGroupString componentsSeparatedByString:@","];
         for (__strong NSString *argumentString in argumentStrings) {
             VVArgument *arg = [[VVArgument alloc] init];
+            argumentString = [argumentString vv_stringByReplacingRegexPattern:@"=\\s*\\w*" withString:@""];
             argumentString = [argumentString vv_stringByReplacingRegexPattern:@"\\s+$" withString:@""];
             argumentString = [argumentString vv_stringByReplacingRegexPattern:@"\\s+" withString:@" "];
             NSMutableArray *tempArgs = [[argumentString componentsSeparatedByString:@" "] mutableCopy];

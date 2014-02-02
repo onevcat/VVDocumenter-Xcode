@@ -145,6 +145,23 @@
  *  &lt;#Description#&gt;
  */</string>
 		</dict>
+		<dict>
+			<key>source</key>
+			<string>virtual void run(RegridMethod method, int timeLevel, const RLLVelocityField &amp;f, const SpaceCoord &amp;x, SphereVelocity &amp;y, RLLMeshIndex *idx = NULL);</string>
+			<key>uniform</key>
+			<string>virtual void run(RegridMethod method, int timeLevel, const RLLVelocityField &amp;f, const SpaceCoord &amp;x, SphereVelocity &amp;y, RLLMeshIndex *idx = NULL);</string>
+			<key>result</key>
+			<string>/**
+ *  &lt;#Description#&gt;
+ *
+ *  @param method    &lt;#method description#&gt;
+ *  @param timeLevel &lt;#timeLevel description#&gt;
+ *  @param f         &lt;#f description#&gt;
+ *  @param x         &lt;#x description#&gt;
+ *  @param y         &lt;#y description#&gt;
+ *  @param idx       &lt;#idx description#&gt;
+ */</string>
+		</dict>
 	</array>
 	<key>vv_isProperty</key>
 	<array>
