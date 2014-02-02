@@ -153,6 +153,16 @@
  *  @param expectedTotalBytes &lt;#expectedTotalBytes description#&gt;
  */</string>
 		</dict>
+		<dict>
+			<key>source</key>
+			<string>typedef void (^HelloBlock)(void);</string>
+			<key>uniform</key>
+			<string>typedef void(^HelloBlock)(void);</string>
+			<key>result</key>
+			<string>/**
+ *  &lt;#Description#&gt;
+ */</string>
+		</dict>
 	</array>
 	<key>vv_isProperty</key>
 	<array>
