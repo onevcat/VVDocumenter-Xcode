@@ -68,7 +68,11 @@
     arg1.type = @"int";
     arg1.name = @"y";
     
-    [baseCommenter parseArguments];
+    NSArray * braceGroups = [baseCommenter.code vv_stringsByExtractingGroupsUsingRegexPattern:@"\\(([^\\^][^\\(\\)]*)\\)"];
+    if (braceGroups.count > 0) {
+        [baseCommenter parseArgumentsInputArgs:braceGroups[0]];
+    }
+    
     NSUInteger count = baseCommenter.arguments.count;
     STAssertEquals(count, (NSUInteger)2, @"There should be 2 args, %@",baseCommenter.arguments);
     STAssertEqualObjects(arg0.type, [(VVArgument *)baseCommenter.arguments[0] type], @"%@ should be type %@", [(VVArgument *)baseCommenter.arguments[0] type], arg0.type);
@@ -84,7 +88,10 @@
     arg1.type = @"char";
     arg1.name = @"argv";
     
-    [baseCommenter parseArguments];
+    braceGroups = [baseCommenter.code vv_stringsByExtractingGroupsUsingRegexPattern:@"\\(([^\\^][^\\(\\)]*)\\)"];
+    if (braceGroups.count > 0) {
+        [baseCommenter parseArgumentsInputArgs:braceGroups[0]];
+    }
     count = baseCommenter.arguments.count;
     STAssertEquals(count, (NSUInteger)2, @"There should be 2 args, %@",baseCommenter.arguments);
     STAssertEqualObjects(arg0.type, [(VVArgument *)baseCommenter.arguments[0] type], @"%@ should be type %@", [(VVArgument *)baseCommenter.arguments[0] type], arg0.type);
