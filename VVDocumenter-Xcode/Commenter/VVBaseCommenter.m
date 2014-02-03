@@ -118,34 +118,34 @@
     }
 }
 
--(void) parseArguments
+-(void) parseArgumentsInputArgs:(NSString *)rawArgsCode
 {
     [self.arguments removeAllObjects];
-    NSArray * braceGroups = [self.code vv_stringsByExtractingGroupsUsingRegexPattern:@"\\(([^\\^][^\\(\\)]*)\\)"];
-    if (braceGroups.count > 0) {
-        NSString *argumentGroupString = braceGroups[0];
-        NSArray *argumentStrings = [argumentGroupString componentsSeparatedByString:@","];
-        for (__strong NSString *argumentString in argumentStrings) {
-            VVArgument *arg = [[VVArgument alloc] init];
-            argumentString = [argumentString vv_stringByReplacingRegexPattern:@"=\\s*\\w*" withString:@""];
-            argumentString = [argumentString vv_stringByReplacingRegexPattern:@"\\s+$" withString:@""];
-            argumentString = [argumentString vv_stringByReplacingRegexPattern:@"\\s+" withString:@" "];
-            NSMutableArray *tempArgs = [[argumentString componentsSeparatedByString:@" "] mutableCopy];
-            while ([[tempArgs lastObject] isEqualToString:@" "]) {
-                [tempArgs removeLastObject];
-            }
-
-            arg.name = [tempArgs lastObject];
-
-            [tempArgs removeLastObject];
-            arg.type = [tempArgs componentsJoinedByString:@" "];
-            
-            VVLog(@"arg type: %@", arg.type);
-            VVLog(@"arg name: %@", arg.name);
-            
-            [self.arguments addObject:arg];
-        }
+    if (rawArgsCode.length == 0) {
+        return;
     }
-
+    
+    NSArray *argumentStrings = [rawArgsCode componentsSeparatedByString:@","];
+    for (__strong NSString *argumentString in argumentStrings) {
+        VVArgument *arg = [[VVArgument alloc] init];
+        argumentString = [argumentString vv_stringByReplacingRegexPattern:@"=\\s*\\w*" withString:@""];
+        argumentString = [argumentString vv_stringByReplacingRegexPattern:@"\\s+$" withString:@""];
+        argumentString = [argumentString vv_stringByReplacingRegexPattern:@"\\s+" withString:@" "];
+        NSMutableArray *tempArgs = [[argumentString componentsSeparatedByString:@" "] mutableCopy];
+        while ([[tempArgs lastObject] isEqualToString:@" "]) {
+            [tempArgs removeLastObject];
+        }
+        
+        arg.name = [tempArgs lastObject];
+        
+        [tempArgs removeLastObject];
+        arg.type = [tempArgs componentsJoinedByString:@" "];
+        
+        VVLog(@"arg type: %@", arg.type);
+        VVLog(@"arg name: %@", arg.name);
+        
+        [self.arguments addObject:arg];
+    }
 }
+
 @end
