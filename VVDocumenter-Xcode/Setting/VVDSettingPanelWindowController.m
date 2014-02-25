@@ -34,14 +34,14 @@
     if (self) {
         // Initialization code here.
     }
-    
+
     return self;
 }
 
 - (void)windowDidLoad
 {
     [super windowDidLoad];
-    
+
     // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
     [self.tfTrigger setStringValue:[[VVDocumenterSetting defaultSetting] triggerString]];
     self.btnUseSpaces.state = (NSCellStateValue)[[VVDocumenterSetting defaultSetting] useSpaces];
@@ -62,10 +62,10 @@
     if (self.btnUseHeaderDoc.state == NSOnState) {
         self.btnPrefixWithSlashes.enabled = NO;
     }
-    
+
     [self updateUseSpace:self.btnUseSpaces.state];
     [self syncSpaceCount];
-    
+
     self.tfTrigger.delegate = self;
 }
 
@@ -73,7 +73,6 @@
     [[VVDocumenterSetting defaultSetting] setSpaceCount:self.stepperCount.integerValue];
     [self syncSpaceCount];
 }
-
 
 - (IBAction)btnResetPressed:(id)sender {
     [[VVDocumenterSetting defaultSetting] setUseSpaces:YES];
@@ -83,7 +82,7 @@
     [[VVDocumenterSetting defaultSetting] setPrefixWithSlashes:NO];
     [[VVDocumenterSetting defaultSetting] setAddSinceToComments:NO];
     [[VVDocumenterSetting defaultSetting] setUseHeaderDoc:NO];
-    
+
     self.btnUseSpaces.state = NSOnState;
     [self updateUseSpace:self.btnUseSpaces.state];
     self.btnPrefixWithWhitespace.state = NSOffState;
@@ -92,11 +91,11 @@
     self.btnAddSinceToComment.state = NSOffState;
     [self.tfTrigger setStringValue:VVDDefaultTriggerString];
     self.btnUseHeaderDoc.state = NSOffState;
-    
+
     self.btnPrefixWithSlashes.enabled = YES;
 
     [self syncSpaceCount];
-    
+
 }
 
 - (IBAction)btnUseSpacesPressed:(id)sender {
