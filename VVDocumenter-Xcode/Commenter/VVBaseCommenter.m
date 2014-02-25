@@ -46,12 +46,12 @@
 
     // start off with an empty line
     NSMutableString *result = [NSMutableString stringWithFormat:@"%@", self.emptyLine];
-    
+
     int longestNameLength = [[self.arguments valueForKeyPath:@"@max.name.length"] intValue];
-    
+
     for (VVArgument *arg in self.arguments) {
         NSString *paddedName = [arg.name stringByPaddingToLength:longestNameLength withString:@" " startingAtIndex:0];
-        
+
         [result appendFormat:@"%@@param %@ <#%@ description#>\n", self.prefixString, paddedName, arg.name];
     }
     return result;
@@ -105,9 +105,9 @@
 -(NSString *) emptyLine
 {
     if ([[VVDocumenterSetting defaultSetting] blankLinesBetweenSections]) {
-      return [[NSString stringWithFormat:@"%@\n", self.prefixString] vv_stringByTrimEndSpaces];
+        return [[NSString stringWithFormat:@"%@\n", self.prefixString] vv_stringByTrimEndSpaces];
     } else {
-      return @"";
+        return @"";
     }
 }
 
@@ -128,7 +128,7 @@
     if (rawArgsCode.length == 0) {
         return;
     }
-    
+
     NSArray *argumentStrings = [rawArgsCode componentsSeparatedByString:@","];
     for (__strong NSString *argumentString in argumentStrings) {
         VVArgument *arg = [[VVArgument alloc] init];
@@ -139,15 +139,15 @@
         while ([[tempArgs lastObject] isEqualToString:@" "]) {
             [tempArgs removeLastObject];
         }
-        
+
         arg.name = [tempArgs lastObject];
-        
+
         [tempArgs removeLastObject];
         arg.type = [tempArgs componentsJoinedByString:@" "];
-        
+
         VVLog(@"arg type: %@", arg.type);
         VVLog(@"arg name: %@", arg.name);
-        
+
         [self.arguments addObject:arg];
     }
 }

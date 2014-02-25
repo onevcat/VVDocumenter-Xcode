@@ -16,11 +16,11 @@ extern NSString *const VVDDefaultTriggerString;
 @property (readonly) BOOL useDvorakLayout;
 @property BOOL useSpaces;
 @property NSInteger spaceCount;
-@property NSString * triggerString;
+@property NSString *triggerString;
 @property BOOL prefixWithStar;
 @property BOOL prefixWithSlashes;
 @property BOOL addSinceToComments;
 @property BOOL useHeaderDoc;
 @property BOOL blankLinesBetweenSections;
-@property (readonly) NSString * spacesString;
+@property (readonly) NSString *spacesString;
 @end
