@@ -74,6 +74,7 @@
     [self syncSpaceCount];
 }
 
+
 - (IBAction)btnResetPressed:(id)sender {
     [[VVDocumenterSetting defaultSetting] setUseSpaces:YES];
     [[VVDocumenterSetting defaultSetting] setTriggerString:VVDDefaultTriggerString];
