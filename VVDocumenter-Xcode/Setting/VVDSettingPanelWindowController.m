@@ -82,6 +82,7 @@
     [[VVDocumenterSetting defaultSetting] setPrefixWithSlashes:NO];
     [[VVDocumenterSetting defaultSetting] setAddSinceToComments:NO];
     [[VVDocumenterSetting defaultSetting] setUseHeaderDoc:NO];
+    [[VVDocumenterSetting defaultSetting] setBlankLinesBetweenSections:YES];
 
     self.btnUseSpaces.state = NSOnState;
     [self updateUseSpace:self.btnUseSpaces.state];
@@ -91,6 +92,7 @@
     self.btnAddSinceToComment.state = NSOffState;
     [self.tfTrigger setStringValue:VVDDefaultTriggerString];
     self.btnUseHeaderDoc.state = NSOffState;
+    self.btnBlankLinesBetweenSections.state = NSOnState;
 
     self.btnPrefixWithSlashes.enabled = YES;
 
