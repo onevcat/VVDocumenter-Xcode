@@ -18,6 +18,7 @@ NSString *const kVVDPrefixWithStar = @"com.onevcat.VVDocumenter.prefixWithStar";
 NSString *const kVVDPrefixWithSlashes = @"com.onevcat.VVDocumenter.prefixWithSlashes";
 NSString *const kVVDAddSinceToComments = @"com.onevcat.VVDocumenter.addSinceToComments";
 NSString *const kVVDUserHeaderDoc = @"com.onevcat.VVDocumenter.useHeaderDoc";
+NSString *const kVVDNoBlankLinesBetweenFields = @"com.onevcat.VVDocumenter.noBlankLinesBetweenFields";
 @implementation VVDocumenterSetting
 
 + (VVDocumenterSetting *)defaultSetting
@@ -135,6 +136,16 @@ NSString *const kVVDUserHeaderDoc = @"com.onevcat.VVDocumenter.useHeaderDoc";
 -(void) setUseHeaderDoc:(BOOL)use
 {
     [[NSUserDefaults standardUserDefaults] setBool:use forKey:kVVDUserHeaderDoc];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+-(BOOL) blankLinesBetweenSections
+{
+    return ![[NSUserDefaults standardUserDefaults] boolForKey:kVVDNoBlankLinesBetweenFields];
+}
+-(void) setBlankLinesBetweenSections:(BOOL)blankLinesBetweenFields
+{
+    [[NSUserDefaults standardUserDefaults] setBool:!blankLinesBetweenFields forKey:kVVDNoBlankLinesBetweenFields];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 

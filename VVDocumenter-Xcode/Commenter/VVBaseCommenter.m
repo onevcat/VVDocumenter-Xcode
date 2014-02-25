@@ -43,8 +43,8 @@
 {
     if (self.arguments.count == 0)
         return @"";
-    
-    // start of with an empty line
+
+    // start off with an empty line
     NSMutableString *result = [NSMutableString stringWithFormat:@"%@", self.emptyLine];
     
     int longestNameLength = [[self.arguments valueForKeyPath:@"@max.name.length"] intValue];
@@ -104,7 +104,11 @@
 
 -(NSString *) emptyLine
 {
-    return [[NSString stringWithFormat:@"%@\n", self.prefixString] vv_stringByTrimEndSpaces];
+    if ([[VVDocumenterSetting defaultSetting] blankLinesBetweenSections]) {
+      return [[NSString stringWithFormat:@"%@\n", self.prefixString] vv_stringByTrimEndSpaces];
+    } else {
+      return @"";
+    }
 }
 
 -(NSString *) prefixString

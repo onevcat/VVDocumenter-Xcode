@@ -23,6 +23,7 @@
 @property (weak) IBOutlet NSButtonCell *btnPrefixWithSlashes;
 @property (assign) IBOutlet NSButton *btnAddSinceToComment;
 @property (weak) IBOutlet NSButton *btnUseHeaderDoc;
+@property (weak) IBOutlet NSButton *btnBlankLinesBetweenSections;
 @end
 
 @implementation VVDSettingPanelWindowController
@@ -47,6 +48,7 @@
 
     self.btnAddSinceToComment.state = (NSCellStateValue)[[VVDocumenterSetting defaultSetting] addSinceToComments];
     self.btnUseHeaderDoc.state = (NSCellStateValue)[[VVDocumenterSetting defaultSetting] useHeaderDoc];
+    self.btnBlankLinesBetweenSections.state = (NSCellStateValue)[[VVDocumenterSetting defaultSetting] blankLinesBetweenSections];
 
     if ([[VVDocumenterSetting defaultSetting] prefixWithStar]) {
         [self.mtxPrefixOptions selectCell:self.btnPrefixWithStar];
@@ -158,5 +160,8 @@
     } else {
         self.btnPrefixWithSlashes.enabled = YES;
     }
+}
+- (IBAction)blankLinesBetweenSections:(id)sender {
+    [[VVDocumenterSetting defaultSetting] setBlankLinesBetweenSections:self.btnBlankLinesBetweenSections.state];
 }
 @end
