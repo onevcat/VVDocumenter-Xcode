@@ -23,6 +23,7 @@
 @property (weak) IBOutlet NSButtonCell *btnPrefixWithSlashes;
 @property (assign) IBOutlet NSButton *btnAddSinceToComment;
 @property (weak) IBOutlet NSButton *btnUseHeaderDoc;
+@property (weak) IBOutlet NSButton *btnBlankLinesBetweenSections;
 @end
 
 @implementation VVDSettingPanelWindowController
@@ -33,20 +34,21 @@
     if (self) {
         // Initialization code here.
     }
-    
+
     return self;
 }
 
 - (void)windowDidLoad
 {
     [super windowDidLoad];
-    
+
     // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
     [self.tfTrigger setStringValue:[[VVDocumenterSetting defaultSetting] triggerString]];
     self.btnUseSpaces.state = (NSCellStateValue)[[VVDocumenterSetting defaultSetting] useSpaces];
 
     self.btnAddSinceToComment.state = (NSCellStateValue)[[VVDocumenterSetting defaultSetting] addSinceToComments];
     self.btnUseHeaderDoc.state = (NSCellStateValue)[[VVDocumenterSetting defaultSetting] useHeaderDoc];
+    self.btnBlankLinesBetweenSections.state = (NSCellStateValue)[[VVDocumenterSetting defaultSetting] blankLinesBetweenSections];
 
     if ([[VVDocumenterSetting defaultSetting] prefixWithStar]) {
         [self.mtxPrefixOptions selectCell:self.btnPrefixWithStar];
@@ -60,10 +62,10 @@
     if (self.btnUseHeaderDoc.state == NSOnState) {
         self.btnPrefixWithSlashes.enabled = NO;
     }
-    
+
     [self updateUseSpace:self.btnUseSpaces.state];
     [self syncSpaceCount];
-    
+
     self.tfTrigger.delegate = self;
 }
 
@@ -80,7 +82,8 @@
     [[VVDocumenterSetting defaultSetting] setPrefixWithSlashes:NO];
     [[VVDocumenterSetting defaultSetting] setAddSinceToComments:NO];
     [[VVDocumenterSetting defaultSetting] setUseHeaderDoc:NO];
-    
+    [[VVDocumenterSetting defaultSetting] setBlankLinesBetweenSections:YES];
+
     self.btnUseSpaces.state = NSOnState;
     [self updateUseSpace:self.btnUseSpaces.state];
     self.btnPrefixWithWhitespace.state = NSOffState;
@@ -89,11 +92,12 @@
     self.btnAddSinceToComment.state = NSOffState;
     [self.tfTrigger setStringValue:VVDDefaultTriggerString];
     self.btnUseHeaderDoc.state = NSOffState;
-    
+    self.btnBlankLinesBetweenSections.state = NSOnState;
+
     self.btnPrefixWithSlashes.enabled = YES;
 
     [self syncSpaceCount];
-    
+
 }
 
 - (IBAction)btnUseSpacesPressed:(id)sender {
@@ -158,5 +162,8 @@
     } else {
         self.btnPrefixWithSlashes.enabled = YES;
     }
+}
+- (IBAction)blankLinesBetweenSections:(id)sender {
+    [[VVDocumenterSetting defaultSetting] setBlankLinesBetweenSections:self.btnBlankLinesBetweenSections.state];
 }
 @end
