@@ -6,8 +6,8 @@
 //  Copyright (c) 2013年 OneV's Den. All rights reserved.
 //
 
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 
-@interface CommenterTests : SenTestCase
+@interface CommenterTests : XCTestCase
 
 @end

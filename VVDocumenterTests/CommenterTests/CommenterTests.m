@@ -34,13 +34,13 @@
     VVArgument *arg = [[VVArgument alloc] init];
     
     arg.type = @" int ";
-    STAssertEqualObjects(arg.type, @"int", @"%@",arg.type);
+    XCTAssertEqualObjects(arg.type, @"int", @"%@",arg.type);
     
     arg.type = @"char *";
-    STAssertEqualObjects(arg.type, @"char", @"%@",arg.type);
+    XCTAssertEqualObjects(arg.type, @"char", @"%@",arg.type);
     
     arg.type = @"NSString *";
-    STAssertEqualObjects(arg.type, @"NSString", @"%@",arg.type);
+    XCTAssertEqualObjects(arg.type, @"NSString", @"%@",arg.type);
 }
 
 - (void) testArgumentName
@@ -48,10 +48,10 @@
     VVArgument *arg = [[VVArgument alloc] init];
     
     arg.name = @"*argv[]";
-    STAssertEqualObjects(arg.name, @"argv", @"%@",arg.name);
+    XCTAssertEqualObjects(arg.name, @"argv", @"%@",arg.name);
     
     arg.name = @"**a";
-    STAssertEqualObjects(arg.name, @"a", @"%@",arg.name);
+    XCTAssertEqualObjects(arg.name, @"a", @"%@",arg.name);
     
 }
 
@@ -74,12 +74,12 @@
     }
     
     NSUInteger count = baseCommenter.arguments.count;
-    STAssertEquals(count, (NSUInteger)2, @"There should be 2 args, %@",baseCommenter.arguments);
-    STAssertEqualObjects(arg0.type, [(VVArgument *)baseCommenter.arguments[0] type], @"%@ should be type %@", [(VVArgument *)baseCommenter.arguments[0] type], arg0.type);
-    STAssertEqualObjects(arg1.type, [(VVArgument *)baseCommenter.arguments[1] type], @"%@ should be type %@", [(VVArgument *)baseCommenter.arguments[1] type], arg1.type);
+    XCTAssertEqual(count, (NSUInteger)2, @"There should be 2 args, %@",baseCommenter.arguments);
+    XCTAssertEqualObjects(arg0.type, [(VVArgument *)baseCommenter.arguments[0] type], @"%@ should be type %@", [(VVArgument *)baseCommenter.arguments[0] type], arg0.type);
+    XCTAssertEqualObjects(arg1.type, [(VVArgument *)baseCommenter.arguments[1] type], @"%@ should be type %@", [(VVArgument *)baseCommenter.arguments[1] type], arg1.type);
     
-    STAssertEqualObjects(arg0.name, [(VVArgument *)baseCommenter.arguments[0] name], @"%@ should be name %@", [(VVArgument *)baseCommenter.arguments[0] name], arg0.name);
-    STAssertEqualObjects(arg1.name, [(VVArgument *)baseCommenter.arguments[1] name], @"%@ should be type %@", [(VVArgument *)baseCommenter.arguments[1] name], arg1.name);
+    XCTAssertEqualObjects(arg0.name, [(VVArgument *)baseCommenter.arguments[0] name], @"%@ should be name %@", [(VVArgument *)baseCommenter.arguments[0] name], arg0.name);
+    XCTAssertEqualObjects(arg1.name, [(VVArgument *)baseCommenter.arguments[1] name], @"%@ should be type %@", [(VVArgument *)baseCommenter.arguments[1] name], arg1.name);
     
     baseCommenter.code = @"int main(int argc, char *argv[]) \n {";
     arg0.type = @"int";
@@ -93,12 +93,12 @@
         [baseCommenter parseArgumentsInputArgs:braceGroups[0]];
     }
     count = baseCommenter.arguments.count;
-    STAssertEquals(count, (NSUInteger)2, @"There should be 2 args, %@",baseCommenter.arguments);
-    STAssertEqualObjects(arg0.type, [(VVArgument *)baseCommenter.arguments[0] type], @"%@ should be type %@", [(VVArgument *)baseCommenter.arguments[0] type], arg0.type);
-    STAssertEqualObjects(arg1.type, [(VVArgument *)baseCommenter.arguments[1] type], @"%@ should be type %@", [(VVArgument *)baseCommenter.arguments[1] type], arg1.type);
+    XCTAssertEqual(count, (NSUInteger)2, @"There should be 2 args, %@",baseCommenter.arguments);
+    XCTAssertEqualObjects(arg0.type, [(VVArgument *)baseCommenter.arguments[0] type], @"%@ should be type %@", [(VVArgument *)baseCommenter.arguments[0] type], arg0.type);
+    XCTAssertEqualObjects(arg1.type, [(VVArgument *)baseCommenter.arguments[1] type], @"%@ should be type %@", [(VVArgument *)baseCommenter.arguments[1] type], arg1.type);
     
-    STAssertEqualObjects(arg0.name, [(VVArgument *)baseCommenter.arguments[0] name], @"%@ should be name %@", [(VVArgument *)baseCommenter.arguments[0] name], arg0.name);
-    STAssertEqualObjects(arg1.name, [(VVArgument *)baseCommenter.arguments[1] name], @"%@ should be type %@", [(VVArgument *)baseCommenter.arguments[1] name], arg1.name);
+    XCTAssertEqualObjects(arg0.name, [(VVArgument *)baseCommenter.arguments[0] name], @"%@ should be name %@", [(VVArgument *)baseCommenter.arguments[0] name], arg0.name);
+    XCTAssertEqualObjects(arg1.name, [(VVArgument *)baseCommenter.arguments[1] name], @"%@ should be type %@", [(VVArgument *)baseCommenter.arguments[1] name], arg1.name);
     
 }
 
