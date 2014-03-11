@@ -33,7 +33,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D1C462D917999C2000EB7B23"
-               BuildableName = "VVDocumenterTests.octest"
+               BuildableName = "VVDocumenterTests.xctest"
                BlueprintName = "VVDocumenterTests"
                ReferencedContainer = "container:VVDocumenter-Xcode.xcodeproj">
             </BuildableReference>
