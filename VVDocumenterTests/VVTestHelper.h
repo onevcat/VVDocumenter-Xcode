@@ -11,4 +11,7 @@
 @interface VVTestHelper : NSObject
 +(NSArray *) testCodes;
 +(NSArray *) uniformCodes;
+
++(NSArray *) arrayOfExceptCodeType:(NSString *)type;
++(BOOL) performSyntaxMethod:(NSString *)selectorString onString:(NSString *)codestring;
 @end

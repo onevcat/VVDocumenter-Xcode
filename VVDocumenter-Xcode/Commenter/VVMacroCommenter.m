@@ -17,8 +17,9 @@
 
 -(void) captureParameters
 {
-    if ([self.code vv_matchesPatternRegexPattern:@"\\("]) {
-        [self parseArguments];
+    NSArray * braceGroups = [self.code vv_stringsByExtractingGroupsUsingRegexPattern:@"\\(([^\\^][^\\(\\)]*)\\)"];
+    if (braceGroups.count > 0) {
+        [self parseArgumentsInputArgs:braceGroups[0]];
     }
 }
 

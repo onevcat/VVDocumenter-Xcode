@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>vv_isObjCMethod</key>
+	<array>
+		<dict>
+			<key>source</key>
+			<string>- (id)initWithDuration:(CFTimeInterval)duration sourceRect:(CGRect)sourceRect {</string>
+			<key>uniform</key>
+			<string>-(id)initWithDuration:(CFTimeInterval)duration sourceRect:(CGRect)sourceRect {</string>
+			<key>result</key>
+			<string>/**
+ *  &lt;#Description#&gt;
+ *
+ *  @param duration   &lt;#duration description#&gt;
+ *  @param sourceRect &lt;#sourceRect description#&gt;
+ *
+ *  @return &lt;#return value description#&gt;
+ */</string>
+		</dict>
+		<dict>
+			<key>source</key>
+			<string>   -    (BOOL) application: (UIApplication *) application
+ didFinishLaunchingWithOptions: (NSDictionary *) launchOptions;</string>
+			<key>uniform</key>
+			<string>   -(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions;</string>
+			<key>result</key>
+			<string>   /**
+    *  &lt;#Description#&gt;
+    *
+    *  @param application   &lt;#application description#&gt;
+    *  @param launchOptions &lt;#launchOptions description#&gt;
+    *
+    *  @return &lt;#return value description#&gt;
+    */</string>
+		</dict>
+		<dict>
+			<key>source</key>
+			<string>+ (ADTransition *)nullTransition;</string>
+			<key>uniform</key>
+			<string>+(ADTransition *)nullTransition;</string>
+			<key>result</key>
+			<string>/**
+ *  &lt;#Description#&gt;
+ *
+ *  @return &lt;#return value description#&gt;
+ */</string>
+		</dict>
+		<dict>
+			<key>source</key>
+			<string>-(void)whenLinked:(void (^)(void))actionHandler</string>
+			<key>uniform</key>
+			<string>-(void)whenLinked:(void (^)(void))actionHandler</string>
+			<key>result</key>
+			<string>/**
+ *  &lt;#Description#&gt;
+ *
+ *  @param actionHandler &lt;#actionHandler description#&gt;
+ */</string>
+		</dict>
+	</array>
+	<key>vv_isCFunction</key>
+	<array>
+		<dict>
+			<key>source</key>
+			<string>void dosomething ( int x, int  y );</string>
+			<key>uniform</key>
+			<string>void dosomething( int x, int  y );</string>
+			<key>result</key>
+			<string>/**
+ *  &lt;#Description#&gt;
+ *
+ *  @param x &lt;#x description#&gt;
+ *  @param y &lt;#y description#&gt;
+ */</string>
+		</dict>
+		<dict>
+			<key>source</key>
+			<string>int main(int argc, char *argv[]) 
+ {</string>
+			<key>uniform</key>
+			<string>int main(int argc, char *argv[]){</string>
+			<key>result</key>
+			<string>/**
+ *  &lt;#Description#&gt;
+ *
+ *  @param argc &lt;#argc description#&gt;
+ *  @param argv &lt;#argv description#&gt;
+ *
+ *  @return &lt;#return value description#&gt;
+ */</string>
+		</dict>
+		<dict>
+			<key>source</key>
+			<string>void  NoParamFunc();</string>
+			<key>uniform</key>
+			<string>void  NoParamFunc();</string>
+			<key>result</key>
+			<string>/**
+ *  &lt;#Description#&gt;
+ */</string>
+		</dict>
+		<dict>
+			<key>source</key>
+			<string>typedef void(^IBLShareSuccessBlock)(ShareType type, SSPublishContentState state, id&lt;ISSStatusInfo&gt; statusInfo, BOOL end);</string>
+			<key>uniform</key>
+			<string>typedef void(^IBLShareSuccessBlock)(ShareType type, SSPublishContentState state, id&lt;ISSStatusInfo&gt; statusInfo, BOOL end);</string>
+			<key>result</key>
+			<string>/**
+ *  &lt;#Description#&gt;
+ *
+ *  @param type       &lt;#type description#&gt;
+ *  @param state      &lt;#state description#&gt;
+ *  @param statusInfo &lt;#statusInfo description#&gt;
+ *  @param end        &lt;#end description#&gt;
+ */</string>
+		</dict>
+		<dict>
+			<key>source</key>
+			<string>typedef NSURL * (^AFURLSessionDownloadTaskDidFinishDownloadingBlock)(NSURLSession *session, NSURLSessionDownloadTask *downloadTask, NSURL *location);</string>
+			<key>uniform</key>
+			<string>typedef NSURL *(^AFURLSessionDownloadTaskDidFinishDownloadingBlock)(NSURLSession *session, NSURLSessionDownloadTask *downloadTask, NSURL *location);</string>
+			<key>result</key>
+			<string>/**
+ *  &lt;#Description#&gt;
+ *
+ *  @param session      &lt;#session description#&gt;
+ *  @param downloadTask &lt;#downloadTask description#&gt;
+ *  @param location     &lt;#location description#&gt;
+ *
+ *  @return &lt;#return value description#&gt;
+ */</string>
+		</dict>
+		<dict>
+			<key>source</key>
+			<string>typedef void (^AFURLSessionDownloadTaskDidResumeBlock)(NSURLSession *session, NSURLSessionDownloadTask *downloadTask, int64_t fileOffset, int64_t expectedTotalBytes);</string>
+			<key>uniform</key>
+			<string>typedef void(^AFURLSessionDownloadTaskDidResumeBlock)(NSURLSession *session, NSURLSessionDownloadTask *downloadTask, int64_t fileOffset, int64_t expectedTotalBytes);</string>
+			<key>result</key>
+			<string>/**
+ *  &lt;#Description#&gt;
+ *
+ *  @param session            &lt;#session description#&gt;
+ *  @param downloadTask       &lt;#downloadTask description#&gt;
+ *  @param fileOffset         &lt;#fileOffset description#&gt;
+ *  @param expectedTotalBytes &lt;#expectedTotalBytes description#&gt;
+ */</string>
+		</dict>
+		<dict>
+			<key>source</key>
+			<string>typedef void (^HelloBlock)(void);</string>
+			<key>uniform</key>
+			<string>typedef void(^HelloBlock)(void);</string>
+			<key>result</key>
+			<string>/**
+ *  &lt;#Description#&gt;
+ */</string>
+		</dict>
+		<dict>
+			<key>source</key>
+			<string>virtual void run(RegridMethod method, int timeLevel, const RLLVelocityField &amp;f, const SpaceCoord &amp;x, SphereVelocity &amp;y, RLLMeshIndex *idx = NULL);</string>
+			<key>uniform</key>
+			<string>virtual void run(RegridMethod method, int timeLevel, const RLLVelocityField &amp;f, const SpaceCoord &amp;x, SphereVelocity &amp;y, RLLMeshIndex *idx = NULL);</string>
+			<key>result</key>
+			<string>/**
+ *  &lt;#Description#&gt;
+ *
+ *  @param method    &lt;#method description#&gt;
+ *  @param timeLevel &lt;#timeLevel description#&gt;
+ *  @param f         &lt;#f description#&gt;
+ *  @param x         &lt;#x description#&gt;
+ *  @param y         &lt;#y description#&gt;
+ *  @param idx       &lt;#idx description#&gt;
+ */</string>
+		</dict>
+		<dict>
+			<key>source</key>
+			<string>void print2DList(int rowCount, int (*p)[10]);</string>
+			<key>uniform</key>
+			<string>void print2DList(int rowCount, int (*p)[10]);</string>
+			<key>result</key>
+			<string>/**
+ *  &lt;#Description#&gt;
+ *
+ *  @param rowCount &lt;#rowCount description#&gt;
+ *  @param p        &lt;#p description#&gt;
+ */</string>
+		</dict>
+	</array>
+	<key>vv_isProperty</key>
+	<array>
+		<dict>
+			<key>source</key>
+			<string>@property (nonatomic, copy ) NSString *code;</string>
+			<key>uniform</key>
+			<string>@property(nonatomic, copy )NSString *code;</string>
+			<key>result</key>
+			<string>/**
+ *  &lt;#Description#&gt;
+ */</string>
+		</dict>
+		<dict>
+			<key>source</key>
+			<string>    @property ( nonatomic, strong ) Miao* test;</string>
+			<key>uniform</key>
+			<string>    @property( nonatomic, strong )Miao* test;</string>
+			<key>result</key>
+			<string>    /**
+     *  &lt;#Description#&gt;
+     */</string>
+		</dict>
+		<dict>
+			<key>source</key>
+			<string>@property ( assign, strong ) int test;</string>
+			<key>uniform</key>
+			<string>@property( assign, strong )int test;</string>
+			<key>result</key>
+			<string>/**
+ *  &lt;#Description#&gt;
+ */</string>
+		</dict>
+	</array>
+	<key>vv_isMacro</key>
+	<array>
+		<dict>
+			<key>source</key>
+			<string>#define MAX(A,B)	({</string>
+			<key>uniform</key>
+			<string>#define MAX(A,B)({</string>
+			<key>result</key>
+			<string>/**
+ *  &lt;#Description#&gt;
+ *
+ *  @param A &lt;#A description#&gt;
+ *  @param B &lt;#B description#&gt;
+ *
+ *  @return &lt;#return value description#&gt;
+ */</string>
+		</dict>
+		<dict>
+			<key>source</key>
+			<string>#define MIN(A,B)	((A) &lt; (B) ? (A) : (B))</string>
+			<key>uniform</key>
+			<string>#define MIN(A,B)((A)&lt;(B)?(A):(B))</string>
+			<key>result</key>
+			<string>/**
+ *  &lt;#Description#&gt;
+ *
+ *  @param A &lt;#A description#&gt;
+ *  @param B &lt;#B description#&gt;
+ *
+ *  @return &lt;#return value description#&gt;
+ */</string>
+		</dict>
+		<dict>
+			<key>source</key>
+			<string>#define ABS(A)	((A) &lt; 0 ? (-(A)) : (A))</string>
+			<key>uniform</key>
+			<string>#define ABS(A)((A)&lt; 0 ?(-(A)) :(A))</string>
+			<key>result</key>
+			<string>/**
+ *  &lt;#Description#&gt;
+ *
+ *  @param A &lt;#A description#&gt;
+ *
+ *  @return &lt;#return value description#&gt;
+ */</string>
+		</dict>
+	</array>
+	<key>vv_isStruct</key>
+	<array>
+		<dict>
+			<key>source</key>
+			<string>struct Foo 
+ {</string>
+			<key>uniform</key>
+			<string>struct Foo {</string>
+			<key>result</key>
+			<string>/**
+ *  &lt;#Description#&gt;
+ */</string>
+		</dict>
+		<dict>
+			<key>source</key>
+			<string>   struct node {</string>
+			<key>uniform</key>
+			<string>   struct node {</string>
+			<key>result</key>
+			<string>   /**
+    *  &lt;#Description#&gt;
+    */</string>
+		</dict>
+		<dict>
+			<key>source</key>
+			<string>struct objc_object {</string>
+			<key>uniform</key>
+			<string>struct objc_object {</string>
+			<key>result</key>
+			<string>/**
+ *  &lt;#Description#&gt;
+ */</string>
+		</dict>
+	</array>
+	<key>vv_isEnum</key>
+	<array>
+		<dict>
+			<key>source</key>
+			<string>typedef NS_ENUM(NSInteger, SIAlertViewBackgroundStyle) {
+    SIAlertViewBackgroundStyleGradient = 0,
+    SIAlertViewBackgroundStyleSolid,
+};</string>
+			<key>uniform</key>
+			<string>typedef NS_ENUM(NSInteger, SIAlertViewBackgroundStyle){ SIAlertViewBackgroundStyleGradient = 0, SIAlertViewBackgroundStyleSolid, };</string>
+			<key>result</key>
+			<string>/**
+ *  &lt;#Description#&gt;
+ */
+typedef NS_ENUM(NSInteger, SIAlertViewBackgroundStyle){
+/**
+ *  &lt;#Description#&gt;
+ */
+SIAlertViewBackgroundStyleGradient = 0,
+/**
+ *  &lt;#Description#&gt;
+ */
+SIAlertViewBackgroundStyleSolid,
+};</string>
+		</dict>
+	</array>
+	<key>vv_isComplieKeyword</key>
+	<array>
+		<dict>
+			<key>source</key>
+			<string>@interface VVDocumenter : NSObject 
+ {</string>
+			<key>uniform</key>
+			<string>@interface VVDocumenter : NSObject {</string>
+			<key>result</key>
+			<string>/**
+ *  &lt;#Description#&gt;
+ */</string>
+		</dict>
+		<dict>
+			<key>source</key>
+			<string>@interface VVDocumenter : NSObject 
+ {</string>
+			<key>uniform</key>
+			<string>@interface VVDocumenter : NSObject {</string>
+			<key>result</key>
+			<string>/**
+ *  &lt;#Description#&gt;
+ */</string>
+		</dict>
+		<dict>
+			<key>source</key>
+			<string>@interface SyntaxTests()
+@property (nonatomic, retain) NSArray* inputs;</string>
+			<key>uniform</key>
+			<string>@interface SyntaxTests()@property(nonatomic, retain)NSArray* inputs;</string>
+			<key>result</key>
+			<string>/**
+ *  &lt;#Description#&gt;
+ */</string>
+		</dict>
+		<dict>
+			<key>source</key>
+			<string>@implementation SyntaxTests
+
+- (void)setUp
+{</string>
+			<key>uniform</key>
+			<string>@implementation SyntaxTests -(void)setUp {</string>
+			<key>result</key>
+			<string>/**
+ *  &lt;#Description#&gt;
+ */</string>
+		</dict>
+		<dict>
+			<key>source</key>
+			<string>@interface A (a)
+- (id) foo;</string>
+			<key>uniform</key>
+			<string>@interface A(a)-(id)foo;</string>
+			<key>result</key>
+			<string>/**
+ *  &lt;#Description#&gt;
+ */</string>
+		</dict>
+	</array>
+</dict>
+</plist>
