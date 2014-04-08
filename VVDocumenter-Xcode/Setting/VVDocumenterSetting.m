@@ -51,7 +51,8 @@ NSString *const kVVDNoBlankLinesBetweenFields = @"com.onevcat.VVDocumenter.noBla
     TISInputSourceRef inputSource = TISCopyCurrentKeyboardLayoutInputSource();
     NSString *layoutID = (__bridge NSString *)TISGetInputSourceProperty(inputSource, kTISPropertyInputSourceID);
     CFRelease(inputSource);
-    if ([layoutID isEqualToString:@"com.apple.keylayout.Dvorak"]) {
+    
+    if ([layoutID rangeOfString:@"Dvorak" options:NSCaseInsensitiveSearch].location != NSNotFound) {
         return YES;
     } else {
         return NO;
