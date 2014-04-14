@@ -22,5 +22,6 @@ extern NSString *const VVDDefaultTriggerString;
 @property BOOL addSinceToComments;
 @property BOOL useHeaderDoc;
 @property BOOL blankLinesBetweenSections;
+@property BOOL alignArgumentComments;
 @property (readonly) NSString *spacesString;
 @end

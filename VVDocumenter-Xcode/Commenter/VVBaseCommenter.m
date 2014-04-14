@@ -50,9 +50,13 @@
     int longestNameLength = [[self.arguments valueForKeyPath:@"@max.name.length"] intValue];
 
     for (VVArgument *arg in self.arguments) {
-        NSString *paddedName = [arg.name stringByPaddingToLength:longestNameLength withString:@" " startingAtIndex:0];
+        NSString *name = arg.name;
 
-        [result appendFormat:@"%@@param %@ <#%@ description#>\n", self.prefixString, paddedName, arg.name];
+        if ([[VVDocumenterSetting defaultSetting] alignArgumentComments]) {
+            name = [name stringByPaddingToLength:longestNameLength withString:@" " startingAtIndex:0];
+        }
+
+        [result appendFormat:@"%@@param %@ <#%@ description#>\n", self.prefixString, name, arg.name];
     }
     return result;
 }
