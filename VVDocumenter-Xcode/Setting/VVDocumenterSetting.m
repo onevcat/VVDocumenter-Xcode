@@ -19,6 +19,7 @@ NSString *const kVVDPrefixWithSlashes = @"com.onevcat.VVDocumenter.prefixWithSla
 NSString *const kVVDAddSinceToComments = @"com.onevcat.VVDocumenter.addSinceToComments";
 NSString *const kVVDUserHeaderDoc = @"com.onevcat.VVDocumenter.useHeaderDoc";
 NSString *const kVVDNoBlankLinesBetweenFields = @"com.onevcat.VVDocumenter.noBlankLinesBetweenFields";
+NSString *const kVVDNoArgumentPadding = @"com.onevcat.VVDocumenter.noArgumentPadding";
 @implementation VVDocumenterSetting
 
 + (VVDocumenterSetting *)defaultSetting
@@ -147,6 +148,16 @@ NSString *const kVVDNoBlankLinesBetweenFields = @"com.onevcat.VVDocumenter.noBla
 -(void) setBlankLinesBetweenSections:(BOOL)blankLinesBetweenFields
 {
     [[NSUserDefaults standardUserDefaults] setBool:!blankLinesBetweenFields forKey:kVVDNoBlankLinesBetweenFields];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+-(BOOL) alignArgumentComments
+{
+    return ![[NSUserDefaults standardUserDefaults] boolForKey:kVVDNoArgumentPadding];
+}
+-(void) setAlignArgumentComments:(BOOL)alignArgumentComments
+{
+    [[NSUserDefaults standardUserDefaults] setBool:!alignArgumentComments forKey:kVVDNoArgumentPadding];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
