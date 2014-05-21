@@ -90,12 +90,8 @@
     
     NSUInteger count = baseCommenter.arguments.count;
     XCTAssertEqual(count, (NSUInteger)2, @"There should be 2 args, %@", baseCommenter.arguments);
-    
-    XCTAssertEqualObjects(arg0.type, [(VVArgument *)baseCommenter.arguments[0] type], @"%@ should be type %@", [(VVArgument *)baseCommenter.arguments[0] type], arg0.type);
-    XCTAssertEqualObjects(arg1.type, [(VVArgument *)baseCommenter.arguments[1] type], @"%@ should be type %@", [(VVArgument *)baseCommenter.arguments[1] type], arg1.type);
-    
-    XCTAssertEqualObjects(arg0.name, [(VVArgument *)baseCommenter.arguments[0] name], @"%@ should be name %@", [(VVArgument *)baseCommenter.arguments[0] name], arg0.name);
-    XCTAssertEqualObjects(arg1.name, [(VVArgument *)baseCommenter.arguments[1] name], @"%@ should be name %@", [(VVArgument *)baseCommenter.arguments[1] name], arg1.name);
+    XCTAssertEqualObjects(arg0, baseCommenter.arguments[0]);
+    XCTAssertEqualObjects(arg1, baseCommenter.arguments[1]);
 }
 
 - (void) testParseVarArguments
@@ -114,12 +110,8 @@
     
     NSUInteger count = baseCommenter.arguments.count;
     XCTAssertEqual(count, (NSUInteger)2, @"There should be 2 args, %@", baseCommenter.arguments);
-    
-    XCTAssertEqualObjects(arg0.type, [(VVArgument *)baseCommenter.arguments[0] type], @"%@ should be type %@", [(VVArgument *)baseCommenter.arguments[0] type], arg0.type);
-    XCTAssertEqualObjects(arg1.type, [(VVArgument *)baseCommenter.arguments[1] type], @"%@ should be type %@", [(VVArgument *)baseCommenter.arguments[1] type], arg1.type);
-    
-    XCTAssertEqualObjects(arg0.name, [(VVArgument *)baseCommenter.arguments[0] name], @"%@ should be name %@", [(VVArgument *)baseCommenter.arguments[0] name], arg0.name);
-    XCTAssertEqualObjects(arg1.name, [(VVArgument *)baseCommenter.arguments[1] name], @"%@ should be name %@", [(VVArgument *)baseCommenter.arguments[1] name], arg1.name);
+    XCTAssertEqualObjects(arg0, baseCommenter.arguments[0]);
+    XCTAssertEqualObjects(arg1, baseCommenter.arguments[1]);
 }
 
 @end
