@@ -114,4 +114,19 @@
     XCTAssertEqualObjects(arg1, baseCommenter.arguments[1]);
 }
 
+- (void) testParseAttributedFunction
+{
+    VVBaseCommenter *baseCommenter = [[VVFunctionCommenter alloc] initWithIndentString:@"" codeString:@""];
+    baseCommenter.code = @"void dosomething( int x ) __attribute__((const));";
+    [baseCommenter document];
+    
+    VVArgument *arg0 = [[VVArgument alloc] init];
+    arg0.type = @"int";
+    arg0.name = @"x";
+    
+    NSUInteger count = baseCommenter.arguments.count;
+    XCTAssertEqual(count, (NSUInteger)1, @"There should be one arg, %@", baseCommenter.arguments);
+    XCTAssertEqualObjects(arg0, baseCommenter.arguments[0]);
+}
+
 @end
