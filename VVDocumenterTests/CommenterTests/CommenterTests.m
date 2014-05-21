@@ -75,7 +75,7 @@
     XCTAssertEqualObjects(arg1.type, [(VVArgument *)baseCommenter.arguments[1] type], @"%@ should be type %@", [(VVArgument *)baseCommenter.arguments[1] type], arg1.type);
     
     XCTAssertEqualObjects(arg0.name, [(VVArgument *)baseCommenter.arguments[0] name], @"%@ should be name %@", [(VVArgument *)baseCommenter.arguments[0] name], arg0.name);
-    XCTAssertEqualObjects(arg1.name, [(VVArgument *)baseCommenter.arguments[1] name], @"%@ should be type %@", [(VVArgument *)baseCommenter.arguments[1] name], arg1.name);
+    XCTAssertEqualObjects(arg1.name, [(VVArgument *)baseCommenter.arguments[1] name], @"%@ should be name %@", [(VVArgument *)baseCommenter.arguments[1] name], arg1.name);
 }
 
 - (void) testParseVarArguments
@@ -98,7 +98,7 @@
     XCTAssertEqualObjects(arg1.type, [(VVArgument *)baseCommenter.arguments[1] type], @"%@ should be type %@", [(VVArgument *)baseCommenter.arguments[1] type], arg1.type);
     
     XCTAssertEqualObjects(arg0.name, [(VVArgument *)baseCommenter.arguments[0] name], @"%@ should be name %@", [(VVArgument *)baseCommenter.arguments[0] name], arg0.name);
-    XCTAssertEqualObjects(arg1.name, [(VVArgument *)baseCommenter.arguments[1] name], @"%@ should be type %@", [(VVArgument *)baseCommenter.arguments[1] name], arg1.name);
+    XCTAssertEqualObjects(arg1.name, [(VVArgument *)baseCommenter.arguments[1] name], @"%@ should be name %@", [(VVArgument *)baseCommenter.arguments[1] name], arg1.name);
 }
 
 @end
