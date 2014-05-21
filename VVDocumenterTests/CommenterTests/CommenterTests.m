@@ -57,9 +57,10 @@
 
 -(void) testParseArguments
 {
-    VVBaseCommenter *baseCommenter = [[VVBaseCommenter alloc] initWithIndentString:@"" codeString:@""];
+    VVBaseCommenter *baseCommenter = [[VVFunctionCommenter alloc] initWithIndentString:@"" codeString:@""];
     baseCommenter.code = @"void dosomething( int x, int  y  );";
-    
+    [baseCommenter document];
+
     VVArgument *arg0 = [[VVArgument alloc] init];
     arg0.type = @"int";
     arg0.name = @"x";
@@ -67,11 +68,6 @@
     VVArgument *arg1 = [[VVArgument alloc] init];
     arg1.type = @"int";
     arg1.name = @"y";
-    
-    NSArray * braceGroups = [baseCommenter.code vv_stringsByExtractingGroupsUsingRegexPattern:@"\\(([^\\^][^\\(\\)]*)\\)"];
-    if (braceGroups.count > 0) {
-        [baseCommenter parseArgumentsInputArgs:braceGroups[0]];
-    }
     
     NSUInteger count = baseCommenter.arguments.count;
     XCTAssertEqual(count, (NSUInteger)2, @"There should be 2 args, %@",baseCommenter.arguments);
@@ -86,7 +82,8 @@
 {
     VVBaseCommenter *baseCommenter = [[VVFunctionCommenter alloc] initWithIndentString:@"" codeString:@""];
     baseCommenter.code = @"int main(int argc, char *argv[]) \n {";
-    
+    [baseCommenter document];
+
     VVArgument *arg0 = [[VVArgument alloc] init];
     arg0.type = @"int";
     arg0.name = @"argc";
@@ -94,11 +91,6 @@
     VVArgument *arg1 = [[VVArgument alloc] init];
     arg1.type = @"char";
     arg1.name = @"argv";
-    
-    NSArray *braceGroups = [baseCommenter.code vv_stringsByExtractingGroupsUsingRegexPattern:@"\\(([^\\^][^\\(\\)]*)\\)"];
-    if (braceGroups.count > 0) {
-        [baseCommenter parseArgumentsInputArgs:braceGroups[0]];
-    }
     
     NSUInteger count = baseCommenter.arguments.count;
     XCTAssertEqual(count, (NSUInteger)2, @"There should be 2 args, %@",baseCommenter.arguments);
