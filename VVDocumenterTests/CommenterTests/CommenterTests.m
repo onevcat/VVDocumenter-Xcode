@@ -70,7 +70,8 @@
     arg1.name = @"y";
     
     NSUInteger count = baseCommenter.arguments.count;
-    XCTAssertEqual(count, (NSUInteger)2, @"There should be 2 args, %@",baseCommenter.arguments);
+    XCTAssertEqual(count, (NSUInteger)2, @"There should be 2 args, %@", baseCommenter.arguments);
+    
     XCTAssertEqualObjects(arg0.type, [(VVArgument *)baseCommenter.arguments[0] type], @"%@ should be type %@", [(VVArgument *)baseCommenter.arguments[0] type], arg0.type);
     XCTAssertEqualObjects(arg1.type, [(VVArgument *)baseCommenter.arguments[1] type], @"%@ should be type %@", [(VVArgument *)baseCommenter.arguments[1] type], arg1.type);
     
@@ -93,7 +94,8 @@
     arg1.name = @"argv";
     
     NSUInteger count = baseCommenter.arguments.count;
-    XCTAssertEqual(count, (NSUInteger)2, @"There should be 2 args, %@",baseCommenter.arguments);
+    XCTAssertEqual(count, (NSUInteger)2, @"There should be 2 args, %@", baseCommenter.arguments);
+    
     XCTAssertEqualObjects(arg0.type, [(VVArgument *)baseCommenter.arguments[0] type], @"%@ should be type %@", [(VVArgument *)baseCommenter.arguments[0] type], arg0.type);
     XCTAssertEqualObjects(arg1.type, [(VVArgument *)baseCommenter.arguments[1] type], @"%@ should be type %@", [(VVArgument *)baseCommenter.arguments[1] type], arg1.type);
     
