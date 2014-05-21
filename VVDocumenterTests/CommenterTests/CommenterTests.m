@@ -55,6 +55,25 @@
     
 }
 
+- (void) testArgumentEquals
+{
+    VVArgument *argA = [[VVArgument alloc] init];
+    argA.name = @"a";
+    argA.type = @"NSString";
+    
+    VVArgument *argB = [[VVArgument alloc] init];
+    argB.name = @"b";
+    argB.type = @"NSString";
+    
+    VVArgument *argC = [[VVArgument alloc] init];
+    argC.name = @"a";
+    argC.type = @"NSString";
+    
+    XCTAssertEqualObjects(argA, argA);
+    XCTAssertNotEqualObjects(argA, argB);
+    XCTAssertEqualObjects(argA, argC);
+}
+
 -(void) testParseArguments
 {
     VVBaseCommenter *baseCommenter = [[VVFunctionCommenter alloc] initWithIndentString:@"" codeString:@""];
