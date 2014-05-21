@@ -55,11 +55,31 @@
     
 }
 
+- (void) testArgumentEquals
+{
+    VVArgument *argA = [[VVArgument alloc] init];
+    argA.name = @"a";
+    argA.type = @"NSString";
+    
+    VVArgument *argB = [[VVArgument alloc] init];
+    argB.name = @"b";
+    argB.type = @"NSString";
+    
+    VVArgument *argC = [[VVArgument alloc] init];
+    argC.name = @"a";
+    argC.type = @"NSString";
+    
+    XCTAssertEqualObjects(argA, argA);
+    XCTAssertNotEqualObjects(argA, argB);
+    XCTAssertEqualObjects(argA, argC);
+}
+
 -(void) testParseArguments
 {
-    VVBaseCommenter *baseCommenter = [[VVBaseCommenter alloc] initWithIndentString:@"" codeString:@""];
+    VVBaseCommenter *baseCommenter = [[VVFunctionCommenter alloc] initWithIndentString:@"" codeString:@""];
     baseCommenter.code = @"void dosomething( int x, int  y  );";
-    
+    [baseCommenter document];
+
     VVArgument *arg0 = [[VVArgument alloc] init];
     arg0.type = @"int";
     arg0.name = @"x";
@@ -68,38 +88,45 @@
     arg1.type = @"int";
     arg1.name = @"y";
     
-    NSArray * braceGroups = [baseCommenter.code vv_stringsByExtractingGroupsUsingRegexPattern:@"\\(([^\\^][^\\(\\)]*)\\)"];
-    if (braceGroups.count > 0) {
-        [baseCommenter parseArgumentsInputArgs:braceGroups[0]];
-    }
-    
     NSUInteger count = baseCommenter.arguments.count;
-    XCTAssertEqual(count, (NSUInteger)2, @"There should be 2 args, %@",baseCommenter.arguments);
-    XCTAssertEqualObjects(arg0.type, [(VVArgument *)baseCommenter.arguments[0] type], @"%@ should be type %@", [(VVArgument *)baseCommenter.arguments[0] type], arg0.type);
-    XCTAssertEqualObjects(arg1.type, [(VVArgument *)baseCommenter.arguments[1] type], @"%@ should be type %@", [(VVArgument *)baseCommenter.arguments[1] type], arg1.type);
-    
-    XCTAssertEqualObjects(arg0.name, [(VVArgument *)baseCommenter.arguments[0] name], @"%@ should be name %@", [(VVArgument *)baseCommenter.arguments[0] name], arg0.name);
-    XCTAssertEqualObjects(arg1.name, [(VVArgument *)baseCommenter.arguments[1] name], @"%@ should be type %@", [(VVArgument *)baseCommenter.arguments[1] name], arg1.name);
-    
+    XCTAssertEqual(count, (NSUInteger)2, @"There should be 2 args, %@", baseCommenter.arguments);
+    XCTAssertEqualObjects(arg0, baseCommenter.arguments[0]);
+    XCTAssertEqualObjects(arg1, baseCommenter.arguments[1]);
+}
+
+- (void) testParseVarArguments
+{
+    VVBaseCommenter *baseCommenter = [[VVFunctionCommenter alloc] initWithIndentString:@"" codeString:@""];
     baseCommenter.code = @"int main(int argc, char *argv[]) \n {";
+    [baseCommenter document];
+
+    VVArgument *arg0 = [[VVArgument alloc] init];
     arg0.type = @"int";
     arg0.name = @"argc";
     
+    VVArgument *arg1 = [[VVArgument alloc] init];
     arg1.type = @"char";
     arg1.name = @"argv";
     
-    braceGroups = [baseCommenter.code vv_stringsByExtractingGroupsUsingRegexPattern:@"\\(([^\\^][^\\(\\)]*)\\)"];
-    if (braceGroups.count > 0) {
-        [baseCommenter parseArgumentsInputArgs:braceGroups[0]];
-    }
-    count = baseCommenter.arguments.count;
-    XCTAssertEqual(count, (NSUInteger)2, @"There should be 2 args, %@",baseCommenter.arguments);
-    XCTAssertEqualObjects(arg0.type, [(VVArgument *)baseCommenter.arguments[0] type], @"%@ should be type %@", [(VVArgument *)baseCommenter.arguments[0] type], arg0.type);
-    XCTAssertEqualObjects(arg1.type, [(VVArgument *)baseCommenter.arguments[1] type], @"%@ should be type %@", [(VVArgument *)baseCommenter.arguments[1] type], arg1.type);
+    NSUInteger count = baseCommenter.arguments.count;
+    XCTAssertEqual(count, (NSUInteger)2, @"There should be 2 args, %@", baseCommenter.arguments);
+    XCTAssertEqualObjects(arg0, baseCommenter.arguments[0]);
+    XCTAssertEqualObjects(arg1, baseCommenter.arguments[1]);
+}
+
+- (void) testParseAttributedFunction
+{
+    VVBaseCommenter *baseCommenter = [[VVFunctionCommenter alloc] initWithIndentString:@"" codeString:@""];
+    baseCommenter.code = @"void dosomething( int x ) __attribute__((const));";
+    [baseCommenter document];
     
-    XCTAssertEqualObjects(arg0.name, [(VVArgument *)baseCommenter.arguments[0] name], @"%@ should be name %@", [(VVArgument *)baseCommenter.arguments[0] name], arg0.name);
-    XCTAssertEqualObjects(arg1.name, [(VVArgument *)baseCommenter.arguments[1] name], @"%@ should be type %@", [(VVArgument *)baseCommenter.arguments[1] name], arg1.name);
+    VVArgument *arg0 = [[VVArgument alloc] init];
+    arg0.type = @"int";
+    arg0.name = @"x";
     
+    NSUInteger count = baseCommenter.arguments.count;
+    XCTAssertEqual(count, (NSUInteger)1, @"There should be one arg, %@", baseCommenter.arguments);
+    XCTAssertEqualObjects(arg0, baseCommenter.arguments[0]);
 }
 
 @end

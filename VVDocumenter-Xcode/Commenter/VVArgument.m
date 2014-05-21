@@ -32,4 +32,19 @@
     }
 }
 
+- (NSString *)description {
+    return [NSString stringWithFormat:@"%@< type: %@, name: %@>", self.class, self.type, self.name];
+}
+
+- (BOOL)isEqual:(id)other {
+    if (other == self) {
+        return YES;
+    }
+    if ([other isKindOfClass:self.class]) {
+        return [((VVArgument *)other).type isEqualToString:self.type]
+            && [((VVArgument *)other).name isEqualToString:self.name];
+    }
+    return NO;
+}
+
 @end
