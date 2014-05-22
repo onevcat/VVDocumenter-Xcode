@@ -64,6 +64,20 @@
 	<array>
 		<dict>
 			<key>source</key>
+			<string>int square(int n) __attribute__((const));</string>
+			<key>uniform</key>
+			<string>int square(int n)__attribute__((const));</string>
+			<key>result</key>
+			<string>/**
+ *  &lt;#Description#&gt;
+ *
+ *  @param n &lt;#n description#&gt;
+ *
+ *  @return &lt;#return value description#&gt;
+ */</string>
+		</dict>
+		<dict>
+			<key>source</key>
 			<string>void dosomething ( int x, int  y );</string>
 			<key>uniform</key>
 			<string>void dosomething( int x, int  y );</string>
