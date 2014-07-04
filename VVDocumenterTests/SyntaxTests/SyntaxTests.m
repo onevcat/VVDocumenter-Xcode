@@ -6,11 +6,11 @@
 //  Copyright (c) 2013年 OneV's Den. All rights reserved.
 //
 
-#import "SyntaxTests.h"
+#import <XCTest/XCTest.h>
 #import "VVTestHelper.h"
 #import "NSString+VVSyntax.h"
 
-@interface SyntaxTests()
+@interface SyntaxTests : XCTestCase
 
 @property (nonatomic, strong) NSArray* inputs;
 @property (nonatomic, strong) NSArray* corrects;

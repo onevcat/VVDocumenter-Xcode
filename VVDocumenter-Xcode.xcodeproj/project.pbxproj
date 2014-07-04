@@ -96,7 +96,6 @@
 		D16AFCE51796E0D0006719AA /* VVEnumCommenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVEnumCommenter.m; sourceTree = "<group>"; };
 		D16AFCE71796E0D6006719AA /* VVVariableCommenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVVariableCommenter.h; sourceTree = "<group>"; };
 		D16AFCE81796E0D6006719AA /* VVVariableCommenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVVariableCommenter.m; sourceTree = "<group>"; };
-		D1986F72179A12BD00EA6643 /* CommenterTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommenterTests.h; sourceTree = "<group>"; };
 		D1986F73179A12BD00EA6643 /* CommenterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommenterTests.m; sourceTree = "<group>"; };
 		D1AC3B8D1796DB070063A484 /* VVDocumenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVDocumenter.h; sourceTree = "<group>"; };
 		D1AC3B8E1796DB070063A484 /* VVDocumenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVDocumenter.m; sourceTree = "<group>"; };
@@ -108,7 +107,6 @@
 		D1C462E717999C2000EB7B23 /* VVDocumenterTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VVDocumenterTests-Prefix.pch"; sourceTree = "<group>"; };
 		D1C462EB17999C9A00EB7B23 /* VVTestHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVTestHelper.h; sourceTree = "<group>"; };
 		D1C462EC17999C9A00EB7B23 /* VVTestHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVTestHelper.m; sourceTree = "<group>"; };
-		D1C462EF17999CA200EB7B23 /* SyntaxTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyntaxTests.h; sourceTree = "<group>"; };
 		D1C462F017999CA200EB7B23 /* SyntaxTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyntaxTests.m; sourceTree = "<group>"; };
 		D1C462F317999CEC00EB7B23 /* NSString+VVSyntax.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+VVSyntax.h"; sourceTree = "<group>"; };
 		D1C462F417999CEC00EB7B23 /* NSString+VVSyntax.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+VVSyntax.m"; sourceTree = "<group>"; };
@@ -275,7 +273,6 @@
 		D1986F71179A12BD00EA6643 /* CommenterTests */ = {
 			isa = PBXGroup;
 			children = (
-				D1986F72179A12BD00EA6643 /* CommenterTests.h */,
 				D1986F73179A12BD00EA6643 /* CommenterTests.m */,
 			);
 			path = CommenterTests;
@@ -316,7 +313,6 @@
 		D1C462EE17999CA200EB7B23 /* SyntaxTests */ = {
 			isa = PBXGroup;
 			children = (
-				D1C462EF17999CA200EB7B23 /* SyntaxTests.h */,
 				D1C462F017999CA200EB7B23 /* SyntaxTests.m */,
 			);
 			path = SyntaxTests;
