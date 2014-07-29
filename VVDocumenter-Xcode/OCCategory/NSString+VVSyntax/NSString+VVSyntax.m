@@ -70,7 +70,7 @@
 
 -(BOOL) vv_isSwiftFunction
 {
-    return [self vv_matchesPatternRegexPattern:@"^\\s*(.*\\s+)?func\\s+"];
+    return ![self vv_isObjCMethod] && [self vv_matchesPatternRegexPattern:@"^\\s*(.*\\s+)?(func\\s+)|(init|deinit)"];
 }
 
 -(BOOL) vv_isSwiftEnum
