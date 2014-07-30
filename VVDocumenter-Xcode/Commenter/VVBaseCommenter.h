@@ -16,7 +16,9 @@
 @property (nonatomic, assign) BOOL hasReturn;
 
 -(id) initWithIndentString:(NSString *)indent codeString:(NSString *)code;
--(NSString *) document;
+
+-(NSString *) documentForC;
+-(NSString *) documentForSwift;
 
 -(void) parseArgumentsInputArgs:(NSString *)rawArgsCode;
 

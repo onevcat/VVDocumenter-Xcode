@@ -23,12 +23,12 @@
     }
 }
 
--(NSString *) document
+-(NSString *) documentForC
 {
     [self captureReturnType];
     [self captureParameters];
     
-    return [super document];
+    return [super documentForC];
 }
 
 @end

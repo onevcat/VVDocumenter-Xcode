@@ -23,7 +23,6 @@
     // Put setup code here; it will be run once, before the first test case.
     NSString *path = [[NSBundle bundleForClass:[self class]] pathForResource:@"VVMethodTestsCode" ofType:@"plist"];
     self.testCaseDic = [NSDictionary dictionaryWithContentsOfFile:path];
-    
 }
 
 - (void)tearDown

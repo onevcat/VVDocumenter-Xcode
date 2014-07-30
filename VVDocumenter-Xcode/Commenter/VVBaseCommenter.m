@@ -13,6 +13,7 @@
 
 @interface VVBaseCommenter()
 @property (nonatomic, copy) NSString *space;
+@property (nonatomic, assign) BOOL forSwift;
 @end
 
 @implementation VVBaseCommenter
@@ -20,12 +21,21 @@
 {
     self = [super init];
     if (self) {
-        self.indent = indent;
-        self.code = code;
-        self.arguments = [NSMutableArray array];
-        self.space = [[VVDocumenterSetting defaultSetting] spacesString];
+        _indent = indent;
+        _code = code;
+        _arguments = [NSMutableArray array];
+        _space = [[VVDocumenterSetting defaultSetting] spacesString];
+        _forSwift = NO;
     }
     return self;
+}
+
+-(NSString *) paramSymbol {
+    return self.forSwift ? @":param:" : @"@param";
+}
+
+-(NSString *) returnSymbol {
+    return self.forSwift ? @":returns:" : @"@return";
 }
 
 -(NSString *) startComment
@@ -56,7 +66,7 @@
             name = [name stringByPaddingToLength:longestNameLength withString:@" " startingAtIndex:0];
         }
 
-        [result appendFormat:@"%@@param %@ <#%@ description#>\n", self.prefixString, name, arg.name];
+        [result appendFormat:@"%@%@ %@ <#%@ description#>\n", self.prefixString, [self paramSymbol], name, arg.name];
     }
     return result;
 }
@@ -66,13 +76,14 @@
     if (!self.hasReturn) {
         return @"";
     } else {
-        return [NSString stringWithFormat:@"%@%@@return <#return value description#>\n", self.emptyLine, self.prefixString];
+        return [NSString stringWithFormat:@"%@%@%@ <#return value description#>\n", self.emptyLine, self.prefixString, [self returnSymbol]];
     }
 }
 
 -(NSString *) sinceComment
 {
-    if ([[VVDocumenterSetting defaultSetting] addSinceToComments]) {
+    //It seems no since attribute for swift? Maybe I am wrong.
+    if (!self.forSwift && [[VVDocumenterSetting defaultSetting] addSinceToComments]) {
         return [NSString stringWithFormat:@"%@%@@since <#version number#>\n", self.emptyLine, self.prefixString];
     } else {
         return @"";
@@ -88,6 +99,18 @@
     }
 }
 
+-(NSString *) documentForSwift
+{
+    self.forSwift = YES;
+    return [self document];
+}
+
+-(NSString *) documentForC
+{
+    self.forSwift = NO;
+    return [self document];
+}
+
 -(NSString *) document
 {
     NSString * comment = [NSString stringWithFormat:@"%@%@%@%@%@",
@@ -96,7 +119,7 @@
                           [self returnComment],
                           [self sinceComment],
                           [self endComment]];
-
+    
     // The last line of the comment should be adjacent to the next line of code,
     // back off the newline from the last comment component.
     if ([[VVDocumenterSetting defaultSetting] prefixWithSlashes]) {

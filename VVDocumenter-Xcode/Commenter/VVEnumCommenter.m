@@ -10,7 +10,7 @@
 
 @implementation VVEnumCommenter
 
-- (NSString *)document {
+- (NSString *)documentForC {
     //Regular comment documentation
     NSString *finalString = [NSString stringWithFormat:@"%@%@%@", [self startComment],
                                                                   [self sinceComment],

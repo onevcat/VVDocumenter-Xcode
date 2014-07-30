@@ -69,11 +69,17 @@
         commenter = [[VVStructCommenter alloc] initWithIndentString:baseIndent codeString:trimCode];
     } else if ([trimCode vv_isObjCMethod]) {
         commenter = [[VVMethodCommenter alloc] initWithIndentString:baseIndent codeString:trimCode];
+    } else if ([trimCode vv_isSwiftFunction]) {
+        commenter = [[VVSwiftFunctionCommenter alloc] initWithIndentString:baseIndent codeString:trimCode];
+    } else if ([trimCode vv_isSwiftEnum]) {
+        
+    } else if ([trimCode vv_isSwiftProperty]) {
+        
     } else {
         commenter = [[VVVariableCommenter alloc] initWithIndentString:baseIndent codeString:trimCode];
     }
 
-    return [commenter document];
+    return [commenter documentForC];
 }
 
 

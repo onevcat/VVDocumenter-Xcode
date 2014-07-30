@@ -18,5 +18,6 @@
 #import "VVStructCommenter.h"
 #import "VVVariableCommenter.h"
 #import "VVArgument.h"
+#import "VVSwiftFunctionCommenter.h"
 
 #endif
