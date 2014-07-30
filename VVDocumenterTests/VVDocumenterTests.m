@@ -53,7 +53,13 @@
                 XCTAssertFalse([VVTestHelper performSyntaxMethod:type onString:uniform], @"This uniform code should not be %@",type);
             }
             
-            VVDocumenter *documenter = [[VVDocumenter alloc] initWithCode:uniform];
+            VVDocumenter *documenter = nil;
+            if ([key isEqualToString:@"vv_isSwiftEnum"]) {
+                documenter = [[VVDocumenter alloc] initWithCode:source];
+            } else {
+                documenter = [[VVDocumenter alloc] initWithCode:uniform];
+            }
+
             XCTAssertEqualObjects([documenter document], result, @"Result should be correct");
             
         }];

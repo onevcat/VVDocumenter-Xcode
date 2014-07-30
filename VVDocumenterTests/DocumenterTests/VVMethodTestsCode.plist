@@ -466,7 +466,7 @@ SIAlertViewBackgroundStyleSolid,
 			<key>source</key>
 			<string>func Test(input : Int, condition : (Int, String) -&gt; Bool = {(t: Int,k: String) in return true}) -&gt; (Int,Int) {</string>
 			<key>uniform</key>
-			<string>func Test(input : Int, condition : (Int, String)-> Bool = {(t: Int,k: String)in return true}) ->(Int,Int){</string>
+			<string>func Test(input : Int, condition : (Int, String)-&gt; Bool = {(t: Int,k: String)in return true}) -&gt;(Int,Int){</string>
 			<key>result</key>
 			<string>/**
  *  &lt;#Description#&gt;
@@ -475,6 +475,26 @@ SIAlertViewBackgroundStyleSolid,
  *  :param: condition &lt;#condition description#&gt;
  *
  *  :returns: &lt;#return value description#&gt;
+ */</string>
+		</dict>
+	</array>
+	<key>vv_isSwiftEnum</key>
+	<array>
+		<dict>
+			<key>source</key>
+            <string>enum Handlebar {
+    case Riser, Café, Drop, Bullhorn
+}</string>
+			<key>uniform</key>
+            <string>enum Handlebar { case Riser, Café, Drop, Bullhorn }</string>
+			<key>result</key>
+			<string>/**
+ *  &lt;#Description#&gt;
+ *
+ *  - Riser: &lt;#Riser description#&gt;
+ *  - Café: &lt;#Café description#&gt;
+ *  - Drop: &lt;#Drop description#&gt;
+ *  - Bullhorn: &lt;#Bullhorn description#&gt;
  */</string>
 		</dict>
 	</array>

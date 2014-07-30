@@ -21,6 +21,7 @@
 
 -(NSString *) documentForC;
 -(NSString *) documentForSwift;
+-(NSString *) documentForSwiftEnum;
 
 -(void) parseArgumentsInputArgs:(NSString *)rawArgsCode;
 

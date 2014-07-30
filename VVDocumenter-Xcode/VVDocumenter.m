@@ -14,6 +14,7 @@
 
 @property (nonatomic, copy) NSString *code;
 @property (nonatomic, assign) BOOL isEnum;
+@property (nonatomic, assign) BOOL isSwiftEnum;
 
 @end
 
@@ -23,15 +24,14 @@
 {
     self = [super init];
     if (self) {
-        self.isEnum = NO;
-        
-        if ([code vv_isEnum]) {
-            self.code = code;
-            self.isEnum = YES;
+        _isEnum = [code vv_isEnum];
+        _isSwiftEnum = [code vv_isSwiftEnum];
+        if (_isEnum || _isSwiftEnum) {
+            _code = code;
         } else {
             //Trim the space around the braces
             //Then trim the new line character
-            self.code = [[code vv_stringByReplacingRegexPattern:@"\\s*(\\(.*\?\\))\\s*" withString:@"$1"]
+            _code = [[code vv_stringByReplacingRegexPattern:@"\\s*(\\(.*\?\\))\\s*" withString:@"$1"]
                                vv_stringByReplacingRegexPattern:@"\\s*\n\\s*"           withString:@" "];
         }
     }
@@ -71,8 +71,8 @@
         commenter = [[VVMethodCommenter alloc] initWithIndentString:baseIndent codeString:trimCode];
     } else if ([trimCode vv_isSwiftFunction]) {
         commenter = [[VVSwiftFunctionCommenter alloc] initWithIndentString:baseIndent codeString:trimCode];
-    } else if ([trimCode vv_isSwiftEnum]) {
-        
+    } else if (self.isSwiftEnum) {
+        commenter = [[VVSwiftEnumCommenter alloc] initWithIndentString:baseIndent codeString:trimCode];
     } else if ([trimCode vv_isSwiftProperty]) {
         
     } else {

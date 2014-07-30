@@ -14,6 +14,7 @@
 @interface VVBaseCommenter()
 @property (nonatomic, copy) NSString *space;
 @property (nonatomic, assign) BOOL forSwift;
+@property (nonatomic, assign) BOOL forSwiftEnum;
 @end
 
 @implementation VVBaseCommenter
@@ -26,6 +27,7 @@
         _arguments = [NSMutableArray array];
         _space = [[VVDocumenterSetting defaultSetting] spacesString];
         _forSwift = NO;
+        _forSwiftEnum = NO;
     }
     return self;
 }
@@ -66,7 +68,12 @@
             name = [name stringByPaddingToLength:longestNameLength withString:@" " startingAtIndex:0];
         }
 
-        [result appendFormat:@"%@%@ %@ <#%@ description#>\n", self.prefixString, [self paramSymbol], name, arg.name];
+        if (self.forSwiftEnum) {
+            [result appendFormat:@"%@- %@: <#%@ description#>\n", self.prefixString, arg.name, arg.name];
+        } else {
+            [result appendFormat:@"%@%@ %@ <#%@ description#>\n", self.prefixString, [self paramSymbol], name, arg.name];
+        }
+
     }
     return result;
 }
@@ -101,6 +108,13 @@
 
 -(NSString *) documentForSwift
 {
+    self.forSwift = YES;
+    return [self __document];
+}
+
+-(NSString *) documentForSwiftEnum
+{
+    self.forSwiftEnum = YES;
     self.forSwift = YES;
     return [self __document];
 }
