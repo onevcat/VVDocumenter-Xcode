@@ -12,7 +12,7 @@
 @implementation VVSwiftFunctionCommenter
 -(void) captureReturnType
 {
-    if ([self.code vv_matchesPatternRegexPattern:@"\\(.*\\)\\s*->\\s*(Void|\\(\\s*\\))\\s*{"]) {
+    if ([self.code vv_matchesPatternRegexPattern:@"\\(.*\\)\\s*->\\s*(Void|\\(\\s*\\))\\s*[{]"]) {
         self.hasReturn = NO;
     } else if ([self.code vv_matchesPatternRegexPattern:@"\\(.*\\)\\s*->\\s*"]) {
         self.hasReturn = YES;

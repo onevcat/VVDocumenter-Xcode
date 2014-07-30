@@ -410,12 +410,39 @@ SIAlertViewBackgroundStyleSolid,
 			<key>uniform</key>
 			<string>func sayHello(personName: String)-&gt; String  {</string>
 			<key>result</key>
-            <string>/**
+			<string>/**
  *  &lt;#Description#&gt;
  *
  *  :param: personName &lt;#personName description#&gt;
  *
  *  :returns: &lt;#return value description#&gt;
+ */</string>
+		</dict>
+		<dict>
+			<key>source</key>
+			<string>func go(para: Int -&gt; String) -&gt; (String -&gt; String) {</string>
+			<key>uniform</key>
+			<string>func go(para: Int -&gt; String)-&gt;(String -&gt; String){</string>
+			<key>result</key>
+			<string>/**
+ *  &lt;#Description#&gt;
+ *
+ *  :param: para &lt;#para description#&gt;
+ *
+ *  :returns: &lt;#return value description#&gt;
+ */</string>
+		</dict>
+		<dict>
+			<key>source</key>
+            <string>public func go (miao: Int, wu: String) -&gt; Void {</string>
+			<key>uniform</key>
+            <string>public func go(miao: Int, wu: String)-&gt; Void {</string>
+			<key>result</key>
+			<string>/**
+ *  &lt;#Description#&gt;
+ *
+ *  :param: miao &lt;#miao description#&gt;
+ *  :param: wu   &lt;#wu description#&gt;
  */</string>
 		</dict>
 	</array>
