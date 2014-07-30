@@ -18,6 +18,7 @@
     [lines enumerateObjectsUsingBlock:^(NSString *line, NSUInteger idx, BOOL *stop) {
         if ([line vv_matchesPatternRegexPattern:@"^case\\s+"]) {
             NSString * plainCase = [line vv_stringByReplacingRegexPattern:@"\\(.*?\\)" withString:@""];
+            plainCase = [plainCase vv_stringByReplacingRegexPattern:@"=\\s*.*$" withString:@""];
             plainCase = [[plainCase vv_stringByReplacingRegexPattern:@"^case\\s+" withString:@""] vv_stringByReplacingRegexPattern:@"\\s+" withString:@""];
             NSArray *cases = [plainCase componentsSeparatedByString:@","];
             [cases enumerateObjectsUsingBlock:^(NSString *name, NSUInteger idx, BOOL *stop) {
