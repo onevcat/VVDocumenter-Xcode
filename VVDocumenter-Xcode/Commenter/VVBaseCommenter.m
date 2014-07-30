@@ -102,16 +102,16 @@
 -(NSString *) documentForSwift
 {
     self.forSwift = YES;
-    return [self document];
+    return [self __document];
 }
 
 -(NSString *) documentForC
 {
     self.forSwift = NO;
-    return [self document];
+    return [self __document];
 }
 
--(NSString *) document
+-(NSString *) __document
 {
     NSString * comment = [NSString stringWithFormat:@"%@%@%@%@%@",
                           [self startComment],
@@ -127,6 +127,12 @@
     } else {
         return comment;
     }
+}
+
+-(NSString *) document
+{
+    //This is the default action
+    return [self documentForC];
 }
 
 -(NSString *) emptyLine

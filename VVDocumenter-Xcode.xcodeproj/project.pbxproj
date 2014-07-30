@@ -55,6 +55,8 @@
 		D1C462E317999C2000EB7B23 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D1C462E117999C2000EB7B23 /* InfoPlist.strings */; };
 		D1C462F117999CA200EB7B23 /* SyntaxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D1C462F017999CA200EB7B23 /* SyntaxTests.m */; };
 		D1C462F517999CEC00EB7B23 /* NSString+VVSyntax.m in Sources */ = {isa = PBXBuildFile; fileRef = D1C462F417999CEC00EB7B23 /* NSString+VVSyntax.m */; };
+		D1C6124819891B3700FDB554 /* VVSwiftEnumCommenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D1C6124719891B3700FDB554 /* VVSwiftEnumCommenter.m */; };
+		D1C6124919891B3700FDB554 /* VVSwiftEnumCommenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D1C6124719891B3700FDB554 /* VVSwiftEnumCommenter.m */; };
 		D1D66CA817A2AEF000E62F99 /* VVKeyboardEventSender.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D66CA717A2AEF000E62F99 /* VVKeyboardEventSender.m */; };
 /* End PBXBuildFile section */
 
@@ -115,6 +117,8 @@
 		D1C462F017999CA200EB7B23 /* SyntaxTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyntaxTests.m; sourceTree = "<group>"; };
 		D1C462F317999CEC00EB7B23 /* NSString+VVSyntax.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+VVSyntax.h"; sourceTree = "<group>"; };
 		D1C462F417999CEC00EB7B23 /* NSString+VVSyntax.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+VVSyntax.m"; sourceTree = "<group>"; };
+		D1C6124619891B3700FDB554 /* VVSwiftEnumCommenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVSwiftEnumCommenter.h; sourceTree = "<group>"; };
+		D1C6124719891B3700FDB554 /* VVSwiftEnumCommenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVSwiftEnumCommenter.m; sourceTree = "<group>"; };
 		D1D66CA617A2AEF000E62F99 /* VVKeyboardEventSender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVKeyboardEventSender.h; sourceTree = "<group>"; };
 		D1D66CA717A2AEF000E62F99 /* VVKeyboardEventSender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVKeyboardEventSender.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -252,6 +256,8 @@
 				D16AFCDC1796E0B9006719AA /* VVFunctionCommenter.m */,
 				D13EDDD71987F34C0029A555 /* VVSwiftFunctionCommenter.h */,
 				D13EDDD81987F34C0029A555 /* VVSwiftFunctionCommenter.m */,
+				D1C6124619891B3700FDB554 /* VVSwiftEnumCommenter.h */,
+				D1C6124719891B3700FDB554 /* VVSwiftEnumCommenter.m */,
 				D16AFCDE1796E0C0006719AA /* VVMacroCommenter.h */,
 				D16AFCDF1796E0C0006719AA /* VVMacroCommenter.m */,
 				D16AFCE11796E0C9006719AA /* VVStructCommenter.h */,
@@ -465,6 +471,7 @@
 				D16AFCE61796E0D0006719AA /* VVEnumCommenter.m in Sources */,
 				D16AFCE91796E0D6006719AA /* VVVariableCommenter.m in Sources */,
 				D1C462F517999CEC00EB7B23 /* NSString+VVSyntax.m in Sources */,
+				D1C6124819891B3700FDB554 /* VVSwiftEnumCommenter.m in Sources */,
 				D11C542D17999D9000D3DE38 /* VVArgument.m in Sources */,
 				D1D66CA817A2AEF000E62F99 /* VVKeyboardEventSender.m in Sources */,
 				D124614717AC16820095F9D6 /* VVDocumenterSetting.m in Sources */,
@@ -485,6 +492,7 @@
 				D14110B61988C12F00A7083F /* VVDocumenterManager.m in Sources */,
 				D14110B71988C12F00A7083F /* VVDocumenter.m in Sources */,
 				D14110A81988C12000A7083F /* VVArgument.m in Sources */,
+				D1C6124919891B3700FDB554 /* VVSwiftEnumCommenter.m in Sources */,
 				D14110A91988C12000A7083F /* VVBaseCommenter.m in Sources */,
 				D14110AA1988C12000A7083F /* VVPropertyCommenter.m in Sources */,
 				D14110AB1988C12000A7083F /* VVMethodCommenter.m in Sources */,

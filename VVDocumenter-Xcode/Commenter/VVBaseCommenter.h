@@ -17,6 +17,8 @@
 
 -(id) initWithIndentString:(NSString *)indent codeString:(NSString *)code;
 
+-(NSString *) document;
+
 -(NSString *) documentForC;
 -(NSString *) documentForSwift;
 

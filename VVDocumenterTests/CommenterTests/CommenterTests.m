@@ -79,7 +79,7 @@
 {
     VVBaseCommenter *baseCommenter = [[VVFunctionCommenter alloc] initWithIndentString:@"" codeString:@""];
     baseCommenter.code = @"void dosomething( int x, int  y  );";
-    [baseCommenter documentForC];
+    [baseCommenter document];
 
     VVArgument *arg0 = [[VVArgument alloc] init];
     arg0.type = @"int";
@@ -99,7 +99,7 @@
 {
     VVBaseCommenter *baseCommenter = [[VVFunctionCommenter alloc] initWithIndentString:@"" codeString:@""];
     baseCommenter.code = @"int main(int argc, char *argv[]) \n {";
-    [baseCommenter documentForC];
+    [baseCommenter document];
 
     VVArgument *arg0 = [[VVArgument alloc] init];
     arg0.type = @"int";
@@ -119,7 +119,7 @@
 {
     VVBaseCommenter *baseCommenter = [[VVFunctionCommenter alloc] initWithIndentString:@"" codeString:@""];
     baseCommenter.code = @"void dosomething( int x ) __attribute__((const));";
-    [baseCommenter documentForC];
+    [baseCommenter document];
     
     VVArgument *arg0 = [[VVArgument alloc] init];
     arg0.type = @"int";

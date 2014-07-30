@@ -35,7 +35,7 @@
     }
 }
 
--(NSString *) documentForC
+-(NSString *) document
 {
     [self captureReturnType];
     [self captureParameters];

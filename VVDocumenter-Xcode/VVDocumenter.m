@@ -79,7 +79,7 @@
         commenter = [[VVVariableCommenter alloc] initWithIndentString:baseIndent codeString:trimCode];
     }
 
-    return [commenter documentForC];
+    return [commenter document];
 }
 
 
