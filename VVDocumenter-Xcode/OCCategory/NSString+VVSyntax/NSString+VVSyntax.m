@@ -34,6 +34,7 @@
            ![self vv_isProperty] &&
            ![self vv_isComplieKeyword] &&
            ![self vv_isSwiftFunction] &&
+           ![self vv_isSwiftEnum] &&
            ![self vv_isSwiftProperty] &&
            [self vv_matchesPatternRegexPattern:@".+\\s+.+\\("];
 }

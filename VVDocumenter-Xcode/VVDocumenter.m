@@ -24,15 +24,16 @@
 {
     self = [super init];
     if (self) {
-        _isEnum = [code vv_isEnum];
-        _isSwiftEnum = [code vv_isSwiftEnum];
+        NSString *trimmed = [[code vv_stringByReplacingRegexPattern:@"\\s*(\\(.*\?\\))\\s*" withString:@"$1"]
+                             vv_stringByReplacingRegexPattern:@"\\s*\n\\s*"           withString:@" "];
+        _isEnum = [trimmed vv_isEnum];
+        _isSwiftEnum = [trimmed vv_isSwiftEnum];
         if (_isEnum || _isSwiftEnum) {
             _code = code;
         } else {
             //Trim the space around the braces
             //Then trim the new line character
-            _code = [[code vv_stringByReplacingRegexPattern:@"\\s*(\\(.*\?\\))\\s*" withString:@"$1"]
-                               vv_stringByReplacingRegexPattern:@"\\s*\n\\s*"           withString:@" "];
+            _code = trimmed;
         }
     }
     return self;
@@ -57,6 +58,8 @@
     
     if (self.isEnum) {    
         commenter = [[VVEnumCommenter alloc] initWithIndentString:baseIndent codeString:trimCode];
+    } else if (self.isSwiftEnum) {
+        commenter = [[VVSwiftEnumCommenter alloc] initWithIndentString:baseIndent codeString:trimCode];
     } else if ([trimCode vv_isProperty]) {
         commenter = [[VVPropertyCommenter alloc] initWithIndentString:baseIndent codeString:trimCode];
     } else if ([trimCode vv_isCFunction]) {
@@ -71,8 +74,6 @@
         commenter = [[VVMethodCommenter alloc] initWithIndentString:baseIndent codeString:trimCode];
     } else if ([trimCode vv_isSwiftFunction]) {
         commenter = [[VVSwiftFunctionCommenter alloc] initWithIndentString:baseIndent codeString:trimCode];
-    } else if (self.isSwiftEnum) {
-        commenter = [[VVSwiftEnumCommenter alloc] initWithIndentString:baseIndent codeString:trimCode];
     } else if ([trimCode vv_isSwiftProperty]) {
         
     } else {
