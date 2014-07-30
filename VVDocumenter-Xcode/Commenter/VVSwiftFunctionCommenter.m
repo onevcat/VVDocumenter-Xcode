@@ -51,6 +51,10 @@
         argumentString = [argumentString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         argumentString = [argumentString vv_stringByReplacingRegexPattern:@"\\s+" withString:@" "];
         NSMutableArray *tempArgs = [[argumentString componentsSeparatedByString:@":"] mutableCopy];
+        if (tempArgs.count == 1) { //There is no ":", it is not a arg
+            continue;
+        }
+        
         NSString *firstPart = [[tempArgs firstObject] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         if ([firstPart rangeOfString:@" "].location != NSNotFound) {
             arg.name = [[[firstPart componentsSeparatedByString:@" "] lastObject] vv_stringByReplacingRegexPattern:@"#" withString:@""];
