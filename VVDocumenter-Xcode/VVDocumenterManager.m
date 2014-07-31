@@ -27,7 +27,7 @@
     [self shared];
 }
 
-+(id) shared {
++(instancetype) shared {
     static dispatch_once_t once;
     static id instance = nil;
     dispatch_once(&once, ^{
@@ -36,7 +36,7 @@
     return instance;
 }
 
-- (id)init {
+- (instancetype)init {
     if (self = [super init]) {
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(applicationDidFinishLaunching:)

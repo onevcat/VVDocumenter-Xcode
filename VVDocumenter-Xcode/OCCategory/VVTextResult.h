@@ -13,6 +13,6 @@
 @property (nonatomic, assign) NSRange range;
 @property (nonatomic, copy) NSString *string;
 
--(id) initWithRange:(NSRange)aRange string:(NSString *)aString;
+-(instancetype) initWithRange:(NSRange)aRange string:(NSString *)aString;
 
 @end

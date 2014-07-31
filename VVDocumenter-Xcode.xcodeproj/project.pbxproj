@@ -668,6 +668,11 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "VVDocumenterTests/VVDocumenterTests-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+					__DEBUG__,
+				);
 				INFOPLIST_FILE = "VVDocumenterTests/VVDocumenterTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

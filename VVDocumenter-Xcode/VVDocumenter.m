@@ -20,7 +20,7 @@
 
 @implementation VVDocumenter
 
--(id) initWithCode:(NSString *)code
+-(instancetype) initWithCode:(NSString *)code
 {
     self = [super init];
     if (self) {

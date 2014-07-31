@@ -18,7 +18,7 @@
 @end
 
 @implementation VVBaseCommenter
--(id) initWithIndentString:(NSString *)indent codeString:(NSString *)code
+-(instancetype) initWithIndentString:(NSString *)indent codeString:(NSString *)code
 {
     self = [super init];
     if (self) {

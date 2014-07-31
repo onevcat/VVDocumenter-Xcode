@@ -10,7 +10,7 @@
 
 @implementation VVTextResult
 
--(id) initWithRange:(NSRange)aRange string:(NSString *)aString
+-(instancetype) initWithRange:(NSRange)aRange string:(NSString *)aString
 
 {
     self = [super init];
