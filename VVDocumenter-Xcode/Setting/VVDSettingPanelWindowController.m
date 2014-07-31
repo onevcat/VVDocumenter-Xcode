@@ -158,6 +158,7 @@
     }
     return YES;
 }
+
 - (IBAction)useHeaderDoc:(id)sender {
     [[VVDocumenterSetting defaultSetting] setUseHeaderDoc:self.btnUseHeaderDoc.state];
 
