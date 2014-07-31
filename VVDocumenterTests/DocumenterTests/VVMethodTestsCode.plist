@@ -554,12 +554,12 @@ SIAlertViewBackgroundStyleSolid,
 		</dict>
 		<dict>
 			<key>source</key>
-            <string>enum Barcode {
+			<string>enum Barcode {
     case UPCA(Int, Int, Int, Int)
     case QRCode(String)
 }</string>
 			<key>uniform</key>
-            <string>enum Barcode { case UPCA(Int, Int, Int, Int)case QRCode(String)}</string>
+			<string>enum Barcode { case UPCA(Int, Int, Int, Int)case QRCode(String)}</string>
 			<key>result</key>
 			<string>/**
  &lt;#Description#&gt;
@@ -567,6 +567,17 @@ SIAlertViewBackgroundStyleSolid,
  - UPCA: &lt;#UPCA description#&gt;
  - QRCode: &lt;#QRCode description#&gt;
  */</string>
+		</dict>
+	</array>
+	<key>vv_isSwiftProperty</key>
+	<array>
+		<dict>
+			<key>source</key>
+			<string>let handlebar: Handlebar</string>
+			<key>uniform</key>
+			<string>let handlebar: Handlebar</string>
+			<key>result</key>
+			<string>/// &lt;#Description#&gt;</string>
 		</dict>
 	</array>
 </dict>

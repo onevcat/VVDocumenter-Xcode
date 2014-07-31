@@ -20,5 +20,6 @@
 #import "VVArgument.h"
 #import "VVSwiftFunctionCommenter.h"
 #import "VVSwiftEnumCommenter.h"
+#import "VVSwiftPropertyCommenter.h"
 
 #endif

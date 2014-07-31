@@ -75,12 +75,16 @@
     } else if ([trimCode vv_isSwiftFunction]) {
         commenter = [[VVSwiftFunctionCommenter alloc] initWithIndentString:baseIndent codeString:trimCode];
     } else if ([trimCode vv_isSwiftProperty]) {
-        
+        commenter = [[VVSwiftPropertyCommenter alloc] initWithIndentString:baseIndent codeString:trimCode];
     } else {
         commenter = [[VVVariableCommenter alloc] initWithIndentString:baseIndent codeString:trimCode];
     }
 
-    return [commenter document];
+    if ([commenter shouldComment]) {
+        return [commenter document];
+    } else {
+        return nil;
+    }
 }
 
 

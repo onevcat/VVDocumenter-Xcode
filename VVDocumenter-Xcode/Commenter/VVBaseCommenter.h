@@ -25,6 +25,8 @@
 
 -(void) parseArgumentsInputArgs:(NSString *)rawArgsCode;
 
+-(BOOL) shouldComment;
+
 // Comment methods
 -(NSString *) startComment;
 -(NSString *) argumentsComment;

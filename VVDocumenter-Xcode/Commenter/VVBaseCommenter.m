@@ -199,4 +199,9 @@
     }
 }
 
+-(BOOL) shouldComment
+{
+    return YES;
+}
+
 @end

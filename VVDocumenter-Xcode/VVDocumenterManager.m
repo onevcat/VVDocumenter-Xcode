@@ -135,7 +135,14 @@
                 }
                 
                 VVDocumenter *doc = [[VVDocumenter alloc] initWithCode:resultToDocument.string];
-
+                NSString *documentationString = [doc document];
+                
+                if (!documentationString) {
+                    //Leave the user's input there.
+                    //It might be no need to parse doc or something wrong.
+                    return;
+                }
+                
                 //Now we are using a simulation of keyboard event to insert the docs, instead of using the IDE's private method.
                 //See more at https://github.com/onevcat/VVDocumenter-Xcode/issues/3
 
@@ -145,7 +152,7 @@
 
                 //Set the doc comments in it
                 [pasteBoard declareTypes:[NSArray arrayWithObject:NSStringPboardType] owner:nil];
-                [pasteBoard setString:[doc document] forType:NSStringPboardType];
+                [pasteBoard setString:documentationString forType:NSStringPboardType];
                 
                 //Begin to simulate keyborad pressing
                 VVKeyboardEventSender *kes = [[VVKeyboardEventSender alloc] init];

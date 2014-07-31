@@ -49,6 +49,8 @@
 		D16AFCE91796E0D6006719AA /* VVVariableCommenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D16AFCE81796E0D6006719AA /* VVVariableCommenter.m */; };
 		D18224DC17956290001A5E8A /* VVDocumenterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D16917DE17955C8D0036C06B /* VVDocumenterManager.m */; };
 		D1986F74179A12BD00EA6643 /* CommenterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D1986F73179A12BD00EA6643 /* CommenterTests.m */; };
+		D1A6B1D0198A0D8600BCED83 /* VVSwiftPropertyCommenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D1A6B1CF198A0D8600BCED83 /* VVSwiftPropertyCommenter.m */; };
+		D1A6B1D1198A0D8600BCED83 /* VVSwiftPropertyCommenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D1A6B1CF198A0D8600BCED83 /* VVSwiftPropertyCommenter.m */; };
 		D1AC3B8F1796DB070063A484 /* VVDocumenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D1AC3B8E1796DB070063A484 /* VVDocumenter.m */; };
 		D1B316D6189A2AA700420A6E /* VVMethodTestsCode.plist in Resources */ = {isa = PBXBuildFile; fileRef = D1B316D5189A2AA700420A6E /* VVMethodTestsCode.plist */; };
 		D1C462DD17999C2000EB7B23 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D14380F6179551B900C829CE /* Cocoa.framework */; };
@@ -104,6 +106,8 @@
 		D16AFCE71796E0D6006719AA /* VVVariableCommenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVVariableCommenter.h; sourceTree = "<group>"; };
 		D16AFCE81796E0D6006719AA /* VVVariableCommenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVVariableCommenter.m; sourceTree = "<group>"; };
 		D1986F73179A12BD00EA6643 /* CommenterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommenterTests.m; sourceTree = "<group>"; };
+		D1A6B1CE198A0D8600BCED83 /* VVSwiftPropertyCommenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVSwiftPropertyCommenter.h; sourceTree = "<group>"; };
+		D1A6B1CF198A0D8600BCED83 /* VVSwiftPropertyCommenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVSwiftPropertyCommenter.m; sourceTree = "<group>"; };
 		D1AC3B8D1796DB070063A484 /* VVDocumenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVDocumenter.h; sourceTree = "<group>"; };
 		D1AC3B8E1796DB070063A484 /* VVDocumenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVDocumenter.m; sourceTree = "<group>"; };
 		D1B316D5189A2AA700420A6E /* VVMethodTestsCode.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = VVMethodTestsCode.plist; sourceTree = "<group>"; };
@@ -258,6 +262,8 @@
 				D13EDDD81987F34C0029A555 /* VVSwiftFunctionCommenter.m */,
 				D1C6124619891B3700FDB554 /* VVSwiftEnumCommenter.h */,
 				D1C6124719891B3700FDB554 /* VVSwiftEnumCommenter.m */,
+				D1A6B1CE198A0D8600BCED83 /* VVSwiftPropertyCommenter.h */,
+				D1A6B1CF198A0D8600BCED83 /* VVSwiftPropertyCommenter.m */,
 				D16AFCDE1796E0C0006719AA /* VVMacroCommenter.h */,
 				D16AFCDF1796E0C0006719AA /* VVMacroCommenter.m */,
 				D16AFCE11796E0C9006719AA /* VVStructCommenter.h */,
@@ -462,6 +468,7 @@
 				D114BEE3179644FA0043FA65 /* NSTextView+VVTextGetter.m in Sources */,
 				D1AC3B8F1796DB070063A484 /* VVDocumenter.m in Sources */,
 				D16AFCD41796E088006719AA /* VVBaseCommenter.m in Sources */,
+				D1A6B1D0198A0D8600BCED83 /* VVSwiftPropertyCommenter.m in Sources */,
 				D16AFCD71796E09E006719AA /* VVPropertyCommenter.m in Sources */,
 				D16AFCDA1796E0AC006719AA /* VVMethodCommenter.m in Sources */,
 				D16AFCDD1796E0B9006719AA /* VVFunctionCommenter.m in Sources */,
@@ -488,6 +495,7 @@
 				D14110B21988C12F00A7083F /* VVKeyboardEventSender.m in Sources */,
 				D14110B31988C12F00A7083F /* NSString+VVSyntax.m in Sources */,
 				D14110B41988C12F00A7083F /* NSString+PDRegex.m in Sources */,
+				D1A6B1D1198A0D8600BCED83 /* VVSwiftPropertyCommenter.m in Sources */,
 				D14110B51988C12F00A7083F /* NSTextView+VVTextGetter.m in Sources */,
 				D14110B61988C12F00A7083F /* VVDocumenterManager.m in Sources */,
 				D14110B71988C12F00A7083F /* VVDocumenter.m in Sources */,

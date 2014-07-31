@@ -167,7 +167,7 @@ static NSArray *_typeStrings;
                          @"vv_isComplieKeyword",
                          @"vv_isSwiftFunction",
                          @"vv_isSwiftEnum",
-                         @"vv_isSwiftProperties"];
+                         @"vv_isSwiftProperty"];
     }
     
     return [_typeStrings arrayByRemovingObject:type];
