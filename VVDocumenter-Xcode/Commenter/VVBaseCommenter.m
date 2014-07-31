@@ -30,12 +30,15 @@
 
 -(NSString *) startComment
 {
+    NSString *descriptionTag =
+    [[VVDocumenterSetting defaultSetting] briefDescription] ? @"@brief  " : @"";
+
     if ([[VVDocumenterSetting defaultSetting] useHeaderDoc]) {
-        return [NSString stringWithFormat:@"%@/*!\n%@<#Description#>\n", self.indent, self.prefixString];
+        return [NSString stringWithFormat:@"%@/*!\n%@%@<#Description#>\n", self.indent, self.prefixString, descriptionTag];
     } else if ([[VVDocumenterSetting defaultSetting] prefixWithSlashes]) {
-        return [NSString stringWithFormat:@"%@<#Description#>\n", self.prefixString];
+        return [NSString stringWithFormat:@"%@%@<#Description#>\n", self.prefixString, descriptionTag];
     } else {
-        return [NSString stringWithFormat:@"%@/**\n%@<#Description#>\n", self.indent, self.prefixString];
+        return [NSString stringWithFormat:@"%@/**\n%@%@<#Description#>\n", self.indent, self.prefixString, descriptionTag];
     }
 }
 
