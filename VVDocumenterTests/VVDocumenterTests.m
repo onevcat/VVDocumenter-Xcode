@@ -11,6 +11,8 @@
 #import "NSString+VVSyntax.h"
 #import "VVTestHelper.h"
 
+#import "NSTextView+VVTextGetter.h"
+
 @interface VVDocumenterTests : XCTestCase
 @property NSDictionary *testCaseDic;
 @end
@@ -65,7 +67,5 @@
         }];
     }];
 }
-
-
 
 @end

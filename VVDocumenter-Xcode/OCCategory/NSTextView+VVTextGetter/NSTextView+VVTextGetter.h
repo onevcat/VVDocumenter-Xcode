@@ -25,4 +25,6 @@
 
 -(VVTextResult *) textResultUntilNextString:(NSString *)findString;
 
+-(VVTextResult *) textResultWithPairOpenString:(NSString *)open closeString:(NSString *)close;
+
 @end

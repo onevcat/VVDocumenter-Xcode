@@ -15,8 +15,8 @@
 {
     self = [super init];
     if (self) {
-        self.range = aRange;
-        self.string = aString;
+        _range = aRange;
+        _string = aString;
     }
     return self;
 }
@@ -129,6 +129,75 @@
         } else {
             return nil;
         }
+    } else {
+        return nil;
+    }
+}
+
+
+-(VVTextResult *) textResultWithPairOpenString:(NSString *)open closeString:(NSString *)close
+{
+    // Find all content from current positon to the last paired scope. Useful when pairing `{}` or `()`
+    NSString *string = self.textStorage.string;
+    NSInteger curseLocation = [self currentCurseLocation];
+    
+    NSRange range = NSMakeRange(curseLocation, string.length - curseLocation);
+    
+    // searchRange will be updated to new range later, for search the next open/close token.
+    NSRange searchRange = range;
+    VVLog(@"Begin Search Range: %lu, %lu", (unsigned long)searchRange.location, (unsigned long)searchRange.length);
+    
+    NSInteger openCount = 0;
+    NSInteger closeCount = 0;
+    
+    NSRange nextOpenRange = [string rangeOfString:open options:0 range:searchRange];
+    NSRange nextCloseRange = [string rangeOfString:close options:0 range:searchRange];
+    
+    // Not even open. Early return
+    if (nextOpenRange.location == NSNotFound || nextCloseRange.location == NSNotFound || nextCloseRange.location < nextOpenRange.location) {
+        return nil;
+    }
+    
+    openCount++;
+    
+    // Update the search range: from current token to the end.
+    searchRange = NSMakeRange(nextOpenRange.location + 1, string.length - nextOpenRange.location - 1);
+    VVLog(@"Update Search Range: %lu, %lu", (unsigned long)searchRange.location, (unsigned long)searchRange.length);
+    
+    // Try to find the scope by pairing open and close count
+    NSRange targetRange = NSMakeRange(0,0);
+    while (openCount != closeCount) {
+        // Get next open and close token location
+        nextOpenRange = [string rangeOfString:open options:0 range:searchRange];
+        nextCloseRange = [string rangeOfString:close options:0 range:searchRange];
+
+        // No new close token. This scope will not close.
+        if (nextCloseRange.location == NSNotFound) {
+            return nil;
+        }
+        
+        if (nextOpenRange.location < nextCloseRange.location) {
+            targetRange = nextOpenRange;
+            openCount++;
+        } else {
+            targetRange = nextCloseRange;
+            closeCount++;
+        }
+        
+        VVLog(@"Open:%ld, Close:%ld",(long)openCount,(long)closeCount);
+        // Update the search range: from current token to the end.
+        searchRange = NSMakeRange(targetRange.location + 1, string.length - targetRange.location - 1);
+        VVLog(@"Target Range: %lu, %lu",targetRange.location,targetRange.length);
+        VVLog(@"Update Search Range: %lu, %lu", (unsigned long)searchRange.location, (unsigned long)searchRange.length);
+    }
+    
+    // Extract the code need to be documented. From next line to the matched scope end.
+    NSRange nextLineRange = [string rangeOfCharacterFromSet:[NSCharacterSet newlineCharacterSet] options:0 range:range];
+    NSRange resultRange = NSMakeRange(nextLineRange.location + 1, targetRange.location - nextLineRange.location);
+    
+    if (resultRange.location < [string length] && NSMaxRange(resultRange) < [string length]) {
+        NSString *result = [string substringWithRange:resultRange];
+        return [[VVTextResult alloc] initWithRange:resultRange string:result];
     } else {
         return nil;
     }

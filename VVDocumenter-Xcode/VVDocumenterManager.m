@@ -130,6 +130,10 @@
                     shouldReplace = YES;
                 }
                 
+                if ([resultToDocument.string vv_isSwiftEnum]) {
+                    resultToDocument = [textView textResultWithPairOpenString:@"{" closeString:@"}"];
+                }
+                
                 VVDocumenter *doc = [[VVDocumenter alloc] initWithCode:resultToDocument.string];
 
                 //Now we are using a simulation of keyboard event to insert the docs, instead of using the IDE's private method.

@@ -515,13 +515,13 @@ SIAlertViewBackgroundStyleSolid,
 		</dict>
 		<dict>
 			<key>source</key>
-            <string>enum ASCIIControlCharacter: Character {
-    case Tab = "\t"
-    case LineFeed = "\n"
-    case CarriageReturn = "\r"
+			<string>enum ASCIIControlCharacter: Character {
+    case Tab = &quot;\t&quot;
+    case LineFeed = &quot;\n&quot;
+    case CarriageReturn = &quot;\r&quot;
 }</string>
 			<key>uniform</key>
-            <string>enum ASCIIControlCharacter: Character { case Tab = "\t" case LineFeed = "\n" case CarriageReturn = "\r" }</string>
+			<string>enum ASCIIControlCharacter: Character { case Tab = &quot;\t&quot; case LineFeed = &quot;\n&quot; case CarriageReturn = &quot;\r&quot; }</string>
 			<key>result</key>
 			<string>/**
  *  &lt;#Description#&gt;
@@ -529,6 +529,43 @@ SIAlertViewBackgroundStyleSolid,
  *  - Tab: &lt;#Tab description#&gt;
  *  - LineFeed: &lt;#LineFeed description#&gt;
  *  - CarriageReturn: &lt;#CarriageReturn description#&gt;
+ */</string>
+		</dict>
+		<dict>
+			<key>source</key>
+			<string>enum Planet: Int {
+    case Mercury = 1, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune
+}</string>
+			<key>uniform</key>
+			<string>enum Planet: Int { case Mercury = 1, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune }</string>
+			<key>result</key>
+			<string>/**
+ *  &lt;#Description#&gt;
+ *
+ *  - Mercury: &lt;#Mercury description#&gt;
+ *  - Venus: &lt;#Venus description#&gt;
+ *  - Earth: &lt;#Earth description#&gt;
+ *  - Mars: &lt;#Mars description#&gt;
+ *  - Jupiter: &lt;#Jupiter description#&gt;
+ *  - Saturn: &lt;#Saturn description#&gt;
+ *  - Uranus: &lt;#Uranus description#&gt;
+ *  - Neptune: &lt;#Neptune description#&gt;
+ */</string>
+		</dict>
+		<dict>
+			<key>source</key>
+            <string>enum Barcode {
+    case UPCA(Int, Int, Int, Int)
+    case QRCode(String)
+}</string>
+			<key>uniform</key>
+            <string>enum Barcode { case UPCA(Int, Int, Int, Int)case QRCode(String)}</string>
+			<key>result</key>
+			<string>/**
+ *  &lt;#Description#&gt;
+ *
+ *  - UPCA: &lt;#UPCA description#&gt;
+ *  - QRCode: &lt;#QRCode description#&gt;
  */</string>
 		</dict>
 	</array>
