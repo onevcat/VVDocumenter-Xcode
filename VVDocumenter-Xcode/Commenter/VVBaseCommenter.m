@@ -43,7 +43,7 @@
 -(NSString *) startComment
 {
     NSString *descriptionTag =
-    [[VVDocumenterSetting defaultSetting] briefDescription] ? @"@brief  " : @"";
+    [[VVDocumenterSetting defaultSetting] briefDescription] && !self.forSwift ? @"@brief  " : @"";
 
     if ([[VVDocumenterSetting defaultSetting] useHeaderDoc]) {
         return [NSString stringWithFormat:@"%@/*!\n%@%@<#Description#>\n", self.indent, self.prefixString, descriptionTag];
