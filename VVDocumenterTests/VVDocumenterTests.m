@@ -11,6 +11,8 @@
 #import "NSString+VVSyntax.h"
 #import "VVTestHelper.h"
 
+#import "NSTextView+VVTextGetter.h"
+
 @interface VVDocumenterTests : XCTestCase
 @property NSDictionary *testCaseDic;
 @end
@@ -23,7 +25,6 @@
     // Put setup code here; it will be run once, before the first test case.
     NSString *path = [[NSBundle bundleForClass:[self class]] pathForResource:@"VVMethodTestsCode" ofType:@"plist"];
     self.testCaseDic = [NSDictionary dictionaryWithContentsOfFile:path];
-    
 }
 
 - (void)tearDown
@@ -54,13 +55,17 @@
                 XCTAssertFalse([VVTestHelper performSyntaxMethod:type onString:uniform], @"This uniform code should not be %@",type);
             }
             
-            VVDocumenter *documenter = [[VVDocumenter alloc] initWithCode:uniform];
+            VVDocumenter *documenter = nil;
+            if ([key isEqualToString:@"vv_isSwiftEnum"]) {
+                documenter = [[VVDocumenter alloc] initWithCode:source];
+            } else {
+                documenter = [[VVDocumenter alloc] initWithCode:uniform];
+            }
+
             XCTAssertEqualObjects([documenter document], result, @"Result should be correct");
             
         }];
     }];
 }
-
-
 
 @end

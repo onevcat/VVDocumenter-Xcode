@@ -28,7 +28,15 @@
 
 -(BOOL) vv_isCFunction
 {
-    return ![self vv_isEnum] && ![self vv_isMacro] && ![self vv_isObjCMethod] && ![self vv_isProperty] && ![self vv_isComplieKeyword] && [self vv_matchesPatternRegexPattern:@".+\\s+.+\\("];
+    return ![self vv_isEnum] &&
+           ![self vv_isMacro] &&
+           ![self vv_isObjCMethod] &&
+           ![self vv_isProperty] &&
+           ![self vv_isComplieKeyword] &&
+           ![self vv_isSwiftFunction] &&
+           ![self vv_isSwiftEnum] &&
+           ![self vv_isSwiftProperty] &&
+           [self vv_matchesPatternRegexPattern:@".+\\s+.+\\("];
 }
 
 -(BOOL) vv_isProperty
@@ -59,6 +67,21 @@
 -(BOOL) vv_isComplieKeyword
 {
     return ![self vv_isProperty] && [self vv_matchesPatternRegexPattern:@"^\\s*\\@"];
+}
+
+-(BOOL) vv_isSwiftFunction
+{
+    return ![self vv_isObjCMethod] && ![self vv_isSwiftProperty] && [self vv_matchesPatternRegexPattern:@"^\\s*(.*\\s+)?(func\\s+)|(init|deinit)"];
+}
+
+-(BOOL) vv_isSwiftEnum
+{
+    return [self vv_matchesPatternRegexPattern:@"^\\s*(.*\\s+)?enum\\s+"];
+}
+
+-(BOOL) vv_isSwiftProperty
+{
+    return [self vv_matchesPatternRegexPattern:@"^\\s*(.*?)(\\s*let|var\\s*)\\s+"];
 }
 
 @end
