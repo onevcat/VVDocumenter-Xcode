@@ -11,35 +11,35 @@
 #import "NSString+VVTextGetter.h"
 
 @implementation NSTextView (VVTextGetter)
--(NSInteger) currentCurseLocation
+-(NSInteger) vv_currentCurseLocation
 {
     return [[[self selectedRanges] objectAtIndex:0] rangeValue].location;
 }
 
--(VVTextResult *) textResultOfCurrentLine
+-(VVTextResult *) vv_textResultOfCurrentLine
 {
-    return [self.textStorage.string textResultOfCurrentLineCurrentLocation:[self currentCurseLocation]];
+    return [self.textStorage.string vv_textResultOfCurrentLineCurrentLocation:[self vv_currentCurseLocation]];
 }
 
--(VVTextResult *) textResultOfPreviousLine
+-(VVTextResult *) vv_textResultOfPreviousLine
 {
-    return [self.textStorage.string textResultOfPreviousLineCurrentLocation:[self currentCurseLocation]];
+    return [self.textStorage.string vv_textResultOfPreviousLineCurrentLocation:[self vv_currentCurseLocation]];
 }
 
--(VVTextResult *) textResultOfNextLine
+-(VVTextResult *) vv_textResultOfNextLine
 {
-    return [self.textStorage.string textResultOfNextLineCurrentLocation:[self currentCurseLocation]];
+    return [self.textStorage.string vv_textResultOfNextLineCurrentLocation:[self vv_currentCurseLocation]];
 }
 
--(VVTextResult *) textResultUntilNextString:(NSString *)findString
+-(VVTextResult *) vv_textResultUntilNextString:(NSString *)findString
 {
-    return [self.textStorage.string textResultUntilNextString:findString currentLocation:[self currentCurseLocation]];
+    return [self.textStorage.string vv_textResultUntilNextString:findString currentLocation:[self vv_currentCurseLocation]];
 }
 
 
--(VVTextResult *) textResultWithPairOpenString:(NSString *)open closeString:(NSString *)close
+-(VVTextResult *) vv_textResultWithPairOpenString:(NSString *)open closeString:(NSString *)close
 {
-    return [self.textStorage.string textResultWithPairOpenString:open closeString:close currentLocation:[self currentCurseLocation]];
+    return [self.textStorage.string vv_textResultWithPairOpenString:open closeString:close currentLocation:[self vv_currentCurseLocation]];
 }
 
 @end

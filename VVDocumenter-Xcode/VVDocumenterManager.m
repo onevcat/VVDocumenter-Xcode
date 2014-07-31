@@ -76,7 +76,7 @@
 
     if ([[noti object] isKindOfClass:[NSTextView class]]) {
         NSTextView *textView = (NSTextView *)[noti object];
-        VVTextResult *currentLineResult = [textView textResultOfCurrentLine];
+        VVTextResult *currentLineResult = [textView vv_textResultOfCurrentLine];
         if (currentLineResult) {
 
             //Check if there is a "//" already typed in. We do this to solve the undo issue
@@ -91,14 +91,14 @@
             }
             
             if ([currentLineResult.string vv_matchesPatternRegexPattern:[NSString stringWithFormat:@"^\\s*%@$",[NSRegularExpression escapedPatternForString:triggerString]]] && self.prefixTyped) {
-                VVTextResult *previousLineResult = [textView textResultOfPreviousLine];
+                VVTextResult *previousLineResult = [textView vv_textResultOfPreviousLine];
 
                 // Previous line is a documentation comment, so ignore this
                 if ([previousLineResult.string vv_matchesPatternRegexPattern:@"^\\s*///"]) {
                     return;
                 }
 
-                VVTextResult *nextLineResult = [textView textResultOfNextLine];
+                VVTextResult *nextLineResult = [textView vv_textResultOfNextLine];
 
                 // Next line is a documentation comment, so ignore this
                 if ([nextLineResult.string vv_matchesPatternRegexPattern:@"^\\s*///"]) {
@@ -112,8 +112,8 @@
                 
                 //Decide which is closer to the cursor. A semicolon or a half brace.
                 //We just want to document the next valid line.
-                VVTextResult *resultUntilSemiColon = [textView textResultUntilNextString:@";"];
-                VVTextResult *resultUntilBrace = [textView textResultUntilNextString:@"{"];
+                VVTextResult *resultUntilSemiColon = [textView vv_textResultUntilNextString:@";"];
+                VVTextResult *resultUntilBrace = [textView vv_textResultUntilNextString:@"{"];
                 
                 VVTextResult *resultToDocument = nil;
                 
@@ -132,7 +132,7 @@
                 }
                 
                 if ([resultToDocument.string vv_isSwiftEnum]) {
-                    resultToDocument = [textView textResultWithPairOpenString:@"{" closeString:@"}"];
+                    resultToDocument = [textView vv_textResultWithPairOpenString:@"{" closeString:@"}"];
                 }
                 
                 VVDocumenter *doc = [[VVDocumenter alloc] initWithCode:resultToDocument.string];
@@ -191,7 +191,7 @@
                         return nil;
                     } else if ([incomingEvent type] == NSKeyDown && [incomingEvent keyCode] == kKeyVCode && shouldReplace == YES) {
                         //Select input line and the define code block.
-                        NSRange r = [textView textResultUntilNextString:@";"].range;
+                        NSRange r = [textView vv_textResultUntilNextString:@";"].range;
                         
                         //NSRange r begins from the starting of enum(struct) line. Select 1 character before to include the trigger input line.
                         [textView setSelectedRange:NSMakeRange(r.location - 1, r.length + 1)];

@@ -14,7 +14,7 @@
 @implementation VVSwiftFunctionCommenter
 -(void) captureReturnType
 {
-    VVTextResult *funcParenthesesResult = [self.code textResultMatchPartWithPairOpenString:@"(" closeString:@")" currentLocation:0];
+    VVTextResult *funcParenthesesResult = [self.code vv_textResultMatchPartWithPairOpenString:@"(" closeString:@")" currentLocation:0];
     NSString * funcSignatureWithoutParams = [self.code stringByReplacingCharactersInRange:funcParenthesesResult.range withString:@""];
     
     if ([funcSignatureWithoutParams vv_matchesPatternRegexPattern:@"\\s*->\\s*\\(?(\\Void?|\\(\\s*\\))\\)?\\s*[{]"]) {

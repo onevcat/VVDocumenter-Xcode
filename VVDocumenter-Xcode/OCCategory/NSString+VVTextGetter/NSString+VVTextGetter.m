@@ -11,7 +11,7 @@
 
 @implementation NSString (VVTextGetter)
 
--(VVTextResult *) textResultOfCurrentLineCurrentLocation:(NSInteger)location
+-(VVTextResult *) vv_textResultOfCurrentLineCurrentLocation:(NSInteger)location
 {
     NSInteger curseLocation = location;
     NSRange range = NSMakeRange(0, curseLocation);
@@ -32,7 +32,7 @@
 }
 
 
--(VVTextResult *) textResultOfPreviousLineCurrentLocation:(NSInteger)location
+-(VVTextResult *) vv_textResultOfPreviousLineCurrentLocation:(NSInteger)location
 {
     NSInteger curseLocation = location;
     NSRange range = NSMakeRange(0, curseLocation);
@@ -59,7 +59,7 @@
     }
 }
 
--(VVTextResult *) textResultOfNextLineCurrentLocation:(NSInteger)location
+-(VVTextResult *) vv_textResultOfNextLineCurrentLocation:(NSInteger)location
 {
     NSInteger curseLocation = location;
     NSRange range = NSMakeRange(curseLocation, self.length - curseLocation);
@@ -86,7 +86,7 @@
     }
 }
 
--(VVTextResult *) textResultUntilNextString:(NSString *)findString currentLocation:(NSInteger)location
+-(VVTextResult *) vv_textResultUntilNextString:(NSString *)findString currentLocation:(NSInteger)location
 {
     NSInteger curseLocation = location;
     
@@ -108,14 +108,14 @@
     }
 }
 
--(VVTextResult *) textResultMatchPartWithPairOpenString:(NSString *)open
+-(VVTextResult *) vv_textResultMatchPartWithPairOpenString:(NSString *)open
                                             closeString:(NSString *)close
                                         currentLocation:(NSInteger)location
 {
     return [self textResultWithPairOpenString:open closeString:close currentLocation:location extractMatch:YES];
 }
 
--(VVTextResult *) textResultWithPairOpenString:(NSString *)open
+-(VVTextResult *) vv_textResultWithPairOpenString:(NSString *)open
                                    closeString:(NSString *)close
                                currentLocation:(NSInteger)location
 {
