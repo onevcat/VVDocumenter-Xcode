@@ -411,11 +411,11 @@ SIAlertViewBackgroundStyleSolid,
 			<string>func sayHello(personName: String)-&gt; String  {</string>
 			<key>result</key>
 			<string>/**
- *  &lt;#Description#&gt;
- *
- *  :param: personName &lt;#personName description#&gt;
- *
- *  :returns: &lt;#return value description#&gt;
+ &lt;#Description#&gt;
+
+ :param: personName &lt;#personName description#&gt;
+
+ :returns: &lt;#return value description#&gt;
  */</string>
 		</dict>
 		<dict>
@@ -425,11 +425,11 @@ SIAlertViewBackgroundStyleSolid,
 			<string>func go(para: Int -&gt; String)-&gt;(String -&gt; String){</string>
 			<key>result</key>
 			<string>/**
- *  &lt;#Description#&gt;
- *
- *  :param: para &lt;#para description#&gt;
- *
- *  :returns: &lt;#return value description#&gt;
+ &lt;#Description#&gt;
+
+ :param: para &lt;#para description#&gt;
+
+ :returns: &lt;#return value description#&gt;
  */</string>
 		</dict>
 		<dict>
@@ -439,10 +439,10 @@ SIAlertViewBackgroundStyleSolid,
 			<string>public func go(miao: Int, wu: String)-&gt; Void {</string>
 			<key>result</key>
 			<string>/**
- *  &lt;#Description#&gt;
- *
- *  :param: miao &lt;#miao description#&gt;
- *  :param: wu   &lt;#wu description#&gt;
+ &lt;#Description#&gt;
+
+ :param: miao &lt;#miao description#&gt;
+ :param: wu   &lt;#wu description#&gt;
  */</string>
 		</dict>
 		<dict>
@@ -452,14 +452,14 @@ SIAlertViewBackgroundStyleSolid,
 			<string>init(style: Style, _ gearing: Gearing, #handlebar: Handlebar, frameSize centimeters: Int = 1){</string>
 			<key>result</key>
 			<string>/**
- *  &lt;#Description#&gt;
- *
- *  :param: style       &lt;#style description#&gt;
- *  :param: gearing     &lt;#gearing description#&gt;
- *  :param: handlebar   &lt;#handlebar description#&gt;
- *  :param: centimeters &lt;#centimeters description#&gt;
- *
- *  :returns: &lt;#return value description#&gt;
+ &lt;#Description#&gt;
+
+ :param: style       &lt;#style description#&gt;
+ :param: gearing     &lt;#gearing description#&gt;
+ :param: handlebar   &lt;#handlebar description#&gt;
+ :param: centimeters &lt;#centimeters description#&gt;
+
+ :returns: &lt;#return value description#&gt;
  */</string>
 		</dict>
 		<dict>
@@ -469,12 +469,12 @@ SIAlertViewBackgroundStyleSolid,
 			<string>func Test(input : Int, condition : (Int, String)-&gt; Bool = {(t: Int,k: String)in return true}) -&gt;(Int,Int){</string>
 			<key>result</key>
 			<string>/**
- *  &lt;#Description#&gt;
- *
- *  :param: input     &lt;#input description#&gt;
- *  :param: condition &lt;#condition description#&gt;
- *
- *  :returns: &lt;#return value description#&gt;
+ &lt;#Description#&gt;
+
+ :param: input     &lt;#input description#&gt;
+ :param: condition &lt;#condition description#&gt;
+
+ :returns: &lt;#return value description#&gt;
  */</string>
 		</dict>
 	</array>
@@ -489,12 +489,12 @@ SIAlertViewBackgroundStyleSolid,
 			<string>enum Handlebar { case Riser, Café, Drop, Bullhorn }</string>
 			<key>result</key>
 			<string>/**
- *  &lt;#Description#&gt;
- *
- *  - Riser: &lt;#Riser description#&gt;
- *  - Café: &lt;#Café description#&gt;
- *  - Drop: &lt;#Drop description#&gt;
- *  - Bullhorn: &lt;#Bullhorn description#&gt;
+ &lt;#Description#&gt;
+
+ - Riser: &lt;#Riser description#&gt;
+ - Café: &lt;#Café description#&gt;
+ - Drop: &lt;#Drop description#&gt;
+ - Bullhorn: &lt;#Bullhorn description#&gt;
  */</string>
 		</dict>
 		<dict>
@@ -507,10 +507,10 @@ SIAlertViewBackgroundStyleSolid,
 			<string>public enum Gearing { case Fixed case Freewheel(speeds: Int)}</string>
 			<key>result</key>
 			<string>/**
- *  &lt;#Description#&gt;
- *
- *  - Fixed: &lt;#Fixed description#&gt;
- *  - Freewheel: &lt;#Freewheel description#&gt;
+ &lt;#Description#&gt;
+
+ - Fixed: &lt;#Fixed description#&gt;
+ - Freewheel: &lt;#Freewheel description#&gt;
  */</string>
 		</dict>
 		<dict>
@@ -524,11 +524,11 @@ SIAlertViewBackgroundStyleSolid,
 			<string>enum ASCIIControlCharacter: Character { case Tab = &quot;\t&quot; case LineFeed = &quot;\n&quot; case CarriageReturn = &quot;\r&quot; }</string>
 			<key>result</key>
 			<string>/**
- *  &lt;#Description#&gt;
- *
- *  - Tab: &lt;#Tab description#&gt;
- *  - LineFeed: &lt;#LineFeed description#&gt;
- *  - CarriageReturn: &lt;#CarriageReturn description#&gt;
+ &lt;#Description#&gt;
+
+ - Tab: &lt;#Tab description#&gt;
+ - LineFeed: &lt;#LineFeed description#&gt;
+ - CarriageReturn: &lt;#CarriageReturn description#&gt;
  */</string>
 		</dict>
 		<dict>
@@ -540,16 +540,16 @@ SIAlertViewBackgroundStyleSolid,
 			<string>enum Planet: Int { case Mercury = 1, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune }</string>
 			<key>result</key>
 			<string>/**
- *  &lt;#Description#&gt;
- *
- *  - Mercury: &lt;#Mercury description#&gt;
- *  - Venus: &lt;#Venus description#&gt;
- *  - Earth: &lt;#Earth description#&gt;
- *  - Mars: &lt;#Mars description#&gt;
- *  - Jupiter: &lt;#Jupiter description#&gt;
- *  - Saturn: &lt;#Saturn description#&gt;
- *  - Uranus: &lt;#Uranus description#&gt;
- *  - Neptune: &lt;#Neptune description#&gt;
+ &lt;#Description#&gt;
+
+ - Mercury: &lt;#Mercury description#&gt;
+ - Venus: &lt;#Venus description#&gt;
+ - Earth: &lt;#Earth description#&gt;
+ - Mars: &lt;#Mars description#&gt;
+ - Jupiter: &lt;#Jupiter description#&gt;
+ - Saturn: &lt;#Saturn description#&gt;
+ - Uranus: &lt;#Uranus description#&gt;
+ - Neptune: &lt;#Neptune description#&gt;
  */</string>
 		</dict>
 		<dict>
@@ -562,10 +562,10 @@ SIAlertViewBackgroundStyleSolid,
             <string>enum Barcode { case UPCA(Int, Int, Int, Int)case QRCode(String)}</string>
 			<key>result</key>
 			<string>/**
- *  &lt;#Description#&gt;
- *
- *  - UPCA: &lt;#UPCA description#&gt;
- *  - QRCode: &lt;#QRCode description#&gt;
+ &lt;#Description#&gt;
+
+ - UPCA: &lt;#UPCA description#&gt;
+ - QRCode: &lt;#QRCode description#&gt;
  */</string>
 		</dict>
 	</array>
