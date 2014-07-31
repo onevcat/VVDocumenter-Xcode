@@ -22,6 +22,9 @@
             NSArray *cases = [plainCase componentsSeparatedByString:@","];
             [cases enumerateObjectsUsingBlock:^(NSString *name, NSUInteger idx, BOOL *stop) {
                 NSString *plainName = [name vv_stringByReplacingRegexPattern:@"=\\s*.*$" withString:@""];
+                if ([plainName hasPrefix:@"."]) {
+                    return;
+                }
                 VVArgument *arg = [[VVArgument alloc] init];
                 arg.name = plainName;
                 [self.arguments addObject:arg];
