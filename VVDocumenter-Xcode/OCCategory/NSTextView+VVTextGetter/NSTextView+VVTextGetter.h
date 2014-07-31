@@ -8,11 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface VVTextResult : NSObject
-
-@property (nonatomic, assign) NSRange range;
-@property (nonatomic, copy) NSString *string;
-@end
+@class VVTextResult;
 
 @interface NSTextView (VVTextGetter)
 -(NSInteger) currentCurseLocation;

@@ -8,15 +8,20 @@
 
 #import "VVSwiftFunctionCommenter.h"
 #import "VVArgument.h"
+#import "NSString+VVTextGetter.h"
+#import "VVTextResult.h"
 
 @implementation VVSwiftFunctionCommenter
 -(void) captureReturnType
 {
-    if ([self.code vv_matchesPatternRegexPattern:@"\\(.*\\)\\s*->\\s*(Void|\\(\\s*\\))\\s*[{]"]) {
+    VVTextResult *funcParenthesesResult = [self.code textResultMatchPartWithPairOpenString:@"(" closeString:@")" currentLocation:0];
+    NSString * funcSignatureWithoutParams = [self.code stringByReplacingCharactersInRange:funcParenthesesResult.range withString:@""];
+    
+    if ([funcSignatureWithoutParams vv_matchesPatternRegexPattern:@"\\s*->\\s*\\(?(\\Void?|\\(\\s*\\))\\)?\\s*[{]"]) {
         self.hasReturn = NO;
-    } else if ([self.code vv_matchesPatternRegexPattern:@"\\(.*\\)\\s*->\\s*"]) {
+    } else if ([funcSignatureWithoutParams vv_matchesPatternRegexPattern:@"s*->\\s*"]) {
         self.hasReturn = YES;
-    } else if ([self.code vv_matchesPatternRegexPattern:@"^\\s*(.*\\s+)?init\\s*\\("]) {
+    } else if ([funcSignatureWithoutParams vv_matchesPatternRegexPattern:@"^\\s*(.*\\s+)?init\\s*"]) {
         self.hasReturn = YES;
     } else {
         self.hasReturn = NO;

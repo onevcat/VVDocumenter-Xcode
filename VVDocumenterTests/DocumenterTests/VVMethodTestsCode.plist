@@ -477,6 +477,21 @@ SIAlertViewBackgroundStyleSolid,
  :returns: &lt;#return value description#&gt;
  */</string>
 		</dict>
+		<dict>
+			<key>source</key>
+			<string>func URLSession(session: NSURLSession!, task: NSURLSessionTask!, didReceiveChallenge challenge: NSURLAuthenticationChallenge!, completionHandler: ((NSURLSessionAuthChallengeDisposition, NSURLCredential!) -&gt; Void)!) {</string>
+			<key>uniform</key>
+			<string>func URLSession(session: NSURLSession!, task: NSURLSessionTask!, didReceiveChallenge challenge: NSURLAuthenticationChallenge!, completionHandler: ((NSURLSessionAuthChallengeDisposition, NSURLCredential!)-&gt; Void)!) {</string>
+			<key>result</key>
+			<string>/**
+ &lt;#Description#&gt;
+
+ :param: session           &lt;#session description#&gt;
+ :param: task              &lt;#task description#&gt;
+ :param: challenge         &lt;#challenge description#&gt;
+ :param: completionHandler &lt;#completionHandler description#&gt;
+ */</string>
+		</dict>
 	</array>
 	<key>vv_isSwiftEnum</key>
 	<array>

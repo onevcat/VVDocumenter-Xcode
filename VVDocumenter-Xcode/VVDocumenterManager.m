@@ -13,6 +13,7 @@
 #import "VVKeyboardEventSender.h"
 #import "VVDSettingPanelWindowController.h"
 #import "VVDocumenterSetting.h"
+#import "VVTextResult.h"
 
 @interface VVDocumenterManager()
 @property (nonatomic, strong) id eventMonitor;
