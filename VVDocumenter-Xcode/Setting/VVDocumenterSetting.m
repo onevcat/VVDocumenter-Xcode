@@ -17,6 +17,7 @@ NSString *const kVVDTriggerString = @"com.onevcat.VVDocumenter.triggerString";
 NSString *const kVVDPrefixWithStar = @"com.onevcat.VVDocumenter.prefixWithStar";
 NSString *const kVVDPrefixWithSlashes = @"com.onevcat.VVDocumenter.prefixWithSlashes";
 NSString *const kVVDAddSinceToComments = @"com.onevcat.VVDocumenter.addSinceToComments";
+NSString *const kVVDBriefDescription = @"com.onevcat.VVDocumenter.briefDescription";
 NSString *const kVVDUserHeaderDoc = @"com.onevcat.VVDocumenter.useHeaderDoc";
 NSString *const kVVDNoBlankLinesBetweenFields = @"com.onevcat.VVDocumenter.noBlankLinesBetweenFields";
 NSString *const kVVDNoArgumentPadding = @"com.onevcat.VVDocumenter.noArgumentPadding";
@@ -128,6 +129,17 @@ NSString *const kVVDNoArgumentPadding = @"com.onevcat.VVDocumenter.noArgumentPad
 -(void) setAddSinceToComments:(BOOL)add
 {
     [[NSUserDefaults standardUserDefaults] setBool:add forKey:kVVDAddSinceToComments];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+-(BOOL) briefDescription
+{
+    return [[NSUserDefaults standardUserDefaults] boolForKey:kVVDBriefDescription];
+}
+
+-(void) setBriefDescription:(BOOL)brief
+{
+    [[NSUserDefaults standardUserDefaults] setBool:brief forKey:kVVDBriefDescription];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
