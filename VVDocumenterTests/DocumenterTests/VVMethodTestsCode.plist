@@ -506,9 +506,9 @@ SIAlertViewBackgroundStyleSolid,
 			<string>/**
  &lt;#Description#&gt;
 
- - Riser: &lt;#Riser description#&gt;
- - Café: &lt;#Café description#&gt;
- - Drop: &lt;#Drop description#&gt;
+ - Riser:    &lt;#Riser description#&gt;
+ - Café:     &lt;#Café description#&gt;
+ - Drop:     &lt;#Drop description#&gt;
  - Bullhorn: &lt;#Bullhorn description#&gt;
  */</string>
 		</dict>
@@ -524,7 +524,7 @@ SIAlertViewBackgroundStyleSolid,
 			<string>/**
  &lt;#Description#&gt;
 
- - Fixed: &lt;#Fixed description#&gt;
+ - Fixed:     &lt;#Fixed description#&gt;
  - Freewheel: &lt;#Freewheel description#&gt;
  */</string>
 		</dict>
@@ -541,8 +541,8 @@ SIAlertViewBackgroundStyleSolid,
 			<string>/**
  &lt;#Description#&gt;
 
- - Tab: &lt;#Tab description#&gt;
- - LineFeed: &lt;#LineFeed description#&gt;
+ - Tab:            &lt;#Tab description#&gt;
+ - LineFeed:       &lt;#LineFeed description#&gt;
  - CarriageReturn: &lt;#CarriageReturn description#&gt;
  */</string>
 		</dict>
@@ -558,12 +558,12 @@ SIAlertViewBackgroundStyleSolid,
  &lt;#Description#&gt;
 
  - Mercury: &lt;#Mercury description#&gt;
- - Venus: &lt;#Venus description#&gt;
- - Earth: &lt;#Earth description#&gt;
- - Mars: &lt;#Mars description#&gt;
+ - Venus:   &lt;#Venus description#&gt;
+ - Earth:   &lt;#Earth description#&gt;
+ - Mars:    &lt;#Mars description#&gt;
  - Jupiter: &lt;#Jupiter description#&gt;
- - Saturn: &lt;#Saturn description#&gt;
- - Uranus: &lt;#Uranus description#&gt;
+ - Saturn:  &lt;#Saturn description#&gt;
+ - Uranus:  &lt;#Uranus description#&gt;
  - Neptune: &lt;#Neptune description#&gt;
  */</string>
 		</dict>
@@ -579,7 +579,7 @@ SIAlertViewBackgroundStyleSolid,
 			<string>/**
  &lt;#Description#&gt;
 
- - UPCA: &lt;#UPCA description#&gt;
+ - UPCA:   &lt;#UPCA description#&gt;
  - QRCode: &lt;#QRCode description#&gt;
  */</string>
 		</dict>

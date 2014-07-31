@@ -68,11 +68,15 @@
         NSString *name = arg.name;
 
         if ([[VVDocumenterSetting defaultSetting] alignArgumentComments]) {
-            name = [name stringByPaddingToLength:longestNameLength withString:@" " startingAtIndex:0];
+            if (self.forSwiftEnum) {
+                name = [[name stringByAppendingString:@":"] stringByPaddingToLength:longestNameLength + 1 withString:@" " startingAtIndex:0];
+            } else {
+                name = [name stringByPaddingToLength:longestNameLength withString:@" " startingAtIndex:0];
+            }
         }
 
         if (self.forSwiftEnum) {
-            [result appendFormat:@"%@- %@: <#%@ description#>\n", self.prefixString, arg.name, arg.name];
+            [result appendFormat:@"%@- %@ <#%@ description#>\n", self.prefixString, name, arg.name];
         } else {
             [result appendFormat:@"%@%@ %@ <#%@ description#>\n", self.prefixString, [self paramSymbol], name, arg.name];
         }
