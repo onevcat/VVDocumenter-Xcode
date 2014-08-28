@@ -6,10 +6,11 @@
 //  Copyright (c) 2013年 OneV's Den. All rights reserved.
 //
 
-#import "CommenterTests.h"
+#import <XCTest/XCTest.h>
 #import "VVCommenter.h"
 
-@interface CommenterTests()
+@interface CommenterTests : XCTestCase
+
 @end
 
 @implementation CommenterTests

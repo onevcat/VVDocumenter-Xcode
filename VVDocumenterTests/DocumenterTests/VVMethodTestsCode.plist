@@ -402,5 +402,198 @@ SIAlertViewBackgroundStyleSolid,
  */</string>
 		</dict>
 	</array>
+	<key>vv_isSwiftFunction</key>
+	<array>
+		<dict>
+			<key>source</key>
+			<string>func sayHello(personName: String) -&gt; String  {</string>
+			<key>uniform</key>
+			<string>func sayHello(personName: String)-&gt; String  {</string>
+			<key>result</key>
+			<string>/**
+ &lt;#Description#&gt;
+
+ :param: personName &lt;#personName description#&gt;
+
+ :returns: &lt;#return value description#&gt;
+ */</string>
+		</dict>
+		<dict>
+			<key>source</key>
+			<string>func go(para: Int -&gt; String) -&gt; (String -&gt; String) {</string>
+			<key>uniform</key>
+			<string>func go(para: Int -&gt; String)-&gt;(String -&gt; String){</string>
+			<key>result</key>
+			<string>/**
+ &lt;#Description#&gt;
+
+ :param: para &lt;#para description#&gt;
+
+ :returns: &lt;#return value description#&gt;
+ */</string>
+		</dict>
+		<dict>
+			<key>source</key>
+			<string>public func go (miao: Int, wu: String) -&gt; Void {</string>
+			<key>uniform</key>
+			<string>public func go(miao: Int, wu: String)-&gt; Void {</string>
+			<key>result</key>
+			<string>/**
+ &lt;#Description#&gt;
+
+ :param: miao &lt;#miao description#&gt;
+ :param: wu   &lt;#wu description#&gt;
+ */</string>
+		</dict>
+		<dict>
+			<key>source</key>
+			<string>init(style: Style, _ gearing: Gearing, #handlebar: Handlebar, frameSize centimeters: Int = 1) {</string>
+			<key>uniform</key>
+			<string>init(style: Style, _ gearing: Gearing, #handlebar: Handlebar, frameSize centimeters: Int = 1){</string>
+			<key>result</key>
+			<string>/**
+ &lt;#Description#&gt;
+
+ :param: style       &lt;#style description#&gt;
+ :param: gearing     &lt;#gearing description#&gt;
+ :param: handlebar   &lt;#handlebar description#&gt;
+ :param: centimeters &lt;#centimeters description#&gt;
+
+ :returns: &lt;#return value description#&gt;
+ */</string>
+		</dict>
+		<dict>
+			<key>source</key>
+			<string>func Test(input : Int, condition : (Int, String) -&gt; Bool = {(t: Int,k: String) in return true}) -&gt; (Int,Int) {</string>
+			<key>uniform</key>
+			<string>func Test(input : Int, condition : (Int, String)-&gt; Bool = {(t: Int,k: String)in return true}) -&gt;(Int,Int){</string>
+			<key>result</key>
+			<string>/**
+ &lt;#Description#&gt;
+
+ :param: input     &lt;#input description#&gt;
+ :param: condition &lt;#condition description#&gt;
+
+ :returns: &lt;#return value description#&gt;
+ */</string>
+		</dict>
+		<dict>
+			<key>source</key>
+			<string>func URLSession(session: NSURLSession!, task: NSURLSessionTask!, didReceiveChallenge challenge: NSURLAuthenticationChallenge!, completionHandler: ((NSURLSessionAuthChallengeDisposition, NSURLCredential!) -&gt; Void)!) {</string>
+			<key>uniform</key>
+			<string>func URLSession(session: NSURLSession!, task: NSURLSessionTask!, didReceiveChallenge challenge: NSURLAuthenticationChallenge!, completionHandler: ((NSURLSessionAuthChallengeDisposition, NSURLCredential!)-&gt; Void)!) {</string>
+			<key>result</key>
+			<string>/**
+ &lt;#Description#&gt;
+
+ :param: session           &lt;#session description#&gt;
+ :param: task              &lt;#task description#&gt;
+ :param: challenge         &lt;#challenge description#&gt;
+ :param: completionHandler &lt;#completionHandler description#&gt;
+ */</string>
+		</dict>
+	</array>
+	<key>vv_isSwiftEnum</key>
+	<array>
+		<dict>
+			<key>source</key>
+			<string>enum Handlebar {
+    case Riser, Café, Drop, Bullhorn
+}</string>
+			<key>uniform</key>
+			<string>enum Handlebar { case Riser, Café, Drop, Bullhorn }</string>
+			<key>result</key>
+			<string>/**
+ &lt;#Description#&gt;
+
+ - Riser:    &lt;#Riser description#&gt;
+ - Café:     &lt;#Café description#&gt;
+ - Drop:     &lt;#Drop description#&gt;
+ - Bullhorn: &lt;#Bullhorn description#&gt;
+ */</string>
+		</dict>
+		<dict>
+			<key>source</key>
+			<string>public enum Gearing {
+    case Fixed
+    case Freewheel(speeds: Int)
+}</string>
+			<key>uniform</key>
+			<string>public enum Gearing { case Fixed case Freewheel(speeds: Int)}</string>
+			<key>result</key>
+			<string>/**
+ &lt;#Description#&gt;
+
+ - Fixed:     &lt;#Fixed description#&gt;
+ - Freewheel: &lt;#Freewheel description#&gt;
+ */</string>
+		</dict>
+		<dict>
+			<key>source</key>
+			<string>enum ASCIIControlCharacter: Character {
+    case Tab = &quot;\t&quot;
+    case LineFeed = &quot;\n&quot;
+    case CarriageReturn = &quot;\r&quot;
+}</string>
+			<key>uniform</key>
+			<string>enum ASCIIControlCharacter: Character { case Tab = &quot;\t&quot; case LineFeed = &quot;\n&quot; case CarriageReturn = &quot;\r&quot; }</string>
+			<key>result</key>
+			<string>/**
+ &lt;#Description#&gt;
+
+ - Tab:            &lt;#Tab description#&gt;
+ - LineFeed:       &lt;#LineFeed description#&gt;
+ - CarriageReturn: &lt;#CarriageReturn description#&gt;
+ */</string>
+		</dict>
+		<dict>
+			<key>source</key>
+			<string>enum Planet: Int {
+    case Mercury = 1, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune
+}</string>
+			<key>uniform</key>
+			<string>enum Planet: Int { case Mercury = 1, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune }</string>
+			<key>result</key>
+			<string>/**
+ &lt;#Description#&gt;
+
+ - Mercury: &lt;#Mercury description#&gt;
+ - Venus:   &lt;#Venus description#&gt;
+ - Earth:   &lt;#Earth description#&gt;
+ - Mars:    &lt;#Mars description#&gt;
+ - Jupiter: &lt;#Jupiter description#&gt;
+ - Saturn:  &lt;#Saturn description#&gt;
+ - Uranus:  &lt;#Uranus description#&gt;
+ - Neptune: &lt;#Neptune description#&gt;
+ */</string>
+		</dict>
+		<dict>
+			<key>source</key>
+			<string>enum Barcode {
+    case UPCA(Int, Int, Int, Int)
+    case QRCode(String)
+}</string>
+			<key>uniform</key>
+			<string>enum Barcode { case UPCA(Int, Int, Int, Int)case QRCode(String)}</string>
+			<key>result</key>
+			<string>/**
+ &lt;#Description#&gt;
+
+ - UPCA:   &lt;#UPCA description#&gt;
+ - QRCode: &lt;#QRCode description#&gt;
+ */</string>
+		</dict>
+	</array>
+	<key>vv_isSwiftProperty</key>
+	<array>
+		<dict>
+			<key>source</key>
+			<string>let handlebar: Handlebar</string>
+			<key>uniform</key>
+			<string>let handlebar: Handlebar</string>
+			<key>result</key>
+			<string>/// &lt;#Description#&gt;</string>
+		</dict>
+	</array>
 </dict>
 </plist>

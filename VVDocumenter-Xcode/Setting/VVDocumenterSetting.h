@@ -20,6 +20,7 @@ extern NSString *const VVDDefaultTriggerString;
 @property BOOL prefixWithStar;
 @property BOOL prefixWithSlashes;
 @property BOOL addSinceToComments;
+@property BOOL briefDescription;
 @property BOOL useHeaderDoc;
 @property BOOL blankLinesBetweenSections;
 @property BOOL alignArgumentComments;

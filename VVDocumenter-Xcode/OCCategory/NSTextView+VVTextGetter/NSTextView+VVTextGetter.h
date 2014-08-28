@@ -8,21 +8,19 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface VVTextResult : NSObject
-
-@property (nonatomic, assign) NSRange range;
-@property (nonatomic, copy) NSString *string;
-@end
+@class VVTextResult;
 
 @interface NSTextView (VVTextGetter)
--(NSInteger) currentCurseLocation;
+-(NSInteger) vv_currentCurseLocation;
 
--(VVTextResult *) textResultOfCurrentLine;
+-(VVTextResult *) vv_textResultOfCurrentLine;
 
--(VVTextResult *) textResultOfPreviousLine;
+-(VVTextResult *) vv_textResultOfPreviousLine;
 
--(VVTextResult *) textResultOfNextLine;
+-(VVTextResult *) vv_textResultOfNextLine;
 
--(VVTextResult *) textResultUntilNextString:(NSString *)findString;
+-(VVTextResult *) vv_textResultUntilNextString:(NSString *)findString;
+
+-(VVTextResult *) vv_textResultWithPairOpenString:(NSString *)open closeString:(NSString *)close;
 
 @end

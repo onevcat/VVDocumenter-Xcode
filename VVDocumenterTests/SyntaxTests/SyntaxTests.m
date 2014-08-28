@@ -6,11 +6,11 @@
 //  Copyright (c) 2013年 OneV's Den. All rights reserved.
 //
 
-#import "SyntaxTests.h"
+#import <XCTest/XCTest.h>
 #import "VVTestHelper.h"
 #import "NSString+VVSyntax.h"
 
-@interface SyntaxTests()
+@interface SyntaxTests : XCTestCase
 
 @property (nonatomic, strong) NSArray* inputs;
 @property (nonatomic, strong) NSArray* corrects;
@@ -50,7 +50,7 @@
 }
 
 -(void) testIsObjCMethod {
-    NSArray *boolResult = @[@YES,@NO,@NO,@NO,@NO,@NO,@NO,@NO,@NO];
+    NSArray *boolResult = @[@YES,@NO,@NO,@NO,@NO,@NO,@NO,@NO,@NO,@NO,@NO,@NO];
     
     for (int i = 0; i < (int)[self.inputs count]; i++) {
         for (int j = 0; j < [self.inputs[i] count]; j++) {
@@ -61,7 +61,7 @@
 }
 
 -(void) testIsCFunction {
-    NSArray *boolResult = @[@NO,@YES,@NO,@NO,@NO,@NO,@NO,@NO,@NO];
+    NSArray *boolResult = @[@NO,@YES,@NO,@NO,@NO,@NO,@NO,@NO,@NO,@NO,@NO,@NO];
     
     for (int i = 0; i < (int)[self.inputs count]; i++) {
         for (int j = 0; j < [self.inputs[i] count]; j++) {
@@ -72,7 +72,7 @@
 }
 
 -(void) testIsProperty {
-    NSArray *boolResult = @[@NO,@NO,@YES,@NO,@NO,@NO,@NO,@NO,@NO];
+    NSArray *boolResult = @[@NO,@NO,@YES,@NO,@NO,@NO,@NO,@NO,@NO,@NO,@NO,@NO];
     
     for (int i = 0; i < (int)[self.inputs count]; i++) {
         for (int j = 0; j < [self.inputs[i] count]; j++) {
@@ -83,7 +83,7 @@
 }
 
 -(void) testIsMacro {
-    NSArray *boolResult = @[@NO,@NO,@NO,@YES,@NO,@NO,@NO,@NO,@NO];
+    NSArray *boolResult = @[@NO,@NO,@NO,@YES,@NO,@NO,@NO,@NO,@NO,@NO,@NO,@NO];
     
     for (int i = 0; i < (int)[self.inputs count]; i++) {
         for (int j = 0; j < [self.inputs[i] count]; j++) {
@@ -94,7 +94,7 @@
 }
 
 -(void) testIsStruct {
-    NSArray *boolResult = @[@NO,@NO,@NO,@NO,@YES,@NO,@NO,@NO,@NO];
+    NSArray *boolResult = @[@NO,@NO,@NO,@NO,@YES,@NO,@NO,@NO,@NO,@NO,@NO,@NO];
     
     for (int i = 0; i < (int)[self.inputs count]; i++) {
         for (int j = 0; j < [self.inputs[i] count]; j++) {
@@ -105,7 +105,7 @@
 }
 
 -(void) testIsEnum {
-    NSArray *boolResult = @[@NO,@NO,@NO,@NO,@NO,@YES,@NO,@NO,@NO];
+    NSArray *boolResult = @[@NO,@NO,@NO,@NO,@NO,@YES,@NO,@NO,@NO,@NO,@NO,@NO];
     
     for (int i = 0; i < (int)[self.inputs count]; i++) {
         for (int j = 0; j < [self.inputs[i] count]; j++) {
@@ -116,7 +116,7 @@
 }
 
 -(void) testIsUnion {
-    NSArray *boolResult = @[@NO,@NO,@NO,@NO,@NO,@NO,@YES,@NO,@NO];
+    NSArray *boolResult = @[@NO,@NO,@NO,@NO,@NO,@NO,@YES,@NO,@NO,@NO,@NO,@NO];
     
     for (int i = 0; i < (int)[self.inputs count]; i++) {
         for (int j = 0; j < [self.inputs[i] count]; j++) {
@@ -127,12 +127,45 @@
 }
 
 -(void) testIsCompileKeyword {
-    NSArray *boolResult = @[@NO,@NO,@NO,@NO,@NO,@NO,@NO,@NO,@YES];
+    NSArray *boolResult = @[@NO,@NO,@NO,@NO,@NO,@NO,@NO,@NO,@YES,@NO,@NO,@NO];
     
     for (int i = 0; i < (int)[self.inputs count]; i++) {
         for (int j = 0; j < [self.inputs[i] count]; j++) {
             NSString *result = self.corrects[i][j];
             XCTAssertTrue([result vv_isComplieKeyword] == [boolResult[i] boolValue], @"%@ should %@ be a complie keyword", result, [boolResult[i] boolValue] ? @"" : @"not");
+        }
+    }
+}
+
+-(void) testIsSwiftFunction {
+    NSArray *boolResult = @[@NO,@NO,@NO,@NO,@NO,@NO,@NO,@NO,@NO,@YES,@NO,@NO];
+    
+    for (int i = 0; i < (int)[self.inputs count]; i++) {
+        for (int j = 0; j < [self.inputs[i] count]; j++) {
+            NSString *result = self.corrects[i][j];
+            XCTAssertTrue([result vv_isSwiftFunction] == [boolResult[i] boolValue], @"%@ should %@ be a swift function", result, [boolResult[i] boolValue] ? @"" : @"not");
+        }
+    }
+}
+
+-(void) testIsSwiftEnum {
+    NSArray *boolResult = @[@NO,@NO,@NO,@NO,@NO,@NO,@NO,@NO,@NO,@NO,@YES,@NO];
+    
+    for (int i = 0; i < (int)[self.inputs count]; i++) {
+        for (int j = 0; j < [self.inputs[i] count]; j++) {
+            NSString *result = self.corrects[i][j];
+            XCTAssertTrue([result vv_isSwiftEnum] == [boolResult[i] boolValue], @"%@ should %@ be a swift enum", result, [boolResult[i] boolValue] ? @"" : @"not");
+        }
+    }
+}
+
+-(void) testIsSwiftProperty {
+    NSArray *boolResult = @[@NO,@NO,@NO,@NO,@NO,@NO,@NO,@NO,@NO,@NO,@NO,@YES];
+    
+    for (int i = 0; i < (int)[self.inputs count]; i++) {
+        for (int j = 0; j < [self.inputs[i] count]; j++) {
+            NSString *result = self.corrects[i][j];
+            XCTAssertTrue([result vv_isSwiftProperty] == [boolResult[i] boolValue], @"%@ should %@ be a swift property", result, [boolResult[i] boolValue] ? @"" : @"not");
         }
     }
 }

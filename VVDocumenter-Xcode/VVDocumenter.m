@@ -14,25 +14,26 @@
 
 @property (nonatomic, copy) NSString *code;
 @property (nonatomic, assign) BOOL isEnum;
+@property (nonatomic, assign) BOOL isSwiftEnum;
 
 @end
 
 @implementation VVDocumenter
 
--(id) initWithCode:(NSString *)code
+-(instancetype) initWithCode:(NSString *)code
 {
     self = [super init];
     if (self) {
-        self.isEnum = NO;
-        
-        if ([code vv_isEnum]) {
-            self.code = code;
-            self.isEnum = YES;
+        NSString *trimmed = [[code vv_stringByReplacingRegexPattern:@"\\s*(\\(.*\?\\))\\s*" withString:@"$1"]
+                             vv_stringByReplacingRegexPattern:@"\\s*\n\\s*"           withString:@" "];
+        _isEnum = [trimmed vv_isEnum];
+        _isSwiftEnum = [trimmed vv_isSwiftEnum];
+        if (_isEnum || _isSwiftEnum) {
+            _code = code;
         } else {
             //Trim the space around the braces
             //Then trim the new line character
-            self.code = [[code vv_stringByReplacingRegexPattern:@"\\s*(\\(.*\?\\))\\s*" withString:@"$1"]
-                               vv_stringByReplacingRegexPattern:@"\\s*\n\\s*"           withString:@" "];
+            _code = trimmed;
         }
     }
     return self;
@@ -57,6 +58,8 @@
     
     if (self.isEnum) {    
         commenter = [[VVEnumCommenter alloc] initWithIndentString:baseIndent codeString:trimCode];
+    } else if (self.isSwiftEnum) {
+        commenter = [[VVSwiftEnumCommenter alloc] initWithIndentString:baseIndent codeString:trimCode];
     } else if ([trimCode vv_isProperty]) {
         commenter = [[VVPropertyCommenter alloc] initWithIndentString:baseIndent codeString:trimCode];
     } else if ([trimCode vv_isCFunction]) {
@@ -69,11 +72,19 @@
         commenter = [[VVStructCommenter alloc] initWithIndentString:baseIndent codeString:trimCode];
     } else if ([trimCode vv_isObjCMethod]) {
         commenter = [[VVMethodCommenter alloc] initWithIndentString:baseIndent codeString:trimCode];
+    } else if ([trimCode vv_isSwiftFunction]) {
+        commenter = [[VVSwiftFunctionCommenter alloc] initWithIndentString:baseIndent codeString:trimCode];
+    } else if ([trimCode vv_isSwiftProperty]) {
+        commenter = [[VVSwiftPropertyCommenter alloc] initWithIndentString:baseIndent codeString:trimCode];
     } else {
         commenter = [[VVVariableCommenter alloc] initWithIndentString:baseIndent codeString:trimCode];
     }
 
-    return [commenter document];
+    if ([commenter shouldComment]) {
+        return [commenter document];
+    } else {
+        return nil;
+    }
 }
 
 
