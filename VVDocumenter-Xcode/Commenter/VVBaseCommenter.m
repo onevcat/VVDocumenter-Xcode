@@ -31,7 +31,12 @@
     }
     return self;
 }
-
+/**
+ *  Adison 14-09-10 14:09:18
+ 
+ *
+ *  @return <#return value description#>
+ */
 -(NSString *) paramSymbol {
     return self.forSwift ? @":param:" : @"@param";
 }
@@ -40,20 +45,47 @@
     return self.forSwift ? @":returns:" : @"@return";
 }
 
+/**
+ *   @Author: Adison, 14-09-11 15:09:09
+ *  <#Description#>
+ *
+ *  @return <#return value description#>
+ */
 -(NSString *) startComment
 {
     NSString *descriptionTag =
     [[VVDocumenterSetting defaultSetting] briefDescription] && !self.forSwift ? @"@brief  " : @"";
 
+    NSString *authorInfo = @"";
+    if ([[VVDocumenterSetting defaultSetting] defaultUserInformation] && !self.forSwift) {
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+		[formatter setDateFormat:@"MM-dd-YYYY HH:MM:ss"];
+        
+        NSString *author = @"Adison";
+        
+        NSLog(@"%@", author);
+        
+        authorInfo = [NSString stringWithFormat:@"%@@Author %@, %@\n",
+                      self.prefixString,
+                      author,
+                      [formatter stringFromDate:[NSDate date]]
+                      ];
+    }
+    
     if ([[VVDocumenterSetting defaultSetting] useHeaderDoc]) {
         return [NSString stringWithFormat:@"%@/*!\n%@%@<#Description#>\n", self.indent, self.prefixString, descriptionTag];
     } else if ([[VVDocumenterSetting defaultSetting] prefixWithSlashes]) {
         return [NSString stringWithFormat:@"%@%@<#Description#>\n", self.prefixString, descriptionTag];
     } else {
-        return [NSString stringWithFormat:@"%@/**\n%@%@<#Description#>\n", self.indent, self.prefixString, descriptionTag];
+        return [NSString stringWithFormat:@"%@/**\n%@%@%@<#Description#>\n", self.indent, authorInfo, self.prefixString, descriptionTag];
     }
 }
-
+/**
+ *  Adison 14-09-10 15:09:10
+ 
+ *
+ *  @return <#return value description#>
+ */
 -(NSString *) argumentsComment
 {
     if (self.arguments.count == 0)
@@ -92,6 +124,12 @@
     } else {
         return [NSString stringWithFormat:@"%@%@%@ <#return value description#>\n", self.emptyLine, self.prefixString, [self returnSymbol]];
     }
+}
+
+-(NSString *) defaultUserInformation
+{
+    
+    
 }
 
 -(NSString *) sinceComment

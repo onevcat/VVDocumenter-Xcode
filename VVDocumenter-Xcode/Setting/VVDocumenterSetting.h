@@ -24,5 +24,6 @@ extern NSString *const VVDDefaultTriggerString;
 @property BOOL useHeaderDoc;
 @property BOOL blankLinesBetweenSections;
 @property BOOL alignArgumentComments;
+@property BOOL defaultUserInformation;
 @property (readonly) NSString *spacesString;
 @end

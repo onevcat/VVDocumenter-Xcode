@@ -26,6 +26,7 @@
 @property (weak) IBOutlet NSButton *btnUseHeaderDoc;
 @property (weak) IBOutlet NSButton *btnBlankLinesBetweenSections;
 @property (weak) IBOutlet NSButton *btnAlightArgumentComments;
+@property (weak) IBOutlet NSButton *btnDefaultUserInformation;
 @end
 
 @implementation VVDSettingPanelWindowController
@@ -53,7 +54,8 @@
     self.btnUseHeaderDoc.state = (NSCellStateValue)[[VVDocumenterSetting defaultSetting] useHeaderDoc];
     self.btnBlankLinesBetweenSections.state = (NSCellStateValue)[[VVDocumenterSetting defaultSetting] blankLinesBetweenSections];
     self.btnAlightArgumentComments.state = (NSCellStateValue)[[VVDocumenterSetting defaultSetting] alignArgumentComments];
-
+    self.btnDefaultUserInformation.state = (NSCellStateValue)[[VVDocumenterSetting defaultSetting] defaultUserInformation];
+    
     if ([[VVDocumenterSetting defaultSetting] prefixWithStar]) {
         [self.mtxPrefixOptions selectCell:self.btnPrefixWithStar];
     } else if ([[VVDocumenterSetting defaultSetting] prefixWithSlashes]) {
@@ -89,7 +91,8 @@
     [[VVDocumenterSetting defaultSetting] setUseHeaderDoc:NO];
     [[VVDocumenterSetting defaultSetting] setBlankLinesBetweenSections:YES];
     [[VVDocumenterSetting defaultSetting] setAlignArgumentComments:YES];
-
+    [[VVDocumenterSetting defaultSetting] setDefaultUserInformation:YES];
+    
     self.btnUseSpaces.state = NSOnState;
     [self updateUseSpace:self.btnUseSpaces.state];
     self.btnPrefixWithWhitespace.state = NSOffState;
@@ -126,6 +129,10 @@
 
 - (IBAction)btnBriefDescriptionPressed:(id)sender {
     [[VVDocumenterSetting defaultSetting] setBriefDescription:self.btnBriefDescription.state];
+}
+
+- (IBAction)btnDefaultUserInformationPressed:(id)sender {
+    [[VVDocumenterSetting defaultSetting] setBriefDescription:self.btnDefaultUserInformation.state];
 }
 
 -(void) syncSpaceCount

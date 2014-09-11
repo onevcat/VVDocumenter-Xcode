@@ -21,6 +21,7 @@ NSString *const kVVDBriefDescription = @"com.onevcat.VVDocumenter.briefDescripti
 NSString *const kVVDUserHeaderDoc = @"com.onevcat.VVDocumenter.useHeaderDoc";
 NSString *const kVVDNoBlankLinesBetweenFields = @"com.onevcat.VVDocumenter.noBlankLinesBetweenFields";
 NSString *const kVVDNoArgumentPadding = @"com.onevcat.VVDocumenter.noArgumentPadding";
+NSString *const kVVDDefaultUserInformation = @"com.onevcat.VVDocumenter.defaultUserInformation";
 @implementation VVDocumenterSetting
 
 + (VVDocumenterSetting *)defaultSetting
@@ -170,6 +171,16 @@ NSString *const kVVDNoArgumentPadding = @"com.onevcat.VVDocumenter.noArgumentPad
 -(void) setAlignArgumentComments:(BOOL)alignArgumentComments
 {
     [[NSUserDefaults standardUserDefaults] setBool:!alignArgumentComments forKey:kVVDNoArgumentPadding];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+-(BOOL)defaultUserInformation
+{
+    return ![[NSUserDefaults standardUserDefaults] boolForKey:kVVDDefaultUserInformation];
+}
+-(void) setDefaultUserInformation:(BOOL)defaultUserInformation
+{
+    [[NSUserDefaults standardUserDefaults] setBool:!defaultUserInformation forKey:kVVDDefaultUserInformation];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
