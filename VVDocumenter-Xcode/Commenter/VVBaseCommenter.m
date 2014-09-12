@@ -31,12 +31,7 @@
     }
     return self;
 }
-/**
- *  Adison 14-09-10 14:09:18
- 
- *
- *  @return <#return value description#>
- */
+
 -(NSString *) paramSymbol {
     return self.forSwift ? @":param:" : @"@param";
 }
@@ -45,31 +40,31 @@
     return self.forSwift ? @":returns:" : @"@return";
 }
 
-/**
- *   @Author: Adison, 14-09-11 15:09:09
- *  <#Description#>
- *
- *  @return <#return value description#>
- */
 -(NSString *) startComment
 {
     NSString *descriptionTag =
     [[VVDocumenterSetting defaultSetting] briefDescription] && !self.forSwift ? @"@brief  " : @"";
 
     NSString *authorInfo = @"";
-    if ([[VVDocumenterSetting defaultSetting] defaultUserInformation] && !self.forSwift) {
-        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-		[formatter setDateFormat:@"MM-dd-YYYY HH:MM:ss"];
+    if ([[VVDocumenterSetting defaultSetting] useAuthorInformation] && !self.forSwift) {
         
-        NSString *author = @"Adison";
-        
-        NSLog(@"%@", author);
-        
-        authorInfo = [NSString stringWithFormat:@"%@@Author %@, %@\n",
+        authorInfo = [NSString stringWithFormat:@"%@@Author %@",
                       self.prefixString,
-                      author,
-                      [formatter stringFromDate:[NSDate date]]
-                      ];
+                      [[VVDocumenterSetting defaultSetting] authorInformation]];
+        
+        if ([[VVDocumenterSetting defaultSetting] useDateInformation]) {
+            NSString *formatString = [[VVDocumenterSetting defaultSetting] dateInformationFormat];
+            if ([formatString length] <= 0) {
+                formatString = @"MM-dd-YYYY HH:MM:ss";
+            }
+            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+            [formatter setDateFormat:formatString];
+            
+            authorInfo = [NSString stringWithFormat:@"%@, %@",
+                          authorInfo,
+                          [formatter stringFromDate:[NSDate date]]];
+        }
+        authorInfo = [NSString stringWithFormat:@"%@\n", authorInfo];
     }
     
     if ([[VVDocumenterSetting defaultSetting] useHeaderDoc]) {
@@ -80,12 +75,7 @@
         return [NSString stringWithFormat:@"%@/**\n%@%@%@<#Description#>\n", self.indent, authorInfo, self.prefixString, descriptionTag];
     }
 }
-/**
- *  Adison 14-09-10 15:09:10
- 
- *
- *  @return <#return value description#>
- */
+
 -(NSString *) argumentsComment
 {
     if (self.arguments.count == 0)
@@ -124,12 +114,6 @@
     } else {
         return [NSString stringWithFormat:@"%@%@%@ <#return value description#>\n", self.emptyLine, self.prefixString, [self returnSymbol]];
     }
-}
-
--(NSString *) defaultUserInformation
-{
-    
-    
 }
 
 -(NSString *) sinceComment

@@ -26,7 +26,11 @@
 @property (weak) IBOutlet NSButton *btnUseHeaderDoc;
 @property (weak) IBOutlet NSButton *btnBlankLinesBetweenSections;
 @property (weak) IBOutlet NSButton *btnAlightArgumentComments;
-@property (weak) IBOutlet NSButton *btnDefaultUserInformation;
+@property (weak) IBOutlet NSButton *btnUseAuthorInformation;
+@property (weak) IBOutlet NSButton *btnUseDateInformation;
+@property (weak) IBOutlet NSTextField *tfAuthoInformation;
+@property (weak) IBOutlet NSTextField *tfDateInformaitonFormat;
+
 @end
 
 @implementation VVDSettingPanelWindowController
@@ -54,7 +58,10 @@
     self.btnUseHeaderDoc.state = (NSCellStateValue)[[VVDocumenterSetting defaultSetting] useHeaderDoc];
     self.btnBlankLinesBetweenSections.state = (NSCellStateValue)[[VVDocumenterSetting defaultSetting] blankLinesBetweenSections];
     self.btnAlightArgumentComments.state = (NSCellStateValue)[[VVDocumenterSetting defaultSetting] alignArgumentComments];
-    self.btnDefaultUserInformation.state = (NSCellStateValue)[[VVDocumenterSetting defaultSetting] defaultUserInformation];
+    self.btnUseAuthorInformation.state = (NSCellStateValue)[[VVDocumenterSetting defaultSetting] useAuthorInformation];
+    self.tfAuthoInformation.stringValue = [[VVDocumenterSetting defaultSetting] authorInformation];
+    self.btnUseDateInformation.state = (NSCellStateValue)[[VVDocumenterSetting defaultSetting] useDateInformation];
+    self.tfDateInformaitonFormat.stringValue = [[VVDocumenterSetting defaultSetting] dateInformationFormat];
     
     if ([[VVDocumenterSetting defaultSetting] prefixWithStar]) {
         [self.mtxPrefixOptions selectCell:self.btnPrefixWithStar];
@@ -73,6 +80,8 @@
     [self syncSpaceCount];
 
     self.tfTrigger.delegate = self;
+    self.tfDateInformaitonFormat.delegate = self;
+    self.tfAuthoInformation.delegate = self;
 }
 
 - (IBAction)stepperPressed:(id)sender {
@@ -91,7 +100,10 @@
     [[VVDocumenterSetting defaultSetting] setUseHeaderDoc:NO];
     [[VVDocumenterSetting defaultSetting] setBlankLinesBetweenSections:YES];
     [[VVDocumenterSetting defaultSetting] setAlignArgumentComments:YES];
-    [[VVDocumenterSetting defaultSetting] setDefaultUserInformation:YES];
+    [[VVDocumenterSetting defaultSetting] setUseAuthorInformation:NO];
+    [[VVDocumenterSetting defaultSetting] setAuthorInformation:VVDDefaultAuthorString];
+    [[VVDocumenterSetting defaultSetting] setUseDateInformation:NO];
+    [[VVDocumenterSetting defaultSetting] setDateInformationFormat:VVDDefaultDateInfomationFormat];
     
     self.btnUseSpaces.state = NSOnState;
     [self updateUseSpace:self.btnUseSpaces.state];
@@ -104,7 +116,11 @@
     self.btnUseHeaderDoc.state = NSOffState;
     self.btnBlankLinesBetweenSections.state = NSOnState;
     self.btnAlightArgumentComments.state = NSOnState;
-
+    self.btnUseAuthorInformation.state = NSOffState;
+    self.tfAuthoInformation.stringValue = VVDDefaultAuthorString;
+    self.btnUseDateInformation.state = NSOffState;
+    self.tfDateInformaitonFormat.stringValue = VVDDefaultDateInfomationFormat;
+    
     self.btnPrefixWithSlashes.enabled = YES;
 
     [self syncSpaceCount];
@@ -131,8 +147,12 @@
     [[VVDocumenterSetting defaultSetting] setBriefDescription:self.btnBriefDescription.state];
 }
 
-- (IBAction)btnDefaultUserInformationPressed:(id)sender {
-    [[VVDocumenterSetting defaultSetting] setBriefDescription:self.btnDefaultUserInformation.state];
+- (IBAction)btnUseAuthorInformationPressed:(id)sender {
+    [[VVDocumenterSetting defaultSetting] setUseAuthorInformation:self.btnUseAuthorInformation.state];
+}
+
+- (IBAction)btnUseDateInformationPressed:(id)sender {
+    [[VVDocumenterSetting defaultSetting] setUseDateInformation:self.btnUseDateInformation.state];
 }
 
 -(void) syncSpaceCount
@@ -153,6 +173,12 @@
 {
     if([notification object] == self.tfTrigger) {
         [[VVDocumenterSetting defaultSetting] setTriggerString:self.tfTrigger.stringValue];
+    }
+    if([notification object] == self.tfAuthoInformation) {
+        [[VVDocumenterSetting defaultSetting] setAuthorInformation:self.tfAuthoInformation.stringValue];
+    }
+    if([notification object] == self.tfDateInformaitonFormat) {
+        [[VVDocumenterSetting defaultSetting] setDateInformationFormat:self.tfDateInformaitonFormat.stringValue];
     }
 }
 
