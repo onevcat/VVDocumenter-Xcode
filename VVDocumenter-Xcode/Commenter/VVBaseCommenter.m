@@ -48,9 +48,14 @@
     NSString *authorInfo = @"";
     if ([[VVDocumenterSetting defaultSetting] useAuthorInformation] && !self.forSwift) {
         
-        authorInfo = [NSString stringWithFormat:@"%@@Author %@",
-                      self.prefixString,
-                      [[VVDocumenterSetting defaultSetting] authorInformation]];
+        authorInfo = [NSString stringWithFormat:@"%@@Author",
+                      self.prefixString];
+        
+        if ([[VVDocumenterSetting defaultSetting] authorInformation].length > 0) {
+            authorInfo = [NSString stringWithFormat:@"%@ %@,",
+                          self.prefixString,
+                          [[VVDocumenterSetting defaultSetting] authorInformation]];
+        }
         
         if ([[VVDocumenterSetting defaultSetting] useDateInformation]) {
             NSString *formatString = [[VVDocumenterSetting defaultSetting] dateInformationFormat];
@@ -60,7 +65,7 @@
             NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
             [formatter setDateFormat:formatString];
             
-            authorInfo = [NSString stringWithFormat:@"%@, %@",
+            authorInfo = [NSString stringWithFormat:@"%@ %@",
                           authorInfo,
                           [formatter stringFromDate:[NSDate date]]];
         }
