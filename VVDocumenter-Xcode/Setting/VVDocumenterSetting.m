@@ -181,11 +181,11 @@ NSString *const kVVDDateInformationFormat = @"com.onevcat.VVDocumenter.dateInfor
 
 -(BOOL)useAuthorInformation
 {
-    return ![[NSUserDefaults standardUserDefaults] boolForKey:kVVDUseAuthorInformation];
+    return [[NSUserDefaults standardUserDefaults] boolForKey:kVVDUseAuthorInformation];
 }
 -(void) setUseAuthorInformation:(BOOL)useAuthorInformation
 {
-    [[NSUserDefaults standardUserDefaults] setBool:!useAuthorInformation forKey:kVVDUseAuthorInformation];
+    [[NSUserDefaults standardUserDefaults] setBool:useAuthorInformation forKey:kVVDUseAuthorInformation];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
@@ -203,11 +203,11 @@ NSString *const kVVDDateInformationFormat = @"com.onevcat.VVDocumenter.dateInfor
 
 -(BOOL)useDateInformation
 {
-    return ![[NSUserDefaults standardUserDefaults] boolForKey:kVVDUseDateInformation];
+    return [[NSUserDefaults standardUserDefaults] boolForKey:kVVDUseDateInformation];
 }
 -(void) setUseDateInformation:(BOOL)useDateInformation
 {
-    [[NSUserDefaults standardUserDefaults] setBool:!useDateInformation forKey:kVVDUseDateInformation];
+    [[NSUserDefaults standardUserDefaults] setBool:useDateInformation forKey:kVVDUseDateInformation];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 

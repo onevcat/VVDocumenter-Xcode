@@ -48,8 +48,6 @@
     NSString *authorInfo = @"";
 
     if ([[VVDocumenterSetting defaultSetting] useAuthorInformation] && !self.forSwift) {
-        authorInfo = [NSString stringWithFormat:@"%@@Author",
-                      self.prefixString];
         NSMutableString *authorCotent = @"".mutableCopy;
         
         if ([[VVDocumenterSetting defaultSetting] authorInformation].length > 0) {
@@ -69,13 +67,14 @@
             }
             [authorCotent appendString:[formatter stringFromDate:[NSDate date]]];            
         }
-        authorInfo = [NSString stringWithFormat:@"%@\n", authorInfo];
+
+        authorInfo = [NSString stringWithFormat:@"%@@Author %@\n%@\n", self.prefixString, authorCotent, self.prefixString];
     }
     
     if ([[VVDocumenterSetting defaultSetting] useHeaderDoc]) {
-        return [NSString stringWithFormat:@"%@/*!\n%@%@<#Description#>\n", self.indent, self.prefixString, descriptionTag];
+        return [NSString stringWithFormat:@"%@/*!\n%@%@%@<#Description#>\n", self.indent, authorInfo, self.prefixString, descriptionTag];
     } else if ([[VVDocumenterSetting defaultSetting] prefixWithSlashes]) {
-        return [NSString stringWithFormat:@"%@%@<#Description#>\n", self.prefixString, descriptionTag];
+        return [NSString stringWithFormat:@"%@%@%@<#Description#>\n", self.prefixString, authorInfo, descriptionTag];
     } else {
         return [NSString stringWithFormat:@"%@/**\n%@%@%@<#Description#>\n", self.indent, authorInfo, self.prefixString, descriptionTag];
     }
