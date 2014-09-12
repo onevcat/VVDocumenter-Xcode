@@ -46,17 +46,16 @@
     [[VVDocumenterSetting defaultSetting] briefDescription] && !self.forSwift ? @"@brief  " : @"";
 
     NSString *authorInfo = @"";
+
     if ([[VVDocumenterSetting defaultSetting] useAuthorInformation] && !self.forSwift) {
-        
         authorInfo = [NSString stringWithFormat:@"%@@Author",
                       self.prefixString];
+        NSMutableString *authorCotent = @"".mutableCopy;
         
         if ([[VVDocumenterSetting defaultSetting] authorInformation].length > 0) {
-            authorInfo = [NSString stringWithFormat:@"%@ %@,",
-                          self.prefixString,
-                          [[VVDocumenterSetting defaultSetting] authorInformation]];
+            [authorCotent appendString:[[VVDocumenterSetting defaultSetting] authorInformation]];
         }
-        
+
         if ([[VVDocumenterSetting defaultSetting] useDateInformation]) {
             NSString *formatString = [[VVDocumenterSetting defaultSetting] dateInformationFormat];
             if ([formatString length] <= 0) {
@@ -65,9 +64,10 @@
             NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
             [formatter setDateFormat:formatString];
             
-            authorInfo = [NSString stringWithFormat:@"%@ %@",
-                          authorInfo,
-                          [formatter stringFromDate:[NSDate date]]];
+            if (authorCotent.length > 0) {
+                [authorCotent appendString:@", "];
+            }
+            [authorCotent appendString:[formatter stringFromDate:[NSDate date]]];            
         }
         authorInfo = [NSString stringWithFormat:@"%@\n", authorInfo];
     }
