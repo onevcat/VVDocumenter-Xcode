@@ -10,6 +10,8 @@
 #import <Carbon/Carbon.h>
 
 NSString *const VVDDefaultTriggerString = @"///";
+NSString *const VVDDefaultAuthorString = @"";
+NSString *const VVDDefaultDateInfomationFormat = @"YY-MM-dd HH:MM:ss";
 
 NSString *const kVVDUseSpaces = @"com.onevcat.VVDocumenter.useSpaces";
 NSString *const kVVDSpaceCount = @"com.onevcat.VVDocumenter.spaceCount";
@@ -21,6 +23,10 @@ NSString *const kVVDBriefDescription = @"com.onevcat.VVDocumenter.briefDescripti
 NSString *const kVVDUserHeaderDoc = @"com.onevcat.VVDocumenter.useHeaderDoc";
 NSString *const kVVDNoBlankLinesBetweenFields = @"com.onevcat.VVDocumenter.noBlankLinesBetweenFields";
 NSString *const kVVDNoArgumentPadding = @"com.onevcat.VVDocumenter.noArgumentPadding";
+NSString *const kVVDUseAuthorInformation = @"com.onevcat.VVDocumenter.useAuthorInformation";
+NSString *const kVVDAuthorInfomation = @"com.onevcat.VVDocumenter.authorInfomation";
+NSString *const kVVDUseDateInformation = @"com.onevcat.VVDocumenter.useDateInformation";
+NSString *const kVVDDateInformationFormat = @"com.onevcat.VVDocumenter.dateInformationFomat";
 @implementation VVDocumenterSetting
 
 + (VVDocumenterSetting *)defaultSetting
@@ -170,6 +176,50 @@ NSString *const kVVDNoArgumentPadding = @"com.onevcat.VVDocumenter.noArgumentPad
 -(void) setAlignArgumentComments:(BOOL)alignArgumentComments
 {
     [[NSUserDefaults standardUserDefaults] setBool:!alignArgumentComments forKey:kVVDNoArgumentPadding];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+-(BOOL)useAuthorInformation
+{
+    return [[NSUserDefaults standardUserDefaults] boolForKey:kVVDUseAuthorInformation];
+}
+-(void) setUseAuthorInformation:(BOOL)useAuthorInformation
+{
+    [[NSUserDefaults standardUserDefaults] setBool:useAuthorInformation forKey:kVVDUseAuthorInformation];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+-(NSString *)authorInformation {
+    NSString *authorInformation = [[NSUserDefaults standardUserDefaults] objectForKey:kVVDAuthorInfomation];
+    if (authorInformation == nil ) {
+        authorInformation = VVDDefaultAuthorString;
+    }
+    return authorInformation;
+}
+-(void)setAuthorInformation:(NSString *)authorInformation {
+    [[NSUserDefaults standardUserDefaults] setObject:authorInformation forKey:kVVDAuthorInfomation];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+-(BOOL)useDateInformation
+{
+    return [[NSUserDefaults standardUserDefaults] boolForKey:kVVDUseDateInformation];
+}
+-(void) setUseDateInformation:(BOOL)useDateInformation
+{
+    [[NSUserDefaults standardUserDefaults] setBool:useDateInformation forKey:kVVDUseDateInformation];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+-(NSString *)dateInformationFormat {
+    NSString *formatString = [[NSUserDefaults standardUserDefaults] objectForKey:kVVDDateInformationFormat];
+    if (formatString == nil || formatString.length <= 0) {
+        formatString = VVDDefaultDateInfomationFormat;
+    }
+    return formatString;
+}
+-(void)setDateInformationFormat:(NSString *)dateInformationFormat {
+    [[NSUserDefaults standardUserDefaults] setObject:dateInformationFormat forKey:kVVDDateInformationFormat];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 

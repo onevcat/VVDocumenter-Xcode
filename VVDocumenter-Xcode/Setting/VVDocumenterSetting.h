@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 
 extern NSString *const VVDDefaultTriggerString;
+extern NSString *const VVDDefaultAuthorString;
+extern NSString *const VVDDefaultDateInfomationFormat;
 
 @interface VVDocumenterSetting : NSObject
 + (VVDocumenterSetting *)defaultSetting;
@@ -24,5 +26,9 @@ extern NSString *const VVDDefaultTriggerString;
 @property BOOL useHeaderDoc;
 @property BOOL blankLinesBetweenSections;
 @property BOOL alignArgumentComments;
+@property BOOL useAuthorInformation;
+@property NSString *authorInformation;
+@property BOOL useDateInformation;
+@property NSString *dateInformationFormat;
 @property (readonly) NSString *spacesString;
 @end
