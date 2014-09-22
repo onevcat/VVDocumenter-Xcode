@@ -7,9 +7,11 @@ Writing document is so important for developing, but it is really painful with X
 
 Here is an image which can show what it exactly does. 
 
-### By the way, it also supports [Swift](https://developer.apple.com/swift/) now. Cheers!
-
 ![Screenshot](https://raw.github.com/onevcat/VVDocumenter-Xcode/master/ScreenShot.gif)
+
+> By the way, it also supports [Swift](https://developer.apple.com/swift/) now. Cheers!
+
+![Screenshot](https://raw.github.com/onevcat/VVDocumenter-Xcode/master/vvdocumenter-swift.gif)
 
 ## How to install and use?
 
