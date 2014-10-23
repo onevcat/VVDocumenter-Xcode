@@ -15,7 +15,7 @@ Here is an image which can show what it exactly does.
 
 ## How to install and use?
 
-~~~The best way of installing is by [Alcatraz](http://alcatraz.io). Install Alcatraz followed by the instruction, restart your Xcode and press `⇧⌘9`. You can find `VVDocumenter-Xcode` in the list and click the icon on left to install.~~~ Some users reported the setting panel [can not be opened](https://github.com/supermarin/Alcatraz/issues/196) if installing from Alcatraz, so I suggest to build the plugin yourself until this issue get fixed.
+~~The best way of installing is by [Alcatraz](http://alcatraz.io). Install Alcatraz followed by the instruction, restart your Xcode and press `⇧⌘9`. You can find `VVDocumenter-Xcode` in the list and click the icon on left to install.~~ Some users reported the setting panel [can not be opened](https://github.com/supermarin/Alcatraz/issues/196) if installing from Alcatraz, so I suggest to build the plugin yourself until this issue get fixed.
 
 If you do not like the Alcatraz way, you can also clone the repo. Then build the `VVDocumenter-Xcode` target in the Xcode project and the plug-in will automatically be installed in `~/Library/Application Support/Developer/Shared/Xcode/Plug-ins`. Relaunch Xcode and type in `///` above any code you want to write a document to.
 
