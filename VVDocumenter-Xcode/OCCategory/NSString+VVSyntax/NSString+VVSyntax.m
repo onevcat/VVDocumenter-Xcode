@@ -9,11 +9,11 @@
 #import "NSString+VVSyntax.h"
 
 @implementation NSString (VVSyntax)
-
 -(NSString *) vv_stringByConvertingToUniform
 {
-    return [[self vv_stringByReplacingRegexPattern:@"\\s*(\\(.*\?\\))\\s*" withString:@"$1"]
-                  vv_stringByReplacingRegexPattern:@"\\s*\n\\s*"           withString:@" "];
+    return [[[self vv_stringByReplacingRegexPattern:@"\\s*\\("    withString:@"("]
+                   vv_stringByReplacingRegexPattern:@"\\)\\s*"    withString:@")"]
+                   vv_stringByReplacingRegexPattern:@"\\s*\n\\s*" withString:@" "];
 }
 
 -(NSString *) vv_stringByTrimEndSpaces
