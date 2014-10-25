@@ -51,7 +51,7 @@
 			<key>source</key>
 			<string>-(void)whenLinked:(void (^)(void))actionHandler</string>
 			<key>uniform</key>
-			<string>-(void)whenLinked:(void (^)(void))actionHandler</string>
+			<string>-(void)whenLinked:(void(^)(void))actionHandler</string>
 			<key>result</key>
 			<string>/**
  *  &lt;#Description#&gt;
@@ -59,6 +59,31 @@
  *  @param actionHandler &lt;#actionHandler description#&gt;
  */</string>
 		</dict>
+		<dict>
+			<key>source</key>
+			<string>-(void) writeMediasetJSON: (void (^)(void)) uploadCompletionBlock{}</string>
+			<key>uniform</key>
+			<string>-(void)writeMediasetJSON:(void(^)(void))uploadCompletionBlock{}</string>
+			<key>result</key>
+			<string>/**
+ *  &lt;#Description#&gt;
+ *
+ *  @param uploadCompletionBlock &lt;#uploadCompletionBlock description#&gt;
+ */</string>
+		</dict>
+        <dict>
+            <key>source</key>
+            <string>-(void) createNewMediaset:(NSString *) collectionName withCompletionBlock: (void (^)(void)) completionBlock;</string>
+            <key>uniform</key>
+            <string>-(void)createNewMediaset:(NSString *)collectionName withCompletionBlock:(void(^)(void))completionBlock;</string>
+            <key>result</key>
+            <string>/**
+ *  &lt;#Description#&gt;
+ *
+ *  @param collectionName  &lt;#collectionName description#&gt;
+ *  @param completionBlock &lt;#completionBlock description#&gt;
+ */</string>
+        </dict>
 	</array>
 	<key>vv_isCFunction</key>
 	<array>
@@ -192,7 +217,7 @@
 			<key>source</key>
 			<string>void print2DList(int rowCount, int (*p)[10]);</string>
 			<key>uniform</key>
-			<string>void print2DList(int rowCount, int (*p)[10]);</string>
+			<string>void print2DList(int rowCount, int(*p)[10]);</string>
 			<key>result</key>
 			<string>/**
  *  &lt;#Description#&gt;
@@ -271,7 +296,7 @@
 			<key>source</key>
 			<string>#define ABS(A)	((A) &lt; 0 ? (-(A)) : (A))</string>
 			<key>uniform</key>
-			<string>#define ABS(A)((A)&lt; 0 ?(-(A)) :(A))</string>
+			<string>#define ABS(A)((A)&lt; 0 ?(-(A)):(A))</string>
 			<key>result</key>
 			<string>/**
  *  &lt;#Description#&gt;
@@ -466,7 +491,7 @@ SIAlertViewBackgroundStyleSolid,
 			<key>source</key>
 			<string>func Test(input : Int, condition : (Int, String) -&gt; Bool = {(t: Int,k: String) in return true}) -&gt; (Int,Int) {</string>
 			<key>uniform</key>
-			<string>func Test(input : Int, condition : (Int, String)-&gt; Bool = {(t: Int,k: String)in return true}) -&gt;(Int,Int){</string>
+			<string>func Test(input : Int, condition :(Int, String)-&gt; Bool = {(t: Int,k: String)in return true})-&gt;(Int,Int){</string>
 			<key>result</key>
 			<string>/**
  &lt;#Description#&gt;
@@ -481,7 +506,7 @@ SIAlertViewBackgroundStyleSolid,
 			<key>source</key>
 			<string>func URLSession(session: NSURLSession!, task: NSURLSessionTask!, didReceiveChallenge challenge: NSURLAuthenticationChallenge!, completionHandler: ((NSURLSessionAuthChallengeDisposition, NSURLCredential!) -&gt; Void)!) {</string>
 			<key>uniform</key>
-			<string>func URLSession(session: NSURLSession!, task: NSURLSessionTask!, didReceiveChallenge challenge: NSURLAuthenticationChallenge!, completionHandler: ((NSURLSessionAuthChallengeDisposition, NSURLCredential!)-&gt; Void)!) {</string>
+			<string>func URLSession(session: NSURLSession!, task: NSURLSessionTask!, didReceiveChallenge challenge: NSURLAuthenticationChallenge!, completionHandler:((NSURLSessionAuthChallengeDisposition, NSURLCredential!)-&gt; Void)!){</string>
 			<key>result</key>
 			<string>/**
  &lt;#Description#&gt;
@@ -492,13 +517,13 @@ SIAlertViewBackgroundStyleSolid,
  :param: completionHandler &lt;#completionHandler description#&gt;
  */</string>
 		</dict>
-        <dict>
-            <key>source</key>
-            <string>func makeTuple(a:Int, b:Int, c:Int) -&gt; (sum:Int, product:Int, max:Int) {</string>
-            <key>uniform</key>
-            <string>func makeTuple(a:Int, b:Int, c:Int)-&gt;(sum:Int, product:Int, max:Int){</string>
-            <key>result</key>
-            <string>/**
+		<dict>
+			<key>source</key>
+			<string>func makeTuple(a:Int, b:Int, c:Int) -&gt; (sum:Int, product:Int, max:Int) {</string>
+			<key>uniform</key>
+			<string>func makeTuple(a:Int, b:Int, c:Int)-&gt;(sum:Int, product:Int, max:Int){</string>
+			<key>result</key>
+			<string>/**
  &lt;#Description#&gt;
 
  :param: a &lt;#a description#&gt;
@@ -507,7 +532,7 @@ SIAlertViewBackgroundStyleSolid,
 
  :returns: &lt;#return value description#&gt;
  */</string>
-        </dict>
+		</dict>
 	</array>
 	<key>vv_isSwiftEnum</key>
 	<array>
