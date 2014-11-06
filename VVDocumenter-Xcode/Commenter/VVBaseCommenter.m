@@ -68,7 +68,7 @@
             [authorCotent appendString:[formatter stringFromDate:[NSDate date]]];            
         }
 
-        authorInfo = [NSString stringWithFormat:@"%@@Author %@\n%@\n", self.prefixString, authorCotent, self.prefixString];
+        authorInfo = [NSString stringWithFormat:@"%@@author %@\n%@\n", self.prefixString, authorCotent, self.prefixString];
     }
     
     if ([[VVDocumenterSetting defaultSetting] useHeaderDoc]) {
