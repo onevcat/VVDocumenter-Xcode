@@ -131,11 +131,14 @@
                     shouldReplace = YES;
                 }
                 
+                NSString *inputCode = nil;
                 if ([resultToDocument.string vv_isSwiftEnum]) {
-                    resultToDocument = [textView vv_textResultWithPairOpenString:@"{" closeString:@"}"];
+                    inputCode = [textView vv_textResultWithPairOpenString:@"{" closeString:@"}"].string;
+                } else {
+                    inputCode = [resultToDocument.string vv_stringByConvertingToUniform];
                 }
                 
-                VVDocumenter *doc = [[VVDocumenter alloc] initWithCode:resultToDocument.string];
+                VVDocumenter *doc = [[VVDocumenter alloc] initWithCode:inputCode];
                 NSString *documentationString = [doc document];
                 
                 if (!documentationString) {

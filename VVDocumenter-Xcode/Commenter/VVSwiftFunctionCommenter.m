@@ -30,7 +30,8 @@
 
 -(void) captureParameters
 {
-    NSArray * braceGroups = [self.code vv_stringsByExtractingGroupsUsingRegexPattern:@"\\((.*)\\)"];
+    VVTextResult *funcParenthesesResult = [self.code vv_textResultMatchPartWithPairOpenString:@"(" closeString:@")" currentLocation:0];
+    NSArray * braceGroups = [funcParenthesesResult.string vv_stringsByExtractingGroupsUsingRegexPattern:@"\\((.*)\\)"];
     if (braceGroups.count > 0) {
         NSString *content = braceGroups[0];
         NSString *trimmed = [content stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];

@@ -68,7 +68,7 @@
             [authorCotent appendString:[formatter stringFromDate:[NSDate date]]];            
         }
 
-        authorInfo = [NSString stringWithFormat:@"%@@Author %@\n%@\n", self.prefixString, authorCotent, self.prefixString];
+        authorInfo = [NSString stringWithFormat:@"%@@author %@\n%@\n", self.prefixString, authorCotent, self.prefixString];
     }
     
     if ([[VVDocumenterSetting defaultSetting] useHeaderDoc]) {
@@ -213,6 +213,8 @@
     for (__strong NSString *argumentString in argumentStrings) {
         VVArgument *arg = [[VVArgument alloc] init];
         argumentString = [argumentString vv_stringByReplacingRegexPattern:@"=\\s*\\w*" withString:@""];
+        argumentString = [argumentString vv_stringByReplacingRegexPattern:@"\\(" withString:@" "];
+        argumentString = [argumentString vv_stringByReplacingRegexPattern:@"\\*" withString:@" "];
         argumentString = [argumentString vv_stringByReplacingRegexPattern:@"\\s+$" withString:@""];
         argumentString = [argumentString vv_stringByReplacingRegexPattern:@"\\s+" withString:@" "];
         NSMutableArray *tempArgs = [[argumentString componentsSeparatedByString:@" "] mutableCopy];
