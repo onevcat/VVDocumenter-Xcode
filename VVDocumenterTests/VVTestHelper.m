@@ -69,7 +69,8 @@ static NSArray *_typeStrings;
 
     NSArray *swiftFunctions = @[@"func sayHello(personName: String) -> String  {",
                                 @"func halfOpenRangeLength(start: Int, end: Int) -> Int\n  {",
-                                @"func sayHelloWorld() ->String"];
+                                @"func sayHelloWorld() ->String",
+                                @"func testParamsType(var a: Int) {"];
     
     /*
     //Now there is no difference between Objective-C (C) struct and Swift struct. Ignore this.
@@ -134,6 +135,7 @@ static NSArray *_typeStrings;
     NSArray *swiftFunctions = @[@"func sayHello(personName: String)-> String  {",
                                 @"func halfOpenRangeLength(start: Int, end: Int)-> Int {",
                                 @"func sayHelloWorld()->String",
+                                @"func testParamsType(var a: Int){",
                                 @"init(style: Style, gearing: Gearing, handlebar: Handlebar, frameSize centimeters: Int) {"];
     
     /*
