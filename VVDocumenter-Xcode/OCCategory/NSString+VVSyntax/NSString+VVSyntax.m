@@ -81,7 +81,9 @@
 
 -(BOOL) vv_isSwiftProperty
 {
-    return [self vv_matchesPatternRegexPattern:@"^\\s*(.*?)(\\s*let|var\\s*)\\s+"];
+    // `let`/`var` can be in swift func, but `(` appear before `let`/`var` only
+    // happens when `private(set)` or `internal(set)` is used
+    return [self vv_matchesPatternRegexPattern:@"^\\s*([^(]*?)(((\\s*let|var\\s*)\\s+)|(\\(\\s*set\\s*\\)))"];
 }
 
 @end
