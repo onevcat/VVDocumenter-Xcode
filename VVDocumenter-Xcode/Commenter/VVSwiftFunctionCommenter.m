@@ -21,7 +21,7 @@
         self.hasReturn = NO;
     } else if ([funcSignatureWithoutParams vv_matchesPatternRegexPattern:@"s*->\\s*"]) {
         self.hasReturn = YES;
-    } else if ([funcSignatureWithoutParams vv_matchesPatternRegexPattern:@"^\\s*(.*\\s+)?init\\s*"]) {
+    } else if ([funcSignatureWithoutParams vv_matchesPatternRegexPattern:@"^\\s*(.*\\s+)?(init|subscript)\\s*"]) {
         self.hasReturn = YES;
     } else {
         self.hasReturn = NO;
