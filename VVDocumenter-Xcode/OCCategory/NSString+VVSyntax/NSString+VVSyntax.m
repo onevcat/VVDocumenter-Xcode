@@ -71,7 +71,7 @@
 
 -(BOOL) vv_isSwiftFunction
 {
-    return ![self vv_isObjCMethod] && ![self vv_isSwiftProperty] && [self vv_matchesPatternRegexPattern:@"^\\s*(.*\\s+)?(func\\s+)|(init|deinit)"];
+    return ![self vv_isObjCMethod] && ![self vv_isSwiftProperty] && [self vv_matchesPatternRegexPattern:@"^\\s*(.*\\s+)?(func\\s+)|(init|deinit|subscript)"];
 }
 
 -(BOOL) vv_isSwiftEnum
