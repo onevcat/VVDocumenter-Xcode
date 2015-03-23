@@ -548,6 +548,20 @@ SIAlertViewBackgroundStyleSolid,
  :returns: &lt;#return value description#&gt;
  */</string>
 		</dict>
+        <dict>
+            <key>source</key>
+            <string>public subscript (key: KeyType) -> ValueType? {</string>
+            <key>uniform</key>
+            <string>public subscript(key: KeyType)-> ValueType? {</string>
+            <key>result</key>
+            <string>/**
+ &lt;#Description#&gt;
+
+ :param: key &lt;#key description#&gt;
+
+ :returns: &lt;#return value description#&gt;
+ */</string>
+        </dict>
 	</array>
 	<key>vv_isSwiftEnum</key>
 	<array>
