@@ -95,7 +95,7 @@
     NSRange rangeToString = [self rangeOfString:findString options:0 range:range];
     
     NSString *line = nil;
-    if (nextLineRange.location != NSNotFound && rangeToString.location != NSNotFound && nextLineRange.location < rangeToString.location) {
+    if (nextLineRange.location != NSNotFound && rangeToString.location != NSNotFound && nextLineRange.location <= rangeToString.location) {
         NSRange lineRange = NSMakeRange(nextLineRange.location + 1, rangeToString.location - nextLineRange.location);
         if (lineRange.location < [self length] && NSMaxRange(lineRange) < [self length]) {
             line = [self substringWithRange:lineRange];
