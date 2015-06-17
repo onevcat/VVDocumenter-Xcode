@@ -84,7 +84,7 @@
     // `let`/`var` can be in swift func, but `(` appear before `let`/`var` only
     // happens when `private(set)` or `internal(set)` is used
     // typealias is considered to share the same comment as property.
-    return [self vv_matchesPatternRegexPattern:@"^\\s*([^(]*?)(((\\s*let|var|typealias\\s*)\\s+)|(\\(\\s*set\\s*\\)))"];
+    return [self vv_matchesPatternRegexPattern:@"^\\s*([^(]*?)(((\\s*let|var|typealias|class|struct\\s*)\\s+)|(\\(\\s*set\\s*\\)))"];
 }
 
 -(BOOL) vv_isSwiftExtension
