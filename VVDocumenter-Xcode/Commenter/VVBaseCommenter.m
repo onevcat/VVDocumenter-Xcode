@@ -89,22 +89,36 @@
     NSMutableString *result = [NSMutableString stringWithFormat:@"%@", self.emptyLine];
 
     int longestNameLength = [[self.arguments valueForKeyPath:@"@max.name.length"] intValue];
-
+    BOOL useSpace = [[VVDocumenterSetting defaultSetting] useSpaces];
+    
     for (VVArgument *arg in self.arguments) {
         NSString *name = arg.name;
 
         if ([[VVDocumenterSetting defaultSetting] alignArgumentComments]) {
             if (self.forSwiftEnum) {
-                name = [[name stringByAppendingString:@":"] stringByPaddingToLength:longestNameLength + 1 withString:@" " startingAtIndex:0];
+                if (useSpace) {
+                    name = [[name stringByAppendingString:@":"] stringByPaddingToLength:longestNameLength + 1 withString:@" " startingAtIndex:0];
+                } else {
+                    NSInteger tabSpaceRateCount = [[VVDocumenterSetting defaultSetting] spaceCount];
+                    NSInteger neededTabCount = (longestNameLength + tabSpaceRateCount - name.length) / tabSpaceRateCount - 1;
+                    name = [[name stringByAppendingString:@":"] stringByPaddingToLength:(name.length + 1 + neededTabCount) withString:@"\t" startingAtIndex:0];
+                }
             } else {
-                name = [name stringByPaddingToLength:longestNameLength withString:@" " startingAtIndex:0];
+                if (useSpace) {
+                    name = [name stringByPaddingToLength:longestNameLength withString:@" " startingAtIndex:0];
+                } else {
+                    NSInteger tabSpaceRateCount = [[VVDocumenterSetting defaultSetting] spaceCount];
+                    NSInteger neededTabCount = (longestNameLength + tabSpaceRateCount - name.length) / tabSpaceRateCount - 1;
+                    name = [name stringByPaddingToLength:(name.length + neededTabCount) withString:@"\t" startingAtIndex:0];
+                }
             }
         }
 
+        NSString *indentString = useSpace ? @" " : @"\t";
         if (self.forSwiftEnum) {
-            [result appendFormat:@"%@- %@ <#%@ description#>\n", self.prefixString, name, arg.name];
+            [result appendFormat:@"%@- %@%@<#%@ description#>\n", self.prefixString, name, indentString, arg.name];
         } else {
-            [result appendFormat:@"%@%@ %@ <#%@ description#>\n", self.prefixString, [self paramSymbol], name, arg.name];
+            [result appendFormat:@"%@%@ %@%@<#%@ description#>\n", self.prefixString, [self paramSymbol], name, indentString, arg.name];
         }
 
     }
