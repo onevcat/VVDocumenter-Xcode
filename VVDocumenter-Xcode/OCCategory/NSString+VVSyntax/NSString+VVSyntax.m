@@ -86,4 +86,9 @@
     return [self vv_matchesPatternRegexPattern:@"^\\s*([^(]*?)(((\\s*let|var\\s*)\\s+)|(\\(\\s*set\\s*\\)))"];
 }
 
+-(BOOL) vv_isSwiftExtension
+{
+    return [self vv_matchesPatternRegexPattern:@"^\\s*(.*\\s+)?extension\\s+"];
+}
+
 @end
