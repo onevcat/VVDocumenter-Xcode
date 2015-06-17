@@ -40,20 +40,16 @@
     return self.forSwift ? @":returns:" : @"@return";
 }
 
--(NSString *) startComment
-{
-    NSString *descriptionTag =
-    [[VVDocumenterSetting defaultSetting] briefDescription] && !self.forSwift ? @"@brief  " : @"";
-
+-(NSString *) startCommentWithDescriptionTag:(NSString *)tag {
     NSString *authorInfo = @"";
-
+    
     if ([[VVDocumenterSetting defaultSetting] useAuthorInformation] && !self.forSwift) {
         NSMutableString *authorCotent = @"".mutableCopy;
         
         if ([[VVDocumenterSetting defaultSetting] authorInformation].length > 0) {
             [authorCotent appendString:[[VVDocumenterSetting defaultSetting] authorInformation]];
         }
-
+        
         if ([[VVDocumenterSetting defaultSetting] useDateInformation]) {
             NSString *formatString = [[VVDocumenterSetting defaultSetting] dateInformationFormat];
             if ([formatString length] <= 0) {
@@ -65,19 +61,26 @@
             if (authorCotent.length > 0) {
                 [authorCotent appendString:@", "];
             }
-            [authorCotent appendString:[formatter stringFromDate:[NSDate date]]];            
+            [authorCotent appendString:[formatter stringFromDate:[NSDate date]]];
         }
-
+        
         authorInfo = [NSString stringWithFormat:@"%@@author %@\n%@\n", self.prefixString, authorCotent, self.prefixString];
     }
     
     if ([[VVDocumenterSetting defaultSetting] useHeaderDoc]) {
-        return [NSString stringWithFormat:@"%@/*!\n%@%@%@<#Description#>\n", self.indent, authorInfo, self.prefixString, descriptionTag];
+        return [NSString stringWithFormat:@"%@/*!\n%@%@%@<#Description#>\n", self.indent, authorInfo, self.prefixString, tag];
     } else if ([[VVDocumenterSetting defaultSetting] prefixWithSlashes]) {
-        return [NSString stringWithFormat:@"%@%@%@<#Description#>\n", self.prefixString, authorInfo, descriptionTag];
+        return [NSString stringWithFormat:@"%@%@%@<#Description#>\n", self.prefixString, authorInfo, tag];
     } else {
-        return [NSString stringWithFormat:@"%@/**\n%@%@%@<#Description#>\n", self.indent, authorInfo, self.prefixString, descriptionTag];
+        return [NSString stringWithFormat:@"%@/**\n%@%@%@<#Description#>\n", self.indent, authorInfo, self.prefixString, tag];
     }
+}
+
+-(NSString *) startComment
+{
+    NSString *descriptionTag =
+    [[VVDocumenterSetting defaultSetting] briefDescription] && !self.forSwift ? @"@brief  " : @"";
+    return [self startCommentWithDescriptionTag:descriptionTag];
 }
 
 -(NSString *) argumentsComment
