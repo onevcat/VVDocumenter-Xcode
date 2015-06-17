@@ -23,4 +23,5 @@
 
 -(VVTextResult *) vv_textResultWithPairOpenString:(NSString *)open closeString:(NSString *)close;
 
+-(VVTextResult *) vv_textResultToEndOfFile;
 @end

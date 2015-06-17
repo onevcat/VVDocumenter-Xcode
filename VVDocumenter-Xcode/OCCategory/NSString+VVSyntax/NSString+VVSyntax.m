@@ -76,14 +76,15 @@
 
 -(BOOL) vv_isSwiftEnum
 {
-    return [self vv_matchesPatternRegexPattern:@"^\\s*(.*\\s+)?enum\\s+"];
+    return ![self vv_isSwiftProperty] && [self vv_matchesPatternRegexPattern:@"^\\s*(.*\\s+)?enum\\s+"];
 }
 
 -(BOOL) vv_isSwiftProperty
 {
     // `let`/`var` can be in swift func, but `(` appear before `let`/`var` only
     // happens when `private(set)` or `internal(set)` is used
-    return [self vv_matchesPatternRegexPattern:@"^\\s*([^(]*?)(((\\s*let|var\\s*)\\s+)|(\\(\\s*set\\s*\\)))"];
+    // typealias is considered to share the same comment as property.
+    return [self vv_matchesPatternRegexPattern:@"^\\s*([^(]*?)(((\\s*let|var|typealias\\s*)\\s+)|(\\(\\s*set\\s*\\)))"];
 }
 
 @end

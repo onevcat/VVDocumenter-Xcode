@@ -36,10 +36,14 @@
     return [self.textStorage.string vv_textResultUntilNextString:findString currentLocation:[self vv_currentCurseLocation]];
 }
 
-
 -(VVTextResult *) vv_textResultWithPairOpenString:(NSString *)open closeString:(NSString *)close
 {
     return [self.textStorage.string vv_textResultWithPairOpenString:open closeString:close currentLocation:[self vv_currentCurseLocation]];
+}
+
+-(VVTextResult *) vv_textResultToEndOfFile
+{
+    return [self.textStorage.string vv_textResultToEndOfFileCurrentLocation:[self vv_currentCurseLocation]];
 }
 
 @end
