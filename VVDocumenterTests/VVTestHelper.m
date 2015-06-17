@@ -183,7 +183,7 @@ static NSArray *_typeStrings;
                          @"vv_isSwiftFunction",
                          @"vv_isSwiftEnum",
                          @"vv_isSwiftProperty",
-                         @"vv_isSwiftExtention"];
+                         @"vv_isSwiftExtension"];
     }
     
     return [_typeStrings arrayByRemovingObject:type];

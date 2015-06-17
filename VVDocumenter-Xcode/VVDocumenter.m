@@ -76,6 +76,8 @@
         commenter = [[VVSwiftFunctionCommenter alloc] initWithIndentString:baseIndent codeString:trimCode];
     } else if ([trimCode vv_isSwiftProperty]) {
         commenter = [[VVSwiftPropertyCommenter alloc] initWithIndentString:baseIndent codeString:trimCode];
+    } else if ([trimCode vv_isSwiftExtension]) {
+        commenter = [[VVSwiftExtensionCommenter alloc] initWithIndentString:baseIndent codeString:trimCode];
     } else {
         commenter = [[VVVariableCommenter alloc] initWithIndentString:baseIndent codeString:trimCode];
     }
