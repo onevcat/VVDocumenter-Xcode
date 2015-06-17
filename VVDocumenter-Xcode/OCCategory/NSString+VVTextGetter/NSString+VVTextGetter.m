@@ -122,6 +122,13 @@
     return [self textResultWithPairOpenString:open closeString:close currentLocation:location extractMatch:NO];
 }
 
+-(VVTextResult *) vv_textResultToEndOfFileCurrentLocation:(NSInteger)location
+{
+    NSRange range = NSMakeRange(location, self.length - location);
+    VVTextResult *result = [[VVTextResult alloc] initWithRange:range string:[self substringWithRange:range]];
+    return result;
+}
+
 -(VVTextResult *) textResultWithPairOpenString:(NSString *)open
                                    closeString:(NSString *)close
                                currentLocation:(NSInteger)location

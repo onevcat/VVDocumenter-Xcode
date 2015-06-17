@@ -114,6 +114,7 @@
                 //We just want to document the next valid line.
                 VVTextResult *resultUntilSemiColon = [textView vv_textResultUntilNextString:@";"];
                 VVTextResult *resultUntilBrace = [textView vv_textResultUntilNextString:@"{"];
+                VVTextResult *resultUntilFileEnd = [textView vv_textResultToEndOfFile];
                 
                 VVTextResult *resultToDocument = nil;
                 
@@ -121,8 +122,10 @@
                     resultToDocument = (resultUntilSemiColon.range.length < resultUntilBrace.range.length) ? resultUntilSemiColon : resultUntilBrace;
                 } else if (resultUntilBrace) {
                     resultToDocument = resultUntilBrace;
-                } else {
+                } else if (resultUntilSemiColon) {
                     resultToDocument = resultUntilSemiColon;
+                } else {
+                    resultToDocument = resultUntilFileEnd;
                 }
                 
                 //We always write document until semicolon for enum. (Maybe struct later)
