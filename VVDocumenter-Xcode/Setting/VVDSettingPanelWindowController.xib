@@ -666,7 +666,7 @@ y7bMNcy1zTXNtc42zrbPN8+40DnQutE80b7SP9LB00TTxtRJ1MvVTtXR1lXW2Ndc1+DYZNjo2WzZ8dp2
 							<object class="NSButtonCell" key="NSCell" id="117105697">
 								<int key="NSCellFlags">-2080374784</int>
 								<int key="NSCellFlags2">268435456</int>
-								<string key="NSContents">Add Default User Informaiton (objc only)</string>
+								<string key="NSContents">Add Default User Information (objc only)</string>
 								<reference key="NSSupport" ref="45273652"/>
 								<string key="NSCellIdentifier">_NS:9</string>
 								<reference key="NSControlView" ref="505952818"/>

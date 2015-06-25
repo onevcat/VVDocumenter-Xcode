@@ -90,7 +90,11 @@ static NSArray *_typeStrings;
                                  @"lazy var importer = DataImporter()",
                                  @"private ( set ) var distanceTravelled:Double"];
     
-    return @[methods,functions,properties,macros,structs,enums,unions,others,compileKeywords,swiftFunctions,swiftEnum,swiftProperties];
+    NSArray *swiftExtension = @[@"extension SomeViewController: UITableViewDelegate {",
+                                @"extension MyClass \n {",
+                                @"private extension PP : DelegateA, DelegateB {"];
+    
+    return @[methods,functions,properties,macros,structs,enums,unions,others,compileKeywords,swiftFunctions,swiftEnum,swiftProperties, swiftExtension];
 }
 
 +(NSArray *) uniformCodes
@@ -157,7 +161,11 @@ static NSArray *_typeStrings;
                                  @"lazy var importer = DataImporter()",
                                  @"private( set )var distanceTravelled:Double"];
     
-    return @[methods,functions,properties,macros,structs,enums,unions,others,compileKeywords,swiftFunctions,swiftEnum,swiftProperties];
+    NSArray *swiftExtension = @[@"extension SomeViewController: UITableViewDelegate {",
+                                @"extension MyClass {",
+                                @"private extension PP : DelegateA, DelegateB {"];
+    
+    return @[methods,functions,properties,macros,structs,enums,unions,others,compileKeywords,swiftFunctions,swiftEnum,swiftProperties, swiftExtension];
 }
 
 +(NSArray *) arrayOfExceptCodeType:(NSString *)type
@@ -174,7 +182,8 @@ static NSArray *_typeStrings;
                          @"vv_isComplieKeyword",
                          @"vv_isSwiftFunction",
                          @"vv_isSwiftEnum",
-                         @"vv_isSwiftProperty"];
+                         @"vv_isSwiftProperty",
+                         @"vv_isSwiftExtension"];
     }
     
     return [_typeStrings arrayByRemovingObject:type];

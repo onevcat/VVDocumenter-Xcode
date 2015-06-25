@@ -27,4 +27,6 @@
 -(VVTextResult *) vv_textResultMatchPartWithPairOpenString:(NSString *)open
                                             closeString:(NSString *)close
                                         currentLocation:(NSInteger)location;
+
+-(VVTextResult *) vv_textResultToEndOfFileCurrentLocation:(NSInteger)location;
 @end

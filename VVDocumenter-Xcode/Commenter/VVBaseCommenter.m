@@ -40,20 +40,16 @@
     return self.forSwift ? @":returns:" : @"@return";
 }
 
--(NSString *) startComment
-{
-    NSString *descriptionTag =
-    [[VVDocumenterSetting defaultSetting] briefDescription] && !self.forSwift ? @"@brief  " : @"";
-
+-(NSString *) startCommentWithDescriptionTag:(NSString *)tag {
     NSString *authorInfo = @"";
-
+    
     if ([[VVDocumenterSetting defaultSetting] useAuthorInformation] && !self.forSwift) {
         NSMutableString *authorCotent = @"".mutableCopy;
         
         if ([[VVDocumenterSetting defaultSetting] authorInformation].length > 0) {
             [authorCotent appendString:[[VVDocumenterSetting defaultSetting] authorInformation]];
         }
-
+        
         if ([[VVDocumenterSetting defaultSetting] useDateInformation]) {
             NSString *formatString = [[VVDocumenterSetting defaultSetting] dateInformationFormat];
             if ([formatString length] <= 0) {
@@ -65,19 +61,26 @@
             if (authorCotent.length > 0) {
                 [authorCotent appendString:@", "];
             }
-            [authorCotent appendString:[formatter stringFromDate:[NSDate date]]];            
+            [authorCotent appendString:[formatter stringFromDate:[NSDate date]]];
         }
-
+        
         authorInfo = [NSString stringWithFormat:@"%@@author %@\n%@\n", self.prefixString, authorCotent, self.prefixString];
     }
     
     if ([[VVDocumenterSetting defaultSetting] useHeaderDoc]) {
-        return [NSString stringWithFormat:@"%@/*!\n%@%@%@<#Description#>\n", self.indent, authorInfo, self.prefixString, descriptionTag];
+        return [NSString stringWithFormat:@"%@/*!\n%@%@%@<#Description#>\n", self.indent, authorInfo, self.prefixString, tag];
     } else if ([[VVDocumenterSetting defaultSetting] prefixWithSlashes]) {
-        return [NSString stringWithFormat:@"%@%@%@<#Description#>\n", self.prefixString, authorInfo, descriptionTag];
+        return [NSString stringWithFormat:@"%@%@%@<#Description#>\n", self.prefixString, authorInfo, tag];
     } else {
-        return [NSString stringWithFormat:@"%@/**\n%@%@%@<#Description#>\n", self.indent, authorInfo, self.prefixString, descriptionTag];
+        return [NSString stringWithFormat:@"%@/**\n%@%@%@<#Description#>\n", self.indent, authorInfo, self.prefixString, tag];
     }
+}
+
+-(NSString *) startComment
+{
+    NSString *descriptionTag =
+    [[VVDocumenterSetting defaultSetting] briefDescription] && !self.forSwift ? @"@brief  " : @"";
+    return [self startCommentWithDescriptionTag:descriptionTag];
 }
 
 -(NSString *) argumentsComment
@@ -89,22 +92,36 @@
     NSMutableString *result = [NSMutableString stringWithFormat:@"%@", self.emptyLine];
 
     int longestNameLength = [[self.arguments valueForKeyPath:@"@max.name.length"] intValue];
-
+    BOOL useSpace = [[VVDocumenterSetting defaultSetting] useSpaces];
+    
     for (VVArgument *arg in self.arguments) {
         NSString *name = arg.name;
 
         if ([[VVDocumenterSetting defaultSetting] alignArgumentComments]) {
             if (self.forSwiftEnum) {
-                name = [[name stringByAppendingString:@":"] stringByPaddingToLength:longestNameLength + 1 withString:@" " startingAtIndex:0];
+                if (useSpace) {
+                    name = [[name stringByAppendingString:@":"] stringByPaddingToLength:longestNameLength + 1 withString:@" " startingAtIndex:0];
+                } else {
+                    NSInteger tabSpaceRateCount = [[VVDocumenterSetting defaultSetting] spaceCount];
+                    NSInteger neededTabCount = (longestNameLength + tabSpaceRateCount - name.length) / tabSpaceRateCount - 1;
+                    name = [[name stringByAppendingString:@":"] stringByPaddingToLength:(name.length + 1 + neededTabCount) withString:@"\t" startingAtIndex:0];
+                }
             } else {
-                name = [name stringByPaddingToLength:longestNameLength withString:@" " startingAtIndex:0];
+                if (useSpace) {
+                    name = [name stringByPaddingToLength:longestNameLength withString:@" " startingAtIndex:0];
+                } else {
+                    NSInteger tabSpaceRateCount = [[VVDocumenterSetting defaultSetting] spaceCount];
+                    NSInteger neededTabCount = (longestNameLength + tabSpaceRateCount - name.length) / tabSpaceRateCount - 1;
+                    name = [name stringByPaddingToLength:(name.length + neededTabCount) withString:@"\t" startingAtIndex:0];
+                }
             }
         }
 
+        NSString *indentString = useSpace ? @" " : @"\t";
         if (self.forSwiftEnum) {
-            [result appendFormat:@"%@- %@ <#%@ description#>\n", self.prefixString, name, arg.name];
+            [result appendFormat:@"%@- %@%@<#%@ description#>\n", self.prefixString, name, indentString, arg.name];
         } else {
-            [result appendFormat:@"%@%@ %@ <#%@ description#>\n", self.prefixString, [self paramSymbol], name, arg.name];
+            [result appendFormat:@"%@%@ %@%@<#%@ description#>\n", self.prefixString, [self paramSymbol], name, indentString, arg.name];
         }
 
     }

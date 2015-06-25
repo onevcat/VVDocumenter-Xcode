@@ -48,7 +48,7 @@
         return;
     }
     
-    NSString *removedUnwantComma = [rawArgsCode vv_stringByReplacingRegexPattern:@"([{(].*?[^\\)}],.*?[)}])" withString:@""];
+    NSString *removedUnwantComma = [rawArgsCode vv_stringByReplacingRegexPattern:@"[{].*?[^}],.*?[)}]" withString:@""];
     
     NSArray *argumentStrings = [removedUnwantComma componentsSeparatedByString:@","];
     for (__strong NSString *argumentString in argumentStrings) {

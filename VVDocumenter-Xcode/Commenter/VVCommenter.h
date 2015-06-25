@@ -21,5 +21,6 @@
 #import "VVSwiftFunctionCommenter.h"
 #import "VVSwiftEnumCommenter.h"
 #import "VVSwiftPropertyCommenter.h"
+#import "VVSwiftExtensionCommenter.h"
 
 #endif

@@ -29,6 +29,7 @@
 
 // Comment methods
 -(NSString *) startComment;
+-(NSString *) startCommentWithDescriptionTag:(NSString *)tag;
 -(NSString *) argumentsComment;
 -(NSString *) endComment;
 -(NSString *) returnComment;
