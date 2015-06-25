@@ -11,6 +11,8 @@
 		4B50A2701B315CF3008A4400 /* VVSwiftExtensionCommenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B50A26F1B315CF3008A4400 /* VVSwiftExtensionCommenter.m */; };
 		53C67935184501030030C553 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 893D8F7F18262EF500E8A00C /* Carbon.framework */; };
 		893D8F8018262EF500E8A00C /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 893D8F7F18262EF500E8A00C /* Carbon.framework */; };
+		C45158A41B3B988D0048DDC8 /* VVProject.m in Sources */ = {isa = PBXBuildFile; fileRef = C45158A31B3B988D0048DDC8 /* VVProject.m */; };
+		C45158A71B3B99240048DDC8 /* VVWorkspaceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C45158A61B3B99240048DDC8 /* VVWorkspaceManager.m */; };
 		D114BEE0179644D00043FA65 /* NSString+PDRegex.m in Sources */ = {isa = PBXBuildFile; fileRef = D114BEDE179644D00043FA65 /* NSString+PDRegex.m */; };
 		D114BEE3179644FA0043FA65 /* NSTextView+VVTextGetter.m in Sources */ = {isa = PBXBuildFile; fileRef = D114BEE2179644FA0043FA65 /* NSTextView+VVTextGetter.m */; };
 		D11C542D17999D9000D3DE38 /* VVArgument.m in Sources */ = {isa = PBXBuildFile; fileRef = D11C542B17999D9000D3DE38 /* VVArgument.m */; };
@@ -72,6 +74,10 @@
 		4B50A26E1B315CF3008A4400 /* VVSwiftExtensionCommenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVSwiftExtensionCommenter.h; sourceTree = "<group>"; };
 		4B50A26F1B315CF3008A4400 /* VVSwiftExtensionCommenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVSwiftExtensionCommenter.m; sourceTree = "<group>"; };
 		893D8F7F18262EF500E8A00C /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
+		C45158A21B3B988D0048DDC8 /* VVProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVProject.h; sourceTree = "<group>"; };
+		C45158A31B3B988D0048DDC8 /* VVProject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVProject.m; sourceTree = "<group>"; };
+		C45158A51B3B99240048DDC8 /* VVWorkspaceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVWorkspaceManager.h; sourceTree = "<group>"; };
+		C45158A61B3B99240048DDC8 /* VVWorkspaceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVWorkspaceManager.m; sourceTree = "<group>"; };
 		D114BEDD179644D00043FA65 /* NSString+PDRegex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+PDRegex.h"; sourceTree = "<group>"; };
 		D114BEDE179644D00043FA65 /* NSString+PDRegex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+PDRegex.m"; sourceTree = "<group>"; };
 		D114BEE1179644FA0043FA65 /* NSTextView+VVTextGetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTextView+VVTextGetter.h"; sourceTree = "<group>"; };
@@ -162,6 +168,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C45158A11B3B98010048DDC8 /* ProjectHelper */ = {
+			isa = PBXGroup;
+			children = (
+				C45158A21B3B988D0048DDC8 /* VVProject.h */,
+				C45158A31B3B988D0048DDC8 /* VVProject.m */,
+				C45158A51B3B99240048DDC8 /* VVWorkspaceManager.h */,
+				C45158A61B3B99240048DDC8 /* VVWorkspaceManager.m */,
+			);
+			path = ProjectHelper;
+			sourceTree = "<group>";
+		};
 		D114BEDB179644D00043FA65 /* OCCategory */ = {
 			isa = PBXGroup;
 			children = (
@@ -236,6 +253,7 @@
 		D14380FC179551B900C829CE /* VVDocumenter-Xcode */ = {
 			isa = PBXGroup;
 			children = (
+				C45158A11B3B98010048DDC8 /* ProjectHelper */,
 				D193B8C917AC0C2400D2D76A /* Setting */,
 				D1D66CA517A2AED700E62F99 /* KeyboardHelper */,
 				D16AFCD11796E068006719AA /* Commenter */,
@@ -506,11 +524,13 @@
 				D16AFCE91796E0D6006719AA /* VVVariableCommenter.m in Sources */,
 				D1C462F517999CEC00EB7B23 /* NSString+VVSyntax.m in Sources */,
 				D1737637198A4C8A00FE2355 /* NSString+VVTextGetter.m in Sources */,
+				C45158A41B3B988D0048DDC8 /* VVProject.m in Sources */,
 				D1C6124819891B3700FDB554 /* VVSwiftEnumCommenter.m in Sources */,
 				D11C542D17999D9000D3DE38 /* VVArgument.m in Sources */,
 				D1D66CA817A2AEF000E62F99 /* VVKeyboardEventSender.m in Sources */,
 				D173763A198A4CF700FE2355 /* VVTextResult.m in Sources */,
 				D124614717AC16820095F9D6 /* VVDocumenterSetting.m in Sources */,
+				C45158A71B3B99240048DDC8 /* VVWorkspaceManager.m in Sources */,
 				D124614817AC16820095F9D6 /* VVDSettingPanelWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
