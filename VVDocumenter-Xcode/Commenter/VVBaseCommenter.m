@@ -10,6 +10,7 @@
 #import "VVArgument.h"
 #import "VVDocumenterSetting.h"
 #import "NSString+VVSyntax.h"
+#import "VVProject.h"
 
 @interface VVBaseCommenter()
 @property (nonatomic, copy) NSString *space;
@@ -151,8 +152,14 @@
 -(NSString *) sinceComment
 {
     //It seems no since attribute for swift? Maybe I am wrong.
+    VVProject *project = [VVProject projectForKeyWindow];
+    
     if (!self.forSwift && [[VVDocumenterSetting defaultSetting] addSinceToComments]) {
-        return [NSString stringWithFormat:@"%@%@@since <#version number#>\n", self.emptyLine, self.prefixString];
+        if (project.projectVersion && project.projectVersion.length>0) {
+            return [NSString stringWithFormat:@"%@%@@since <#%@#>\n", self.emptyLine, self.prefixString,project.projectVersion];
+        }else{
+         return [NSString stringWithFormat:@"%@%@@since <#version number#>\n", self.emptyLine, self.prefixString];
+        }
     } else {
         return @"";
     }
