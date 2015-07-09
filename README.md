@@ -23,7 +23,15 @@ If you want to use other text beside of `///` to trigger the document insertion,
 
 ## Xcode version?
 
-This plug-in is supported in Xcode 5 and 6 (current beta). From Xcode 5, Apple added a UUID-verification to all plugins to ensure the stability when Xcode gets updated. The value of `DVTPlugInCompatibilityUUIDs` in project plist should contains current UUID of Xcode version, or the plugin does not work. Once you update your Xcode, the plugin might be disabled and you should check the newest version and built it again.
+This plug-in is supported in Xcode 5, 6 and 7 (current beta). From Xcode 5, Apple added a UUID-verification to all plugins to ensure the stability when Xcode gets updated. The value of `DVTPlugInCompatibilityUUIDs` in project plist should contains current UUID of Xcode version, or the plugin does not work. And from Xcode 6.3, you will be prompt to "Load third party bundle" if you are using a plugin. You should always select "Load bundles" to enable this plugin.
+
+All plugins will be disabled since no matched UUID once you update your Xcode. You should try to clean your plugins folder (`~/Library/Application Support/Developer/Shared/Xcode/Plug-ins` by default) and clone/build the latest version from master branch. If you happened to skip the bundle loading, you can use this to reset the prompt:
+
+```bash
+defaults delete com.apple.dt.Xcode DVTPlugInManagerNonApplePlugIns-Xcode-{your_xcode_version}
+```
+
+**Please do not open an issue if this plugin not work in your newly updated Xcode.** Pull request for new `DVTPlugInCompatibilityUUIDs` is welcome, and if UUID of your Xcode version is already there, please try to reinstall the plugin from a clean state.
 
 The default deployment target is 10.8. If you want to use it in a earlier OS version, you should change OS X Deployment Target (in project info setting) to your system version.
 
