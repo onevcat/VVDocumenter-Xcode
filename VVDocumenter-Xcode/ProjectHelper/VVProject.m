@@ -47,7 +47,6 @@
         _organizeationName = [self getOrganizeationName];
         NSString *infoplistName = [self infoplistNameWithAtScheme:name];
         
-        
         NSString *infoPath = [path stringByAppendingPathComponent:[NSString stringWithFormat:@"%@", infoplistName]];
         
         

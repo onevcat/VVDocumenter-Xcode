@@ -8,6 +8,7 @@
 
 #import "VVDocumenterSetting.h"
 #import <Carbon/Carbon.h>
+#import "VVProject.h"
 
 NSString *const VVDDefaultTriggerString = @"///";
 NSString *const VVDDefaultAuthorString = @"";
@@ -191,8 +192,18 @@ NSString *const kVVDDateInformationFormat = @"com.onevcat.VVDocumenter.dateInfor
 
 -(NSString *)authorInformation {
     NSString *authorInformation = [[NSUserDefaults standardUserDefaults] objectForKey:kVVDAuthorInfomation];
-    if (authorInformation == nil ) {
-        authorInformation = VVDDefaultAuthorString;
+    if (authorInformation.length <= 0 ) {
+        NSString *name = [[VVProject projectForKeyWindow] organizeationName];
+        if (name.length <= 0) {
+            NSDictionary *environment = [[NSProcessInfo processInfo] environment];
+            name = [environment objectForKey:@"LOGNAME"];
+        }
+        
+        if (name.length > 0) {
+            authorInformation = name;
+        }else{
+            authorInformation = VVDDefaultAuthorString;
+        }
     }
     return authorInformation;
 }
