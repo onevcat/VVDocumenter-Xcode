@@ -20,6 +20,11 @@
 
 @property (nonatomic, strong) NSString *projectVersion;
 
+@property (nonatomic,strong) NSDictionary *pbxprojDictionary;
+
+@property (nonatomic,strong) NSString *organizeationName;
+
+
 + (instancetype)projectForKeyWindow;
 
 @end

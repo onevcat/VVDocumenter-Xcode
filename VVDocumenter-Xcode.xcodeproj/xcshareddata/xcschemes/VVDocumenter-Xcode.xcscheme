@@ -20,6 +20,20 @@
                ReferencedContainer = "container:VVDocumenter-Xcode.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "D1C462D917999C2000EB7B23"
+               BuildableName = "VVDocumenterTests.xctest"
+               BlueprintName = "VVDocumenterTests"
+               ReferencedContainer = "container:VVDocumenter-Xcode.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -39,6 +53,15 @@
             </BuildableReference>
          </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "D14380F2179551B900C829CE"
+            BuildableName = "VVDocumenter-Xcode.xcplugin"
+            BlueprintName = "VVDocumenter-Xcode"
+            ReferencedContainer = "container:VVDocumenter-Xcode.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </TestAction>
    <LaunchAction
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
@@ -49,6 +72,15 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "D14380F2179551B900C829CE"
+            BuildableName = "VVDocumenter-Xcode.xcplugin"
+            BlueprintName = "VVDocumenter-Xcode"
+            ReferencedContainer = "container:VVDocumenter-Xcode.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -58,6 +90,15 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "D14380F2179551B900C829CE"
+            BuildableName = "VVDocumenter-Xcode.xcplugin"
+            BlueprintName = "VVDocumenter-Xcode"
+            ReferencedContainer = "container:VVDocumenter-Xcode.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
