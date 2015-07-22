@@ -16,9 +16,6 @@
     id workspace = [VVWorkspaceManager workspaceForKeyWindow];
     
     id contextManager = [workspace valueForKey:@"_runContextManager"];
-//    id activeScheme = [contextManager valueForKey:@"_activeRunContext"];
-//    NSString *activeSchemeName = [activeScheme valueForKey:@"name"];
-//    id activeSchemeIdentifier = [activeScheme valueForKey:@"schemeIdentifier"];
     
     for (id scheme in[contextManager valueForKey:@"runContexts"]) {
         NSString *schemeName = [scheme valueForKey:@"name"];
