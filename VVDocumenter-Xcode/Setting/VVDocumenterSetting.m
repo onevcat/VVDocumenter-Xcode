@@ -67,6 +67,20 @@ NSString *const kVVDDateInformationFormat = @"com.onevcat.VVDocumenter.dateInfor
     }
 }
 
+-(BOOL) useWorkmanLayout
+{
+    TISInputSourceRef inputSource = TISCopyCurrentKeyboardLayoutInputSource();
+    NSString *layoutID = (__bridge NSString *)TISGetInputSourceProperty(inputSource, kTISPropertyInputSourceID);
+    CFRelease(inputSource);
+
+    if ([layoutID rangeOfString:@"Workman" options:NSCaseInsensitiveSearch].location != NSNotFound && ![layoutID containsString:@"QWERTYCMD"]) {
+        return YES;
+    } else {
+        return NO;
+    }
+}
+
+
 -(NSInteger) spaceCount
 {
     NSInteger count = [[NSUserDefaults standardUserDefaults] integerForKey:kVVDSpaceCount];
