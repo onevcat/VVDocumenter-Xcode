@@ -72,7 +72,10 @@ static NSArray *_typeStrings;
                                 @"func sayHelloWorld() ->String",
                                 @"func testParamsType(var a: Int) {",
                                 @"init(style: Style, gearing: Gearing, handlebar: Handlebar, frameSize centimeters: Int) {",
-                                @"public subscript(key: KeyType)-> ValueType? {"];
+                                @"public subscript(key: KeyType)-> ValueType? {",
+                                @"func methodCouldThrows(count: Int) throws -> Int {",
+                                @"func methodCouldThrows() throws {",
+                                @"func methodCouldThrows(count: Int, name: String, f: (Int, String) throws -> Void) rethrows -> Int {"];
     
     /*
     //Now there is no difference between Objective-C (C) struct and Swift struct. Ignore this.
@@ -143,7 +146,10 @@ static NSArray *_typeStrings;
                                 @"func sayHelloWorld()->String",
                                 @"func testParamsType(var a: Int){",
                                 @"init(style: Style, gearing: Gearing, handlebar: Handlebar, frameSize centimeters: Int){",
-                                @"public subscript(key: KeyType)-> ValueType? {"];
+                                @"public subscript(key: KeyType)-> ValueType? {",
+                                @"func methodCouldThrows(count: Int)throws -> Int {",
+                                @"func methodCouldThrows()throws {",
+                                @"func methodCouldThrows(count: Int, name: String, f:(Int, String)throws -> Void)rethrows -> Int {"];
     
     /*
      //Now there is no difference between Objective-C (C) struct and Swift struct. Ignore this.
