@@ -747,7 +747,7 @@ SIAlertViewBackgroundStyleSolid,
 			<key>uniform</key>
 			<string>extension MyClass: SomeDelegate {</string>
 			<key>result</key>
-			<string>// MARK: - &lt;#Description#&gt;</string>
+			<string>// MARK: - &lt;#SomeDelegate#&gt;</string>
 		</dict>
         <dict>
             <key>source</key>

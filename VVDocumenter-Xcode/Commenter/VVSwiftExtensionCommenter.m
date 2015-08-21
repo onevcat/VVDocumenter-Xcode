@@ -11,6 +11,12 @@
 @implementation VVSwiftExtensionCommenter
 -(NSString *) document
 {
-    return @"// MARK: - <#Description#>";
+    NSArray *component = [[self.code stringByReplacingOccurrencesOfString:@"{" withString:@""] componentsSeparatedByString:@":"];
+    NSString *description = @"Description";
+    if (component.count == 2) {
+        description = [component.lastObject stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    }
+    
+    return [NSString stringWithFormat:@"// MARK: - <#%@#>", description];
 }
 @end
