@@ -14,6 +14,7 @@
 @property (nonatomic, copy) NSString *code;
 @property (nonatomic, strong) NSMutableArray *arguments;
 @property (nonatomic, assign) BOOL hasReturn;
+@property (nonatomic, assign) BOOL hasThrows;
 
 -(instancetype) initWithIndentString:(NSString *)indent codeString:(NSString *)code;
 
