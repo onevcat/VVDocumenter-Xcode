@@ -8,6 +8,7 @@
 
 #import "VVDocumenterSetting.h"
 #import <Carbon/Carbon.h>
+#import "VVProject.h"
 
 NSString *const VVDDefaultTriggerString = @"///";
 NSString *const VVDDefaultAuthorString = @"";
@@ -66,6 +67,20 @@ NSString *const kVVDDateInformationFormat = @"com.onevcat.VVDocumenter.dateInfor
         return NO;
     }
 }
+
+-(BOOL) useWorkmanLayout
+{
+    TISInputSourceRef inputSource = TISCopyCurrentKeyboardLayoutInputSource();
+    NSString *layoutID = (__bridge NSString *)TISGetInputSourceProperty(inputSource, kTISPropertyInputSourceID);
+    CFRelease(inputSource);
+
+    if ([layoutID rangeOfString:@"Workman" options:NSCaseInsensitiveSearch].location != NSNotFound && ![layoutID containsString:@"QWERTYCMD"]) {
+        return YES;
+    } else {
+        return NO;
+    }
+}
+
 
 -(NSInteger) spaceCount
 {
@@ -191,8 +206,18 @@ NSString *const kVVDDateInformationFormat = @"com.onevcat.VVDocumenter.dateInfor
 
 -(NSString *)authorInformation {
     NSString *authorInformation = [[NSUserDefaults standardUserDefaults] objectForKey:kVVDAuthorInfomation];
-    if (authorInformation == nil ) {
-        authorInformation = VVDDefaultAuthorString;
+    if (authorInformation.length <= 0 ) {
+        NSString *name = [[VVProject projectForKeyWindow] organizeationName];
+        if (name.length <= 0) {
+            NSDictionary *environment = [[NSProcessInfo processInfo] environment];
+            name = [environment objectForKey:@"LOGNAME"];
+        }
+        
+        if (name.length > 0) {
+            authorInformation = name;
+        }else{
+            authorInformation = VVDDefaultAuthorString;
+        }
     }
     return authorInformation;
 }

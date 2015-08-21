@@ -10,15 +10,20 @@
 
 @interface VVProject : NSObject
 
-@property (nonatomic, strong) NSString *directoryPath;
+@property (nonatomic, copy) NSString     *directoryPath;
 
-@property (nonatomic, readonly) NSString *workspacePath;
+@property (nonatomic,copy,readonly) NSString     *workspacePath;
 
-@property (nonatomic, strong) NSString *projectName;
+@property (nonatomic, copy) NSString     *projectName;
 
-@property (nonatomic, strong) NSDictionary *infoDictionary;
+@property (nonatomic, copy) NSDictionary *infoDictionary;
 
-@property (nonatomic, strong) NSString *projectVersion;
+@property (nonatomic, copy) NSString     *projectVersion;
+
+@property (nonatomic,copy) NSDictionary *pbxprojDictionary;
+
+@property (nonatomic,copy) NSString     *organizeationName;
+
 
 + (instancetype)projectForKeyWindow;
 
