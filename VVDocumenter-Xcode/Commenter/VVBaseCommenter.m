@@ -41,6 +41,10 @@
     return self.forSwift ? @"- returns:" : @"@return";
 }
 
+-(NSString *) throwsSymbol {
+    return @"- throws:";
+}
+
 -(NSString *) startCommentWithDescriptionTag:(NSString *)tag {
     NSString *authorInfo = @"";
     
@@ -149,6 +153,15 @@
     }
 }
 
+-(NSString *) throwsComment
+{
+    if (!self.hasThrows) {
+        return @"";
+    } else {
+        return [NSString stringWithFormat:@"%@%@%@ <#throws value description#>\n", self.emptyLine, self.prefixString, [self throwsSymbol]];
+    }
+}
+
 -(NSString *) sinceComment
 {
     //It seems no since attribute for swift? Maybe I am wrong.
@@ -195,9 +208,10 @@
 
 -(NSString *) __document
 {
-    NSString * comment = [NSString stringWithFormat:@"%@%@%@%@%@",
+    NSString * comment = [NSString stringWithFormat:@"%@%@%@%@%@%@",
                           [self startComment],
                           [self argumentsComment],
+                          [self throwsComment],
                           [self returnComment],
                           [self sinceComment],
                           [self endComment]];
