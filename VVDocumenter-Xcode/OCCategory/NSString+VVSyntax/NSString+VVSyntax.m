@@ -81,6 +81,11 @@
 
 -(BOOL) vv_isSwiftProperty
 {
+    // Opt out the situation of `class func`
+    if ([self vv_matchesPatternRegexPattern:@"class func"]) {
+        return NO;
+    }
+    
     // `let`/`var` can be in swift func, but `(` appear before `let`/`var` only
     // happens when `private(set)` or `internal(set)` is used
     // typealias is considered to share the same comment as property.
