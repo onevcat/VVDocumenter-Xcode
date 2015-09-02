@@ -34,11 +34,15 @@
 }
 
 -(NSString *) paramSymbol {
-    return self.forSwift ? @":param:" : @"@param";
+    return self.forSwift ? @"- parameter" : @"@param";
 }
 
 -(NSString *) returnSymbol {
-    return self.forSwift ? @":returns:" : @"@return";
+    return self.forSwift ? @"- returns:" : @"@return";
+}
+
+-(NSString *) throwsSymbol {
+    return @"- throws:";
 }
 
 -(NSString *) startCommentWithDescriptionTag:(NSString *)tag {
@@ -108,12 +112,23 @@
                     name = [[name stringByAppendingString:@":"] stringByPaddingToLength:(name.length + 1 + neededTabCount) withString:@"\t" startingAtIndex:0];
                 }
             } else {
-                if (useSpace) {
-                    name = [name stringByPaddingToLength:longestNameLength withString:@" " startingAtIndex:0];
+                if (self.forSwift) {
+                    name = [name stringByAppendingString:@":"];
+                    if (useSpace) {
+                        name = [name stringByPaddingToLength:longestNameLength + 1 withString:@" " startingAtIndex:0];
+                    } else {
+                        NSInteger tabSpaceRateCount = [[VVDocumenterSetting defaultSetting] spaceCount];
+                        NSInteger neededTabCount = (longestNameLength + 1 + tabSpaceRateCount - name.length) / tabSpaceRateCount - 1;
+                        name = [name stringByPaddingToLength:(name.length + neededTabCount) withString:@"\t" startingAtIndex:0];
+                    }
                 } else {
-                    NSInteger tabSpaceRateCount = [[VVDocumenterSetting defaultSetting] spaceCount];
-                    NSInteger neededTabCount = (longestNameLength + tabSpaceRateCount - name.length) / tabSpaceRateCount - 1;
-                    name = [name stringByPaddingToLength:(name.length + neededTabCount) withString:@"\t" startingAtIndex:0];
+                    if (useSpace) {
+                        name = [name stringByPaddingToLength:longestNameLength withString:@" " startingAtIndex:0];
+                    } else {
+                        NSInteger tabSpaceRateCount = [[VVDocumenterSetting defaultSetting] spaceCount];
+                        NSInteger neededTabCount = (longestNameLength + tabSpaceRateCount - name.length) / tabSpaceRateCount - 1;
+                        name = [name stringByPaddingToLength:(name.length + neededTabCount) withString:@"\t" startingAtIndex:0];
+                    }
                 }
             }
         }
@@ -135,6 +150,15 @@
         return @"";
     } else {
         return [NSString stringWithFormat:@"%@%@%@ <#return value description#>\n", self.emptyLine, self.prefixString, [self returnSymbol]];
+    }
+}
+
+-(NSString *) throwsComment
+{
+    if (!self.hasThrows) {
+        return @"";
+    } else {
+        return [NSString stringWithFormat:@"%@%@%@ <#throws value description#>\n", self.emptyLine, self.prefixString, [self throwsSymbol]];
     }
 }
 
@@ -184,9 +208,10 @@
 
 -(NSString *) __document
 {
-    NSString * comment = [NSString stringWithFormat:@"%@%@%@%@%@",
+    NSString * comment = [NSString stringWithFormat:@"%@%@%@%@%@%@",
                           [self startComment],
                           [self argumentsComment],
+                          [self throwsComment],
                           [self returnComment],
                           [self sinceComment],
                           [self endComment]];

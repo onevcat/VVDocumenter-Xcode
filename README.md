@@ -39,6 +39,10 @@ The default deployment target is 10.8. If you want to use it in a earlier OS ver
 
 Yes, this plugin supports documentation for Swift now. Check [this post](http://nshipster.com/swift-documentation/) from @mattt to see how to write the documentation for swift. By using `VVDocumenter-Xcode`, you can just type `///` to make the magic happen.
 
+### Swift 2.0 and Xcode 7 beta
+
+You should use swift-2.0 branch instead of the master branch if you are using Xcode 7 beta with Swift 2.0.
+
 ## Limitations and Future
 
 The plugin is using simulation of keyboard event to insert the doc comments for you. So it is depending the keyboard shortcut of Xcode. These two kinds of operation are being used:
