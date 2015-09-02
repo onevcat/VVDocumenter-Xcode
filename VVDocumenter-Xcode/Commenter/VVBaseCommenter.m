@@ -34,11 +34,11 @@
 }
 
 -(NSString *) paramSymbol {
-    return self.forSwift ? @":param:" : @"@param";
+    return self.forSwift ? @"- parameter" : @"@param";
 }
 
 -(NSString *) returnSymbol {
-    return self.forSwift ? @":returns:" : @"@return";
+    return self.forSwift ? @"- returns:" : @"@return";
 }
 
 -(NSString *) startCommentWithDescriptionTag:(NSString *)tag {
