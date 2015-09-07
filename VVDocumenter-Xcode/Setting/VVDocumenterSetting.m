@@ -20,6 +20,8 @@ NSString *const kVVDTriggerString = @"com.onevcat.VVDocumenter.triggerString";
 NSString *const kVVDPrefixWithStar = @"com.onevcat.VVDocumenter.prefixWithStar";
 NSString *const kVVDPrefixWithSlashes = @"com.onevcat.VVDocumenter.prefixWithSlashes";
 NSString *const kVVDAddSinceToComments = @"com.onevcat.VVDocumenter.addSinceToComments";
+NSString *const kVVDSinceVersion = @"com.onevcat.VVDocumenter.sinceVersion";
+NSString *const kVVDSinceOption = @"com.onevcat.VVDocumenter.sinceOption";
 NSString *const kVVDBriefDescription = @"com.onevcat.VVDocumenter.briefDescription";
 NSString *const kVVDUserHeaderDoc = @"com.onevcat.VVDocumenter.useHeaderDoc";
 NSString *const kVVDNoBlankLinesBetweenFields = @"com.onevcat.VVDocumenter.noBlankLinesBetweenFields";
@@ -120,6 +122,19 @@ NSString *const kVVDDateInformationFormat = @"com.onevcat.VVDocumenter.dateInfor
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
+-(VVDSinceOption) sinceOption
+{
+    NSNumber *option = [[NSUserDefaults standardUserDefaults] objectForKey:kVVDSinceOption];
+    return (VVDSinceOption)option.unsignedIntegerValue;
+}
+
+- (void)setSinceOption:(VVDSinceOption)sinceOption
+{
+    NSNumber *option = @(sinceOption);
+    [[NSUserDefaults standardUserDefaults] setObject:option forKey:kVVDSinceOption];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
 -(BOOL) prefixWithStar
 {
     return [[NSUserDefaults standardUserDefaults] boolForKey:kVVDPrefixWithStar];
@@ -150,6 +165,17 @@ NSString *const kVVDDateInformationFormat = @"com.onevcat.VVDocumenter.dateInfor
 -(void) setAddSinceToComments:(BOOL)add
 {
     [[NSUserDefaults standardUserDefaults] setBool:add forKey:kVVDAddSinceToComments];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (NSString *)sinceVersion
+{
+    return [[NSUserDefaults standardUserDefaults] objectForKey:kVVDSinceVersion];
+}
+
+- (void)setSinceVersion:(NSString *)sinceVersion
+{
+    [[NSUserDefaults standardUserDefaults] setObject:sinceVersion forKey:kVVDSinceVersion];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
