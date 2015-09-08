@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-typedef NS_ENUM(NSUInteger, VVDSinceOption) {
+typedef NS_ENUM(NSInteger, VVDSinceOption) {
     VVDSinceOptionPlaceholder,
     VVDSinceOptionProjectVersion,
     VVDSinceOptionSpecificVersion,

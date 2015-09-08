@@ -124,14 +124,12 @@ NSString *const kVVDDateInformationFormat = @"com.onevcat.VVDocumenter.dateInfor
 
 -(VVDSinceOption) sinceOption
 {
-    NSNumber *option = [[NSUserDefaults standardUserDefaults] objectForKey:kVVDSinceOption];
-    return (VVDSinceOption)option.unsignedIntegerValue;
+    return (VVDSinceOption)[[NSUserDefaults standardUserDefaults] integerForKey:kVVDSinceOption];
 }
 
 - (void)setSinceOption:(VVDSinceOption)sinceOption
 {
-    NSNumber *option = @(sinceOption);
-    [[NSUserDefaults standardUserDefaults] setObject:option forKey:kVVDSinceOption];
+    [[NSUserDefaults standardUserDefaults] setInteger:sinceOption forKey:kVVDSinceOption];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
