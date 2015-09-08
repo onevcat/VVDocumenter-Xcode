@@ -8,6 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+typedef NS_ENUM(NSInteger, VVDSinceOption) {
+    VVDSinceOptionPlaceholder,
+    VVDSinceOptionProjectVersion,
+    VVDSinceOptionSpecificVersion,
+};
+
 extern NSString *const VVDDefaultTriggerString;
 extern NSString *const VVDDefaultAuthorString;
 extern NSString *const VVDDefaultDateInfomationFormat;
@@ -20,9 +26,11 @@ extern NSString *const VVDDefaultDateInfomationFormat;
 @property BOOL useSpaces;
 @property NSInteger spaceCount;
 @property NSString *triggerString;
+@property VVDSinceOption sinceOption;
 @property BOOL prefixWithStar;
 @property BOOL prefixWithSlashes;
 @property BOOL addSinceToComments;
+@property NSString *sinceVersion;
 @property BOOL briefDescription;
 @property BOOL useHeaderDoc;
 @property BOOL blankLinesBetweenSections;
