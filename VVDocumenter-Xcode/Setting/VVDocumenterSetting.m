@@ -170,7 +170,13 @@ NSString *const kVVDDateInformationFormat = @"com.onevcat.VVDocumenter.dateInfor
 
 - (NSString *)sinceVersion
 {
-    return [[NSUserDefaults standardUserDefaults] objectForKey:kVVDSinceVersion];
+    NSString *sinceVersion = [[NSUserDefaults standardUserDefaults] objectForKey:kVVDSinceVersion];
+
+    if ( ! sinceVersion ) {
+        sinceVersion = @"";
+    }
+
+    return sinceVersion;
 }
 
 - (void)setSinceVersion:(NSString *)sinceVersion
