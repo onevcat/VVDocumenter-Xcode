@@ -23,7 +23,7 @@ If you want to use other text beside of `///` to trigger the document insertion,
 
 ## Xcode version?
 
-This plug-in is supported in Xcode 5, 6 and 7 (current beta). From Xcode 5, Apple added a UUID-verification to all plugins to ensure the stability when Xcode gets updated. The value of `DVTPlugInCompatibilityUUIDs` in project plist should contains current UUID of Xcode version, or the plugin does not work. And from Xcode 6.3, you will be prompt to "Load third party bundle" if you are using a plugin. You should always select "Load bundles" to enable this plugin.
+This plug-in is supported in Xcode 5, 6 and 7. From Xcode 5, Apple added a UUID-verification to all plugins to ensure the stability when Xcode gets updated. The value of `DVTPlugInCompatibilityUUIDs` in project plist should contains current UUID of Xcode version, or the plugin does not work. And from Xcode 6.3, you will be prompt to "Load third party bundle" if you are using a plugin. You should always select "Load bundles" to enable this plugin.
 
 All plugins will be disabled once you update your Xcode, since the supported UUIDs in the plugins do not contain the one. You should try to clean your plugins folder (`~/Library/Application Support/Developer/Shared/Xcode/Plug-ins` by default) and clone/build the latest version from master branch. If you happened to skip the bundle loading, you can use this to reset the prompt:
 
@@ -37,7 +37,9 @@ The default deployment target is 10.8. If you want to use it in a earlier OS ver
 
 ## Swift Support
 
-Yes, this plugin supports documentation for Swift now. Check [this post](http://nshipster.com/swift-documentation/) from @mattt to see how to write the documentation for swift. By using `VVDocumenter-Xcode`, you can just type `///` to make the magic happen.
+Yes, this plugin supports documentation for Swift 2 now. Check [this post](http://ericasadun.com/2015/06/14/swift-header-documentation-in-xcode-7/) to see how to write the documentation for swift. By using `VVDocumenter-Xcode`, you can just type `///` to make the magic happen.
+
+The documentation format changed from Swift 1.x to 2. If you are using Swift 1.x, you could build from branch [Xcode6](https://github.com/onevcat/VVDocumenter-Xcode/tree/Xcode6) to get the support for the earlier format.
 
 ## Limitations and Future
 

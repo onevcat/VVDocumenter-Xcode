@@ -9,7 +9,7 @@
 	<key>CFBundleIconFile</key>
 	<string></string>
 	<key>CFBundleIdentifier</key>
-	<string>com.onevcat.${PRODUCT_NAME:rfc1034identifier}</string>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -42,7 +42,7 @@
 		<string>0420B86A-AA43-4792-9ED0-6FE0F2B16A13</string>
 	</array>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © 2013年 OneV&apos;s Den. All rights reserved.</string>
+	<string>Copyright © 2013年 OneV's Den. All rights reserved.</string>
 	<key>NSPrincipalClass</key>
 	<string></string>
 	<key>XC4Compatible</key>
