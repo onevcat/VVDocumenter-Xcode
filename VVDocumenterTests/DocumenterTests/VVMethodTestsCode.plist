@@ -355,7 +355,7 @@
 			<string>/**
  *  &lt;#Description#&gt;
  */
-typedef NS_ENUM(NSInteger, SIAlertViewBackgroundStyle){
+typedef NS_ENUM(NSInteger, SIAlertViewBackgroundStyle) {
 /**
  *  &lt;#Description#&gt;
  */
