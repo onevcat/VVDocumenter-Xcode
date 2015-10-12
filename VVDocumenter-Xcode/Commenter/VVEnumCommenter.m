@@ -46,7 +46,8 @@
     NSTextCheckingResult *enumDefineResult = [enumDefineExpression firstMatchInString:self.code options:0 range:NSMakeRange(0, self.code.length)];
     
     finalString = [finalString stringByAppendingString:[self.code substringWithRange:[enumDefineResult rangeAtIndex:0]]];
-    finalString = [finalString stringByAppendingString:@"\n"];
+    finalString = [finalString substringToIndex:finalString.length - 1];
+    finalString = [finalString stringByAppendingString:@" {\n"];
     
     NSString *endPattern = @"\\}\\s*;";
     NSString *enumPartsString = [[self.code vv_stringByReplacingRegexPattern:enumDefinePattern withString:@""]
