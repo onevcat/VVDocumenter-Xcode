@@ -39,8 +39,7 @@ extern NSString *const VVDDefaultDateInfomationFormat;
 @interface VVDocumenterSetting : NSObject
 + (VVDocumenterSetting *)defaultSetting;
 
-@property (readonly) BOOL useDvorakLayout;
-@property (readonly) BOOL useWorkmanLayout;
+@property (readonly) NSInteger keyVCode;
 @property BOOL useSpaces;
 @property NSInteger spaceCount;
 @property NSString *triggerString;

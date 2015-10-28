@@ -75,30 +75,21 @@ NSString *const kVVDDateInformationFormat = @"com.onevcat.VVDocumenter.dateInfor
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
--(BOOL) useDvorakLayout
+-(NSInteger) keyVCode
 {
     TISInputSourceRef inputSource = TISCopyCurrentKeyboardLayoutInputSource();
     NSString *layoutID = (__bridge NSString *)TISGetInputSourceProperty(inputSource, kTISPropertyInputSourceID);
     CFRelease(inputSource);
-    
-    if ([layoutID rangeOfString:@"Dvorak" options:NSCaseInsensitiveSearch].location != NSNotFound && ![layoutID containsString:@"QWERTYCMD"]) {
-        return YES;
-    } else {
-        return NO;
-    }
-}
 
--(BOOL) useWorkmanLayout
-{
-    TISInputSourceRef inputSource = TISCopyCurrentKeyboardLayoutInputSource();
-    NSString *layoutID = (__bridge NSString *)TISGetInputSourceProperty(inputSource, kTISPropertyInputSourceID);
-    CFRelease(inputSource);
+    if ([layoutID rangeOfString:@"Dvorak" options:NSCaseInsensitiveSearch].location != NSNotFound && ![layoutID containsString:@"QWERTYCMD"]) {
+        return kVK_ANSI_Period;
+    }
 
     if ([layoutID rangeOfString:@"Workman" options:NSCaseInsensitiveSearch].location != NSNotFound && ![layoutID containsString:@"QWERTYCMD"]) {
-        return YES;
-    } else {
-        return NO;
+        return kVK_ANSI_B;
     }
+
+    return kVK_ANSI_V;
 }
 
 
