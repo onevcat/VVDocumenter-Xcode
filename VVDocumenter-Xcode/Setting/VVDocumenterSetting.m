@@ -75,30 +75,33 @@ NSString *const kVVDDateInformationFormat = @"com.onevcat.VVDocumenter.dateInfor
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
--(BOOL) useDvorakLayout
-{
-    TISInputSourceRef inputSource = TISCopyCurrentKeyboardLayoutInputSource();
-    NSString *layoutID = (__bridge NSString *)TISGetInputSourceProperty(inputSource, kTISPropertyInputSourceID);
-    CFRelease(inputSource);
-    
-    if ([layoutID rangeOfString:@"Dvorak" options:NSCaseInsensitiveSearch].location != NSNotFound && ![layoutID containsString:@"QWERTYCMD"]) {
-        return YES;
-    } else {
-        return NO;
-    }
-}
-
--(BOOL) useWorkmanLayout
+-(NSInteger) keyVCode
 {
     TISInputSourceRef inputSource = TISCopyCurrentKeyboardLayoutInputSource();
     NSString *layoutID = (__bridge NSString *)TISGetInputSourceProperty(inputSource, kTISPropertyInputSourceID);
     CFRelease(inputSource);
 
-    if ([layoutID rangeOfString:@"Workman" options:NSCaseInsensitiveSearch].location != NSNotFound && ![layoutID containsString:@"QWERTYCMD"]) {
-        return YES;
-    } else {
-        return NO;
+    // Possible dvorak layout SourceIDs:
+    //    com.apple.keylayout.Dvorak (System Qwerty)
+    // But exclude:
+    //    com.apple.keylayout.DVORAK-QWERTYCMD (System Qwerty ⌘)
+    //    org.unknown.keylayout.DvorakImproved-Qwerty⌘ (http://www.macupdate.com/app/mac/24137/dvorak-improved-keyboard-layout)
+    if ([layoutID localizedCaseInsensitiveContainsString:@"dvorak"] && ![layoutID localizedCaseInsensitiveContainsString: @"qwerty"]) {
+        return kVK_ANSI_Period;
     }
+
+    // Possible workman layout SourceIDs (https://github.com/ojbucao/Workman):
+    //    org.sil.ukelele.keyboardlayout.workman.workman
+    //    org.sil.ukelele.keyboardlayout.workman.workmanextended
+    //    org.sil.ukelele.keyboardlayout.workman.workman-io
+    //    org.sil.ukelele.keyboardlayout.workman.workman-p
+    //    org.sil.ukelele.keyboardlayout.workman.workman-pextended
+    //    org.sil.ukelele.keyboardlayout.workman.workman-dead
+    if ([layoutID localizedCaseInsensitiveContainsString:@"workman"]) {
+        return kVK_ANSI_B;
+    }
+
+    return kVK_ANSI_V;
 }
 
 

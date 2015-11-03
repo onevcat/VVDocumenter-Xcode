@@ -185,12 +185,8 @@
                 //Cmd+delete Delete current line
                 [kes sendKeyCode:kVK_Delete withModifierCommand:YES alt:NO shift:NO control:NO];
                 //if (shouldReplace) [textView setSelectedRange:resultToDocument.range];
-                //Cmd+V, paste (If it is Dvorak layout, use '.', which is corresponding the key 'V' in a QWERTY layout)
-                NSInteger kKeyVCode = [[VVDocumenterSetting defaultSetting] useDvorakLayout] ? kVK_ANSI_Period : kVK_ANSI_V;
-                if ([[VVDocumenterSetting defaultSetting] useWorkmanLayout]) {
-                    kKeyVCode = kVK_ANSI_B;
-                }
-                
+                //Cmd+V, paste (which key to actually use is based on the current keyboard layout)
+                NSInteger kKeyVCode = [[VVDocumenterSetting defaultSetting] keyVCode];
                 [kes sendKeyCode:kKeyVCode withModifierCommand:YES alt:NO shift:NO control:NO];
                 
                 //The key down is just a defined finish signal by me. When we receive this key, we know operation above is finished.
