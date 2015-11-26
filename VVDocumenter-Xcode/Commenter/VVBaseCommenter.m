@@ -102,7 +102,7 @@
 -(NSString *) startComment
 {
     NSString *descriptionTag =
-    [[VVDocumenterSetting defaultSetting] briefDescription] && !self.forSwift ? @"@brief  " : @"";
+    [[VVDocumenterSetting defaultSetting] briefDescription] && !self.forSwift ? @"@brief " : @"";
     return [self startCommentWithDescriptionTag:descriptionTag];
 }
 
