@@ -71,8 +71,15 @@
     }
     
     NSString *removedUnwantComma = [rawArgsCode vv_stringByReplacingRegexPattern:@"[{].*?[^}],.*?[)}]" withString:@""];
+    NSString *removedUnwantParentheses = [removedUnwantComma copy];
     
-    NSArray *argumentStrings = [removedUnwantComma componentsSeparatedByString:@","];
+    VVTextResult *parenthesesInParam = [removedUnwantComma vv_textResultMatchPartWithPairOpenString:@"(" closeString:@")" currentLocation:0];
+    while (parenthesesInParam.string) {
+        removedUnwantParentheses = [removedUnwantParentheses stringByReplacingOccurrencesOfString:parenthesesInParam.string withString:@""];
+        parenthesesInParam = [removedUnwantParentheses vv_textResultMatchPartWithPairOpenString:@"(" closeString:@")" currentLocation:0];
+    }
+    
+    NSArray *argumentStrings = [removedUnwantParentheses componentsSeparatedByString:@","];
     for (__strong NSString *argumentString in argumentStrings) {
         VVArgument *arg = [[VVArgument alloc] init];
         argumentString = [argumentString vv_stringByReplacingRegexPattern:@"=\\s*\\w*" withString:@""];

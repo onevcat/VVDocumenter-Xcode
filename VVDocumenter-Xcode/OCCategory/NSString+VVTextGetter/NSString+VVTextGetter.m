@@ -216,7 +216,7 @@
         resultRange = NSMakeRange(nextLineRange.location + 1, targetRange.location - nextLineRange.location);
     }
     
-    if (resultRange.location < [self length] && NSMaxRange(resultRange) < [self length]) {
+    if (resultRange.location < [self length] && NSMaxRange(resultRange) <= [self length]) {
         NSString *result = [self substringWithRange:resultRange];
         return [[VVTextResult alloc] initWithRange:resultRange string:result];
     } else {
