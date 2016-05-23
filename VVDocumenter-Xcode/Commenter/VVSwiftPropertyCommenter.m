@@ -30,7 +30,7 @@
 
 -(NSString *) document
 {
-    return [NSString stringWithFormat:@"%@/// <#Description#>", self.indent];
+    return [NSString stringWithFormat:@"/// <#Description#>"];
 }
 
 @end
