@@ -3,8 +3,26 @@
 //  VVDocumenter-Xcode
 //
 //  Created by 王 巍 on 13-8-3.
-//  Copyright (c) 2013年 OneV's Den. All rights reserved.
 //
+//  Copyright (c) 2015 Wei Wang <onevcat@gmail.com>
+//
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in
+//  all copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+//  THE SOFTWARE.
 
 #import "VVDocumenterSetting.h"
 #import <Carbon/Carbon.h>
@@ -57,30 +75,33 @@ NSString *const kVVDDateInformationFormat = @"com.onevcat.VVDocumenter.dateInfor
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
--(BOOL) useDvorakLayout
-{
-    TISInputSourceRef inputSource = TISCopyCurrentKeyboardLayoutInputSource();
-    NSString *layoutID = (__bridge NSString *)TISGetInputSourceProperty(inputSource, kTISPropertyInputSourceID);
-    CFRelease(inputSource);
-    
-    if ([layoutID rangeOfString:@"Dvorak" options:NSCaseInsensitiveSearch].location != NSNotFound && ![layoutID containsString:@"QWERTYCMD"]) {
-        return YES;
-    } else {
-        return NO;
-    }
-}
-
--(BOOL) useWorkmanLayout
+-(NSInteger) keyVCode
 {
     TISInputSourceRef inputSource = TISCopyCurrentKeyboardLayoutInputSource();
     NSString *layoutID = (__bridge NSString *)TISGetInputSourceProperty(inputSource, kTISPropertyInputSourceID);
     CFRelease(inputSource);
 
-    if ([layoutID rangeOfString:@"Workman" options:NSCaseInsensitiveSearch].location != NSNotFound && ![layoutID containsString:@"QWERTYCMD"]) {
-        return YES;
-    } else {
-        return NO;
+    // Possible dvorak layout SourceIDs:
+    //    com.apple.keylayout.Dvorak (System Qwerty)
+    // But exclude:
+    //    com.apple.keylayout.DVORAK-QWERTYCMD (System Qwerty ⌘)
+    //    org.unknown.keylayout.DvorakImproved-Qwerty⌘ (http://www.macupdate.com/app/mac/24137/dvorak-improved-keyboard-layout)
+    if ([layoutID localizedCaseInsensitiveContainsString:@"dvorak"] && ![layoutID localizedCaseInsensitiveContainsString: @"qwerty"]) {
+        return kVK_ANSI_Period;
     }
+
+    // Possible workman layout SourceIDs (https://github.com/ojbucao/Workman):
+    //    org.sil.ukelele.keyboardlayout.workman.workman
+    //    org.sil.ukelele.keyboardlayout.workman.workmanextended
+    //    org.sil.ukelele.keyboardlayout.workman.workman-io
+    //    org.sil.ukelele.keyboardlayout.workman.workman-p
+    //    org.sil.ukelele.keyboardlayout.workman.workman-pextended
+    //    org.sil.ukelele.keyboardlayout.workman.workman-dead
+    if ([layoutID localizedCaseInsensitiveContainsString:@"workman"]) {
+        return kVK_ANSI_B;
+    }
+
+    return kVK_ANSI_V;
 }
 
 

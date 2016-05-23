@@ -355,7 +355,7 @@
 			<string>/**
  *  &lt;#Description#&gt;
  */
-typedef NS_ENUM(NSInteger, SIAlertViewBackgroundStyle){
+typedef NS_ENUM(NSInteger, SIAlertViewBackgroundStyle) {
 /**
  *  &lt;#Description#&gt;
  */
@@ -438,10 +438,10 @@ SIAlertViewBackgroundStyleSolid,
             <string>/**
  &lt;#Description#&gt;
 
- :param: a &lt;#a description#&gt;
- :param: b &lt;#b description#&gt;
- :param: c &lt;#c description#&gt;
- :param: d &lt;#d description#&gt;
+ - parameter a: &lt;#a description#&gt;
+ - parameter b: &lt;#b description#&gt;
+ - parameter c: &lt;#c description#&gt;
+ - parameter d: &lt;#d description#&gt;
  */</string>
         </dict>
 		<dict>
@@ -453,9 +453,9 @@ SIAlertViewBackgroundStyleSolid,
 			<string>/**
  &lt;#Description#&gt;
 
- :param: personName &lt;#personName description#&gt;
+ - parameter personName: &lt;#personName description#&gt;
 
- :returns: &lt;#return value description#&gt;
+ - returns: &lt;#return value description#&gt;
  */</string>
 		</dict>
 		<dict>
@@ -467,9 +467,9 @@ SIAlertViewBackgroundStyleSolid,
 			<string>/**
  &lt;#Description#&gt;
 
- :param: para &lt;#para description#&gt;
+ - parameter para: &lt;#para description#&gt;
 
- :returns: &lt;#return value description#&gt;
+ - returns: &lt;#return value description#&gt;
  */</string>
 		</dict>
 		<dict>
@@ -481,8 +481,8 @@ SIAlertViewBackgroundStyleSolid,
 			<string>/**
  &lt;#Description#&gt;
 
- :param: miao &lt;#miao description#&gt;
- :param: wu   &lt;#wu description#&gt;
+ - parameter miao: &lt;#miao description#&gt;
+ - parameter wu:   &lt;#wu description#&gt;
  */</string>
 		</dict>
 		<dict>
@@ -494,12 +494,12 @@ SIAlertViewBackgroundStyleSolid,
 			<string>/**
  &lt;#Description#&gt;
 
- :param: style       &lt;#style description#&gt;
- :param: gearing     &lt;#gearing description#&gt;
- :param: handlebar   &lt;#handlebar description#&gt;
- :param: centimeters &lt;#centimeters description#&gt;
+ - parameter style:       &lt;#style description#&gt;
+ - parameter gearing:     &lt;#gearing description#&gt;
+ - parameter handlebar:   &lt;#handlebar description#&gt;
+ - parameter centimeters: &lt;#centimeters description#&gt;
 
- :returns: &lt;#return value description#&gt;
+ - returns: &lt;#return value description#&gt;
  */</string>
 		</dict>
 		<dict>
@@ -511,10 +511,10 @@ SIAlertViewBackgroundStyleSolid,
 			<string>/**
  &lt;#Description#&gt;
 
- :param: input     &lt;#input description#&gt;
- :param: condition &lt;#condition description#&gt;
+ - parameter input:     &lt;#input description#&gt;
+ - parameter condition: &lt;#condition description#&gt;
 
- :returns: &lt;#return value description#&gt;
+ - returns: &lt;#return value description#&gt;
  */</string>
 		</dict>
 		<dict>
@@ -526,10 +526,10 @@ SIAlertViewBackgroundStyleSolid,
 			<string>/**
  &lt;#Description#&gt;
 
- :param: session           &lt;#session description#&gt;
- :param: task              &lt;#task description#&gt;
- :param: challenge         &lt;#challenge description#&gt;
- :param: completionHandler &lt;#completionHandler description#&gt;
+ - parameter session:           &lt;#session description#&gt;
+ - parameter task:              &lt;#task description#&gt;
+ - parameter challenge:         &lt;#challenge description#&gt;
+ - parameter completionHandler: &lt;#completionHandler description#&gt;
  */</string>
 		</dict>
 		<dict>
@@ -541,11 +541,11 @@ SIAlertViewBackgroundStyleSolid,
 			<string>/**
  &lt;#Description#&gt;
 
- :param: a &lt;#a description#&gt;
- :param: b &lt;#b description#&gt;
- :param: c &lt;#c description#&gt;
+ - parameter a: &lt;#a description#&gt;
+ - parameter b: &lt;#b description#&gt;
+ - parameter c: &lt;#c description#&gt;
 
- :returns: &lt;#return value description#&gt;
+ - returns: &lt;#return value description#&gt;
  */</string>
 		</dict>
         <dict>
@@ -557,9 +557,9 @@ SIAlertViewBackgroundStyleSolid,
             <string>/**
  &lt;#Description#&gt;
 
- :param: key &lt;#key description#&gt;
+ - parameter key: &lt;#key description#&gt;
 
- :returns: &lt;#return value description#&gt;
+ - returns: &lt;#return value description#&gt;
  */</string>
         </dict>
         <dict>
@@ -571,9 +571,83 @@ SIAlertViewBackgroundStyleSolid,
             <string>/**
  &lt;#Description#&gt;
 
- :param: input   &lt;#input description#&gt;
- :param: success &lt;#success description#&gt;
- :param: failure &lt;#failure description#&gt;
+ - parameter input:   &lt;#input description#&gt;
+ - parameter success: &lt;#success description#&gt;
+ - parameter failure: &lt;#failure description#&gt;
+ */</string>
+        </dict>
+        <dict>
+            <key>source</key>
+            <string>func methodCouldThrows(count: Int) throws -> Int {</string>
+            <key>uniform</key>
+            <string>func methodCouldThrows(count: Int)throws -> Int {</string>
+            <key>result</key>
+            <string>/**
+ &lt;#Description#&gt;
+
+ - parameter count: &lt;#count description#&gt;
+
+ - throws: &lt;#throws value description#&gt;
+
+ - returns: &lt;#return value description#&gt;
+ */</string>
+        </dict>
+        <dict>
+            <key>source</key>
+            <string>func methodCouldThrows() throws {</string>
+            <key>uniform</key>
+            <string>func methodCouldThrows()throws {</string>
+            <key>result</key>
+            <string>/**
+ &lt;#Description#&gt;
+
+ - throws: &lt;#throws value description#&gt;
+ */</string>
+        </dict>
+        <dict>
+            <key>source</key>
+            <string>func methodCouldThrows(count: Int, name: String, f: (Int, String) throws -> Void) rethrows -> Int {</string>
+            <key>uniform</key>
+            <string>func methodCouldThrows(count: Int, name: String, f:(Int, String)throws -> Void)rethrows -> Int {</string>
+            <key>result</key>
+            <string>/**
+ &lt;#Description#&gt;
+
+ - parameter count: &lt;#count description#&gt;
+ - parameter name:  &lt;#name description#&gt;
+ - parameter f:     &lt;#f description#&gt;
+
+ - throws: &lt;#throws value description#&gt;
+
+ - returns: &lt;#return value description#&gt;
+ */</string>
+        </dict>
+        <dict>
+            <key>source</key>
+            <string>public class func amethod(count: Int) -> Int? {</string>
+            <key>uniform</key>
+            <string>public class func amethod(count: Int)-> Int? {</string>
+            <key>result</key>
+            <string>/**
+ &lt;#Description#&gt;
+
+ - parameter count: &lt;#count description#&gt;
+
+ - returns: &lt;#return value description#&gt;
+ */</string>
+        </dict>
+        <dict>
+            <key>source</key>
+            <string>func testTuple(aTuple: (first: String, second: String, third: String)) -> (first: String, second: String, third: String)? {</string>
+            <key>uniform</key>
+            <string>func testTuple(aTuple:(first: String, second: String, third: String))->(first: String, second: String, third: String)? {</string>
+            <key>result</key>
+            <string>/**
+ &lt;#Description#&gt;
+
+ - parameter aTuple: &lt;#aTuple description#&gt;
+
+ - returns: &lt;#return value description#&gt;
  */</string>
         </dict>
 	</array>
@@ -687,7 +761,7 @@ SIAlertViewBackgroundStyleSolid,
 			<key>uniform</key>
 			<string>extension MyClass: SomeDelegate {</string>
 			<key>result</key>
-			<string>// MARK: - &lt;#Description#&gt;</string>
+			<string>// MARK: - &lt;#SomeDelegate#&gt;</string>
 		</dict>
         <dict>
             <key>source</key>
