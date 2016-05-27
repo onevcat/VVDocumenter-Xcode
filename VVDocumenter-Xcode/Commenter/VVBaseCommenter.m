@@ -84,18 +84,23 @@
             [formatter setDateFormat:formatString];
             
             dateInfo = [formatter stringFromDate:[NSDate date]];
+            
+            if (self.forSwift) {
+                [authorCotent appendString: [NSString stringWithFormat:@"\n%@- date: %@", self.prefixString, dateInfo]];
+            } else {
+                
+                if (authorCotent.length > 0) {
+                    [authorCotent appendString:@", "];
+                }
+                
+                [authorCotent appendString: dateInfo];
+            }
+            
         }
         
         if (self.forSwift) {
-            authorInfo = [NSString stringWithFormat:@"%@- author: %@\n%@- date: %@\n", self.prefixString, authorCotent, self.prefixString, dateInfo];
+            authorInfo = [NSString stringWithFormat:@"\n%@- author: %@\n", self.prefixString, authorCotent];
         } else {
-            
-            if (authorCotent.length > 0) {
-                [authorCotent appendString:@", "];
-            }
-            
-            [authorCotent appendString: dateInfo];
-            
             authorInfo = [NSString stringWithFormat:@"%@@author %@\n%@\n", self.prefixString, authorCotent, self.prefixString];
         }
         
