@@ -108,7 +108,7 @@
     } else {
         
         if (self.forSwift){
-            return [NSString stringWithFormat:@"%@/**\n<#Description#>\n\n%@", self.indent, authorInfo];
+            return [NSString stringWithFormat:@"%@/**\n%@%@<#Description#>\n%@", self.indent, self.prefixString, tag, authorInfo];
         } else {
             return [NSString stringWithFormat:@"%@/**\n%@%@%@<#Description#>\n", self.indent, authorInfo, self.prefixString, tag];
         }
