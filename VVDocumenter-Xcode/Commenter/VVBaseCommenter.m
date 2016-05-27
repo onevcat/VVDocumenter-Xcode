@@ -63,10 +63,12 @@
     return @"- throws:";
 }
 
+
 -(NSString *) startCommentWithDescriptionTag:(NSString *)tag {
     NSString *authorInfo = @"";
+    NSString *dateInfo = @"";
     
-    if ([[VVDocumenterSetting defaultSetting] useAuthorInformation] && !self.forSwift) {
+    if ([[VVDocumenterSetting defaultSetting] useAuthorInformation]) {
         NSMutableString *authorCotent = @"".mutableCopy;
         
         if ([[VVDocumenterSetting defaultSetting] authorInformation].length > 0) {
@@ -81,13 +83,22 @@
             NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
             [formatter setDateFormat:formatString];
             
+            dateInfo = [formatter stringFromDate:[NSDate date]];
+        }
+        
+        if (self.forSwift) {
+            authorInfo = [NSString stringWithFormat:@"%@- author: %@\n%@- date: %@\n", self.prefixString, authorCotent, self.prefixString, dateInfo];
+        } else {
+            
             if (authorCotent.length > 0) {
                 [authorCotent appendString:@", "];
             }
-            [authorCotent appendString:[formatter stringFromDate:[NSDate date]]];
+            
+            [authorCotent appendString: dateInfo];
+            
+            authorInfo = [NSString stringWithFormat:@"%@@author %@\n%@\n", self.prefixString, authorCotent, self.prefixString];
         }
         
-        authorInfo = [NSString stringWithFormat:@"%@@author %@\n%@\n", self.prefixString, authorCotent, self.prefixString];
     }
     
     if ([[VVDocumenterSetting defaultSetting] useHeaderDoc]) {
@@ -95,7 +106,13 @@
     } else if ([[VVDocumenterSetting defaultSetting] prefixWithSlashes]) {
         return [NSString stringWithFormat:@"%@%@%@<#Description#>\n", self.prefixString, authorInfo, tag];
     } else {
-        return [NSString stringWithFormat:@"%@/**\n%@%@%@<#Description#>\n", self.indent, authorInfo, self.prefixString, tag];
+        
+        if (self.forSwift){
+            return [NSString stringWithFormat:@"%@/**\n<#Description#>\n\n%@", self.indent, authorInfo];
+        } else {
+            return [NSString stringWithFormat:@"%@/**\n%@%@%@<#Description#>\n", self.indent, authorInfo, self.prefixString, tag];
+        }
+        
     }
 }
 
