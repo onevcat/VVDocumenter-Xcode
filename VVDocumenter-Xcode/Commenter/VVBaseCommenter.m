@@ -172,6 +172,11 @@
                 }
             }
         }
+        else {
+            if (self.forSwiftEnum || self.forSwift) {
+                name = [name stringByAppendingString:@":"];
+            }
+        }
 
         NSString *indentString = useSpace ? @" " : @"\t";
         if (self.forSwiftEnum) {
