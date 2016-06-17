@@ -40,12 +40,18 @@
  *  @param groups regex groups
  */
 -(void) captureInheritancesFrom:(NSArray *)groups {
-    self.inheritances = [[[groups lastObject] componentsSeparatedByString:@","] filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(id _Nonnull evaluatedObject, NSDictionary<NSString *,id> * _Nullable bindings) {
-        
-        NSString *strippedString = [[NSString stringWithFormat:@"%@", evaluatedObject] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-        
-        return strippedString.length > 0;
-    }]];
+    
+    NSMutableArray *nonEmptyStrings = [NSMutableArray new];
+    NSArray *potentialInheritances = [[groups lastObject] componentsSeparatedByString:@","];
+    
+    for(NSString *string in potentialInheritances) {
+        NSString *strippedString = [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        if (strippedString.length > 0) {
+            [nonEmptyStrings addObject:strippedString];
+        }
+    }
+    
+    self.inheritances = [NSArray arrayWithArray:nonEmptyStrings];
 }
 
 /**
