@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1082F0001D13ECF800DDAC35 /* VVSwiftClassCommenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1082EFFF1D13ECF800DDAC35 /* VVSwiftClassCommenter.m */; };
+		10E70BFA1D13FFD000C85E27 /* VVSwiftClassCommenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1082EFFF1D13ECF800DDAC35 /* VVSwiftClassCommenter.m */; };
 		4B06DF741B315E9D007D69BE /* VVSwiftExtensionCommenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B50A26F1B315CF3008A4400 /* VVSwiftExtensionCommenter.m */; };
 		4B50A2701B315CF3008A4400 /* VVSwiftExtensionCommenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B50A26F1B315CF3008A4400 /* VVSwiftExtensionCommenter.m */; };
 		53C67935184501030030C553 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 893D8F7F18262EF500E8A00C /* Carbon.framework */; };
@@ -73,6 +75,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1082EFFE1D13ECF800DDAC35 /* VVSwiftClassCommenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVSwiftClassCommenter.h; sourceTree = "<group>"; };
+		1082EFFF1D13ECF800DDAC35 /* VVSwiftClassCommenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVSwiftClassCommenter.m; sourceTree = "<group>"; };
 		4B50A26E1B315CF3008A4400 /* VVSwiftExtensionCommenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVSwiftExtensionCommenter.h; sourceTree = "<group>"; };
 		4B50A26F1B315CF3008A4400 /* VVSwiftExtensionCommenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVSwiftExtensionCommenter.m; sourceTree = "<group>"; };
 		893D8F7F18262EF500E8A00C /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
@@ -309,6 +313,8 @@
 				D16AFCE81796E0D6006719AA /* VVVariableCommenter.m */,
 				4B50A26E1B315CF3008A4400 /* VVSwiftExtensionCommenter.h */,
 				4B50A26F1B315CF3008A4400 /* VVSwiftExtensionCommenter.m */,
+				1082EFFE1D13ECF800DDAC35 /* VVSwiftClassCommenter.h */,
+				1082EFFF1D13ECF800DDAC35 /* VVSwiftClassCommenter.m */,
 			);
 			path = Commenter;
 			sourceTree = "<group>";
@@ -517,6 +523,7 @@
 				D124614717AC16820095F9D6 /* VVDocumenterSetting.m in Sources */,
 				C4052CFB1B3BB10700ED0CF0 /* VVWorkspaceManager.m in Sources */,
 				D124614817AC16820095F9D6 /* VVDSettingPanelWindowController.m in Sources */,
+				1082F0001D13ECF800DDAC35 /* VVSwiftClassCommenter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -537,6 +544,7 @@
 				D1A6B1D1198A0D8600BCED83 /* VVSwiftPropertyCommenter.m in Sources */,
 				D14110B51988C12F00A7083F /* NSTextView+VVTextGetter.m in Sources */,
 				D14110B61988C12F00A7083F /* VVDocumenterManager.m in Sources */,
+				10E70BFA1D13FFD000C85E27 /* VVSwiftClassCommenter.m in Sources */,
 				D14110B71988C12F00A7083F /* VVDocumenter.m in Sources */,
 				D14110A81988C12000A7083F /* VVArgument.m in Sources */,
 				D1C6124919891B3700FDB554 /* VVSwiftEnumCommenter.m in Sources */,
