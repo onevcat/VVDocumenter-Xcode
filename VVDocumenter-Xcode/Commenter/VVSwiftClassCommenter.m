@@ -40,9 +40,9 @@
  *  @param groups regex groups
  */
 -(void) captureInheritancesFrom:(NSArray *)groups {
-    self.inheritances = [[[groups lastObject] componentsSeparatedByString:@","] filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(NSString *evaluatedString, NSDictionary<NSString *,id> * _Nullable bindings) {
+    self.inheritances = [[[groups lastObject] componentsSeparatedByString:@","] filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(id _Nonnull evaluatedObject, NSDictionary<NSString *,id> * _Nullable bindings) {
         
-        NSString *strippedString = [evaluatedString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        NSString *strippedString = [[NSString stringWithFormat:@"%@", evaluatedObject] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
         
         return strippedString.length > 0;
     }]];
