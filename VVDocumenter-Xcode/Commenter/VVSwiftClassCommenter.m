@@ -20,15 +20,26 @@
 
 @implementation VVSwiftClassCommenter
 
--(void) captureClassName
+/**
+ *  Capture class name from extracted regex groups
+ *
+ *  @param groups regex groups
+ */
+-(void) captureClassNameFrom:(NSArray *)groups
 {
-    NSArray *groups = [self.code vv_stringsByExtractingGroupsUsingRegexPattern:@"^\\s*((.*\\s)?class\\s+)([^:]+):?(.*)\\{"];
-    
     self.className = [groups objectAtIndex:1];
+    // if there are additional annotations like `public`, `private`, `final`
     if ([groups count] > 3) {
         self.className = [groups objectAtIndex:2];
     }
-    
+}
+
+/**
+ *  Capture inheritances from extracted regex groups
+ *
+ *  @param groups regex groups
+ */
+-(void) captureInheritancesFrom:(NSArray *)groups {
     self.inheritances = [[[groups lastObject] componentsSeparatedByString:@","] filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(NSString *evaluatedString, NSDictionary<NSString *,id> * _Nullable bindings) {
         
         NSString *strippedString = [evaluatedString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
@@ -37,23 +48,32 @@
     }]];
 }
 
--(NSString *) document
-{
-    [self captureClassName];
-    
-    NSMutableString *finalString = [NSMutableString new];
-    [finalString appendFormat:@"/**\n%@class %@\n\n<#Description#>\n\n", self.indent, self.className];
-    
+/**
+ *  Append inheritance info string to comment string
+ *
+ *  @param string comment string want to append to
+ */
+-(void) appendInheritanceStringTo:(NSMutableString *)string {
     if ([self.inheritances count] > 0) {
-        [finalString appendString:@"inherit from or conform to:\n"];
+        [string appendString:@"inherits from or conforms to:\n"];
         for (NSString *inheritance in self.inheritances) {
-            [finalString appendFormat:@"%@: <#Description#>\n", [inheritance stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
+            [string appendFormat:@"%@: <#Description#>\n", [inheritance stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
         }
     }
+}
+
+// override super document function to change default comment behavior
+-(NSString *) document
+{
+    NSArray *groups = [self.code vv_stringsByExtractingGroupsUsingRegexPattern:@"^\\s*((.*\\s)?class\\s+)([^:]+):?(.*)\\{"];
     
-    [finalString appendFormat:@"\n %@*/", self.indent];
+    [self captureClassNameFrom:groups];
     
-    return finalString;
+    NSMutableString *commentString = [NSMutableString new];
+    [commentString appendFormat:@"/**\n%@@class %@\n\n@abstract <#Description#>\n", self.indent, self.className];
+    [commentString appendFormat:@"\n %@*/", self.indent];
+    
+    return commentString;
 }
 
 @end

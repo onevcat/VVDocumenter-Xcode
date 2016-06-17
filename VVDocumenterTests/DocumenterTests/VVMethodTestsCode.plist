@@ -781,12 +781,9 @@ SIAlertViewBackgroundStyleSolid,
 			<string>class MyClass: SomeDelegate {</string>
 			<key>result</key>
 			<string>/**
-class MyClass
+@class MyClass
 
-&lt;#Description#&gt;
-
-inherit from or conform to:
-SomeDelegate: &lt;#Description#&gt;
+@abstract &lt;#Description#&gt;
 
  */</string>
 		</dict>
@@ -797,12 +794,22 @@ SomeDelegate: &lt;#Description#&gt;
 			<string>public class MyClass: SomeDelegate {</string>
 			<key>result</key>
 			<string>/**
-class MyClass
+@class MyClass
 
-&lt;#Description#&gt;
+@abstract &lt;#Description#&gt;
 
-inherit from or conform to:
-SomeDelegate: &lt;#Description#&gt;
+ */</string>
+		</dict>
+		<dict>
+			<key>source</key>
+			<string>public final class MyClass: SomeDelegate {</string>
+			<key>uniform</key>
+			<string>public final class MyClass: SomeDelegate {</string>
+			<key>result</key>
+			<string>/**
+@class MyClass
+
+@abstract &lt;#Description#&gt;
 
  */</string>
 		</dict>
