@@ -1,6 +1,14 @@
 # VVDocumenter-Xcode [![Build Status](https://api.travis-ci.org/onevcat/VVDocumenter-Xcode.svg)](https://travis-ci.org/onevcat/VVDocumenter-Xcode) <a href="https://flattr.com/submit/auto?user_id=onevcat&url=https%3A%2F%2Fgithub.com%2Fonevcat%2FVVDocumenter-Xcode" target="_blank"><img src="http://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0"></a>
 ---
 
+# Goodbye World
+
+In Xcode 8, Apple integrated a comment documentation generator plugin, which is built on top of VVDocumenter. Now this project is proud to be a part of Apple. It means you could just use the shortcut (⌥ Option + ⌘ Command + /) to add a documentation comment to your code if you are using Xcode 8 or above!
+
+VVDocumenter is one of my hobby projects [from 2013](https://github.com/onevcat/VVDocumenter-Xcode/commit/6a2b604713c9fb573e229daece8286dac68ac24a), back to the age of Xcode 4. It serves well for these years and I am so glad that it helps a lot of developers to improve their productivity. Since there is no need to install this plugin anymore, I am very sorry to say the development of VVDocumenter will not continue. Yes, it's time to say goodbye, with a happy ending.
+
+Thank you all for your selfless support to this project. Let's build more great things and make the world better in future!
+
 ## What is this?
 
 Writing documentation is so important for developing, but it is really painful with Xcode. Think about how much time you are wasting in pressing '*' or '/', and typing the parameters again and again. Now, you can find the method (or any code) you want to document to, and type in `///`, the document will be generated for you and all params and return will be extracted into a Javadoc style, which is compatible with [appledoc](https://github.com/tomaz/appledoc), [Doxygen](http://www.stack.nl/~dimitri/doxygen/) and [HeaderDoc](https://developer.apple.com/library/mac/documentation/DeveloperTools/Conceptual/HeaderDoc/intro/intro.html). You can just fill the inline placeholder tokens to finish your document.
