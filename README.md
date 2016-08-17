@@ -5,7 +5,7 @@
 
 In Xcode 8, Apple integrated a comment documentation generator plugin, which is built on top of VVDocumenter. Now this project is proud to be a part of Apple. It means you could just use the shortcut (⌥ Option + ⌘ Command + /) to add a documentation comment to your code if you are using Xcode 8 or above!
 
-VVDocumenter is one of my hobby projects [from 2013](https://github.com/onevcat/VVDocumenter-Xcode/commit/6a2b604713c9fb573e229daece8286dac68ac24a), back to the age of Xcode 4. It serves well for these years and I am so glad that it helps a lot of developers to improve their productivity. Since there is no need to install this plugin anymore, I am very sorry to say the development of VVDocumenter will not continue. Yes, it's time to say goodbye, with a happy ending.
+VVDocumenter is one of my hobby projects [from 2013](https://github.com/onevcat/VVDocumenter-Xcode/commit/6a2b604713c9fb573e229daece8286dac68ac24a), back to the age of Xcode 4. It serves well for these years and I am so glad that it helps a lot of developers to improve their productivity. Since there is no need to install this plugin anymore, the development of VVDocumenter will not continue. Yes, it's time to say goodbye, with a happy ending.
 
 Thank you all for your selfless support to this project. Let's build more great things and make the world better in future!
 
@@ -63,3 +63,5 @@ If you have modified these two shortcuts in your Xcode, the newset version of th
 ## License
 
 VVDocumenter is published under MIT License. See the LICENSE file for more.
+
+
