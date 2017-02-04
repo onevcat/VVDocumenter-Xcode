@@ -54,6 +54,7 @@
 
 -(void) testDocument
 {
+    
     [self.testCaseDic enumerateKeysAndObjectsUsingBlock:^(NSString *key, NSArray *cases, BOOL *stop) {
         [cases enumerateObjectsUsingBlock:^(NSDictionary *testDic, NSUInteger idx, BOOL *stop) {
             NSString *source = testDic[@"source"];

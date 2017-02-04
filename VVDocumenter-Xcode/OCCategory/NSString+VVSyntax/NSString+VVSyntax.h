@@ -38,6 +38,7 @@
 -(BOOL) vv_isStruct;
 -(BOOL) vv_isUnion;
 -(BOOL) vv_isComplieKeyword;
+-(BOOL) vv_isSwiftClass;
 -(BOOL) vv_isSwiftFunction;
 -(BOOL) vv_isSwiftEnum;
 -(BOOL) vv_isSwiftProperty;

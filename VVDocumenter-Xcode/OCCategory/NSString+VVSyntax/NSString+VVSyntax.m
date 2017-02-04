@@ -92,6 +92,11 @@
     return ![self vv_isObjCMethod] && ![self vv_isSwiftProperty] && [self vv_matchesPatternRegexPattern:@"^\\s*(.*\\s+)?(func\\s+)|(init|deinit|subscript)"];
 }
 
+-(BOOL) vv_isSwiftClass
+{
+    return ![self vv_isSwiftFunction] && [self vv_matchesPatternRegexPattern:@"^\\s*(.*\\s+)?(class\\s+).*\\{"];
+}
+
 -(BOOL) vv_isSwiftEnum
 {
     return ![self vv_isSwiftProperty] && [self vv_matchesPatternRegexPattern:@"^\\s*(.*\\s+)?enum\\s+"];
@@ -99,8 +104,8 @@
 
 -(BOOL) vv_isSwiftProperty
 {
-    // Opt out the situation of `class func`
-    if ([self vv_matchesPatternRegexPattern:@"class func"]) {
+    // Opt out the situation of `class func` and `class`
+    if ([self vv_matchesPatternRegexPattern:@"^\\s*(.*\\s+)?(class\\s+).*\\{"]) {
         return NO;
     }
     
