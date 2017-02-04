@@ -123,6 +123,11 @@
                     return;
                 }
                 
+                // Current line is not just triggerString, so ignore this
+                if (currentLineResult.range.location + currentLineResult.range.length + 1 != nextLineResult.range.location) {
+                    return;
+                }
+                
                 //Get a @"///" (triggerString) typed in by user. Do work!
                 self.prefixTyped = NO;
 
