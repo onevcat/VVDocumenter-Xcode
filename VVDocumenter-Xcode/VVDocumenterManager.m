@@ -192,8 +192,8 @@
                 //The key down is just a defined finish signal by me. When we receive this key, we know operation above is finished.
                 [kes sendKeyCode:kVK_F20];
 
-                self.eventMonitor = [NSEvent addLocalMonitorForEventsMatchingMask:NSKeyDownMask handler:^NSEvent *(NSEvent *incomingEvent) {
-                    if ([incomingEvent type] == NSKeyDown && [incomingEvent keyCode] == kVK_F20) {
+                self.eventMonitor = [NSEvent addLocalMonitorForEventsMatchingMask:NSEventMaskKeyDown handler:^NSEvent *(NSEvent *incomingEvent) {
+                    if ([incomingEvent type] == NSEventTypeKeyDown && [incomingEvent keyCode] == kVK_F20) {
                         //Finish signal arrived, no need to observe the event
                         [NSEvent removeMonitor:self.eventMonitor];
                         self.eventMonitor = nil;
@@ -213,7 +213,7 @@
                         
                         //Invalidate the finish signal, in case you set it to do some other thing.
                         return nil;
-                    } else if ([incomingEvent type] == NSKeyDown && [incomingEvent keyCode] == kKeyVCode && shouldReplace == YES) {
+                    } else if ([incomingEvent type] == NSEventTypeKeyDown && [incomingEvent keyCode] == kKeyVCode && shouldReplace == YES) {
                         //Select input line and the define code block.
                         NSRange r = [textView vv_textResultUntilNextString:@";"].range;
                         
