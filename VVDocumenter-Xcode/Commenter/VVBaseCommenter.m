@@ -226,7 +226,7 @@
 
                 if (project.projectVersion && project.projectVersion.length>0) {
 
-                    return [NSString stringWithFormat:@"%@%@@since <#%@#>\n", self.emptyLine, self.prefixString,project.projectVersion];
+                    return [NSString stringWithFormat:@"%@%@@since %@\n", self.emptyLine, self.prefixString, project.projectVersion];
                 }else{
                     // Fall back onto default placeholder if no project version can be obtained.
                     return [NSString stringWithFormat:@"%@%@@since <#version number#>\n", self.emptyLine, self.prefixString];
@@ -239,7 +239,7 @@
                 NSString *version = [[VVDocumenterSetting defaultSetting] sinceVersion];
                 if (version && version.length>0) {
 
-                    return [NSString stringWithFormat:@"%@%@@since <#%@#>\n", self.emptyLine, self.prefixString, version];
+                    return [NSString stringWithFormat:@"%@%@@since %@\n", self.emptyLine, self.prefixString, version];
                 }else{
                     // Fall back onto default placeholder if no version can be obtained.
                     return [NSString stringWithFormat:@"%@%@@since <#version number#>\n", self.emptyLine, self.prefixString];
